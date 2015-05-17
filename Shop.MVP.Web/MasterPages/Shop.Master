@@ -37,10 +37,10 @@
             <uc1:UCFooter runat="server" ID="UCFooter" />
 
         </div>
-        <!-- /.wrapper -->
+        <!-- /.wrapper --> 
     </form>
     <%: Scripts.Render("~/bundles/jquery") %>
-    <%-- <%: Scripts.Render("~/bundles/jqueryui") %>--%>
+   <%--  <%: Scripts.Render("~/bundles/jqueryui") %>--%>
 
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/jasny-bootstrap.min.js"></script>
