@@ -15,7 +15,7 @@ namespace Shop.Web.Mvp
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
-
+            // Bug: su Azure non vengono iniettati questi script
             bundles.Add(new ScriptBundle("~/bundles/shop").Include(
                   "~/assets/js/bootstrap.min.js",
                   "~/assets/js/jasny-bootstrap.min.js",
