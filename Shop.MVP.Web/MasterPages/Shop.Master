@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Shop.master.cs" Inherits="Shop.Web.Mvp.MasterPages.Shop" %>
+
+<%@ Import Namespace="System.Web.Optimization" %>
+<%@ Register Src="~/UserControls/UCHeader.ascx" TagPrefix="uc1" TagName="UCHeader" %>
+<%@ Register Src="~/UserControls/UCFooter.ascx" TagPrefix="uc1" TagName="UCFooter" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:Localize Text="<%$ Resources: Resources, ShopTitle %>" runat="server">Titolo</asp:Localize></title>
+    <asp:PlaceHolder runat="server">
+        <%-- <%: Styles.Render("~/bundles/css") %>--%>
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/css/jasny-bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/css/lightbox.css" rel="stylesheet">
+        <link href="../assets/css/bewear-icons.css" rel="stylesheet">
+        <link href="../assets/css/animate.min.css" rel="stylesheet">
+        <link href="../assets/css/owl.carousel.css" rel="stylesheet">
+        <link href="../assets/css/main.min.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body ng-app="app">
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <uc1:ucheader runat="server" id="UCHeader" />
+            <asp:ContentPlaceHolder ID="cpMain" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+            <uc1:ucfooter runat="server" id="UCFooter" />
+
+        </div>
+        <!-- /.wrapper -->
+    </form>
+    <%: Scripts.Render("~/bundles/jquery") %>
+    <%-- <%: Scripts.Render("~/bundles/jqueryui") %>--%>
+    <%: Scripts.Render("~/bundles/shop") %>
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/angular-resource.min.js"></script>
+    <script src="/Scripts/slider.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/data.js"></script>
+    <script src="/app/scCatalogCtrl.js"></script>
+</body>
+</html>
