@@ -12,7 +12,7 @@
                         <a href="categories-grid.html" class="media features">
                             <div class="media-left">
                                 <div class="image">
-                                    <img width="300" height="300" class="lazy-load media-object img-responsive" src="../assets/images/blank.gif" data-echo="../assets/images/products/feature1.jpg" alt="">
+                                    <img width="300" height="300" class="lazy-load media-object img-responsive" src="assets/images/blank.gif" data-echo="assets/images/products/feature1.jpg" alt="">
                                 </div>
                             </div>
                             <div class="media-body media-middle">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="media-right">
                                 <div class="image">
-                                    <img width="300" height="300" class="lazy-load media-object img-responsive" src="../assets/images/blank.gif" data-echo="../assets/images/products/feature2.jpg" alt="">
+                                    <img width="300" height="300" class="lazy-load media-object img-responsive" src="assets/images/blank.gif" data-echo="assets/images/products/feature2.jpg" alt="">
                                 </div>
                             </div>
                         </a>
@@ -43,7 +43,7 @@
 
                     <div class="col-md-6 col-sm-12 feature-block big-image hidden-sm">
                         <a href="categories-grid.html">
-                            <img width="570" height="600" class="img-responsive lazy-load" src="../assets/images/blank.gif" data-echo="../assets/images/products/feature3.jpg" alt="">
+                            <img width="570" height="600" class="img-responsive lazy-load" src="assets/images/blank.gif" data-echo="assets/images/products/feature3.jpg" alt="">
                             <div class="centered-caption">
                                 <div class="banner-text text-center">
                                     <h4 class="banner-title">clothing</h4>
@@ -72,7 +72,7 @@
                                     <div class="product">
                                         <div class="image">
                                             <a href="product-simple.html">
-                                                <img class="img-responsive" width="258" src="../assets/images/blank.gif" data-echo="../assets/images/products/12.jpg" alt=""></a>
+                                                <img class="img-responsive" width="258" src="assets/images/blank.gif" data-echo="assets/images/products/12.jpg" alt=""></a>
                                         </div>
                                         <!-- .image -->
                                         <div class="product-info m-t-20 text-center">
@@ -114,7 +114,7 @@
                                     <div class="product">
                                         <div class="image">
                                             <a href="product-simple.html">
-                                                <img class="img-responsive" width="258" src="../assets/images/blank.gif" data-echo="../assets/images/products/9.jpg" alt=""></a>
+                                                <img class="img-responsive" width="258" src="assets/images/blank.gif" data-echo="assets/images/products/9.jpg" alt=""></a>
                                         </div>
                                         <!-- .image -->
                                         <div class="product-info m-t-20 text-center">
@@ -154,7 +154,7 @@
                                     <div class="product">
                                         <div class="image">
                                             <a href="product-simple.html">
-                                                <img class="img-responsive" width="258" src="../assets/images/blank.gif" data-echo="../assets/images/products/7.jpg" alt=""></a>
+                                                <img class="img-responsive" width="258" src="assets/images/blank.gif" data-echo="assets/images/products/7.jpg" alt=""></a>
                                         </div>
                                         <!-- .image -->
                                         <div class="product-info m-t-20 text-center">
@@ -194,7 +194,7 @@
                                     <div class="product">
                                         <div class="image">
                                             <a href="product-simple.html">
-                                                <img class="img-responsive" width="258" src="../assets/images/blank.gif" data-echo="../assets/images/products/10.jpg" alt=""></a>
+                                                <img class="img-responsive" width="258" src="assets/images/blank.gif" data-echo="assets/images/products/10.jpg" alt=""></a>
                                         </div>
                                         <!-- .image -->
                                         <div class="product-info m-t-20 text-center">
@@ -248,7 +248,7 @@
                         <div class="wide-banner cnt-strip">
                             <a href="catalog.html">
                                 <div class="image lazy-load">
-                                    <img width="370" height="245" src="../assets/images/blank.gif" data-echo="../assets/images/brands/w2.jpg" class="img-responsive" alt="">
+                                    <img width="370" height="245" src="assets/images/blank.gif" data-echo="assets/images/brands/w2.jpg" class="img-responsive" alt="">
                                 </div>
                                 <div class="strip text-center">
                                     <h5>over 40s</h5>
@@ -264,7 +264,7 @@
                         <div class="wide-banner cnt-strip">
                             <a href="catalog.html">
                                 <div class="image lazy-load">
-                                    <img width="370" height="245" src="../assets/images/blank.gif" data-echo="../assets/images/brands/w1.jpg" class="img-responsive" alt="">
+                                    <img width="370" height="245" src="assets/images/blank.gif" data-echo="assets/images/brands/w1.jpg" class="img-responsive" alt="">
                                 </div>
                                 <div class="strip text-center">
                                     <div class="strip-inner">
@@ -282,7 +282,7 @@
                         <div class="wide-banner cnt-strip">
                             <a href="catalog.html">
                                 <div class="image lazy-load">
-                                    <img width="370" height="245" src="../assets/images/blank.gif" data-echo="../assets/images/brands/w3.jpg" class="img-responsive" alt="">
+                                    <img width="370" height="245" src="assets/images/blank.gif" data-echo="assets/images/brands/w3.jpg" class="img-responsive" alt="">
                                 </div>
                                 <div class="strip text-center">
                                     <div class="strip-inner">
