@@ -14,9 +14,9 @@ namespace Shop.Web.Mvp
     public interface ICatalogDataService
     {
         [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Json)]
-        //[WebInvoke(Method = "GET",
-        //ResponseFormat = WebMessageFormat.Json)]
+        //[WebGet(ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "GET",
+        ResponseFormat = WebMessageFormat.Json)]
         List<CategoryAssignedProduct> GetProducts();
     }
 }
