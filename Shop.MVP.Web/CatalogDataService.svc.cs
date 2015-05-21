@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using System.Collections.Generic;
 using Ez.Newsletter.MagentoApi;
 using MagentoComunication.Helpers;
 using Shop.MVP.Core;
@@ -17,7 +12,9 @@ namespace Shop.Web.Mvp
         public List<CategoryAssignedProduct> GetProducts()
         {
             var repository = RepositoryFactory.GetRepositoryService();
-            return repository.GetProductsByCategoryId(ConfigurationHelper.RootCategory);
+            var p = repository.GetProductsByCategoryId(ConfigurationHelper.RootCategory);
+            return p;
         }
+
     }
 }

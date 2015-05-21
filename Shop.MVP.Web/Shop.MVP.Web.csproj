@@ -376,6 +376,7 @@
     <Content Include="Scripts\jquery.slider.js" />
     <Content Include="Scripts\slider.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Test-Angular.aspx" />
     <Content Include="UserControls\UCFooter.ascx" />
     <Content Include="UserControls\UCHeader.ascx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -436,6 +437,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Test-Angular.aspx.cs">
+      <DependentUpon>Test-Angular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test-Angular.aspx.designer.cs">
+      <DependentUpon>Test-Angular.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UCFooter.ascx.cs">
       <DependentUpon>UCFooter.ascx</DependentUpon>
@@ -538,6 +546,7 @@
     <Content Include="assets\js\scripts.min.js.map">
       <DependentUpon>scripts.min.js</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\p.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
