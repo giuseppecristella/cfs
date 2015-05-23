@@ -17,8 +17,6 @@ namespace Shop.Web.Mvp
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
-
             // MagentoConnection.Instance.CacheManager = new AspnetCacheManager();
             MagentoConnection.Instance.Url = "http://www.zoom2cart.com/api/xmlrpc";
             MagentoConnection.Instance.Password = "123456";

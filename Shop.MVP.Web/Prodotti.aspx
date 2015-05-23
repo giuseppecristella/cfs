@@ -15,7 +15,7 @@
                         <ul class="breadcrumb">
                             <li><a href="home.html">Home</a></li>
                             <li><a href="categories-grid.html">Men</a></li>
-                            <li class="active">New Arrivals</li>
+                            <li class="active">Nsaasdasdas</li>
                         </ul>
                         <!-- /.breacrumb -->
                         <ul class="listing-options">
@@ -51,7 +51,7 @@
                     <!-- /.control-bar -->
                     <div class="catalog-products clearfix">
                         <div ng-repeat="product in catalog | filter: my.favorite |  filter: filterFunction | filter: filterPrice" class='col-md-6 col-sm-6 col-lg-4 col-xs-12 product-holder'>
-                            <div class="product">
+                        <div class="product">
                                 <div class="image">
                                     <a href="product-simple.html">
                                         <img class="img-responsive" width="258" ng-src="{{product._imageurl}}" alt=""></a>
@@ -98,7 +98,7 @@
                 <div class="col-md-3 col-sm-2">
                     <div class="right-sidebar">
                         <div class="sidebar">
-                            <h5 class="sidebar-title uppercase">category</h5>
+                            <h5 class="sidebar-title uppercase">teest</h5>
                             <div class="body">
                                 <ul>
                                     <li ng-repeat="category in categories">

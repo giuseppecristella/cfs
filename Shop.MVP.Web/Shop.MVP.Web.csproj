@@ -538,6 +538,7 @@
     <Content Include="assets\js\scripts.min.js.map">
       <DependentUpon>scripts.min.js</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\test-register.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

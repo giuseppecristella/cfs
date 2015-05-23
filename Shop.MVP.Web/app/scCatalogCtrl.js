@@ -1,8 +1,14 @@
-﻿app.controller('scCatalogCtrl', function ($scope, catalog) {
+﻿app.controller('scCatalogCtrl', function ($scope, catalog, $http) {
     $scope.model = { id: 1, name: "Giuseppe" };
     $scope.products = [{ id: 1, name: "Giu" }, { id: 2, name: "Giu2" }];
-    $scope.catalog = catalog.query();
+    //$scope.catalog = catalog.query();
 
+    $http.get("/CatalogDataService.svc/GetProducts")
+        .success(function(data) {
+         $scope.catalog = data.d;
+    });
+
+     
     $scope.categories = ['Sedia', 'Lume'];
     $scope.category = { selected: 'all' };
 
@@ -27,7 +33,6 @@
     };
 
     $scope.priceRange = [0, 200];
- 
 
     $scope.toggleSelection = function toggleSelection(name) {
         $scope.filter.name = name;
@@ -46,7 +51,7 @@
 
 
 
-    $scope.my = { favorite: ""};
+    $scope.my = { favorite: "" };
     $scope.filterPrice = function (element) {
         return element._price > $scope.priceRange[0] && element._price < $scope.priceRange[1] ? true : false;
     };

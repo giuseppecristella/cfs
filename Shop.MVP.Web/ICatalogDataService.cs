@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
 using Ez.Newsletter.MagentoApi;
 
 namespace Shop.Web.Mvp
@@ -14,9 +10,7 @@ namespace Shop.Web.Mvp
     public interface ICatalogDataService
     {
         [OperationContract]
-        [WebGet(ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Bare,
-            UriTemplate = "products/")]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
         List<CategoryAssignedProduct> GetProducts();
     }
 }
