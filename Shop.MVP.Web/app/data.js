@@ -7,5 +7,5 @@
 //]);
 
 app.factory('catalog', function($resource) {
-	return $resource('/CatalogDataService.svc/products');
+    return $resource('/CatalogDataService.svc/GetProducts');
 })
