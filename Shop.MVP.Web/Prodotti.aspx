@@ -9,7 +9,6 @@
              <div class="free-shipping-ad">Free Standard Shipping <br>at $75</div>
                     </div>-->
             <div class="row row-no-margin">
-
                 <div class="col-md-9 col-sm-10">
                     <div class="control-bar">
                         <ul class="breadcrumb">
