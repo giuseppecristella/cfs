@@ -16,5 +16,13 @@ namespace Shop.Web.Mvp
             return p;
         }
 
+        public List<CategoryAssignedProduct> GetProductsByCategoryName(string categoryName)
+        {
+            var repository = RepositoryFactory.GetRepositoryService();
+            
+            var p = repository.GetProductsByCategoryId(ConfigurationHelper.RootCategory);
+            return p;
+        }
+
     }
 }

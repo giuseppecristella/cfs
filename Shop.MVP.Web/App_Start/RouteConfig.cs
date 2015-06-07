@@ -9,6 +9,8 @@ namespace Shop.Web.Mvp
     {
         var settings = new FriendlyUrlSettings { AutoRedirectMode = RedirectMode.Permanent };
         routes.EnableFriendlyUrls(settings);
+
+        routes.MapPageRoute("Catalog", "Uomo", "~/Catalog/Products.aspx");
     }
   }
 }

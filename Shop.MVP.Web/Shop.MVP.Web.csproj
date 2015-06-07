@@ -334,6 +334,7 @@
     <Content Include="assets\js\wow.min.js" />
     <Content Include="CatalogDataService.svc" />
     <Content Include="Catalogo.aspx" />
+    <Content Include="Catalog\Products.aspx" />
     <Content Include="Css\delicious\delicious-bold-demo.html" />
     <Content Include="Css\delicious\delicious-bold-webfont.svg" />
     <Content Include="Css\delicious\delicious-bolditalic-demo.html" />
@@ -376,8 +377,10 @@
     <Content Include="Scripts\jquery.slider.js" />
     <Content Include="Scripts\slider.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="UserControls\UCBreadcrumbs.ascx" />
     <Content Include="UserControls\UCFooter.ascx" />
     <Content Include="UserControls\UCHeader.ascx" />
+    <Content Include="UserControls\UCProductsFilters.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -393,6 +396,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CatalogDataService.svc.cs">
       <DependentUpon>CatalogDataService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
     <Compile Include="ICatalogDataService.cs" />
     <Compile Include="Infrastructure\Cache\AspnetCacheManager.cs" />
@@ -437,6 +447,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UCBreadcrumbs.ascx.cs">
+      <DependentUpon>UCBreadcrumbs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCBreadcrumbs.ascx.designer.cs">
+      <DependentUpon>UCBreadcrumbs.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCFooter.ascx.cs">
       <DependentUpon>UCFooter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -450,6 +467,13 @@
     </Compile>
     <Compile Include="UserControls\UCHeader.ascx.designer.cs">
       <DependentUpon>UCHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCProductsFilters.ascx.cs">
+      <DependentUpon>UCProductsFilters.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCProductsFilters.ascx.designer.cs">
+      <DependentUpon>UCProductsFilters.ascx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
