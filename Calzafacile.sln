@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{9142D74A-C4A7-49DD-850C-4424277D701D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagentoApi.Test", "ShopMagentoApi.Test\MagentoApi.Test.csproj", "{BE861516-9400-469F-96F3-8A8F4534EC9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,12 @@ Global
 		{073E5BDB-C188-421D-8F31-FB2545860D44}.Debug-Shop|Any CPU.Build.0 = Debug-Shop|Any CPU
 		{073E5BDB-C188-421D-8F31-FB2545860D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{073E5BDB-C188-421D-8F31-FB2545860D44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE861516-9400-469F-96F3-8A8F4534EC9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE861516-9400-469F-96F3-8A8F4534EC9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE861516-9400-469F-96F3-8A8F4534EC9C}.Debug-Shop|Any CPU.ActiveCfg = Debug-Shop|Any CPU
+		{BE861516-9400-469F-96F3-8A8F4534EC9C}.Debug-Shop|Any CPU.Build.0 = Debug-Shop|Any CPU
+		{BE861516-9400-469F-96F3-8A8F4534EC9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE861516-9400-469F-96F3-8A8F4534EC9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +88,6 @@ Global
 		{DA5C799D-7170-452B-ABF2-0F2C4E7EAACF} = {3AB48313-DFDF-467E-8FD3-7AA511816DB4}
 		{70C9AD67-CDA2-4D60-A7E2-B628A640D4F9} = {3AB48313-DFDF-467E-8FD3-7AA511816DB4}
 		{073E5BDB-C188-421D-8F31-FB2545860D44} = {3AB48313-DFDF-467E-8FD3-7AA511816DB4}
+		{BE861516-9400-469F-96F3-8A8F4534EC9C} = {9142D74A-C4A7-49DD-850C-4424277D701D}
 	EndGlobalSection
 EndGlobal

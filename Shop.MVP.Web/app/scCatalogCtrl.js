@@ -1,14 +1,19 @@
-﻿app.controller('scCatalogCtrl', function ($scope, catalog, $http) {
+﻿
+
+app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
     $scope.model = { id: 1, name: "Giuseppe" };
     $scope.products = [{ id: 1, name: "Giu" }, { id: 2, name: "Giu2" }];
     //$scope.catalog = catalog.query();
+    //var a = $location.search();
+
+    $scope.categoryName = $filter('_uriseg')(2);
 
     $http.get("/CatalogDataService.svc/GetProducts")
-        .success(function(data) {
-         $scope.catalog = data.d;
-    });
+        .success(function (data) {
+            $scope.catalog = data.d;
+        });
 
-     
+
     $scope.categories = ['Sedia', 'Lume'];
     $scope.category = { selected: 'all' };
 

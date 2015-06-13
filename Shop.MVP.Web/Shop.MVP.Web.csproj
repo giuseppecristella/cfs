@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\common.js" />
     <Content Include="app\data.js" />
     <Content Include="app\scCatalogCtrl.js" />
     <Content Include="assets\css\animate.min.css" />

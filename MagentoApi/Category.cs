@@ -273,7 +273,8 @@ namespace Ez.Newsletter.MagentoApi
             proxy.Url = apiUrl;
             proxy.UseIntTag = true;
 
-            return proxy.Tree(sessionId, _catalog_category_currentStore, args);
+            return proxy.Tree(sessionId, _catalog_category_tree, args);
+            //return proxy.Tree(sessionId, _catalog_category_currentStore, args);
         }
         public static object[] Tree(string apiUrl, string sessionId, object[] args, object[] args2)
         {
