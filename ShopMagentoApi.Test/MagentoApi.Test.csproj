@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CookComputing.XmlRpcV2">
-      <HintPath>..\MA.Web\Bin\CookComputing.XmlRpcV2.dll</HintPath>
+      <HintPath>..\Libs\CookComputing.XmlRpcV2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching">
       <HintPath>..\packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
@@ -106,10 +106,6 @@
     <ProjectReference Include="..\MagentoApi\Ez.Newsletter.MagentoApi.csproj">
       <Project>{5f081b09-2791-4f75-b3b1-4396ca89e8b6}</Project>
       <Name>Ez.Newsletter.MagentoApi</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MagentoBusinessDelegate\MagentoBusinessDelegate.csproj">
-      <Project>{04a4ac2a-2865-473d-86d7-b71991380025}</Project>
-      <Name>MagentoBusinessDelegate</Name>
     </ProjectReference>
     <ProjectReference Include="..\MagentoRepository\MagentoComunication.csproj">
       <Project>{884400f1-60bd-4e00-9272-30f1988365a2}</Project>

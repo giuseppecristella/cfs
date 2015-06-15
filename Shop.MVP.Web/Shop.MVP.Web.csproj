@@ -366,6 +366,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="home.html" />
+    <Content Include="Landing\Default.aspx" />
     <Content Include="Prodotti.aspx" />
     <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular.js" />
@@ -426,6 +427,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Configuration\Configuration.cs" />
+    <Compile Include="Landing\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landing\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\Shop.Master.cs">
       <DependentUpon>Shop.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
