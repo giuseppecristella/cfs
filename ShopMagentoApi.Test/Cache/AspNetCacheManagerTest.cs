@@ -1,4 +1,4 @@
-﻿using Shop.Infrastructure.Cache;
+﻿using Shop.Core.Cache;
 using System;
 using System.Web;
 

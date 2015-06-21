@@ -588,9 +588,9 @@
       <Project>{884400F1-60BD-4E00-9272-30F1988365A2}</Project>
       <Name>MagentoComunication</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Shop.Infrastructure\Shop.Infrastructure.csproj">
+    <ProjectReference Include="..\Shop.Infrastructure\Shop.Core.csproj">
       <Project>{ae8def92-6ca5-4fa0-91e6-fc1494c00954}</Project>
-      <Name>Shop.Infrastructure</Name>
+      <Name>Shop.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shop.MVP.Core\Shop.MVP.Core.csproj">
       <Project>{da5c799d-7170-452b-abf2-0f2c4e7eaacf}</Project>

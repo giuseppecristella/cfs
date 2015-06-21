@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Shop.Infrastructure.Cache
+namespace Shop.Core.Cache
 {
   public class FakeCacheManager : ICacheManager
   {

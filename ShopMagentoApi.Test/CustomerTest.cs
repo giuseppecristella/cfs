@@ -5,7 +5,7 @@ using MagentoRepository.Connection;
 using MagentoRepository.Repository;
 using Microsoft.Practices.EnterpriseLibrary.Caching;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Shop.Infrastructure.Cache;
+using Shop.Core.Cache;
 using ICacheManager = Microsoft.Practices.EnterpriseLibrary.Caching.ICacheManager;
 
 namespace ShopMagentoApi.Test

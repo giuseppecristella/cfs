@@ -1,7 +1,7 @@
 ﻿using System;
 using CookComputing.XmlRpc;
 using MagentoRepository.Connection;
-using Shop.Infrastructure.Cache;
+using Shop.Core.Cache;
 
 namespace MagentoRepository.Repository
 {

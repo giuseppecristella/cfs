@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web;
-using Shop.Infrastructure.Cache;
+using Shop.Core.Cache;
 
 namespace Shop.Web.Mvp.Infrastructure.Cache
 {

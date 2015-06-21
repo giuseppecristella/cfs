@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Practices.EnterpriseLibrary.Caching;
 
-namespace Shop.Infrastructure.Cache
+namespace Shop.Core.Cache
 {
     /// <summary>
     /// Facade, interfaccia differente adattata

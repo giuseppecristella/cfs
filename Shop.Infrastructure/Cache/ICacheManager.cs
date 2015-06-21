@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Shop.Infrastructure.Cache
+namespace Shop.Core.Cache
 {
   public interface ICacheManager
   { 

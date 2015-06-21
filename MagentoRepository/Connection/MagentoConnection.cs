@@ -1,5 +1,5 @@
 ﻿using MagentoComunication.Helpers;
-using Shop.Infrastructure.Cache;
+using Shop.Core.Cache;
 
 namespace MagentoRepository.Connection
 {

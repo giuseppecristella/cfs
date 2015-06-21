@@ -1,6 +1,6 @@
 ﻿using MagentoRepository.Connection;
 using MagentoRepository.Repository;
-using Shop.Infrastructure.Cache;
+using Shop.Core.Cache;
 
 namespace Shop.MVP.Core
 {

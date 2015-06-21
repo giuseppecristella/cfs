@@ -4,7 +4,7 @@ using MagentoComunication.Helpers;
 using MagentoRepository.Connection;
 using MagentoRepository.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Shop.Infrastructure.Cache;
+using Shop.Core.Cache;
 using CookComputing.XmlRpc;
 
 
