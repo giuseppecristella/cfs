@@ -10,7 +10,7 @@ namespace Shop.Core.Cache
     {
         private static Microsoft.Practices.EnterpriseLibrary.Caching.ICacheManager _cacheManager;
         public ELCacheManager()
-        {
+        { 
             _cacheManager = CacheFactory.GetCacheManager();
         }
 

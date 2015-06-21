@@ -10,7 +10,7 @@ namespace Shop.Core.Cache
     public FakeCacheManager()
     {
         cache = new Dictionary<string, object>();
-    }
+    } 
 
     public void Add(string key, object value)
     {

@@ -4,7 +4,7 @@ using System;
 namespace Shop.Core.Cache
 {
   public interface ICacheManager
-  { 
+  {  
     /// <summary>
     /// Add a new object into the cache
     /// </summary>

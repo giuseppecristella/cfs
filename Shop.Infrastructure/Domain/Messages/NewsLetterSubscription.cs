@@ -14,7 +14,7 @@ namespace Shop.Infrastructure.Domain.Messages
 
         /// <summary>
         /// Gets or sets the subcriber email
-        /// </summary>
+        /// </summary> 
         public string Email { get; set; }
 
         /// <summary>

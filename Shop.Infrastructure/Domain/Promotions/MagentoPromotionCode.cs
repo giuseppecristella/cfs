@@ -16,4 +16,4 @@ namespace Shop.Infrastructure.Domain.Promotions
 
         public DateTime GeneratedDate { get; set; }
     }
-}
+} 

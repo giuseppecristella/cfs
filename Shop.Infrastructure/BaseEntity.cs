@@ -62,7 +62,7 @@ namespace Shop.Core
 
         public static bool operator !=(BaseEntity x, BaseEntity y)
         {
-            return !(x == y);
+            return !(x == y); 
         }
     }
 }

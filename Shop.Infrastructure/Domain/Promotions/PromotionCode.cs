@@ -19,7 +19,7 @@ namespace Shop.Infrastructure.Domain.Promotions
         public DateTime ValidTo { get; set; }
 
         public bool Used { get; set; }
-
+         
         public Guid NewsLetterSubscriptionId { get; set; }
 
         public NewsLetterSubscription NewsLetterSubscription { get; set; }
