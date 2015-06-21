@@ -1,4 +1,5 @@
-﻿using Shop.Infrastructure.Domain.Messages;
+﻿using Shop.Core.Domain.Messages;
+ 
 
 namespace Shop.Data.Mapping.Messages
 {

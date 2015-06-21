@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Shop.Core;
-using Shop.Infrastructure.Domain.Promotions;
+using Shop.Core.Domain.Promotions;
 
-namespace Shop.Infrastructure.Domain.Messages
+
+namespace Shop.Core.Domain.Messages
 {
-    public partial class NewsLetterSubscription: BaseEntity
+    public partial class NewsLetterSubscription : BaseEntity
     {
+
         /// <summary>
         /// Gets or sets the newsletter subscription GUID
         /// </summary>
@@ -30,5 +32,5 @@ namespace Shop.Infrastructure.Domain.Messages
         public DateTime CreatedOnUtc { get; set; }
     }
 
-  
+
 }

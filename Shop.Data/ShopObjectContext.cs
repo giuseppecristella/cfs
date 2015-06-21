@@ -6,21 +6,20 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Shop.Core;
 using Shop.Data.Mapping;
+
 
 namespace Shop.Data
 {
     /// <summary>
     /// Object context
     /// </summary>
-    public class NopObjectContext : DbContext, IDbContext
+    public class ShopObjectContext : DbContext, IDbContext
     {
         #region Ctor
 
-        public NopObjectContext(string nameOrConnectionString)
+        public ShopObjectContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
             //((IObjectContextAdapter) this).ObjectContext.ContextOptions.LazyLoadingEnabled = true;

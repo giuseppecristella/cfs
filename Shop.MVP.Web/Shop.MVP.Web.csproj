@@ -588,6 +588,10 @@
       <Project>{884400F1-60BD-4E00-9272-30F1988365A2}</Project>
       <Name>MagentoComunication</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Shop.Data\Shop.Data.csproj">
+      <Project>{e6290a49-e43d-47eb-9a9d-8db6e8cceece}</Project>
+      <Name>Shop.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Shop.Infrastructure\Shop.Core.csproj">
       <Project>{ae8def92-6ca5-4fa0-91e6-fc1494c00954}</Project>
       <Name>Shop.Core</Name>

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Shop.Infrastructure.Domain.Messages;
+using Shop.Core.Domain.Messages;
 
-namespace Shop.Infrastructure.Domain.Promotions
+
+namespace Shop.Core.Domain.Promotions
 {
     public partial class PromotionCode
     {
@@ -20,7 +16,7 @@ namespace Shop.Infrastructure.Domain.Promotions
 
         public bool Used { get; set; }
          
-        public Guid NewsLetterSubscriptionId { get; set; }
+        public int NewsLetterSubscriptionId { get; set; }
 
         public NewsLetterSubscription NewsLetterSubscription { get; set; }
     }

@@ -7,8 +7,8 @@
     <ProjectGuid>{AE8DEF92-6CA5-4FA0-91E6-FC1494C00954}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shop.Infrastructure</RootNamespace>
-    <AssemblyName>Shop.Infrastructure</AssemblyName>
+    <RootNamespace>Shop.Core</RootNamespace>
+    <AssemblyName>Shop.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
