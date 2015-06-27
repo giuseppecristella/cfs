@@ -7,7 +7,8 @@ namespace Shop.Data.Mapping.Promotions
         public PromotionCodeMap()
         {
             this.ToTable("PromotionCode");
-            HasKey(pr => pr.PromotionId);
+
+            HasKey(pr => pr.PromotionCodeId);
             Property(pc => pc.Code).IsRequired().HasMaxLength(20);
 
             HasRequired(pc => pc.NewsLetterSubscription)

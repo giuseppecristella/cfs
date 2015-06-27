@@ -24,12 +24,12 @@ namespace Shop.Core.Domain.Messages
         /// </summary>
         public bool Active { get; set; }
 
-        public ICollection<PromotionCode> PromotionCodes { get; set; }
+        public virtual ICollection<PromotionCode> PromotionCodes { get; set; }
 
-        /// <summary>
-        /// Gets or sets the date and time when subscription was created
-        /// </summary>
-        public DateTime CreatedOnUtc { get; set; }
+        ///// <summary>
+        ///// Gets or sets the date and time when subscription was created
+        ///// </summary>
+        //public DateTime CreatedOnUtc { get; set; }
     }
 
 
