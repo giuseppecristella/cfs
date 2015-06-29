@@ -13,5 +13,10 @@ namespace Shop.Web.Mvp.Landing
         {
 
         }
+
+        protected void btnNesletterSubscribe_OnClick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

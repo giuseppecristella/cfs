@@ -86,7 +86,7 @@
     <Compile Include="Cache\FakeCacheManager.cs" />
     <Compile Include="Cache\ICacheManager.cs" />
     <Compile Include="Domain\Messages\NewsLetterSubscription.cs" />
-    <Compile Include="Domain\Promotions\MagentoPromotionCode.cs" />
+    <Compile Include="Domain\Promotions\Promotion.cs" />
     <Compile Include="Domain\Promotions\PromotionCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
