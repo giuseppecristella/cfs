@@ -317,11 +317,15 @@ header .subscribe button, header .subscribe input {
     line-height: 2em;
     letter-spacing: .1em;
     font-weight: 600;
-    text-transform: uppercase;
+    
     border-radius: 3px;
     color: #FFF;
     outline: 0;
     margin: 0 0 10px;
+}
+
+.btn-upper {
+    text-transform: uppercase;
 }
 
     header .subscribe button:hover {
@@ -329,7 +333,7 @@ header .subscribe button, header .subscribe input {
     }
 
 header .subscribe .error_alert, header .subscribe .success_alert {
-    display: none;
+    /*display: none;*/
 }
 
 section .feature-items .feature-item i {

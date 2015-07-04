@@ -123,4 +123,10 @@
   <data name="ShopTitle" xml:space="preserve">
     <value>ShopTitle</value>
   </data>
+  <data name="E-mailAlreadyPresent" xml:space="preserve">
+    <value>Hai già inserito questo indirizzo e-mail!</value>
+  </data>
+  <data name="PromoCodeAlreadySended" xml:space="preserve">
+    <value>Ti abbiamo già inviato un codice!</value>
+  </data>
 </root>

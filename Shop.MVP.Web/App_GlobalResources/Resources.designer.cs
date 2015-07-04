@@ -61,11 +61,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hai già inserito questo indirizzo e-mail!.
+        /// </summary>
+        internal static string E_mailAlreadyPresent {
+            get {
+                return ResourceManager.GetString("E-mailAlreadyPresent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to T: +39 821 39 36 E: shop@materarredamenti.it.
         /// </summary>
         internal static string Header_Address {
             get {
                 return ResourceManager.GetString("Header_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ti abbiamo già inviato un codice!.
+        /// </summary>
+        internal static string PromoCodeAlreadySended {
+            get {
+                return ResourceManager.GetString("PromoCodeAlreadySended", resourceCulture);
             }
         }
         

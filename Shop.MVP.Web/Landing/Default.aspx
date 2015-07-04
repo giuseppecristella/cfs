@@ -21,16 +21,14 @@
             <div class="overlay"></div>
             <div class="content">
                 <div style="background: #eb5830"
-                          <%--  min-height: 580px" --%>
-                            class="container">
+                    <%--  min-height: 580px" --%>
+                    class="container">
                     <div class="row">
                         <div class="col-md-6 col-sm-4 col-xs-4">
                             <!--<h1 class="logo">Bell</h1>-->
                         </div>
                         <div class="col-md-6 col-sm-8 col-xs-8 social">
                             <a target="_blank" href="https://www.facebook.com/kalzafacile?fref=ts" class="wow animated bounceIn" data-wow-delay=".75s"><i class="fa fa-facebook"></i></a>
-                            <!--<a href="#" class="wow animated bounceIn" data-wow-delay=".5s"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="wow animated bounceIn" data-wow-delay="1s"><i class="fa fa-dribbble"></i></a>-->
                         </div>
                     </div>
                     <div class="row">
@@ -38,12 +36,6 @@
                             <h2 style="color: #34495e">Che <span style="color: #eb5830">belle</span>...Che <span style="color: #eb5830">Gratis!</span></h2>
                         </div>
                     </div>
-
-                    <!--<div class="row">
-                     <div class="col-md-12 countdown">
-                         <ul id="countdown" class="wow animated fadeInDown"> <li> <span class="days">00</span> <p class="timeRefDays">giorni</p></li><li class="seperator">.</li><li> <span class="hours">00</span> <p class="timeRefHours">ore</p></li><li class="seperator">:</li><li> <span class="minutes">00</span> <p class="timeRefMinutes">minuti</p></li><li class="seperator">:</li><li> <span class="seconds">00</span> <p class="timeRefSeconds">secondi</p></li></ul>
-                     </div>
-                 </div>-->
                     <div class="row">
                         <div class="col-md-12">
                             <h2 style="color: #34495e">le infradito che ti regala <span style="color: #eb5830">C</span>alza<span style="color: #eb5830">f</span>acile</h2>
@@ -59,17 +51,16 @@
                             <div class="row">
                                 <div>
                                     <div class="col-md-8 col-sm-8">
-                                        <asp:TextBox type="email" name="email" placeholder="Inserisci la tua e-mail" required runat="server"></asp:TextBox>
-                                        <%--<input type="email" name="email" placeholder="Inserisci la tua e-mail" required />--%>
+                                        <asp:TextBox type="email"  name="email" ID="txtEmail" placeholder="Inserisci la tua e-mail" required runat="server"></asp:TextBox>
                                     </div>
                                     <div class="col-md-4 col-sm-4">
-                                        <asp:Button runat="server" ID="btnNesletterSubscribe" OnClick="btnNesletterSubscribe_OnClick" Text="Iscriviti"/>
-                                       <%-- <button>Iscriviti</button>--%>
+                                        <asp:Button runat="server"  CssClass="btn-upper" ID="btnNesletterSubscribe" OnClick="btnNesletterSubscribe_OnClick" Text="Iscriviti" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="alert alert-success success_alert">Got it, you've been added to our email list.</div>
-                            <div class="alert alert-danger error_alert"><strong>Oops!</strong> There was a error!</div>
+                            <div id="divSuccess" runat="server" class="alert alert-success success_alert">
+                                <asp:Literal ID="ltSuccessMessage" runat="server"></asp:Literal></div>
+                            <div id="divError" runat="server" class="alert alert-danger error_alert"><strong>Oops!</strong>&nbsp;<asp:Literal ID="ltErrorMessage" runat="server"></asp:Literal></div>
                         </div>
                     </div>
                 </div>

@@ -18,4 +18,6 @@ namespace Shop.Core.Domain.Promotions
 
         public virtual Promotion Promotion { get; set; }
     }
+
+   
 }

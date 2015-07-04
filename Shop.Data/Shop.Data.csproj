@@ -56,7 +56,6 @@
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mapping\Messages\NewsLetterSubscriptionMap.cs" />
     <Compile Include="Mapping\Promotions\PromotionCodeMap.cs" />
-    <Compile Include="Mapping\Promotions\PromotionMap.cs" />
     <Compile Include="Mapping\ShopEntityTypeConfiguration.cs" />
     <Compile Include="Newslettersubscription.cs" />
     <Compile Include="Promotion.cs" />
