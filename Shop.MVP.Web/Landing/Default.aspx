@@ -16,16 +16,14 @@
     <form id="form1" runat="server">
         <header id="header">
             <div class="background">
-                <img src="assets/image/main.jpg" alt="Bell" />
+                <img src="<%= Page.ResolveClientUrl("assets/image/") %>main.jpg" alt="calzafacile" />
+             <%--   <img src="assets/image/main.jpg" alt="calzafacile" />--%>
             </div>
-            <div class="overlay"></div>
+            <div class="overlay"></div> 
             <div class="content">
-                <div style="background: #eb5830"
-                    <%--  min-height: 580px" --%>
-                    class="container">
+                <div <%--style="min-height: 580px"--%>  class="container">
                     <div class="row">
                         <div class="col-md-6 col-sm-4 col-xs-4">
-                            <!--<h1 class="logo">Bell</h1>-->
                         </div>
                         <div class="col-md-6 col-sm-8 col-xs-8 social">
                             <a target="_blank" href="https://www.facebook.com/kalzafacile?fref=ts" class="wow animated bounceIn" data-wow-delay=".75s"><i class="fa fa-facebook"></i></a>

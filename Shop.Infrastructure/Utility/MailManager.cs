@@ -215,6 +215,7 @@ namespace Shop.Core.Utility
 		}
 		private static bool Format(string Template)
 		{
+		    if (string.IsNullOrEmpty(Template)) return false;
 			string strA = Template.Substring(Template.LastIndexOf("."), Template.Length - Template.LastIndexOf("."));
 			return string.Compare(strA, ".html", true, CultureInfo.CurrentCulture) == 0 || string.Compare(strA, ".htm", true, CultureInfo.CurrentCulture) == 0;
 		}
@@ -236,7 +237,7 @@ namespace Shop.Core.Utility
 			{
 				if (!string.IsNullOrEmpty(this.MailFrom) && this._mailToList != null && this._mailToList.Count > 0)
 				{
-                    mailMessage.IsBodyHtml = Format(this.MailTemplate);
+				    mailMessage.IsBodyHtml = Format(this.MailTemplate);
 
                     mailMessage.From = (string.IsNullOrEmpty(DisplayName)) ? new MailAddress(MailFrom) : new MailAddress(MailFrom, DisplayName);
 					foreach (string current in this._mailToList)

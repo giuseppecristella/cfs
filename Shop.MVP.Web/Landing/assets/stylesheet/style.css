@@ -576,19 +576,19 @@ section {
         line-height: 2em;
     }
 
-form {
+/*form {
     text-align: left;
-}
+}*/
 
 .btn {
     border-radius: 3px;
 }
 
-.form-control {
+/*.form-control {
     border: 2px solid #eee;
     box-shadow: none;
     border-radius: 3px;
-}
+}*/
 
 @-webkit-keyframes fadeIn {
     from {

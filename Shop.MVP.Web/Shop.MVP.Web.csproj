@@ -410,6 +410,12 @@
     <Content Include="Scripts\jquery.slider.js" />
     <Content Include="Scripts\slider.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <None Include="Service References\MailSenderService\configuration91.svcinfo" />
+    <None Include="Service References\MailSenderService\configuration.svcinfo" />
+    <None Include="Service References\MailSenderService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="UserControls\UCBreadcrumbs.ascx" />
     <Content Include="UserControls\UCFooter.ascx" />
     <Content Include="UserControls\UCHeader.ascx" />
@@ -480,6 +486,11 @@
       <DependentUpon>Prodotti.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\MailSenderService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -603,6 +614,19 @@
       <DependentUpon>scripts.min.js</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\test-register.pubxml" />
+    <None Include="Service References\MailSenderService\Service1.wsdl" />
+    <None Include="Service References\MailSenderService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailSenderService\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MailSenderService\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\MailSenderService\Shop.Web.Mvp.MailSenderService.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -639,6 +663,12 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MailSenderService\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -663,7 +693,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>4991</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4991/</IISUrl>
+          <IISUrl>http://localhost:4992/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

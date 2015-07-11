@@ -11,6 +11,9 @@ namespace Shop.Web.Mvp
         routes.EnableFriendlyUrls(settings);
 
         routes.MapPageRoute("Catalog", "Uomo", "~/Catalog/Products.aspx");
+        //routes.MapPageRoute("Landing", "Landing", "~/Landing/Default.aspx");
+        routes.MapPageRoute("Landing-2", "", "~/Landing/Default.aspx");
+
     }
   }
 }

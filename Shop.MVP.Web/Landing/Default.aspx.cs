@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using Shop.Core.Utility;
 using Shop.Data;
+using Shop.Web.Mvp.MailSenderService;
 
 namespace Shop.Web.Mvp.Landing
 {
@@ -32,17 +33,17 @@ namespace Shop.Web.Mvp.Landing
                 // Verifica se l'indirizzo è già presente in archivio
                 if (IsAlreadySubscribed())
                 {
-                    //ltErrorMessage.Text = Resources.Resources.E_mailAlreadyPresent;
-                    //ShowNotification(MessageType.Error);
-                    //return;
+                    ltErrorMessage.Text = Resources.Resources.E_mailAlreadyPresent;
+                    ShowNotification(MessageType.Error);
+                    return;
                 }
 
                 // Check codice già assegnato a quell'indirizzo per quella promo
                 if (HaveAlreadyPromoCodeForPromotion())
                 {
-                    //ltErrorMessage.Text = Resources.Resources.PromoCodeAlreadySended;
-                    //ShowNotification(MessageType.Error);
-                    //return;
+                    ltErrorMessage.Text = Resources.Resources.PromoCodeAlreadySended;
+                    ShowNotification(MessageType.Error);
+                    return;
                 }
 
                 var firstNotAssignedCode = ctx.PromotionCodes.FirstOrDefault(pc => pc.Newslettersubscription == null);
@@ -58,11 +59,12 @@ namespace Shop.Web.Mvp.Landing
                 entity.PromotionCodes.Add(firstNotAssignedCode);
 
                 // Save
-                //ctx.Set<Newslettersubscription>().Add(entity);
-                //ctx.SaveChanges();
+                ctx.Set<Newslettersubscription>().Add(entity);
+                ctx.SaveChanges();
 
                 // Invio notifica 
-                SendMailToUser(entity.Email, firstNotAssignedCode.Code);
+                SendMailToUserFromWCF(entity.Email, firstNotAssignedCode.Code);
+               // SendMailToUser(entity.Email, firstNotAssignedCode.Code);
             }
         }
 
@@ -90,16 +92,26 @@ namespace Shop.Web.Mvp.Landing
                 MailTo = newsletterSubscriptionAddress,
                 MailFrom = "info@calzafacile.com",
                 MailSubject = "Che belle che gratis le infradito che ti regala Calzafacile",
-                
+                DisplayName = "Calzafacile",
+
                 MailTemplate = templatePath,
-                //MailParameters = new Hashtable
-                //{
-                //    {"##CouponeCode##", promotionCode},
-                //}
+                MailParameters = new Hashtable
+                {
+                    {"##CouponeCode##", promotionCode},
+                }
             };
             mailManager.SendMail();
 
-            ltSuccessMessage.Text = "Controlla la tua mail, ti abbiamo inviato un codice promo!";
+            ltSuccessMessage.Text = "Controlla la tua mail, ti abbiamo inviato un codice promo!<br>Se non visualizzi la nostra mail controlla la tua cartella di posta indesiderata.";
+            ShowNotification(MessageType.Success);
+        }
+
+        private void SendMailToUserFromWCF(string newsletterSubscriptionAddress, string promotionCode)
+        {
+            var mailSenderService = new Service1Client();
+            mailSenderService.SendNotificationToSubscriber(newsletterSubscriptionAddress, promotionCode);
+
+            ltSuccessMessage.Text = "Controlla la tua mail, ti abbiamo inviato un codice promo!<br>Se non visualizzi la nostra mail controlla la tua cartella di posta indesiderata.";
             ShowNotification(MessageType.Success);
         }
 
@@ -121,7 +133,7 @@ namespace Shop.Web.Mvp.Landing
                 divError.Style["display"] = "none";
                 divSuccess.Style["display"] = "block";
             }
-        } 
+        }
         #endregion
     }
 }
