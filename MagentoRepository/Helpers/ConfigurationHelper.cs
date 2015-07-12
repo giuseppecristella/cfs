@@ -23,7 +23,7 @@ namespace MagentoComunication.Helpers
 
     public static class ConfigurationHelper
     {
-        public const string RootCategory = "47";
+        public const string RootCategory = "3";
         // Da rifattorizzare
         public const string ComplementiCatId = "40";
         public const string Arredi = "48";

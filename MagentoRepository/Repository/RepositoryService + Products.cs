@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using Ez.Newsletter.MagentoApi;
 using MagentoComunication.Helpers;
@@ -70,6 +71,9 @@ namespace MagentoRepository.Repository
         /// <returns></returns>
         public Product GetProductInfo(string productId)
         {
+
+          //  var catalogProductRequestAttributes = new[] { new string[] { "color", "cost" }, new string[] { "tg_38"} };
+
             var key = CreateCacheDictionaryKey(ConfigurationHelper.CacheKeyNames[CacheKey.ProductInfo], productId);
             if (_cacheManager.Contains(key)) return _cacheManager.Get<Product>(key);
             try

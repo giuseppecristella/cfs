@@ -29,7 +29,7 @@ namespace ShopMagentoApi.Test
         {
             // Queste informazioni devono essere inizializzate nel global.asax
             // "http://www.calzafacileshop.com/api/xmlrpc"; 
-            MagentoConnection.Instance.Url = "http://www.zoom2cart.com/api/xmlrpc";
+            MagentoConnection.Instance.Url = "http://www.calzafacileshop.com/api/xmlrpc";
             MagentoConnection.Instance.UserId = "ws_user";
             MagentoConnection.Instance.Password = "123456";
         }
@@ -62,7 +62,7 @@ namespace ShopMagentoApi.Test
             Assert.IsTrue(productsFromCache.Count > 0, "La cache di memoria deve contenere dei prodotti");
 
             // Questa chiamata recupera i dati dalla cache
-            products = repository.GetProductsByCategoryId("47");
+            products = repository.GetProductsByCategoryId("3");
             Assert.IsTrue(products.Count > 0, "Nessun prodotto trovato per una categoria che contiente prodotti");
 
             products = repository.GetProductsByCategoryId("000");
@@ -103,16 +103,16 @@ namespace ShopMagentoApi.Test
         {
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
 
-            // Carico un prodotto in cache e lo recupero
-            FakeCacheManager.Add(string.Format("{0}1", ConfigurationHelper.CacheKeyNames[CacheKey.ProductInfo]),
-              new Product() { product_id = "1", description = "Descrizione del prodotto 1", name = "Prodotto di test 1" });
+            //// Carico un prodotto in cache e lo recupero
+            //FakeCacheManager.Add(string.Format("{0}1", ConfigurationHelper.CacheKeyNames[CacheKey.ProductInfo]),
+            //  new Product() { product_id = "1", description = "Descrizione del prodotto 1", name = "Prodotto di test 1" });
 
-            var product = repository.GetProductInfo("1");
-            Assert.IsNotNull(product, "Nessun risultato trovato per un Id prodotto valido");
-            Assert.AreEqual(product.product_id, "1");
+            //var product = repository.GetProductInfo("1");
+            //Assert.IsNotNull(product, "Nessun risultato trovato per un Id prodotto valido");
+            //Assert.AreEqual(product.product_id, "1");
 
             // Il prodotto non è in cache esegue la chiamata api
-            product = repository.GetProductInfo("173");
+            var product = repository.GetProductInfo("1");
             Assert.IsNotNull(product, "Nessun risultato trovato per un Id prodotto valido");
 
             product = repository.GetProductInfo("123456");
