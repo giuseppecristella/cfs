@@ -12,5 +12,9 @@ namespace Shop.Web.Mvp
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
         List<CategoryAssignedProduct> GetProducts();
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
+        List<CategoryAssignedProduct> GetProductsByCategoryName(string categoryName);
     }
 }

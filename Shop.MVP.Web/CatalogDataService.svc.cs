@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web.UI.WebControls;
 using Ez.Newsletter.MagentoApi;
 using MagentoComunication.Helpers;
 using Shop.MVP.Core;
@@ -16,11 +17,40 @@ namespace Shop.Web.Mvp
             return p;
         }
 
+
         public List<CategoryAssignedProduct> GetProductsByCategoryName(string categoryName)
         {
+            var categoryId = ConfigurationHelper.RootCategory;
             var repository = RepositoryFactory.GetRepositoryService();
-            
-            var p = repository.GetProductsByCategoryId(ConfigurationHelper.RootCategory);
+
+            if (string.IsNullOrEmpty(categoryName)) return null;
+
+            // Soluzione provvisoria: rifattorizzare per recuperare id categoria dal db
+            switch (categoryName)
+            {
+                case "donna-ciabatte":
+                {
+                    categoryId = "7";
+                    break;
+                }
+                case "donna-infradito":
+                {
+                    categoryId = "21";
+                    break;
+                }
+                case "donna-zeppe":
+                {
+                    categoryId = "24";
+                    break;
+                }
+                case "donna-sandali":
+                {
+                    categoryId = "8";
+                    break;
+                }
+            }
+
+            var p = repository.GetProductsByCategoryId(categoryId);
             return p;
         }
 

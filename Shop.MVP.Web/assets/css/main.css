@@ -2078,11 +2078,11 @@ ul.bxslider {
                 background: #a5b0c5;
             }
 
-            .color-picker > li .le-radio.gray + .fake-box {
+            .color-picker > li .le-radio.Bianco + .fake-box {
                 background: #e2e2e2;
             }
 
-            .color-picker > li .le-radio.red + .fake-box {
+            .color-picker > li .le-radio.Rosso + .fake-box {
                 background: #e77a7d;
             }
 
@@ -2090,7 +2090,7 @@ ul.bxslider {
                 background: #68aaa6;
             }
 
-            .color-picker > li .le-radio.black + .fake-box {
+            .color-picker > li .le-radio.Nero + .fake-box {
                 background: #4e4e4e;
             }
 
@@ -2098,7 +2098,7 @@ ul.bxslider {
                 background: #f19a0e;
             }
 
-            .color-picker > li .le-radio.dark-gray + .fake-box {
+            .color-picker > li .le-radio.Avio + .fake-box {
                 background: #889db0;
             }
 

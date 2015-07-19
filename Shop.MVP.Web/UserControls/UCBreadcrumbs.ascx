@@ -2,10 +2,10 @@
 <div class="control-bar">
     <ul class="breadcrumb">
         <li><a href="../home.html">Home</a></li>
-        <li><a href="../categories-grid.html">Men</a></li>
-        <li class="active">Nsaasdasdas</li>
+        <li><a href="../categories-grid.html"></a></li>
+        <li class="active"></li>
     </ul>
-    <ul class="listing-options">
+   <%-- <ul class="listing-options">
         <li class="sort-by">
             <label for="sort-by-name">Sort by Name:</label>
             <select ng-model="_query._name" id="sort-by-name">
@@ -30,5 +30,5 @@
                 <option value="100">100</option>
             </select>
         </li>
-    </ul>
+    </ul>--%>
 </div>

@@ -26,61 +26,57 @@
                     <a href="#" class="navbar-brand">
                         <img src="../assets/images/logo2.png" class="logo" alt=""></a>
                     <ul class="nav navbar-nav">
-                        <li class="dropdown bewear-dropdown yamm-fw">
+                          <li class="dropdown bewear-dropdown yamm-fw">
                             <a href="../MasterPages/home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown"><span>Donna</span></a>
                             <ul class="dropdown-menu bewear-dropdown-menu">
                                 <li class="dropdown yamm-fw">
-                                    <div class="row mega-menu-ver1">
-                                        <div class="col-xs-12 col-lg-6 col-sm-6 col-md-4">
-                                            <div class="this-week-products">
-                                                <h5 class="title uppercase">this week</h5>
-                                                <ul class="products clearfix">
-                                                    <li><a href="../MasterPages/product-simple.html">
-                                                        <img src="../assets/images/products/mega1.jpg" alt=""></a>
-                                                        <span class="sub-title">Ultimi Arrivi</span>
-                                                    </li>
-                                                    <li class="hidden-sm hidden-md"><a href="../MasterPages/product-simple.html">
-                                                        <img src="../assets/images/products/mega2.jpg" alt=""></a>
-                                                        <span class="sub-title">Shop Handbags</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-3 col-sm-3 col-md-4">
+                                    <div class="row mega-menu-ver2">
+                                        <div class="col-xs-12 col-md-3 col-sm-3">
+                                            <h5 class="menu-title">Scarpe</h5>
                                             <ul class="sub-menu">
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">Ultimi Arrivi</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">Scarpe</a></li>
                                                 <li><a href="../MasterPages/categories-grid.html">Sneakers</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Ciabatte</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Stringate</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Infradito</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">Accessori</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Leggins</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Underwear</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Waist Coast</a></li>
+                                                <li><a href="/donna-ciabatte">Ciabatte</a></li>
+                                                <li><a href="/donna-sandali">Sandali</a></li>
+                                                <li><a href="/donna-infradito">Infradito</a></li>
+                                                <li><a href="/donna-zeppe">Zeppe</a></li>
+                                                <li><a href="../MasterPages/categories-grid.html">Antinfortunistica</a></li>
                                             </ul>
 
                                         </div>
-                                        <div class="col-xs-12 col-lg-3 col-sm-3 col-md-4">
+                                        <div class="col-xs-12 col-md-3 col-sm-3">
+                                            <h5 class="menu-title">Accessori</h5>
                                             <ul class="sub-menu">
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">accessories</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">bags</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">gifts</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">jewellery</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">sunglasses</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">watches</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">shoes</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Formal Shoes</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Trainers</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Boots</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Plimsolls</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Desert Boots</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">Seasonal offers</a></li>
-                                                <li class="highlight red"><a href="../MasterPages/categories-grid.html">sale</a></li>
-                                                <li class="highlight"><a href="../MasterPages/categories-grid.html">teen boys</a></li>
-
+                                                <li><a href="../MasterPages/categories-grid.html">Borse</a></li>
+                                                <li><a href="../MasterPages/categories-grid.html">Cinture</a></li>
                                             </ul>
+                                        </div>
+                                        <div class="col-ms-6 col-sm-6 banners col-xs-12">
+                                            <div class="wide-banner cnt-strip">
+                                                <a href="../MasterPages/catalog.html">
+                                                    <div class="image">
+                                                        <img src="../assets/images/blank.gif" data-echo="../assets/images/products/mega3.jpg" alt="">
+                                                    </div>
+                                                    <div class="strip text-center">
+                                                        <h5>get up to</h5>
+                                                        <h2>-50% off</h2>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <!-- /.wide-banner-->
+
+                                            <div class="wide-banner cnt-strip">
+                                                <a href="../MasterPages/catalog.html">
+                                                    <div class="image">
+                                                        <img src="../assets/images/blank.gif" data-echo="../assets/images/products/mega4.jpg" alt="">
+                                                    </div>
+                                                    <div class="strip text-center">
+                                                        <h5>check out</h5>
+                                                        <h3>new arrivals</h3>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <!-- /.wide-banner-->
+
                                         </div>
                                     </div>
                                 </li>

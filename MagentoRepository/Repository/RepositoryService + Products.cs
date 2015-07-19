@@ -20,14 +20,15 @@ namespace MagentoRepository.Repository
         {
             var key = CreateCacheDictionaryKey(ConfigurationHelper.CacheKeyNames[CacheKey.CategoryAssignedProducts], categoryId);
             // Ripristinare la Cache
-            if (_cacheManager.Contains(key)) return _cacheManager.Get<List<CategoryAssignedProduct>>(key);
+            //  if (_cacheManager.Contains(key)) return _cacheManager.Get<List<CategoryAssignedProduct>>(key);
             try
             {
                 var assignedProducts = Category.AssignedProducts(_connection.Url, _connection.SessionId, new object[] { categoryId });
                 if (assignedProducts == null) return null;
-                var productsInStock = assignedProducts.Where(p => p.qty_in_stock > 0).ToList();
+                // var productsInStock = assignedProducts.Where(p => p.qty_in_stock > 0).ToList();
+                var productsInStock = assignedProducts.ToList();
                 if (!productsInStock.Any()) return null;
-                _cacheManager.Add(key, productsInStock);
+               // _cacheManager.Add(key, productsInStock);
                 return productsInStock;
             }
             catch (Exception ex)
@@ -72,7 +73,7 @@ namespace MagentoRepository.Repository
         public Product GetProductInfo(string productId)
         {
 
-          //  var catalogProductRequestAttributes = new[] { new string[] { "color", "cost" }, new string[] { "tg_38"} };
+            //  var catalogProductRequestAttributes = new[] { new string[] { "color", "cost" }, new string[] { "tg_38"} };
 
             var key = CreateCacheDictionaryKey(ConfigurationHelper.CacheKeyNames[CacheKey.ProductInfo], productId);
             if (_cacheManager.Contains(key)) return _cacheManager.Get<Product>(key);
