@@ -17,42 +17,38 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
     //        $scope.catalog = data.d;
     //    });
 
-    $scope.categories = ['Patrizia Azzi', 'Fly Flot', 'In Blu'];
+    // TODO: Recuperare i valori seguenti dal DB
+    $scope.brands = ['Patrizia Azzi', 'Fly Flot', 'In Blu'];
     $scope.colors = ['Bianco', 'Nero', 'Rosso', 'Avio'];
-    $scope.sizes = ['34','35','36','37','38','39','40','41'];
-     
+    $scope.sizes = ['34', '35', '36', '37', '38', '39', '40', '41'];
 
-    $scope.filterPrice = 0;
+    //$scope.filterPrice = 0;
     $scope.filter = { name: "all" };
-    $scope.filters = ["Sedia", "Tavolino", "Lume"];
 
-    $scope.selection = [];
-    $scope.filterFunction = function (element) {
-        if ($scope.filter.name == "all" || $scope.filter.name == "" || $scope.selection.length == 0) return true;
+    // Filtro Marca
+    $scope.selectedBrands = [];
+    $scope.filterByBrands = function (element) {
+        if ($scope.filter.name == "all" || $scope.filter.name == "" || $scope.selectedBrands.length == 0) return true;
         else {
             var ret = false;
-            angular.forEach($scope.selection, function (filter) {
-                if (element._name.indexOf(filter) > -1) ret = true;
+            angular.forEach($scope.selectedBrands, function (brand) {
+                if (element._name.indexOf(brand) > -1) ret = true;
             });
             return ret;
         }
-
     };
-    $scope.toggleSelection = function toggleSelection(name) {
-        $scope.filter.name = name;
-        var idx = $scope.selection.indexOf(name);
-
-        // is currently selected
+    $scope.toggleSelectionBrand = function toggleSelectionBrand(brandName) {
+        $scope.filter.name = brandName;
+        var idx = $scope.selectedBrands.indexOf(brandName);
         if (idx > -1) {
-            $scope.selection.splice(idx, 1);
+            $scope.selectedBrands.splice(idx, 1);
         }
-
-            // is newly selected
         else {
-            $scope.selection.push(name);
+            $scope.selectedBrands.push(brandName);
         }
     };
 
+    // Filtro Colore
     $scope.selectedColors = [];
     $scope.filterByColors = function (element) {
         if ($scope.filter.name == "all" || $scope.filter.name == "" || $scope.selectedColors.length == 0) return true;
@@ -78,13 +74,13 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         }
     };
 
-    $scope.my = { favorite: "" };
-
+    // Filtro Prezzo
     $scope.priceRange = [0, 200];
     $scope.filterPrice = function (element) {
         return element._price > $scope.priceRange[0] && element._price < $scope.priceRange[1] ? true : false;
     };
 
+    // Filtro Taglia
     $scope.selectedSizes = [];
     $scope.toggleSelectionSize = function toggleSelectionSize(size) {
         $scope.filter.name = size;
@@ -99,7 +95,6 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
             $scope.selectedSizes.push(size);
         }
     };
-
     $scope.filterBySize = function (element) {
         if ($scope.selectedSizes.length == 0) return true;
         else {

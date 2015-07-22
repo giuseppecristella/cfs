@@ -2933,7 +2933,7 @@ ul.bxslider {
             }
 
                 .navbar.navbar-black .container .navbar-brand img.logo {
-                    padding: 21px 55px 21px 0;
+                    padding: 0 55px 0 0;
                     background-color: #111111;
                     border: none;
                 }

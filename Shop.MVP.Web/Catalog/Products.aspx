@@ -14,7 +14,7 @@
                 <div class="col-md-9 col-sm-10">
                     <uc1:UCBreadcrumbs runat="server" ID="UCBreadcrumbs" />
                     <div class="catalog-products clearfix">
-                        <div ng-repeat="product in catalog | filter: my.favorite |  filter: filterFunction | filter: filterPrice | filter: filterByColors | filter: filterBySize" class='col-md-6 col-sm-6 col-lg-4 col-xs-12 product-holder'>
+                        <div ng-repeat="product in catalog | filter: filterByBrands | filter: filterPrice | filter: filterByColors | filter: filterBySize" class='col-md-6 col-sm-6 col-lg-4 col-xs-12 product-holder'>
                             <div class="product">
                                 <div class="image">
                                     <a href="../product-simple.html">

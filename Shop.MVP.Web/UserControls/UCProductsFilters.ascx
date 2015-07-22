@@ -4,14 +4,11 @@
         <h5 class="sidebar-title uppercase">Marche</h5>
         <div class="body">
             <ul>
-                <li ng-repeat="category in categories">
-                    <input type="checkbox" id="{{category}}" ng-click="toggleSelection(category)" ng-true-value="{{category}}" name="category" />
-                    <label for="{{category}}">
-                        <span>{{category}}</span></label>
+                <li ng-repeat="brand in brands">
+                    <input type="checkbox" id="{{brand}}" ng-click="toggleSelectionBrand(brand)" ng-true-value="{{brand}}" name="brand" />
+                    <label for="{{brand}}">
+                        <span>{{brand}}</span></label>
                 </li>
-                <%--  You chose : {{selection}}
-                <br />
-                lenght : {{selection}}--%>
             </ul>
         </div>
     </div>
@@ -23,7 +20,7 @@
                         <a href="#collapseOne" data-toggle="collapse" class="accordion-toggle">Prezzo
                         </a>
                     </div>
-                    <div class="_accordion-body" id="collapseOne">
+                    <div class="accordion-body" id="collapseOne">
                         <div class="accordion-inner">
                             <div ui-slider="{range: true}" min="0" max="200" step="10" class="m-t-20" use-decimals ng-model="priceRange"></div>
                             <p class="slider-price-range">
@@ -51,10 +48,10 @@
                 </div>
                 <div class="accordion-group">
                     <div class="accordion-heading">
-                        <a href="#collapse3" data-toggle="collapse" class="accordion-toggle collapsed">Taglie
+                        <a href="#collapse3" data-toggle="collapse" class="accordion-toggle">Taglie
                         </a>
                     </div>
-                    <div class="accordion-body collapse" id="collapse3">
+                    <div class="accordion-body" id="collapse3">
                         <div class="accordion-inner">
                             <div class="size-holder clearfix">
                                 <ul class="size-picker clearfix">
