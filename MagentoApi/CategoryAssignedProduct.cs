@@ -107,6 +107,93 @@ namespace Ez.Newsletter.MagentoApi
             get { return _set; }
             set { _set = value; }
         }
+
+        #region Taglie
+
+        private string _tg_36;
+        public string tg_36
+        {
+            get { return _tg_36; }
+            set { _tg_36 = value; }
+        }
+
+        private string _tg_37;
+        public string tg_37
+        {
+            get { return _tg_37; }
+            set { _tg_37 = value; }
+        }
+
+        private string _tg_38;
+        public string tg_38
+        {
+            get { return _tg_38; }
+            set { _tg_38 = value; }
+        }
+
+        private string _tg_39;
+        public string tg_39
+        {
+            get { return _tg_39; }
+            set { _tg_39 = value; }
+        }
+
+        private string _tg_40;
+        public string tg_40
+        {
+            get { return _tg_40; }
+            set { _tg_40 = value; }
+        }
+
+        private string _tg_41;
+        public string tg_41
+        {
+            get { return _tg_41; }
+            set { _tg_41 = value; }
+        }
+
+        private string _tg_42;
+        public string tg_42
+        {
+            get { return _tg_42; }
+            set { _tg_42 = value; }
+        }
+
+        private string _tg_43;
+        public string tg_43
+        {
+            get { return _tg_43; }
+            set { _tg_43 = value; }
+        }
+
+        private string _tg_44;
+        public string tg_44
+        {
+            get { return _tg_44; }
+            set { _tg_44 = value; }
+        }
+
+        private string _tg_45;
+        public string tg_45
+        {
+            get { return _tg_45; }
+            set { _tg_45 = value; }
+        }
+
+        private string _tg_46;
+        public string tg_46
+        {
+            get { return _tg_46; }
+            set { _tg_46 = value; }
+        }
+
+        private string _tg_47;
+        public string tg_47
+        {
+            get { return _tg_47; }
+            set { _tg_47 = value; }
+        }
+        #endregion Taglie
         #endregion
 
         #region Constructor

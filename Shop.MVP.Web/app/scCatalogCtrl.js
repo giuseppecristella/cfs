@@ -1,11 +1,7 @@
 ﻿
-
 app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
-    $scope.model = { id: 1, name: "Giuseppe" };
-    $scope.products = [{ id: 1, name: "Giu" }, { id: 2, name: "Giu2" }];
-    //$scope.catalog = catalog.query();
-    //var a = $location.search();
 
+    // Recupera il nome categoria dall'url ed esegue la chiamata Ajax
     $scope.categoryName = $filter('_uriseg')(1);
 
     $http({
@@ -23,7 +19,8 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
 
     $scope.categories = ['Patrizia Azzi', 'Fly Flot', 'In Blu'];
     $scope.colors = ['Bianco', 'Nero', 'Rosso', 'Avio'];
-    $scope.category = { selected: 'all' };
+    $scope.sizes = ['34','35','36','37','38','39','40','41'];
+     
 
     $scope.filterPrice = 0;
     $scope.filter = { name: "all" };
@@ -56,7 +53,6 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         }
     };
 
-
     $scope.selectedColors = [];
     $scope.filterByColors = function (element) {
         if ($scope.filter.name == "all" || $scope.filter.name == "" || $scope.selectedColors.length == 0) return true;
@@ -81,7 +77,6 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
             $scope.selectedColors.push(color);
         }
     };
-   
 
     $scope.my = { favorite: "" };
 
@@ -90,9 +85,31 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         return element._price > $scope.priceRange[0] && element._price < $scope.priceRange[1] ? true : false;
     };
 
-    //$scope.filterColor = function (element) {
-    //    return element._name > $scope.priceRange[0] && element._price < $scope.priceRange[1] ? true : false;
-    //};
+    $scope.selectedSizes = [];
+    $scope.toggleSelectionSize = function toggleSelectionSize(size) {
+        $scope.filter.name = size;
+        var idx = $scope.selectedSizes.indexOf(size);
+
+        // is currently selected
+        if (idx > -1) {
+            $scope.selectedSizes.splice(idx, 1);
+        }
+            // is newly selected
+        else {
+            $scope.selectedSizes.push(size);
+        }
+    };
+
+    $scope.filterBySize = function (element) {
+        if ($scope.selectedSizes.length == 0) return true;
+        else {
+            var ret = false;
+            angular.forEach($scope.selectedSizes, function (selectedSize) {
+                if (element["_tg_" + selectedSize] > 1) ret = true;
+            });
+            return ret;
+        }
+    };
 
 });
 
