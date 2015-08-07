@@ -290,9 +290,6 @@
     <Content Include="assets\images\products\f1.jpg" />
     <Content Include="assets\images\products\f2.jpg" />
     <Content Include="assets\images\products\f3.jpg" />
-    <Content Include="assets\images\products\feature1.jpg" />
-    <Content Include="assets\images\products\feature2.jpg" />
-    <Content Include="assets\images\products\feature3.jpg" />
     <Content Include="assets\images\products\footer-image.jpg" />
     <Content Include="assets\images\products\mega1.jpg" />
     <Content Include="assets\images\products\mega2.jpg" />
