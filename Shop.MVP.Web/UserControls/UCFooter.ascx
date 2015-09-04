@@ -9,30 +9,18 @@
                     </div>
                     <div class="contact-info">
                         <address>
-                            <span class="address-title">Madrid</span>
-                            1st de la Chopera, 582<br>
-                            28124 Madrid<br>
-                            Tel. 91 421 42 22 | <a href="mailto:info@domain.com">info@domain.com</a>
-                        </address>
-                        <address>
-                            <span class="address-title">Valencia</span>
-                            Barcelona, 582-845<br>
-                            08464 Valencia<br>
-                            Tel. 93 947 51 53 | <a href="#">info@domain.com</a>
+                            <span class="address-title">Shop</span>
+                            Via Trieste, 1<br>
+                            74014 Laterza (TA)<br>
+                            Tel. 91 421 42 22 <br/><a href="mailto:info@calzafacile.com">info@calzafacile.com</a>
                         </address>
                     </div>
                     <div class="social-info">
-                        <span class="get-in-touch">Get in Touch</span>
+                        <span class="get-in-touch">Seguici sui Social</span>
                         <ul class="list-social-icons list-unstyled">
-                            <li><a class="icon icon-twitter21" href="#"></a></li>
-                            <li><a class="icon icon-facebook31" href="#"></a></li>
-                            <li><a class="icon icon-google29" href="#"></a></li>
-                            <li><a class="icon icon-linkedin11" href="#"></a></li>
-                            <li><a class="icon icon-tumblr12" href="#"></a></li>
-                            <li><a class="icon icon-dribbble6" href="#"></a></li>
-                            <li><a class="icon icon-lastfm4" href="#"></a></li>
+                            <li><a class="icon icon-facebook31" href="https://www.facebook.com/kalzafacile?fref=ts"></a></li>
+                             <li><a class="icon icon-google29" href="#"></a></li>
                         </ul>
-                        <!-- /.list-social-icons -->
                     </div>
                 </div>
                 <!-- /.col -->
@@ -40,85 +28,58 @@
                     <div class="footer-links">
                         <h3 class="links-title">Donna</h3>
                         <ul class="list-links list-unstyled">
-                            <li><a href="../MasterPages/categories-grid.html">Dresses</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Tops</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">T-shirts</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Playsuits</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Swimwear</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Skirts</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Shorts</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Jeans</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Trousers</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Leggings</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Loungewear</a></li>
+                            <li><a href="/donna-sneakers">Sneakers</a></li>
+                            <li><a href="/donna-ciabatte">Ciabatte</a></li>
+                            <li><a href="/donna-sandali">Sandali</a></li>
+                            <li><a href="/donna-infradito">Infradito</a></li>
+                            <li><a href="/donna-zeppe">Zeppe</a></li>
+                            <li><a href="../MasterPages/categories-grid.html">Borse</a></li>
+                            <li><a href="../MasterPages/categories-grid.html">Cinture</a></li>
                         </ul>
                     </div>
-                    <!-- /.footer-links -->
                 </div>
-                <!-- /.col -->
                 <div class="col-xs-12 col-sm-3 col-md-2">
                     <div class="footer-links">
                         <h3 class="links-title">Uomo</h3>
                         <ul class="list-links list-unstyled">
-                            <li><a href="../MasterPages/categories-grid.html">Blazers</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Coats</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Chinos</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Hoodies</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Jeans</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Joggers</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Polo Shirts</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Shirts</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Suits</a></li>
+                            <li><a href="/uomo-sneakers">Sneakers</a></li>
+                            <li><a href="/uomo-ciabatte">Ciabatte</a></li>
+                            <li><a href="/uomo-sandali">Sandali</a></li>
+                            <li><a href="/uomo-infradito">Infradito</a></li>
+                            <li><a href="/uomo-antinfortunistica">Antinfortunistica</a></li>
+                            <li><a href="/uomo-stivali-in-gomma">Stivali in gomma</a></li>
+                            <li><a href="/uomo-accessori">Accessori</a></li>
                         </ul>
                     </div>
-                    <!-- /.footer-links -->
                 </div>
-                <!-- /.col -->
                 <div class="col-xs-12 col-sm-3 col-md-2">
                     <div class="footer-links">
-                        <h3 class="links-title">Accessories</h3>
+                        <h3 class="links-title">Bambino</h3>
                         <ul class="list-links list-unstyled">
-                            <li><a href="../MasterPages/categories-grid.html">Accessories</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Bags</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Wallets</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Gift</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Jewellery</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Shoes</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Boots</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Sunglasses</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Watches</a></li>
+                            <li><a href="/bambino-sneakers">Sneakers</a></li>
+                            <li><a href="/bambino-ciabatte">Ciabatte</a></li>
+                            <li><a href="/bambino-sandali">Sandali</a></li>
+                            <li><a href="/bambino-infradito">Infradito</a></li>
                         </ul>
                     </div>
-                    <!-- /.footer-links -->
                 </div>
-                <!-- /.col -->
                 <div class="col-xs-12 col-sm-3 col-md-2">
                     <div class="footer-links">
-                        <h3 class="links-title">Information</h3>
+                        <h3 class="links-title">Informazioni</h3>
                         <ul class="list-links list-unstyled">
-                            <li><a href="../MasterPages/categories-grid.html">Your Account</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Return Policy</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">FAQs</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Manufactures</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Suppliers</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Specials</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Shorts</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Customer Service</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Lookbook</a></li>
+                            <li><a href="../MasterPages/categories-grid.html">Pagamenti</a></li>
+                            <li><a href="../MasterPages/categories-grid.html">Spedizioni</a></li>
+                            <li><a href="../MasterPages/categories-grid.html">Privacy</a></li>
+                            <li><a href="../MasterPages/categories-grid.html">Condizioni</a></li>
                         </ul>
                     </div>
-                    <!-- /.footer-links -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->
     </div>
-    <!-- /.contact-and-links -->
     <div class="copyright-bar">
         <div class="container clearfix">
-            <span class="pull-left">Copyright <a href="../MasterPages/home.html">Bewear</a>. 2015. Designed By: <a href="http://themeforest.net/user/bcube/" target="_blank">bcube</a></span>
+            <span class="pull-left">Copyright <a href="../MasterPages/home.html">Calzafacile</a>. 2015. Prodotto da: <a href="http://www.hardwaresistemi.com" target="_blank">Hardware Sistemi</a></span>
             <ul class="payment-methods pull-right list-unstyled">
                 <li>
                     <img src="../assets/images/payments/p1.png" alt=""></li>
@@ -126,12 +87,7 @@
                     <img src="../assets/images/payments/p2.png" alt=""></li>
                 <li>
                     <img src="../assets/images/payments/p3.png" alt=""></li>
-                <li>
-                    <img src="../assets/images/payments/p4.png" alt=""></li>
-                <li>
-                    <img src="../assets/images/payments/p5.png" alt=""></li>
             </ul>
         </div>
     </div>
-    <!-- /.copyright-bar -->
 </footer>

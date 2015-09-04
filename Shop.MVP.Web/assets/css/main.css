@@ -19,7 +19,7 @@ Table of Contents
 08. Pages : Blog
 09. Pages : Blog Post
 10. Pages : Catalog
-11. Pages : Categories Grid
+11. Pages : CategoriesDictionary Grid
 12. Pages : Checkout
 13. Pages : Contact
 14. Pages : Home
@@ -2152,10 +2152,15 @@ ul.bxslider {
                     color: #000000;
                 }
 
-        .size-holder .size-picker > li.active .attribute-radio + label {
+                .size-holder .size-picker > li .attribute-radio:checked + label {
+                    outline: 1px solid red; /*#696969;*/
+                    color: #000000;
+                }
+
+        /*.size-holder .size-picker > li.active .attribute-radio + label {
             outline: 1px solid #696969;
             color: #000000;
-        }
+        }*/
 
 .tab-nav-holder {
     display: block;
@@ -2713,7 +2718,7 @@ ul.bxslider {
         }
 
     .navbar .navbar-nav > li > a {
-        color: #231f20;
+        /*color: #231f20;*/
         font-size: 14px;
         letter-spacing: 0.05em;
         line-height: 1;
@@ -2933,7 +2938,7 @@ ul.bxslider {
             }
 
                 .navbar.navbar-black .container .navbar-brand img.logo {
-                    padding: 0 55px 0 0; 
+                    padding: 0 55px 0 0;
                     background-color: #111111;
                     border: none;
                 }
@@ -3577,11 +3582,11 @@ ul.bxslider {
         }
 
         .catalog-content .right-sidebar .sidebar .body .accordion .accordion-toggle {
-            color: #797979;
+            color: #000;
             display: block;
             font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 0.01em;
+            font-weight: 700;
+            letter-spacing: .1em;
             line-height: 24px;
         }
 

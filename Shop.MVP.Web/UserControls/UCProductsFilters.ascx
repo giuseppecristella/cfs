@@ -17,7 +17,7 @@
             <div class="accordion">
                 <div class="accordion-group">
                     <div class="accordion-heading">
-                        <a href="#collapseOne" data-toggle="collapse" class="accordion-toggle">Prezzo
+                        <a href="#collapseOne" data-toggle="collapse" class="accordion-toggle">PREZZO
                         </a>
                     </div>
                     <div class="accordion-body" id="collapseOne">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="accordion-group">
                     <div class="accordion-heading">
-                        <a href="#collapseTwo" data-toggle="collapse" class="accordion-toggle">Colore
+                        <a href="#collapseTwo" data-toggle="collapse" class="accordion-toggle">COLORE
                         </a>
                     </div>
                     <div class="accordion-body" id="collapseTwo">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="accordion-group">
                     <div class="accordion-heading">
-                        <a href="#collapse3" data-toggle="collapse" class="accordion-toggle">Taglie
+                        <a href="#collapse3" data-toggle="collapse" class="accordion-toggle">TAGLIE
                         </a>
                     </div>
                     <div class="accordion-body" id="collapse3">
@@ -56,7 +56,7 @@
                             <div class="size-holder clearfix">
                                 <ul class="size-picker clearfix">
                                     <li ng-repeat="size in sizes">
-                                        <input type="checkbox"  class="attribute-radio" id="{{size}}" ng-click="toggleSelectionSize(size)" ng-true-value="{{size}}" name="size" />
+                                        <input type="checkbox" class="attribute-radio" id="{{size}}" ng-click="toggleSelectionSize(size)" ng-true-value="{{size}}" name="size" />
                                         <label for="{{size}}">
                                             <span>{{size}}</span></label></li>
                                 </ul>

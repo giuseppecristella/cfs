@@ -44,6 +44,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CookComputing.XmlRpcV2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessDelegate\BusinessDelegate.cs" />
     <Compile Include="Presenters\CatalogoPresenter.cs" />
     <Compile Include="Models\CategoryAssignedProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

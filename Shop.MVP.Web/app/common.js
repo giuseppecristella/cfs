@@ -1,4 +1,5 @@
-﻿var _baseUrl = location.origin + "/";
+﻿//var _baseUrl = location.origin + "/";
+var _baseUrl = "http://localhost:4992/"; //http://www.calzafacile.com/
 
 app.filter('_uriseg', function ($location) {
     return function (segment) {

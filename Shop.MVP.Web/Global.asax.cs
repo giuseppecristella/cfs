@@ -11,6 +11,7 @@ namespace Shop.Web.Mvp
         protected void Application_Start(object sender, EventArgs e)
         {
 
+            InitializeMagentoApi();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
@@ -18,6 +19,10 @@ namespace Shop.Web.Mvp
         protected void Session_Start(object sender, EventArgs e)
         {
             // MagentoConnection.Instance.CacheManager = new AspnetCacheManager();
+        }
+
+        private static void InitializeMagentoApi()
+        {
             //MagentoConnection.Instance.Url = "http://www.zoom2cart.com/api/xmlrpc";
             MagentoConnection.Instance.Url = "http://www.calzafacileshop.com/api/xmlrpc";
             MagentoConnection.Instance.Password = "123456";

@@ -12,7 +12,6 @@ namespace MagentoRepository.Repository
 
         /// <summary>
         /// Restituisce l'albero delle categorie
-        /// Nota: struttura gerarchica per costruire il menu
         /// </summary>
         /// <param name="categoryId"></param>
         /// <returns></returns>
@@ -56,9 +55,9 @@ namespace MagentoRepository.Repository
             }
         }
 
-        public List<Category> GetCategoriesTree(string categoryId)
+        public List<Category> GetCategoriesTree()
         {
-            var category = Category.Tree(_connection.Url, _connection.SessionId, new object[] { categoryId });
+            var category = Category.Tree(_connection.Url, _connection.SessionId);
             return null;
         }
 

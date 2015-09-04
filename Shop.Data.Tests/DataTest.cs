@@ -2,7 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Xml.Schema;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -72,5 +76,42 @@ namespace Shop.Data.Tests
             }
         }
 
-     }
+        [TestMethod]
+        public void Should_Add_Product_To_Cart_Trought_WCF()
+        {
+            var request =
+                (HttpWebRequest)
+                    WebRequest.Create("http://localhost:4992/WCFService/CatalogDataService.svc/AddProductToSessionCart");
+            request.Method = "POST";
+            request.ContentType = @"Application/json";
+            string postData = @"[{\""name\"": \""s\""}]";
+            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+            // Set the ContentType property of the WebRequest.
+            // Set the ContentLength property of the WebRequest.
+            request.ContentLength = byteArray.Length;
+            // Get the request stream.
+            Stream dataStream = request.GetRequestStream();
+            // Write the data to the request stream.
+            dataStream.Write(byteArray, 0, byteArray.Length);
+            // Close the Stream object.
+            dataStream.Close();
+            // Get the response.
+            WebResponse response = request.GetResponse();
+
+
+
+            //var datacontractSerializer = new DataContractJsonSerializer(typeof(ProductCart));
+            //var productCart = new ProductCart { Name = "giuseppe" };
+
+            //using (var memoryStream = new MemoryStream())
+            //{
+            //    using (var reader = new StreamReader(memoryStream))
+            //    {
+            //        datacontractSerializer.WriteObject(memoryStream, productCart);
+            //        memoryStream.Position = 0;
+                  
+            //    }
+            //}
+        }
+    }
 }

@@ -1,5 +1,7 @@
+using System.Linq;
 using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
+using Shop.Web.Mvp.Infrastructure;
 
 namespace Shop.Web.Mvp
 {
@@ -10,13 +12,15 @@ namespace Shop.Web.Mvp
         var settings = new FriendlyUrlSettings { AutoRedirectMode = RedirectMode.Permanent };
         routes.EnableFriendlyUrls(settings);
 
-        routes.MapPageRoute("DonnaCiabatte", "donna-ciabatte", "~/Catalog/Products.aspx");
-        routes.MapPageRoute("DonnaSandali", "donna-sandali", "~/Catalog/Products.aspx");
-        routes.MapPageRoute("DonnaInfradito", "donna-infradito", "~/Catalog/Products.aspx");
-        routes.MapPageRoute("DonnaZeppe", "donna-zeppe", "~/Catalog/Products.aspx");
-        //routes.MapPageRoute("Landing", "Landing", "~/Landing/Default.aspx");
-        routes.MapPageRoute("Landing-2", "", "~/Landing/Default.aspx");
-
+        //routes.MapPageRoute("Landing-2", "", "~/Landing/Default.aspx");
+        routes.MapPageRoute("Home", "", "~/Home/Default.aspx");
+        foreach (var categoryName in App.CategoriesDictionary.Keys)
+        {
+            routes.MapPageRoute(categoryName, categoryName, "~/Catalog/Products.aspx");
+        }
+        // Prodotto Singolo
+        routes.MapPageRoute("ProdottoSingolo", "{productName}/{productId}", "~/Catalog/SingleProduct.aspx");
+        routes.MapPageRoute("ProdottoSingolo2", "prodotto/{productId}/{productName}", "~/Catalog/SingleProduct.aspx");
     }
   }
 }

@@ -112,7 +112,7 @@ namespace ShopMagentoApi.Test
             //Assert.AreEqual(product.product_id, "1");
 
             // Il prodotto non è in cache esegue la chiamata api
-            var product = repository.GetProductInfo("1");
+            var product = repository.GetProductInfo("117");
             Assert.IsNotNull(product, "Nessun risultato trovato per un Id prodotto valido");
 
             product = repository.GetProductInfo("123456");
@@ -218,27 +218,46 @@ namespace ShopMagentoApi.Test
         public void GetCategoryLevel()
         {
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
-            var rootCategory = repository.GetCategoryLevel("47") as Hashtable;
+            var rootCategory = repository.GetCategoryLevel("3") as Hashtable;
 
-            var subCategories = (rootCategory["children"] as object[]).ToList();
+            var mainLevelCategories = (rootCategory["children"] as object[]).ToList();
 
+            var query = mainLevelCategories.Select(sc => sc as XmlRpcStruct).FirstOrDefault(a => a["name"].ToString().Equals("Uomo"));
 
-          //  subCategories.Select(sc => sc as XmlRpcStruct).Where(a=>a["name"]=)
-            var query = subCategories.Select(sc => sc as XmlRpcStruct).Where(a => a["name"].ToString().Equals("Complementi"));
+            var categoryNames = mainLevelCategories.Select(sc => sc as XmlRpcStruct).Select(a => a["name"].ToString()).ToList();
 
-            var categoryNames = subCategories.Select(sc => sc as XmlRpcStruct).Select(a => a["name"].ToString()).ToList();
-
-            var first = categoryNames.FirstOrDefault(cn => cn.Equals("Complementi"));
+            var first = categoryNames.FirstOrDefault(cn => cn.Equals("Uomo"));
 
             //subCategories.Where(s =>  s["name"] == "Arredi");
             Assert.IsNotNull(rootCategory, "Nessun risultato per un Id categoria valido");
         }
 
         [TestMethod]
+        public void Should_Create_Categories_Dictionary()
+        {
+            var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
+            var rootCategory = repository.GetCategoryLevel("3") as Hashtable;
+
+            var mainLevelCategories = (rootCategory["children"] as object[]).ToList();
+            var categoriesWithChildrens = mainLevelCategories.Select(sc => sc as XmlRpcStruct).Where(a => ((object[])a["children"]).Length > 0);
+
+            Dictionary<string, string> categories = new Dictionary<string, string>();
+
+            foreach (var c in categoriesWithChildrens)
+            {
+                var secondlevelCategories = (c["children"] as object[]).ToList();
+                foreach (XmlRpcStruct secondlevelCat in secondlevelCategories)
+                {
+                    categories.Add(string.Format("{0}-{1}", c["name"], secondlevelCat["name"]), secondlevelCat["category_id"].ToString());
+                }
+            }
+        }
+
+        [TestMethod]
         public void GetCategoryTree()
         {
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
-            var categories = repository.GetCategoriesTree("47");
+            var categories = repository.GetCategoriesTree();
 
         }
 

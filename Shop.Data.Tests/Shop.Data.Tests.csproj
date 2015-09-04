@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="DataTest.cs" />
     <Compile Include="Other Tests\MailManagerTest.cs" />
+    <Compile Include="ProductCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
