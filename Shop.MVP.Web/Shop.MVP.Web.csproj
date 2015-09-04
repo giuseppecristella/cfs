@@ -345,6 +345,8 @@
     <Content Include="assets\js\scripts.js" />
     <Content Include="assets\js\scripts.min.js" />
     <Content Include="assets\js\wow.min.js" />
+    <Content Include="Home\Default.aspx" />
+    <Content Include="Home\UserControls\UCShowcaseProducts.ascx" />
     <Content Include="Template\Documentation\assets\css\documenter_style.css" />
     <Content Include="Template\Documentation\assets\css\img\info.png" />
     <Content Include="Template\Documentation\assets\css\img\warning.png" />
@@ -790,8 +792,6 @@
     <Content Include="Template\PHP\assets\js\scripts.js" />
     <Content Include="Template\PHP\assets\js\scripts.min.js" />
     <Content Include="Template\PHP\assets\js\wow.min.js" />
-    <Content Include="TestStaticField.aspx" />
-    <Content Include="WCFService\CatalogDataService.svc" />
     <Content Include="Catalogo.aspx" />
     <Content Include="Catalog\Products.aspx" />
     <Content Include="Catalog\SingleProduct.aspx" />
@@ -822,10 +822,8 @@
     <Content Include="Css\prettyPhoto.css" />
     <Content Include="Css\slider.css" />
     <Content Include="Css\style.css" />
-    <Content Include="Home\Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="home.html" />
-    <Content Include="Home\UserControls\UCShowcaseProducts.ascx" />
     <Content Include="Landing\assets\demo\logo.png" />
     <Content Include="Landing\assets\demo\partners\envato.png" />
     <Content Include="Landing\assets\demo\partners\oneclicklab.png" />
@@ -873,6 +871,7 @@
     <Content Include="UserControls\UCHeader.ascx" />
     <Content Include="UserControls\UCProductsFilters.ascx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="WCFService\CatalogDataService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -886,15 +885,22 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="TestStaticField.aspx.cs">
-      <DependentUpon>TestStaticField.aspx</DependentUpon>
+    <Compile Include="Home\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TestStaticField.aspx.designer.cs">
-      <DependentUpon>TestStaticField.aspx</DependentUpon>
+    <Compile Include="Home\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WCFService\CatalogDataService.svc.cs">
-      <DependentUpon>CatalogDataService.svc</DependentUpon>
+    <Compile Include="Home\UserControls\UCShowcaseProducts.ascx.cs">
+      <DependentUpon>UCShowcaseProducts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\UserControls\UCShowcaseProducts.ascx.designer.cs">
+      <DependentUpon>UCShowcaseProducts.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\PageManager\PageManager.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Catalog\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
@@ -910,14 +916,6 @@
     <Compile Include="Catalog\SingleProduct.aspx.designer.cs">
       <DependentUpon>SingleProduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Home\UserControls\UCShowcaseProducts.ascx.cs">
-      <DependentUpon>UCShowcaseProducts.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home\UserControls\UCShowcaseProducts.ascx.designer.cs">
-      <DependentUpon>UCShowcaseProducts.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="WCFService\ICatalogDataService.cs" />
     <Compile Include="Infrastructure\Cache\AspnetCacheManager.cs" />
     <Compile Include="Catalogo.aspx.cs">
       <DependentUpon>Catalogo.aspx</DependentUpon>
@@ -927,19 +925,11 @@
       <DependentUpon>Catalogo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\App.cs" />
-    <Compile Include="Home\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\CategoryName.cs" />
     <Compile Include="Infrastructure\Configuration\Configuration.cs" />
-    <Compile Include="Infrastructure\PageManager\PageManager.cs" />
     <Compile Include="Landing\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1008,6 +998,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WCFService\CatalogDataService.svc.cs">
+      <DependentUpon>CatalogDataService.svc</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WCFService\ICatalogDataService.cs">
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
