@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Web;
-using Shop.Core.Cache;
+using Shop.Common;
 
 namespace Shop.Web.Mvp.Infrastructure.Cache
 {
     /// <summary>
     /// Summary description for CacheManager
     /// </summary>
-    public class AspnetCacheManager: ICacheManager
+    public class AspnetCacheManager : Shop.Common.Cache.ICacheManager
     {
   
         public void Add(string key, object value)

@@ -1,5 +1,5 @@
 ﻿using MagentoRepository.Repository;
-using Shop.MVP.Core;
+using Shop.Core;
 
 namespace Shop.Web.Mvp.Infrastructure.PageManager
 {

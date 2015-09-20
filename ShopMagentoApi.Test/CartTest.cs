@@ -1,9 +1,11 @@
-﻿using Ez.Newsletter.MagentoApi;
+﻿using System.Collections.Generic;
+using Ez.Newsletter.MagentoApi;
 using MagentoBusinessApi.Test;
 using MagentoComunication.Helpers;
 using MagentoRepository.Connection;
 using MagentoRepository.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Shop.Core.BusinessDelegate;
 using Shop.Core.Cache;
 using CookComputing.XmlRpc;
 
@@ -157,6 +159,24 @@ namespace ShopMagentoApi.Test
         {
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
             var paymentMethods = repository.GetPaymentMethods(579);
+        }
+
+        [TestMethod]
+        public void Should_Create_Complete_Cart()
+        {
+
+            var customer = new Customer
+            {
+                customer_id = "10000"
+            };
+
+            var businessDelegateCart = new BusinessDelegate();
+
+            var customerAddresses = new List<CustomerAddress> { new CustomerAddress { city = "Laterza" } };
+            var products = new List<Product>();
+            var paymentMethod = new PaymentMethod();
+
+            businessDelegateCart.CreateCart(customer, customerAddresses, products, "shippingMethodDummy", paymentMethod);
         }
 
         #region Private Methods

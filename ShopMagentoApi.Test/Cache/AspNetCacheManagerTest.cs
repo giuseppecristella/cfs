@@ -1,10 +1,9 @@
-﻿using Shop.Core.Cache;
-using System;
+﻿using System;
 using System.Web;
 
 namespace MagentoBusinessApi.Test
 {
-  public class AspNetCacheManagerTest : ICacheManager
+    public class AspNetCacheManagerTest : Shop.Common.Cache.ICacheManager
   {
 
     public void Add(string key, object value)

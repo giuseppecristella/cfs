@@ -1,4 +1,5 @@
 ﻿using MagentoComunication.Helpers;
+using Shop.Common.Cache;
 using Shop.Core.Cache;
 
 namespace MagentoRepository.Connection

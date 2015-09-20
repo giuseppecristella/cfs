@@ -5,8 +5,7 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using CookComputing.XmlRpc;
 using Ez.Newsletter.MagentoApi;
-using Shop.MVP.Core;
-using Shop.MVP.Core.BusinessDelegate;
+using Shop.Core.BusinessDelegate;
 using Shop.Web.Mvp.Infrastructure;
 using Shop.Web.Mvp.UserControls;
 

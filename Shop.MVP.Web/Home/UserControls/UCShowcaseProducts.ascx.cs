@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Shop.MVP.Core;
-using Shop.MVP.Core.BusinessDelegate;
+using Shop.Core.BusinessDelegate;
 using Shop.Web.Mvp.Infrastructure;
 
 namespace Shop.Web.Mvp.Home.UserControls

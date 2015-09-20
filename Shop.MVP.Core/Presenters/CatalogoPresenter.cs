@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MagentoComunication.Helpers;
 using MagentoRepository.Repository;
+using Shop.Core;
 using Shop.MVP.Core.Models;
 using Shop.MVP.Core.Views;
 

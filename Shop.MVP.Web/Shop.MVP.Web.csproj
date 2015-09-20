@@ -1272,6 +1272,10 @@
       <Project>{884400F1-60BD-4E00-9272-30F1988365A2}</Project>
       <Name>MagentoComunication</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Shop.Common\Shop.Common.csproj">
+      <Project>{b7216bcb-b569-48ce-88d0-c206ce848901}</Project>
+      <Name>Shop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Shop.Data\Shop.Data.csproj">
       <Project>{e6290a49-e43d-47eb-9a9d-8db6e8cceece}</Project>
       <Name>Shop.Data</Name>
@@ -1279,10 +1283,6 @@
     <ProjectReference Include="..\Shop.Infrastructure\Shop.Core.csproj">
       <Project>{ae8def92-6ca5-4fa0-91e6-fc1494c00954}</Project>
       <Name>Shop.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Shop.MVP.Core\Shop.MVP.Core.csproj">
-      <Project>{da5c799d-7170-452b-abf2-0f2c4e7eaacf}</Project>
-      <Name>Shop.MVP.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

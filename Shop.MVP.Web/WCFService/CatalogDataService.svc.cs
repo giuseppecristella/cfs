@@ -3,7 +3,7 @@ using System.ServiceModel.Activation;
 using System.Web;
 using System.Web.Script.Services;
 using Ez.Newsletter.MagentoApi;
-using Shop.MVP.Core.BusinessDelegate;
+using Shop.Core.BusinessDelegate;
 using Shop.Web.Mvp.Infrastructure;
 
 namespace Shop.Web.Mvp
