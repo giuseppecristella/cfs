@@ -21,7 +21,7 @@ namespace ShopMagentoApi.Test
         [TestInitialize]
         public void TestInitialize()
         {
-            MagentoConnection.Instance.Url = "http://www.zoom2cart.com/api/xmlrpc";
+            MagentoConnection.Instance.Url = "http://www.calzafacileshop.com/api/xmlrpc";
             MagentoConnection.Instance.UserId = "ws_user";
             MagentoConnection.Instance.Password = "123456";
             MagentoConnection.Instance.CacheManager = FakeCacheManager;
@@ -111,12 +111,15 @@ namespace ShopMagentoApi.Test
         }
 
         /// <summary>
-        /// Solo per creare un carrello di test
+        /// 
+        /// La nuova versione di magento restituiva un errore nella chiamata al metodo
+        /// Cart.AddProduct sostituito il file php in:
+        /// /public_html/app/code/core/Mage/Checkout/Model/Cart/Product
         /// </summary>
         [TestMethod]
         public void Should_Create_Cart_In_Magento()
         {
-            var customerId = 33;
+            var customerId = 1;
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
             var cart = repository.CreateCart();
             var customer = repository.GetCustomerById(customerId);
@@ -126,13 +129,21 @@ namespace ShopMagentoApi.Test
             var customerAddresses = repository.GetCustomerAddresses(customerId);
 
             customerAddresses[0].mode = "billing";
-            customerAddresses[1].mode = "shipping";
+            //customerAddresses[1].mode = "shipping";
 
             var areCustomerAddressesAddedToCart = repository.AddCustomerAddressesToCart(cart, customerAddresses);
 
-            var product = GetProductById("538");
-            repository.AddProductToCart(cart, product);
-
+            var productId = "118";
+            var product = GetProductById(productId);
+            var products = new List<Product>();
+            products.Add(product);
+            var p = new Product
+            {
+                product_id = "1",
+                sku = "ddd",
+                qty = "3"
+            };
+            repository.AddProductToCart(cart, p);
 
             var paymentMethods = repository.GetPaymentMethods(cart);
 
@@ -145,7 +156,7 @@ namespace ShopMagentoApi.Test
             var key = ConfigurationHelper.CacheKeyNames;
 
             //var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
-            //var cartId = repository.CreateCart();
+            //var cartId = repository.CheckOut();
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
             var customer = repository.GetCustomerById(33);
             customer.mode = "register";
@@ -162,21 +173,52 @@ namespace ShopMagentoApi.Test
         }
 
         [TestMethod]
-        public void Should_Create_Complete_Cart()
+        public void Should_Create_Checkout()
         {
-
-            var customer = new Customer
-            {
-                customer_id = "10000"
-            };
+            var customerId = 1;
+            var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
+            var customer = repository.GetCustomerById(customerId);
 
             var businessDelegateCart = new BusinessDelegate();
 
-            var customerAddresses = new List<CustomerAddress> { new CustomerAddress { city = "Laterza" } };
+            var customerAddresses = new List<CustomerAddress>
+            {
+                new CustomerAddress
+                {
+                    firstname = "Giuseppe", 
+                    lastname = "Cristella",
+                    city = "Laterza",
+                    street = "via puccini",
+                    postcode = "123",
+                    region = "ita",
+                    telephone = "3497154012",
+                    country_id = "2",
+                    mode = "shipping"
+                },
+                new CustomerAddress
+                {
+                    firstname = "Giuseppe", 
+                    lastname = "Cristella",
+                    city = "Laterza",
+                    street = "via puccini",
+                    postcode = "123",
+                    region = "ita",
+                    telephone = "3497154012",
+                    country_id = "2",
+                    mode = "billing"
+                }
+            };
             var products = new List<Product>();
+            var p = new Product
+            {
+                product_id = "1",
+                sku = "ddd",
+                qty = "3"
+            };
+            products.Add(p);
             var paymentMethod = new PaymentMethod();
 
-            businessDelegateCart.CreateCart(customer, customerAddresses, products, "shippingMethodDummy", paymentMethod);
+            businessDelegateCart.CheckOut(customer, customerAddresses, products, "shippingMethodDummy", paymentMethod);
         }
 
         #region Private Methods

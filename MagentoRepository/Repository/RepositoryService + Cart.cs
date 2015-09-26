@@ -71,6 +71,24 @@ namespace MagentoRepository.Repository
             }
         }
 
+        public bool AddProductsToCart(int cartId, List<Product> products)
+        {
+            try
+            {
+                return Cart.cartProductAdd(_connection.Url, _connection.SessionId, new object[] { cartId, products.ToList() });
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        ///  Get the list of available payment methods for a shopping cart
+        /// http://www.magentocommerce.com/api/soap/checkout/cartPayment/cartPayment.html
+        /// </summary>
+        /// <param name="cartId"></param>
+        /// <returns></returns>
         public List<PaymentMethod> GetPaymentMethods(int cartId)
         {
             try

@@ -17,7 +17,7 @@ namespace ShopMagentoApi.Test
         [TestInitialize]
         public void TestInitialize()
         {
-            MagentoConnection.Instance.Url = "http://www.zoom2cart.com/api/xmlrpc";
+            MagentoConnection.Instance.Url = "http://www.calzafacileshop.com/api/xmlrpc";
             MagentoConnection.Instance.UserId = "ws_user";
             MagentoConnection.Instance.Password = "123456";
         }

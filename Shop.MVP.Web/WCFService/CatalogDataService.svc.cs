@@ -37,7 +37,7 @@ namespace Shop.Web.Mvp
         /// <returns></returns>
         public List<CategoryAssignedProduct> GetProductsByCategoryName(string categoryName)
         {
-            return _businessDelegate.GetProductsByCategoryId(App.CategoriesDictionary[categoryName]);
+            return !App.CategoriesDictionary.ContainsKey(categoryName) ? null : _businessDelegate.GetProductsByCategoryId(App.CategoriesDictionary[categoryName]);
         }
 
         public bool AddProductToSessionCart(List<ProductCart> products)
