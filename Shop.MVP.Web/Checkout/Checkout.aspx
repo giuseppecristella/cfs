@@ -89,27 +89,8 @@
                             </form>
                         </div>
                     </section>
-
-                    <div class="col-md-3">
-                        <%-- <section class="shipping-method">
-                            <header>
-                                <h3 class="section-title"><span class="step-no">2.</span> Come vuoi pagare?</h3>
-                            </header>
-                            <ul class="shipping-methods list-unstyled">
-                                <li class="radio">
-                                    <label>
-                                        <input type="radio" name="shipping-method">
-                                        Standard $8.99 <small>(3-7 business days)</small></label></li>
-                                <li class="radio">
-                                    <label>
-                                        <input type="radio" name="shipping-method">
-                                        Two Days $12.99 <small>(2 business days)</small></label></li>
-                                <li class="radio">
-                                    <label>
-                                        <input type="radio" name="shipping-method">
-                                        Next Day $15.99 <small>(2 business day)</small></label></li>
-                            </ul>
-                        </section>--%>
+                    <div class="col-md-1">&nbsp;</div>
+                    <div class="col-md-7">
                         <section class="shipping-method">
                             <header>
                                 <h3 class="section-title"><span class="step-no">2.</span> Come vuoi pagare ?</h3>
@@ -124,64 +105,65 @@
                                         <input type="radio" name="payment-method">
                                         Bonifico</label></li>
                             </ul>
+                            <br/><br/>
+                            <header>
+                                <h3 class="section-title"><span class="step-no">3.</span> Ecco il tuo Ordine</h3>
+                            </header>
+                            <table class="table order-review-table">
+                                <thead>
+                                    <tr>
+                                        <th>Prodotti</th>
+                                        <th>SubTotale</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Subtotal</th>
+                                        <td>$424.99</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Shipping &amp; Handling</th>
+                                        <td>$8.99</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Grand Total</th>
+                                        <td>
+                                            <div class="prices">$432.99</div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr ng-repeat="product in cartProducts">
+                                        <td>
+                                            <div class="product media">
+                                                <div class="media-left">
+                                                    <img src="assets/images/blank.gif" width="80" data-echo="{{ product.image }}" alt="{{ product.name }}" class="media-object">
+                                                </div>
+                                                <div class="media-body media-middle">
+                                                    <h3 class="product-title"><span class="product-quantity">{{ product.count }} x</span> {{ product.name }}</h3>
+                                                    <ul class="product-attributes">
+                                                        <li>Color : Verdigris Red</li>
+                                                        <li>Size : L</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="prices">
+                                                € {{ product.price }}
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div class="checkout-action text-right">
+                                <button class="btn btn-primary">Checkout</button>
+                            </div>
                         </section>
                     </div>
-                    <section class="col-md-5">
-                        <header>
-                            <h3 class="section-title"><span class="step-no">3.</span> Ecco il tuo Ordine</h3>
-                        </header>
-                        <table class="table order-review-table">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Subtotal</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Subtotal</th>
-                                    <td>$424.99</td>
-                                </tr>
-                                <tr>
-                                    <th>Shipping &amp; Handling</th>
-                                    <td>$8.99</td>
-                                </tr>
-                                <tr>
-                                    <th>Grand Total</th>
-                                    <td>
-                                        <div class="prices">$432.99</div>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <tr ng-repeat="product in cartProducts">
-                                    <td>
-                                        <div class="product media">
-                                            <div class="media-left">
-                                                <img src="assets/images/blank.gif" width="80" data-echo="{{ product.image }}" alt="{{ product.name }}" class="media-object">
-                                            </div>
-                                            <div class="media-body media-middle">
-                                                <h3 class="product-title"><span class="product-quantity">{{ product.count }} x</span> {{ product.name }}</h3>
-                                                <ul class="product-attributes">
-                                                    <li>Color : Verdigris Red</li>
-                                                    <li>Size : L</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="prices">
-                                            € {{ product.price }}
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                        <div class="checkout-action text-right">
-                            <button class="btn btn-primary">Checkout</button>
-                        </div>
-                    </section>
+                    <%--   <section class="col-md-1">
+                    </section>--%>
                 </div>
             </section>
         </div>

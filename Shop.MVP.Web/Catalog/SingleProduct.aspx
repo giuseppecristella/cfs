@@ -25,7 +25,6 @@
                                                 <li>
                                                     <a href="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>">
                                                         <img src="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" alt="" />
-                                                        <%--<img src="/assets/images/blank.gif" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" data-echo="<%= ProductViewModel.imageurl %>" alt="" />--%>
                                                         <span class="zoom-overlay"></span>
                                                     </a>
                                                 </li>
@@ -48,6 +47,7 @@
                                     </a>
                                     <a href="#reviews" class="review-link">(4 reviews)</a>
                                 </div>
+                                <asp:HiddenField runat="server" ID="hfProductID" Value="<%# ProductViewModel.product_id %>"/>
                                 <h1 class="single-product-title"><%= ProductViewModel.name %></h1>
                                 <div class="product-brand">Calvin Klein</div>
                                 <div class="product-price">
@@ -74,7 +74,7 @@
                                                 <ItemTemplate>
                                                     <li>
                                                         <%--<asp:RadioButton OnCheckedChanged="rbSize_OnCheckedChanged" AutoPostBack="True" Text='<%#Eval("Name") %>' ID="rbSize"  runat="server"/>--%>
-                                                        <input id='<%# Eval("Name") %>' class="attribute-radio" type="radio" name="group" />
+                                                        <input id='<%# Eval("Name") %>' ng-click="<%#  string.Format("selectSize('{0}')", Eval ("name")) %>" class="attribute-radio" type="radio" name="group" />
                                                         <label for='<%# Eval("Name") %>'>
                                                             <span><%# Eval("Name") %></span>
                                                         </label>
@@ -90,7 +90,7 @@
                                             <span class="key">Qta.:</span>
                                             <input type="number" class="txt txt-qty" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>
-                                        <button type="submit" class="btn btn-primary single-add-cart-button">Compralo Ora</button>
+                                        <input ng-disabled="sizeNotChecked" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora">
                                         <a href="checkout.html" title="Wishlist" class="btn add-to-wishlist">add to wishlist</a>
                                     </div>
                                 </div>

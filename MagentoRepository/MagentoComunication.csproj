@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Connection\IMagentoConnection.cs" />
     <Compile Include="Enum\OrderStatus.cs" />
+    <Compile Include="Helpers\CommonHelper.cs" />
     <Compile Include="Helpers\ConfigurationHelper.cs" />
     <Compile Include="Repository\RepositoryService + Orders.cs" />
     <Compile Include="Repository\RepositoryService +Customers.cs" />

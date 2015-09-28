@@ -114,25 +114,52 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
 
     // inizializzare il carrello con i dati presenti in sessione
     $scope.cartProducts = [];
+    $scope.totalCartPrice = 0;
+    $http({
+        url: "/WCFService/CatalogDataService.svc/GetProductsFromSessionCart",
+        method: "GET"
+    }).success(function (data) {
+        if (data) {
+            $scope.cartProducts = data;
+            
+            angular.forEach($scope.cartProducts, function (p) {
+                $scope.totalCartItems += p.qta;
+            });
+            $scope.totalCartPrice = 0;
+            angular.forEach($scope.cartProducts, function (p) {
+                $scope.totalCartPrice += p.qta * p.price;
+            });
+
+        }
+    });
+
+    $scope.addProductToCartFromUI = function (id, name, price) {
+        // recupero la size da $scope.sizeName
+        var product = { _product_id: id, _price: price, _name: name };
+        $scope.addProductToCart(product);
+    }
 
     $scope.addProductToCart = function (product) {
-       
+
         var addedToExistingItem = false;
         for (var i = 0; i < $scope.cartProducts.length; i++) {
-            if ($scope.cartProducts[i].id == product._product_id) {
-                $scope.cartProducts[i].count++;
+            if ($scope.cartProducts[i].id == product._product_id && $scope.cartProducts[i].size == $scope.selectedSize) {
+                $scope.cartProducts[i].qta++;
                 addedToExistingItem = true;
-                $scope.totalCartItems += 1;
                 break;
             }
         }
         if (!addedToExistingItem) {
             $scope.cartProducts.push({
-                count: 1, id: product._product_id, price: product._price, name: product._name, image: product._imageurl
-            });
-            $scope.saveSessionCart();
-            $scope.totalCartItems = ($scope.cartProducts) ? $scope.cartProducts.length : 0;
+                qta: 1, id: product._product_id, price: product._price, name: product._name, size: $scope.selectedSize
+            });         
         }
+        $scope.totalCartPrice = 0;
+        angular.forEach($scope.cartProducts, function (p) {
+            $scope.totalCartPrice += p.qta * p.price;
+        });
+        $scope.saveSessionCart();
+        $scope.totalCartItems += 1;
     };
 
     $scope.removeProductToCart = function (product) {
@@ -145,31 +172,28 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
             }
         }
     };
-
+    // Viene Salvato l'intero carrello in sessione (non il singolo prodotto)
     $scope.saveSessionCart = function () {
         $http({
             url: "/WCFService/CatalogDataService.svc/AddProductToSessionCart",
             method: "POST",
             data: $scope.cartProducts
         }).success(function (data) {
-
+            // toastr Message
         });
     }
-
-    $scope.getSessionCart = function () {
-        $http({
-            url: "/WCFService/CatalogDataService.svc/GetProductsFromSessionCart",
-            method: "GET"
-        }).success(function (data) {
-            if (data) {
-                $scope.cartProducts = data;
-            }
-        });
-    };
 
     $scope.getTotalCartItems = function () {
         $scope.totalCartItems = $scope.cartProducts.length - 1;
     }
+
+    $scope.sizeNotChecked = true;
+    $scope.selectedSize = "";
+
+    $scope.selectSize = function (sizeName) {
+        $scope.sizeNotChecked = false;
+        $scope.selectedSize = sizeName;
+    };
 
 });
 

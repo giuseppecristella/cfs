@@ -22,6 +22,15 @@ namespace Shop.Web.Mvp.Catalog {
         protected global::Shop.Web.Mvp.UserControls.UCBreadcrumbs UCBreadcrumbs;
         
         /// <summary>
+        /// hfProductID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfProductID;
+        
+        /// <summary>
         /// rptSizes control.
         /// </summary>
         /// <remarks>

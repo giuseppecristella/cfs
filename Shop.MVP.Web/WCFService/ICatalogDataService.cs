@@ -19,7 +19,6 @@ namespace Shop.Web.Mvp
         List<CategoryAssignedProduct> GetProductsByCategoryName(string categoryName);
 
         [OperationContract]
-
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "POST", RequestFormat = WebMessageFormat.Json)]
         bool AddProductToSessionCart(List<ProductCart> products);
 
@@ -37,13 +36,16 @@ namespace Shop.Web.Mvp
         [DataMember(Name = "name")]
         public string Name { get; set; }
 
-        [DataMember(Name = "count")]
-        public int Count { get; set; }
+        [DataMember(Name = "qta")]
+        public int Qta { get; set; }
 
         [DataMember(Name = "price")]
         public int Price { get; set; }
 
         [DataMember(Name = "image")]
         public string Image { get; set; }
+
+        [DataMember(Name = "size")]
+        public string Size { get; set; }
     }
 }

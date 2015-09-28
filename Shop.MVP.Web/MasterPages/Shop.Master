@@ -25,7 +25,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body ng-app="app" ng-controller="scCatalogCtrl" ng-init="getSessionCart()">
+<body ng-app="app" ng-controller="scCatalogCtrl" >
     <form id="form1" runat="server">
         <div class="wrapper">
             <uc1:UCHeader runat="server" ID="UCHeader" />
@@ -35,9 +35,9 @@
         </div>
         <div id="shopping-cart-summary" class="navmenu-shopping-cart navmenu navmenu-default navmenu-fixed-right offcanvas">
             <header>
-                <h3 class="section-title">Items <span class="item-count">4</span></h3>
+                <h3 class="section-title">Articoli <span class="item-count">{{ totalCartItems }}</span></h3>
                 <ul class="currency-block animate-dropdown">
-                    <li class="dropdown">
+                    <%--<li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false"><strong>$</strong> US Dollars</a>
                         <ul role="menu" class="dropdown-menu">
                             <li role="presentation"><a href="#" tabindex="-1" role="menuitem">EU Euro</a></li>
@@ -45,7 +45,7 @@
                             <li role="presentation"><a href="#" tabindex="-1" role="menuitem">INR Indian Rupee</a></li>
                             <li role="presentation"><a href="#" tabindex="-1" role="menuitem">US Dollars</a></li>
                         </ul>
-                    </li>
+                    </li>--%>
                 </ul>
             </header>
             <div class="cart-products">
@@ -61,13 +61,13 @@
                                     <div class="col-md-8 col-sm-8">
                                         <div class="cart-info">
                                             <div class="product-name">
-                                                <span class="quantity-formated"><span class="quantity">{{ product.count }}</span>x</span>
+                                                <span class="quantity-formated"><span class="quantity">{{ product.qta }}</span>x</span>
                                                 <a href="product-simple.html">{{ product.name }}
                                                 <br>
-                                                    shoulder path</a>
+                                                    {{ product.size }}</a>
                                             </div>
                                             <div class="product-price">
-                                                <span class='amount'>€ {{ product.price }}</span>
+                                                <span class='amount'>{{ product.price || currency }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
                     </ul>
                     <div class="cart-summary text-center inner-top-50">
                         <h5 class="cart-total">Your Total</h5>
-                        <p class="cart-total-price">$492.00</p>
+                        <p class="cart-total-price">{{ totalCartPrice }}</p>
                         <p class="instruction">shipping costs are calculated at the next step,before you pay.</p>
                         <a class="btn btn-primary btn-uppercase continue-shopping" href="checkout.html">continue to checkout</a>
                     </div>
