@@ -24,6 +24,7 @@
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -345,6 +346,8 @@
     <Content Include="assets\js\scripts.js" />
     <Content Include="assets\js\scripts.min.js" />
     <Content Include="assets\js\wow.min.js" />
+    <Content Include="Catalog\ProductsCatalogDonna.aspx" />
+    <Content Include="Catalog\ProductsCatalogUomo.aspx" />
     <Content Include="Checkout\Checkout.aspx" />
     <Content Include="Home\Default.aspx" />
     <Content Include="Home\UserControls\UCShowcaseProducts.ascx" />
@@ -886,6 +889,20 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Catalog\ProductsCatalogDonna.aspx.cs">
+      <DependentUpon>ProductsCatalogDonna.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\ProductsCatalogDonna.aspx.designer.cs">
+      <DependentUpon>ProductsCatalogDonna.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\ProductsCatalogUomo.aspx.cs">
+      <DependentUpon>ProductsCatalogUomo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\ProductsCatalogUomo.aspx.designer.cs">
+      <DependentUpon>ProductsCatalogUomo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Checkout\Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
