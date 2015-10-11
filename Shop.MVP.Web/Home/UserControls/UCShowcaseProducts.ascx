@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCShowcaseProducts.ascx.cs" Inherits="Shop.Web.Mvp.Home.UserControls.UCShowcaseProducts" %>
+<%@ Import Namespace="MagentoRepository.Helpers" %>
 <div class="row grid-view">
     <asp:Repeater runat="server" ID="rptShowcaseProducts">
         <ItemTemplate>
@@ -11,7 +12,7 @@
                     <div class="product-info m-t-20 text-center">
                         <h5 class="name uppercase"><a href="product-simple.html"><%#Eval("name") %></a></h5>
                         <div class="product-price">
-                            <ins><span class="amount">€. <%#Eval ("price") %></span></ins>
+                            <ins><span class="amount">€.<%# CommonHelper.FormatCurrency(Eval("price").ToString()) %></span></ins>
                         </div>
                         <div class="buttons-holder m-t-20">
                             <div class="add-cart-holder">

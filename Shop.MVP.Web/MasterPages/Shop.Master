@@ -9,6 +9,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <meta http-equiv="pragma" content="no-cache" />
     <title>
         <asp:Localize Text="<%$ Resources: Resources, ShopTitle %>" runat="server">Titolo</asp:Localize></title>
     <asp:PlaceHolder runat="server">
@@ -25,7 +26,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body ng-app="app" ng-controller="scCatalogCtrl" >
+<body ng-app="app" ng-controller="scCatalogCtrl">
     <form id="form1" runat="server">
         <div class="wrapper">
             <uc1:UCHeader runat="server" ID="UCHeader" />
@@ -35,17 +36,8 @@
         </div>
         <div id="shopping-cart-summary" class="navmenu-shopping-cart navmenu navmenu-default navmenu-fixed-right offcanvas">
             <header>
-                <h3 class="section-title">Articoli <span class="item-count">{{ totalCartItems }}</span></h3>
+                <h3 class="section-title">Articoli<span class="item-count">{{ totalCartItems }}</span></h3>
                 <ul class="currency-block animate-dropdown">
-                    <%--<li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false"><strong>$</strong> US Dollars</a>
-                        <ul role="menu" class="dropdown-menu">
-                            <li role="presentation"><a href="#" tabindex="-1" role="menuitem">EU Euro</a></li>
-                            <li role="presentation"><a href="#" tabindex="-1" role="menuitem">TL Turkish Lira</a></li>
-                            <li role="presentation"><a href="#" tabindex="-1" role="menuitem">INR Indian Rupee</a></li>
-                            <li role="presentation"><a href="#" tabindex="-1" role="menuitem">US Dollars</a></li>
-                        </ul>
-                    </li>--%>
                 </ul>
             </header>
             <div class="cart-products">
@@ -56,18 +48,18 @@
                                 <div class='row'>
                                     <div class="col-md-4 col-sm-4">
                                         <a href="product-simple.html">
-                                            <img width="80" height="110" src="assets/images/blank.gif" data-echo="{{ product.image }}" alt=""></a>
+                                            <img width="80" height="110" src="assets/images/blank.gif" data-echo="{{ product.image }}" alt="" /></a>
                                     </div>
                                     <div class="col-md-8 col-sm-8">
                                         <div class="cart-info">
                                             <div class="product-name">
                                                 <span class="quantity-formated"><span class="quantity">{{ product.qta }}</span>x</span>
                                                 <a href="product-simple.html">{{ product.name }}
-                                                <br>
-                                                    {{ product.size }}</a>
+                                                    <br />
+                                                    Taglia: {{ product.size }}</a>
                                             </div>
                                             <div class="product-price">
-                                                <span class='amount'>{{ product.price || currency }}</span>
+                                                <span class='amount'>{{ product.price | currency: "&euro;"}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -77,10 +69,10 @@
                         </li>
                     </ul>
                     <div class="cart-summary text-center inner-top-50">
-                        <h5 class="cart-total">Your Total</h5>
-                        <p class="cart-total-price">{{ totalCartPrice }}</p>
-                        <p class="instruction">shipping costs are calculated at the next step,before you pay.</p>
-                        <a class="btn btn-primary btn-uppercase continue-shopping" href="checkout.html">continue to checkout</a>
+                        <h5 class="cart-total">Totale</h5>
+                        <p class="cart-total-price">{{ totalCartPrice | currency: "&euro;" }}</p>
+                        <p class="instruction">I costi di spedizione verranno calcolati appena scegli il metodo di pagamento.</p>
+                        <a class="btn btn-primary btn-uppercase continue-shopping" href="checkout.html">vai alla cassa</a>
                     </div>
                 </div>
             </div>

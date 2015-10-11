@@ -18,7 +18,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
 
     // TODO: Recuperare i valori seguenti dal DB
     $scope.brands = ['Patrizia Azzi', 'Fly Flot', 'In Blu'];
-    $scope.colors = ['Bianco', 'Nero', 'Rosso', 'Avio'];
+    $scope.colors = ['18', '17', '21', '20'];
     // Donna Default
     $scope.sizes = ['34', '35', '36', '37', '38', '39', '40', '41'];
     if ($scope.categoryName.indexOf("uomo") > -1) {
@@ -61,12 +61,14 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         else {
             var ret = false;
             angular.forEach($scope.selectedColors, function (filter) {
-                if (element._name.indexOf(filter) > -1) ret = true;
+                //if (element._name.indexOf(filter) > -1) ret = true;
+                if (element._color.indexOf(filter) > -1) ret = true;
             });
             return ret;
         }
     };
     $scope.toggleSelectionColor = function toggleSelectionColor(color) {
+
         $scope.filter.name = color;
         var idx = $scope.selectedColors.indexOf(color);
 
@@ -121,7 +123,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
     }).success(function (data) {
         if (data) {
             $scope.cartProducts = data;
-            
+
             angular.forEach($scope.cartProducts, function (p) {
                 $scope.totalCartItems += p.qta;
             });
@@ -133,9 +135,9 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         }
     });
 
-    $scope.addProductToCartFromUI = function (id, name, price) {
+    $scope.addProductToCartFromUI = function (id, name, price, image) {
         // recupero la size da $scope.sizeName
-        var product = { _product_id: id, _price: price, _name: name };
+        var product = { _product_id: id, _price: price, _name: name, _imageurl: image };
         $scope.addProductToCart(product);
     }
 
@@ -151,12 +153,12 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         }
         if (!addedToExistingItem) {
             $scope.cartProducts.push({
-                qta: 1, id: product._product_id, price: product._price, name: product._name, size: $scope.selectedSize
-            });         
+                qta: 1, id: product._product_id, name: product._name, size: $scope.selectedSize, image: product._imageurl, price: product._price
+            });
         }
         $scope.totalCartPrice = 0;
         angular.forEach($scope.cartProducts, function (p) {
-            $scope.totalCartPrice += p.qta * p.price;
+            $scope.totalCartPrice += parseInt(p.qta) * p.price;
         });
         $scope.saveSessionCart();
         $scope.totalCartItems += 1;
@@ -192,7 +194,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
 
     $scope.selectSize = function (sizeName) {
         $scope.sizeNotChecked = false;
-        $scope.selectedSize = sizeName;
+        $scope.selectedSize = sizeName.replace("tg_", "");
     };
 
 });

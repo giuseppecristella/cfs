@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" EnableEventValidation="false" Language="C#" MasterPageFile="~/MasterPages/Shop.Master" AutoEventWireup="true" CodeBehind="SingleProduct.aspx.cs" Inherits="Shop.Web.Mvp.Catalog.SingleProduct" %>
 
 <%@ Import Namespace="Ez.Newsletter.MagentoApi" %>
+<%@ Import Namespace="MagentoRepository.Helpers" %>
 <%@ Register Src="~/UserControls/UCBreadcrumbs.ascx" TagPrefix="uc1" TagName="UCBreadcrumbs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -51,7 +52,7 @@
                                 <h1 class="single-product-title"><%= ProductViewModel.name %></h1>
                                 <div class="product-brand">Calvin Klein</div>
                                 <div class="product-price">
-                                    <ins><span class="amount">€. <%= ProductViewModel.price %></span></ins>
+                                    <ins><span class="amount">€. <%= CommonHelper.FormatCurrency(ProductViewModel.price) %></span></ins>
                                 </div>
                                 <div class="social-icons-holder">
                                     <ul class="social-icon-list clearfix">
@@ -76,7 +77,7 @@
                                                         <%--<asp:RadioButton OnCheckedChanged="rbSize_OnCheckedChanged" AutoPostBack="True" Text='<%#Eval("Name") %>' ID="rbSize"  runat="server"/>--%>
                                                         <input id='<%# Eval("Name") %>' ng-click="<%#  string.Format("selectSize('{0}')", Eval ("name")) %>" class="attribute-radio" type="radio" name="group" />
                                                         <label for='<%# Eval("Name") %>'>
-                                                            <span><%# Eval("Name") %></span>
+                                                            <span><%# Eval("Name").ToString().Replace("tg_",string.Empty) %></span>
                                                         </label>
                                                     </li>
                                                 </ItemTemplate>
@@ -90,7 +91,7 @@
                                             <span class="key">Qta.:</span>
                                             <input type="number" class="txt txt-qty" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>
-                                        <input ng-disabled="sizeNotChecked" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora">
+                                        <input ng-disabled="sizeNotChecked" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}','{3}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price, ProductViewModel.imageurl) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora">
                                         <a href="checkout.html" title="Wishlist" class="btn add-to-wishlist">add to wishlist</a>
                                     </div>
                                 </div>

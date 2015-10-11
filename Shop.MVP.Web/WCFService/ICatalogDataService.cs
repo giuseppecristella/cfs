@@ -40,7 +40,7 @@ namespace Shop.Web.Mvp
         public int Qta { get; set; }
 
         [DataMember(Name = "price")]
-        public int Price { get; set; }
+        public string Price { get; set; }
 
         [DataMember(Name = "image")]
         public string Image { get; set; }

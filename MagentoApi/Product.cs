@@ -51,8 +51,8 @@ namespace Ez.Newsletter.MagentoApi
         private const string _catalog_product_delete = "catalog_product.delete";
 
         private const string _catalog_product_peppe = "catalog_product.peppe";
-     
-       
+
+
 
         private string _custom_layout_update;
         private string _type;
@@ -115,14 +115,14 @@ namespace Ez.Newsletter.MagentoApi
         #endregion
 
         #region Private Properties
-        
+
         #endregion
 
         #region Public Properties
 
         private object[] _additional_attributes;
 
-        public object[] additional_attributes 
+        public object[] additional_attributes
         {
             get { return _additional_attributes; }
             set { _additional_attributes = value; }
@@ -485,7 +485,7 @@ namespace Ez.Newsletter.MagentoApi
         {
             get { return _price; }
             set { _price = value; }
-        } 
+        }
         #endregion
 
         #region Constructor
@@ -496,7 +496,7 @@ namespace Ez.Newsletter.MagentoApi
         #endregion
 
         #region Private Methods
-        
+
         #endregion
 
         #region Public Methods
@@ -513,7 +513,7 @@ namespace Ez.Newsletter.MagentoApi
             prox.Url = apiUrl;
             return prox.CurrentStore(sessionId, _catalog_product_currentStore, args);
         }
-        
+
         // method list products
         public static Product[] List(string apiUrl, string sessionId)
         {
@@ -546,9 +546,9 @@ namespace Ez.Newsletter.MagentoApi
 
 
         // method to create a product /*modifica per bestseller!!
-        
+
         // HO ESTESO L'API AGGIUNGENDO UNA NUOVA FUNZIONE!
-        
+
         public static Product[] Peppe(string apiUrl, string sessionId)
         {
             IProduct prox = (IProduct)XmlRpcProxyGen.Create(typeof(IProduct));
@@ -588,7 +588,7 @@ namespace Ez.Newsletter.MagentoApi
             return prox.Delete(sessionId, _catalog_product_delete, args);
         }
 
-        
+
 
         #endregion
 
@@ -626,7 +626,7 @@ namespace Ez.Newsletter.MagentoApi
 
             [XmlRpcMethod("call")]
             bool Delete(string sessionId, string method, object[] args);
-        } 
+        }
         #endregion
     }
 }

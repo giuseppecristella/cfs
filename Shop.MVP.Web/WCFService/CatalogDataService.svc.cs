@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel.Activation;
+using System.ServiceModel.Web;
 using System.Web;
 using System.Web.Script.Services;
 using Ez.Newsletter.MagentoApi;
@@ -40,8 +41,16 @@ namespace Shop.Web.Mvp
             return !App.CategoriesDictionary.ContainsKey(categoryName) ? null : _businessDelegate.GetProductsByCategoryId(App.CategoriesDictionary[categoryName]);
         }
 
+        /// <summary>
+        /// Recupera il prezzo dal db in modo da evitare manipolazioni lato client
+        /// e infine Aggiunge il prodotto al carrello persistendo i dati in sessione
+        /// </summary>
+        /// <param name="products"></param>
+        /// <returns></returns>
         public bool AddProductToSessionCart(List<ProductCart> products)
         {
+            SetPrice(products);
+
             if (HttpContext.Current.Session == null) return false;
             HttpContext.Current.Session.Add("Products", products);
             return true;
@@ -49,8 +58,23 @@ namespace Shop.Web.Mvp
 
         public List<ProductCart> GetProductsFromSessionCart()
         {
+            // Necessario perchè IE di default salva la response nella cache
+            // http://galratner.com/blogs/net/archive/2009/09/07/how-to-prevent-the-browser-from-caching-wcf-json-responses.aspx
+            if (WebOperationContext.Current != null) WebOperationContext.Current.OutgoingResponse.Headers.Add("Cache-Control", "no-cache");
             if (HttpContext.Current.Session == null) return null;
             return HttpContext.Current.Session["Products"] as List<ProductCart>;
+        }
+
+        private void SetPrice(IEnumerable<ProductCart> products)
+        {
+            foreach (var product in products)
+            {
+                var savedProduct = _businessDelegate.GetProduct(product.Id);
+                if (savedProduct == null) continue;
+                int price;
+                //if (!int.TryParse(savedProduct.price, out price)) continue;
+                product.Price = savedProduct.price;
+            }
         }
     }
 
