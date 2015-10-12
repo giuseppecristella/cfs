@@ -108,6 +108,14 @@ namespace Ez.Newsletter.MagentoApi
             set { _set = value; }
         }
 
+        private string _color;
+        public string color
+        {
+            get { return _color; }
+            set { _color = value; }
+        }
+        
+
         #region Taglie
 
         private string _tg_36;

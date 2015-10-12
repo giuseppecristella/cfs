@@ -175,19 +175,19 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         }
     };
     // Viene Salvato l'intero carrello in sessione (non il singolo prodotto)
-    $scope.saveSessionCart = function () {
+    $scope.saveSessionCart = function() {
         $http({
             url: "/WCFService/CatalogDataService.svc/AddProductToSessionCart",
             method: "POST",
             data: $scope.cartProducts
-        }).success(function (data) {
+        }).success(function(data) {
             // toastr Message
         });
-    }
+    };
 
-    $scope.getTotalCartItems = function () {
+    $scope.getTotalCartItems = function() {
         $scope.totalCartItems = $scope.cartProducts.length - 1;
-    }
+    };
 
     $scope.sizeNotChecked = true;
     $scope.selectedSize = "";
@@ -197,5 +197,12 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         $scope.selectedSize = sizeName.replace("tg_", "");
     };
 
+
+    $scope.getColorClass = function(colorId) {
+        if (colorId == "17") {
+            return "le-radio Rosso";
+        }
+        return "";
+    };
 });
 

@@ -39,7 +39,7 @@
                             <div class="color-holder clearfix">
                                 <ul class="color-picker clearfix">
                                     <li ng-repeat="color in colors">
-                                        <input class="le-radio {{color}}" type="checkbox" id="{{color}}" ng-click="toggleSelectionColor(color)" ng-true-value="{{color}}" name="color" />
+                                        <input class="le-radio _colorcode{{color}}" type="checkbox" id="{{color}}" ng-click="toggleSelectionColor(color)" ng-true-value="{{color}}" name="color" />
                                     </li>
                                 </ul>
                             </div>

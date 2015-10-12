@@ -41,7 +41,7 @@ namespace ShopMagentoApi.Test
             var cacheManager = CacheFactory.GetCacheManager();
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
 
-            var products = repository.GetProductsByCategoryId("47");
+            var products = repository.GetProductsByCategoryId("30");
             //    var result = cacheManager.GetData("test_products") as List<CategoryAssignedProduct>;
             //  Assert.IsNotNull(result);
             cacheManager.Add("ProductsList", products);
