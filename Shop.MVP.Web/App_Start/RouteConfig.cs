@@ -18,9 +18,14 @@ namespace Shop.Web.Mvp
         {
             routes.MapPageRoute(categoryName, categoryName, "~/Catalog/Products.aspx");
         }
-        // Prodotto Singolo
-        routes.MapPageRoute("ProdottoSingolo", "{productName}/{productId}", "~/Catalog/SingleProduct.aspx");
-        routes.MapPageRoute("ProdottoSingolo2", "prodotto/{productId}/{productName}", "~/Catalog/SingleProduct.aspx");
+            // Prodotto Singolo
+            routes.MapPageRoute("ProdottoSingolo", "{productName}/{productId}", "~/Catalog/SingleProduct.aspx");
+            routes.MapPageRoute("ProdottoSingolo2", "prodotto/{productId}/{productName}", "~/Catalog/SingleProduct.aspx");
+            // Categorie Principali
+            routes.MapPageRoute("CatalogoDonna", "donna", "~/Catalog/ProductsCatalogDonna.aspx");
+            routes.MapPageRoute("CatalogoUomo", "uomo", "~/Catalog/ProductsCatalogUomo.aspx");
+            routes.MapPageRoute("CatalogoBambino", "bambino", "~/Catalog/ProductsCatalogBambino.aspx");
+            //routes.MapPageRoute("CatalogoDonna", "donna", "~/Catalog/donna.aspx");
+        }
     }
-  }
 }
