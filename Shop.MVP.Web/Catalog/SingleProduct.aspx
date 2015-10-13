@@ -38,28 +38,43 @@
                         <div class="col-sm-6 col-lg-6 body-holder body-holder-style-1">
                             <div class="product-info">
                                 <div class="product-rating-holder">
-                                    <a href="product-extended.html" class="product-rating">
+                                    <%--<a href="product-extended.html" class="product-rating">
                                         <div class="star-rating gray" title="Rated 5.00 out of 5">
-                                            <span style="width: 80%">
+                                           <%-- <span style="width: 80%">
                                                 <strong class="rating">5.00</strong>
                                                 out of 5
                                             </span>
                                         </div>
-                                    </a>
-                                    <a href="#reviews" class="review-link">(4 reviews)</a>
+                                    </a>--%>
+                                   <%-- <a href="#reviews" class="review-link">(4 reviews)</a>--%>
                                 </div>
                                 <asp:HiddenField runat="server" ID="hfProductID" Value="<%# ProductViewModel.product_id %>"/>
                                 <h1 class="single-product-title"><%= ProductViewModel.name %></h1>
-                                <div class="product-brand">Calvin Klein</div>
+                                <%--<div class="product-brand">Calvin Klein</div>--%>
+                                  <div id="Div1">
+                                    <div class="tabs">
+                                        <ul class="nav nav-tabs nav-tab-cells">
+                                            <li class="active"><a data-toggle="tab" href="#description">Descrizione</a></li>
+                                        </ul>
+                                        <div class="tab-content bewear-tab-content">
+                                            <div id="Div2" class="tab-pane in active">
+                                                <p class="text">
+                                                    <%= ProductViewModel.description %>
+                                                </p>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="product-price">
                                     <ins><span class="amount">€. <%= CommonHelper.FormatCurrency(ProductViewModel.price) %></span></ins>
                                 </div>
-                                <div class="social-icons-holder">
+                                <%--<div class="social-icons-holder">
                                     <ul class="social-icon-list clearfix">
-                                        <li><a class="icon icon-facebook31" title="Facebook" href="http://www.facebook.com/transvelo"></a></li>
+                                        <li><a class="icon icon-facebook31" title="Facebook" href="https://www.facebook.com/kalzafacile?fref=ts"></a></li>
                                     </ul>
-                                </div>
-                                <div class="product-attributes">
+                                </div>--%>
+                                <%-- <div class="product-attributes">
                                     <div class="color-holder clearfix">
                                         <span class="key">Colore:</span> <span class="value">Nero</span>
                                         <ul class="color-picker clearfix">
@@ -68,6 +83,8 @@
                                             </li>
                                         </ul>
                                     </div>
+                                   
+                                </div>--%>
                                     <div class="size-holder m-t-20 clearfix">
                                         <span class="key">Taglie disponibili:</span>
                                         <ul class="size-picker clearfix">
@@ -95,7 +112,7 @@
                                         <a href="checkout.html" title="Wishlist" class="btn add-to-wishlist">add to wishlist</a>
                                     </div>
                                 </div>
-                                <div id="product-simple-tab">
+                                 <%--  <div id="product-simple-tab">
                                     <div class="tabs">
                                         <ul class="nav nav-tabs nav-tab-cells">
                                             <li class="active"><a data-toggle="tab" href="#description">Descrizione</a></li>
@@ -115,7 +132,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--%>
                             </div>
                         </div>
                     </div>
