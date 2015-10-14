@@ -122,9 +122,17 @@ namespace ShopMagentoApi.Test
             var customerId = 1;
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
             var cart = repository.CreateCart();
-            var customer = repository.GetCustomerById(customerId);
+            //var customer = repository.GetCustomerById(customerId);
+            var customer = new Customer
+            {
+                firstname = "Giuseppe",
+                lastname = "Cristella",
+                email = "g@cristella.it",
+                mode = "register",
+                customer_id = "1"
+            };
+            //customer = repository.GetCustomerById(customerId);
             customer.mode = "register";
-
             var result = repository.AssociateCustomerToCart(cart, customer);
             var customerAddresses = repository.GetCustomerAddresses(customerId);
 
@@ -147,7 +155,7 @@ namespace ShopMagentoApi.Test
 
             var paymentMethods = repository.GetPaymentMethods(cart);
 
-            var qty = repository.GetProductsByCategoryId("49");
+            var qty = repository.GetProductsByCategoryId("30");
         }
 
         [TestMethod]
@@ -177,7 +185,16 @@ namespace ShopMagentoApi.Test
         {
             var customerId = 1;
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
-            var customer = repository.GetCustomerById(customerId);
+            //var customer = repository.GetCustomerById(customerId);
+
+            var customer = new Customer
+            {
+                firstname = "Giuseppe",
+                lastname = "Cristella",
+                email = "g@cristella.it",
+                mode = "register",
+                customer_id = "1"
+            };
 
             var businessDelegateCart = new BusinessDelegate();
 

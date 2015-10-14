@@ -45,5 +45,15 @@ namespace Shop.Core.BusinessDelegate
                 var message = ex.Message;
             }
         }
+
+        public void CreateCustomerAddress(int customerId, CustomerAddress address)
+        {
+            _repository.CreateCustomerAddress(customerId, address);
+        }
+
+        public string CreateCustomer(Customer customer)
+        {
+            return _repository.CreateCustomer(customer);
+        }
     }
 }

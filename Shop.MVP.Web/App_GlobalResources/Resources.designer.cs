@@ -79,6 +79,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password non valida..
+        /// </summary>
+        internal static string InvalidPassword_Error {
+            get {
+                return ResourceManager.GetString("InvalidPassword_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have been locked out, please try again in 10 minutes..
+        /// </summary>
+        internal static string LockedUser_Error {
+            get {
+                return ResourceManager.GetString("LockedUser_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your account has not yet been approved by an administrator..
+        /// </summary>
+        internal static string NotApprovedUser_Error {
+            get {
+                return ResourceManager.GetString("NotApprovedUser_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ti abbiamo già inviato un codice!.
         /// </summary>
         internal static string PromoCodeAlreadySended {
@@ -93,6 +120,15 @@ namespace Resources {
         internal static string ShopTitle {
             get {
                 return ResourceManager.GetString("ShopTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ops! L&apos;utente inserito non esiste..
+        /// </summary>
+        internal static string UnregisteredUser_Error {
+            get {
+                return ResourceManager.GetString("UnregisteredUser_Error", resourceCulture);
             }
         }
     }

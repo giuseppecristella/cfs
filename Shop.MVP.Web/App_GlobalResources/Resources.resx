@@ -129,4 +129,16 @@
   <data name="PromoCodeAlreadySended" xml:space="preserve">
     <value>Ti abbiamo già inviato un codice!</value>
   </data>
+  <data name="UnregisteredUser_Error" xml:space="preserve">
+    <value>Ops! L'utente inserito non esiste.</value>
+  </data>
+  <data name="NotApprovedUser_Error" xml:space="preserve">
+    <value>Your account has not yet been approved by an administrator.</value>
+  </data>
+  <data name="LockedUser_Error" xml:space="preserve">
+    <value>You have been locked out, please try again in 10 minutes.</value>
+  </data>
+  <data name="InvalidPassword_Error" xml:space="preserve">
+    <value>Password non valida.</value>
+  </data>
 </root>

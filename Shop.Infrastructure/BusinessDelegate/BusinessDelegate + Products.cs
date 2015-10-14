@@ -18,7 +18,7 @@ namespace Shop.Core.BusinessDelegate
 
         public BusinessDelegate()
             : this(RepositoryFactory.GetRepositoryService())
-        { 
+        {
 
         }
 
