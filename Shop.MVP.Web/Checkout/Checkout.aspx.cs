@@ -131,26 +131,26 @@ namespace Shop.Web.Mvp.Checkout
         {
             try
             {
-                var from = new MailAddress("info@materarredamenti.it", "Matera Arredamenti");
+                var from = new MailAddress("info@calzafacile.com", "CalzaFacile");
                 var to = new MailAddress(CreateUserWizard1.Email, string.Format("{0} {1}", txtFirstName.Text, txtLastName.Text));
                 var email = new MailMessage(@from, to)
                 {
-                    Subject = "Conferma creazione account shop Matera Arredamenti",
+                    Subject = "Conferma creazione account shop Calzafacile",
                     IsBodyHtml = true
                 };
                 var header =
                   string.Format(
-                    "<img alt='header' src='http://www.materarredamenti.it/images/logo_header.jpg' /> " +
-                    "<br><br>Creazione account Shop <b style='color:#bf00000'>Matera Arredamenti</b> di: {0} <br><br>",
+                    "<img alt='header' src='http://www.calzafacile.com/images/logo_header.jpg' /> " +
+                    "<br><br>Creazione account Shop <b style='color:#bf00000'>Calzafacile</b> di: {0} <br><br>",
                     CreateUserWizard1.Email);
                 email.Body =
                   string.Format(
                     "{0}Gentile {1} {2},<br> le confermiamo l'iscrizione al nostro Shop.<br><br>Riepilogo dati di accesso: <br>Utente:" +
-                    "{3}<br>Password: {4}<br>" + "<br><a href=\"http://www.materarredamenti.it/shop/accedi.html\">" +
+                    "{3}<br>Password: {4}<br>" + "<br><a href=\"http://www.calzafacile.it/shop/accedi.html\">" +
                     "Cliccando qui</a> può accedere al suo account e verificare lo stato dei suoi ordini.",
                     header, txtFirstName.Text, txtLastName.Text, username, passwordFromUI);
-                email.Bcc.Add("verduga80@libero.it");
-                email.Bcc.Add("info@materarredamenti.it"); // Settare in variabili di configurazione
+                email.Bcc.Add("");
+                email.Bcc.Add("info@calzafacile.com"); // Settare in variabili di configurazione
                 var smtpMail = new SmtpClient();
                 smtpMail.Send(email);
             }

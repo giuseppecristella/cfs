@@ -28,6 +28,9 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         $scope.sizes = ['20', '21', '22', '23', '24', '25', '26', '27'];
     }
 
+    $scope.createNewAccount = false;
+    $scope.showShipmentAddress = true;
+
     //$scope.filterPrice = 0;
     $scope.filter = { name: "all" };
 
