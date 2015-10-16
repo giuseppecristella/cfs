@@ -325,7 +325,7 @@ main header + * {
 }
 
 .inner-top-50 {
-    /*padding-top: 50px;*/
+    padding-top: 50px;
 }
 
 .inner-top-xs {
@@ -1761,8 +1761,8 @@ ul.bxslider {
 
     .cnt-strip .strip {
         position: absolute;
-        top: 30%;
-        left: 70%;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
         -webkit-transform: translate(-50%, -50%);
         -moz-transform: translate(-50%, -50%);
@@ -1799,7 +1799,7 @@ ul.bxslider {
             font-weight: 700;
             margin-top: 0;
             line-height: 48px;
-            color: #231f20;
+            color: #fff;
         }
 /*===================================================================================*/
 /*  SECTIONS
@@ -2074,15 +2074,15 @@ ul.bxslider {
                 border-radius: 50px;
             }
 
-            .color-picker > li .le-radio.blue + .fake-box {
+            .color-picker > li .le-radio._colorcode18 + .fake-box {
                 background: #a5b0c5;
             }
 
-            .color-picker > li .le-radio.Bianco + .fake-box {
+            .color-picker > li .le-radio._colorcode17 + .fake-box {
                 background: #e2e2e2;
             }
 
-            .color-picker > li .le-radio.Rosso + .fake-box {
+            .color-picker > li .le-radio._colorcode21 + .fake-box {
                 background: #e77a7d;
             }
 
@@ -2098,7 +2098,7 @@ ul.bxslider {
                 background: #f19a0e;
             }
 
-            .color-picker > li .le-radio.Avio + .fake-box {
+            .color-picker > li .le-radio._colorcode20 + .fake-box {
                 background: #889db0;
             }
 
@@ -2939,12 +2939,12 @@ ul.bxslider {
 
                 .navbar.navbar-black .container .navbar-brand img.logo {
                     padding: 0 55px 0 0;
-                    background-color: #111111;     
-                    border: none; 
+                    background-color: #111111;
+                    border: none;
                 }
 
             .navbar.navbar-black .container .navbar-nav > li > a {
-                color: #ffffff;
+                color: #fff;
                 border: none;
                 /*&:hover,   
 						&:focus{
@@ -2957,7 +2957,7 @@ ul.bxslider {
             .navbar.navbar-black .container .navbar-nav > li.bewear-dropdown > a:hover,
             .navbar.navbar-black .container .navbar-nav > li.bewear-dropdown > a:focus {
                 background: rgba(0, 0, 0, 0);
-                color: #ffffff;
+                color: #000;
             }
 
             .navbar.navbar-black .container .navbar-nav > li.bewear-dropdown.open > a {
@@ -3659,11 +3659,11 @@ ul.bxslider {
         }
 
 .category {
-    min-height: 360px;
+    min-height: 531px;
     border: 1px solid #ebebeb;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-bottom: 30px;
+    padding-top: 14px;
+    padding-bottom: 50px;
 }
 
     .category .header .category-name {
@@ -3689,7 +3689,7 @@ ul.bxslider {
         }
 
     .category .section .image {
-        /*height: 356px;*/
+        height: 356px;
         text-align: center;
     }
 
@@ -4937,19 +4937,6 @@ address {
             font-size: 20px;
             position: relative;
         }
-         
-          #products-images > li > a .zoom-overlay {
-        bottom: 0;
-        position: absolute;
-        right: 0;
-        width: 16px;
-        z-index: 999;
-    }
-          #products-images > li > a {
-    position: relative;
-    width: 120%;
-    display: block;
-}
 
 .single-product-row .gallery-holder {
     padding-right: 0px;
