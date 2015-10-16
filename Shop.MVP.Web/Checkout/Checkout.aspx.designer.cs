@@ -247,6 +247,24 @@ namespace Shop.Web.Mvp.Checkout {
         protected global::System.Web.UI.WebControls.CustomValidator cvtxtPhone_2;
         
         /// <summary>
+        /// rdbtnListPayMethods control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbtnListPayMethods;
+        
+        /// <summary>
+        /// cvType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvType;
+        
+        /// <summary>
         /// btnCheckout control.
         /// </summary>
         /// <remarks>

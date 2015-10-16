@@ -10,6 +10,8 @@ namespace Shop.Web.Mvp.Infrastructure
         public static Configuration Configuration { get; set; }
         public static CategoryName CategoryName { get; set; }
 
+        public static Dictionary<string, string> PaymentMethods { get; set; }
+
         public static Dictionary<string, string> CategoriesDictionary { get; private set; }
 
         static App()
@@ -20,6 +22,12 @@ namespace Shop.Web.Mvp.Infrastructure
             CategoriesDictionary = CreateCategoriesDictionary();
             Configuration = new Configuration();
             CategoryName = new CategoryName(CategoriesDictionary);
+            PaymentMethods = new Dictionary<string, string>
+            {
+                {"cashondelivery" , "Contrassegno"},
+                {"banktransfer" ,"Bonifico"},
+                {"ccsave", "Paypal"},
+            };
         }
 
         private static Dictionary<string, string> CreateCategoriesDictionary()

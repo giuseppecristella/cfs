@@ -5,6 +5,7 @@ using System.Web.Security;
 using System.Web.UI.WebControls;
 using Ez.Newsletter.MagentoApi;
 using Shop.Core.BusinessDelegate;
+using Shop.Web.Mvp.Infrastructure;
 
 namespace Shop.Web.Mvp.Checkout
 {
@@ -25,15 +26,28 @@ namespace Shop.Web.Mvp.Checkout
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            BindPaymentMethods();
         }
 
         protected void OnLoggedIn(object sender, EventArgs e)
         {
+            var username = Page.User.Identity.Name;
+            var aspNetUser = Membership.GetUser(username);
+            var magentoUserId = aspNetUser.Comment;
+
+            //if (!int.TryParse(magentoUserId, out _customerId)) return;
+            //var customer = _repository.GetCustomerById(_customerId);
+            BindUserInfo();
+
             if (Roles.IsUserInRole(Login.UserName, "Administrator"))
             {
 
             }
+        }
+
+        private void BindUserInfo()
+        {
+            throw new NotImplementedException();
         }
 
         protected void OnLoginError(object sender, EventArgs e)
@@ -163,6 +177,14 @@ namespace Shop.Web.Mvp.Checkout
         protected void CreateUserWizard1_OnCreatingUser(object sender, LoginCancelEventArgs e)
         {
             CreateUserWizard1.Email = "test-01@libero.it";
+        }
+
+        private void BindPaymentMethods()
+        {
+            rdbtnListPayMethods.DataSource = App.PaymentMethods;
+            rdbtnListPayMethods.DataTextField = "value";
+            rdbtnListPayMethods.DataValueField = "key";
+            rdbtnListPayMethods.DataBind();
         }
     }
 }
