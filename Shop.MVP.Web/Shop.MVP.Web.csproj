@@ -214,6 +214,9 @@
     <Content Include="assets\images\CatalogoGenerale\infradito_bimba.jpg" />
     <Content Include="assets\images\CatalogoGenerale\infradito_donna.jpg" />
     <Content Include="assets\images\CatalogoGenerale\infradito_uomo.jpg" />
+    <Content Include="assets\images\CatalogoGenerale\pantofole_bimbo.jpg" />
+    <Content Include="assets\images\CatalogoGenerale\pantofole_donna.jpg" />
+    <Content Include="assets\images\CatalogoGenerale\pantofole_uomo.jpg" />
     <Content Include="assets\images\CatalogoGenerale\sandali_donna.jpg" />
     <Content Include="assets\images\CatalogoGenerale\sandali_uomo.jpg" />
     <Content Include="assets\images\CatalogoGenerale\stivaligomma_uomo.jpg" />
@@ -245,6 +248,7 @@
     <Content Include="assets\images\checkout2.jpg" />
     <Content Include="assets\images\close.png" />
     <Content Include="assets\images\favicon.png" />
+    <Content Include="assets\images\favicon2.png" />
     <Content Include="assets\images\filters.svg" />
     <Content Include="assets\images\footer-logo.png" />
     <Content Include="assets\images\grid.jpg" />
@@ -252,7 +256,10 @@
     <Content Include="assets\images\hero\home-2.jpg" />
     <Content Include="assets\images\loading.gif" />
     <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\logo129.png" />
     <Content Include="assets\images\logo2.png" />
+    <Content Include="assets\images\logo2footer.png" />
+    <Content Include="assets\images\logo2__.png" />
     <Content Include="assets\images\lookbook\1.jpg" />
     <Content Include="assets\images\lookbook\2.jpg" />
     <Content Include="assets\images\lookbook\3.jpg" />

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-4">
                     <div class="footer-logo">
-                        <img src="../assets/images/footer-logo.png" class="img-responsive" alt="Bewear">
+                        <img src="../assets/images/logo2footer.png" class="img-responsive" alt="Bewear">
                     </div>
                     <div class="contact-info">
                         <address>

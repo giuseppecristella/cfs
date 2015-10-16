@@ -73,12 +73,12 @@
               <div class="col-md-6 col-sm-6 col-lg-4 wow fadeIn">
                     <div class="category text-center">
                         <div class="header">
-                            <h2 class="category-name">Sneakers</h2>
+                            <h2 class="category-name">Pantofole</h2>
                         </div>
                         <div class="section">
                             <div class="image lazy-load">
                                 <a href="/uomo-sneakers">
-                                <img alt="Sneakers" data-echo="" src="../assets/images/catalogoGenerale/#.jpg" /></a>
+                                <img alt="Sneakers"data-echo="../assets/images/catalogoGenerale/pantofole_uomo.jpg" src="assets/images/blank.gif" /></a>
                             </div>
                         </div>
                         <div class="footer">
