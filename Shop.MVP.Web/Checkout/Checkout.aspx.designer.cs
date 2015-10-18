@@ -13,6 +13,42 @@ namespace Shop.Web.Mvp.Checkout {
     public partial class Checkout {
         
         /// <summary>
+        /// mvContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView mvContainer;
+        
+        /// <summary>
+        /// viewEmptyCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View viewEmptyCart;
+        
+        /// <summary>
+        /// viewFullCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View viewFullCart;
+        
+        /// <summary>
+        /// pnlLoggedInUserHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlLoggedInUserHeader;
+        
+        /// <summary>
         /// Login control.
         /// </summary>
         /// <remarks>
@@ -20,6 +56,24 @@ namespace Shop.Web.Mvp.Checkout {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Login Login;
+        
+        /// <summary>
+        /// ltTreeStepCheckoutTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltTreeStepCheckoutTitle;
+        
+        /// <summary>
+        /// FirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FirstName;
         
         /// <summary>
         /// txtFirstName control.
@@ -40,6 +94,15 @@ namespace Shop.Web.Mvp.Checkout {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtFirstName;
         
         /// <summary>
+        /// rvtxtFirstNameRegisterUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtFirstNameRegisterUser;
+        
+        /// <summary>
         /// txtLastName control.
         /// </summary>
         /// <remarks>
@@ -56,6 +119,15 @@ namespace Shop.Web.Mvp.Checkout {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtLastName;
+        
+        /// <summary>
+        /// rvtxtLastNameRegisterUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtLastNameRegisterUser;
         
         /// <summary>
         /// txtEmail control.
@@ -103,6 +175,15 @@ namespace Shop.Web.Mvp.Checkout {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtStreet;
         
         /// <summary>
+        /// rvtxtStreetRegisterUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtStreetRegisterUser;
+        
+        /// <summary>
         /// txtCity control.
         /// </summary>
         /// <remarks>
@@ -119,6 +200,15 @@ namespace Shop.Web.Mvp.Checkout {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtCity;
+        
+        /// <summary>
+        /// rvtxtCityRegisterUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtCityRegisterUser;
         
         /// <summary>
         /// txtZipCode control.
@@ -139,6 +229,15 @@ namespace Shop.Web.Mvp.Checkout {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtZipCode;
         
         /// <summary>
+        /// rvtxtZipCodeRegisterUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtZipCodeRegisterUser;
+        
+        /// <summary>
         /// txtPhone control.
         /// </summary>
         /// <remarks>
@@ -157,13 +256,58 @@ namespace Shop.Web.Mvp.Checkout {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtPhone;
         
         /// <summary>
-        /// CreateUserWizard1 control.
+        /// rvtxtPhoneegisterUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizard1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtPhoneegisterUser;
+        
+        /// <summary>
+        /// pnlCreateNewAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCreateNewAccount;
+        
+        /// <summary>
+        /// pnlShowShipmentAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlShowShipmentAddress;
+        
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// upPnlCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upPnlCheck;
+        
+        /// <summary>
+        /// cuwUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CreateUserWizard cuwUser;
         
         /// <summary>
         /// CreateUserWizardStep1 control.

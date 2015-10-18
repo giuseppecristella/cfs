@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Shop.Core;
+﻿using System.Collections.Generic;
 using Shop.Core.Domain.Promotions;
 
 

@@ -54,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,8 +64,11 @@
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
     <Compile Include="BusinessDelegate\BusinessDelegate + Cart.cs" />
+    <Compile Include="BusinessDelegate\BusinessDelegate + Customers.cs" />
+    <Compile Include="BusinessDelegate\BusinessDelegate + Order.cs" />
     <Compile Include="BusinessDelegate\BusinessDelegate + Products.cs" />
     <Compile Include="Domain\Messages\NewsLetterSubscription.cs" />
+    <Compile Include="Domain\ProductsCart\ProductCart.cs" />
     <Compile Include="Domain\Promotions\Promotion.cs" />
     <Compile Include="Domain\Promotions\PromotionCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

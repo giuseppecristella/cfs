@@ -1,5 +1,7 @@
-﻿using System.Web;
+﻿using System.Collections.Generic;
+using System.Web;
 using Ez.Newsletter.MagentoApi;
+using Shop.Core.Domain.ProductsCart;
 
 
 namespace Shop.Core
@@ -53,6 +55,18 @@ namespace Shop.Core
             set
             {
                 Set("CartId", value);
+            }
+        }
+
+        public static List<ProductCart> ProductsCart
+        {
+            get
+            {
+                return Get<List<ProductCart>>("Products");
+            }
+            set
+            {
+                Set("Products", value);
             }
         }
     }

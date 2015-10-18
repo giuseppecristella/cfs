@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Net.Mail;
+using System.Web.ModelBinding;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using Ez.Newsletter.MagentoApi;
+using Shop.Core;
 using Shop.Core.BusinessDelegate;
 using Shop.Web.Mvp.Infrastructure;
 
@@ -17,37 +21,73 @@ namespace Shop.Web.Mvp.Checkout
 
     public partial class Checkout : System.Web.UI.Page
     {
-        private BusinessDelegate _businessDelegate;
+        private readonly BusinessDelegate _businessDelegate;
 
+        #region CTor
         public Checkout()
         {
             _businessDelegate = new BusinessDelegate();
-        }
+        } 
+        #endregion
 
+        #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
+            //TODO: Classe base check Session redirect nel page load
             BindPaymentMethods();
+            LoadUserInfoIfLogged();
+
+            if (SessionFacade.ProductsCart == null)
+            {
+                mvContainer.ActiveViewIndex = 0;
+                return;
+            }
+
+            if (SessionFacade.CartId.Equals(0))
+            {
+                SessionFacade.CartId = _businessDelegate.CreateCart();
+                if (SessionFacade.CartId.Equals(-1))
+                {
+                    // Errore creazione carrello
+                    // 1. Log Exception 2. Alert 3. Redirect
+                }
+            }
+
         }
 
-        protected void OnLoggedIn(object sender, EventArgs e)
+        protected void cuwUser_OnCreatedUser(object sender, EventArgs e)
         {
-            var username = Page.User.Identity.Name;
-            var aspNetUser = Membership.GetUser(username);
-            var magentoUserId = aspNetUser.Comment;
-
-            //if (!int.TryParse(magentoUserId, out _customerId)) return;
-            //var customer = _repository.GetCustomerById(_customerId);
-            BindUserInfo();
-
-            if (Roles.IsUserInRole(Login.UserName, "Administrator"))
+            var membershipUser = Membership.GetUser(cuwUser.UserName);
+            if (membershipUser == null) return;
+            try
             {
+                Roles.AddUserToRole(cuwUser.UserName, "User");
+                // TODO: Check errore creazione utente lato Magento
+                var magentoCustomerId = CreateMagentoCustomer();
 
+                // Salvo nel campo 'comment' dell'oggetto User di MembershipProvider il customer CustomerId di Magento
+                membershipUser.Comment = magentoCustomerId;
+                Membership.UpdateUser(membershipUser);
+
+                // SubscriveSignedCustomerToNewsLetter();
+                SendNotificationEmailToSignedCustomer(membershipUser.UserName, cuwUser.Password);
+                CreateMagentoCustomerAddress(AddressType.Billing, magentoCustomerId);
+                CreateMagentoCustomerAddress(AddressType.Shipping, magentoCustomerId);
+            }
+            catch (Exception ex)
+            {
+                // log 
+
+                //divErr.Visible = true;
+                //lblErr.Text = "Attenzione: si è verificato un'errore nella creazione dell'account. Si prega di ripetere l'operazione.";
+                // Cancello l'utente dal nostro db perchè non è stato creato in magento
+                Membership.DeleteUser(membershipUser.UserName);
             }
         }
 
-        private void BindUserInfo()
+        protected void cuwUser_OnCreatingUser(object sender, LoginCancelEventArgs e)
         {
-            throw new NotImplementedException();
+            cuwUser.Email = txtEmail.Text;
         }
 
         protected void OnLoginError(object sender, EventArgs e)
@@ -68,51 +108,104 @@ namespace Shop.Web.Mvp.Checkout
             }
         }
 
-        protected void CreateMagentoUser(object sender, EventArgs e)
+        protected void OnLoggedIn(object sender, EventArgs e)
         {
-            var usernameFromUI = CreateUserWizard1.UserName;
-            var passwordFromUI = CreateUserWizard1.Password;
-            var membershipUser = Membership.GetUser(usernameFromUI);
-            if (membershipUser == null) return;
-            try
+
+        }
+
+        protected void btnCheckout_OnClick(object sender, EventArgs e)
+        {
+            BindDataObjects();
+        }
+
+        private void BindDataObjects()
+        {
+            var dataObject = new CustomerVM();
+
+            if (TryUpdateModel(dataObject, new FormValueProvider(ModelBindingExecutionContext)))
             {
-                Roles.AddUserToRole(usernameFromUI, "User");
-                var magentoCustomerId = CreateMagentoCustomer();
+ 
+            } 
+        }
 
-                // Salvo nel campo 'comment' dell'oggetto User di membership provider il customer Id di Magento prodotto
-                membershipUser.Comment = magentoCustomerId;
-                Membership.UpdateUser(membershipUser);
+        #endregion
 
-                // SubscriveSignedCustomerToNewsLetter();
-                SendNotificationEmailToSignedCustomer(membershipUser.UserName, passwordFromUI);
-                CreateMagentoCustomerAddress(AddressType.Billing, magentoCustomerId);
-                CreateMagentoCustomerAddress(AddressType.Shipping, magentoCustomerId);
-            }
-            catch (Exception ex)
+        #region Bindings
+        private void BindCustomerAddresses(List<CustomerAddress> customerAddresses)
+        {
+            var shipmentAddress = customerAddresses.First(a => a.is_default_billing);
+            txtCity.Text = shipmentAddress.city;
+            txtStreet.Text = shipmentAddress.street;
+            txtZipCode.Text = shipmentAddress.postcode;
+            txtPhone.Text = shipmentAddress.telephone;
+        }
+
+        private void BindUserInfo(Customer customer)
+        {
+            txtFirstName.Text = customer.firstname;
+            txtLastName.Text = customer.lastname;
+            txtEmail.Text = customer.email;
+        }
+
+        private void BindPaymentMethods()
+        {
+            rdbtnListPayMethods.DataSource = App.PaymentMethods;
+            rdbtnListPayMethods.DataTextField = "value";
+            rdbtnListPayMethods.DataValueField = "key";
+            rdbtnListPayMethods.DataBind();
+        }
+
+
+        #endregion
+
+        #region Private Methods
+        private void LoadUserInfoIfLogged()
+        {
+            var aspNetUser = Membership.GetUser(Page.User.Identity.Name);
+            if (aspNetUser == null)
             {
-                // log 
-
-                //divErr.Visible = true;
-                //lblErr.Text = "Attenzione: si è verificato un'errore nella creazione dell'account. Si prega di ripetere l'operazione.";
-                // Cancello l'utente dal nostro db perchè non è stato creato in magento
-                Membership.DeleteUser(membershipUser.UserName);
+                ltTreeStepCheckoutTitle.Text = Resources.Resources.TreeStepCheckoutTitle_NotLogged;
+                //pnlShowShipmentAddress.Visible = false;
+                return;
             }
+            var magentoUserId = aspNetUser.Comment;
+
+            int id;
+            if (!int.TryParse(magentoUserId, out id)) return;
+
+            var customer = _businessDelegate.GetCustomerById(id);
+            if (customer == default(Customer)) return;
+            BindUserInfo(customer);
+
+            var customerAddresses = _businessDelegate.GetCustomerAddresses(id);
+            if (customerAddresses == null) return;
+            BindCustomerAddresses(customerAddresses);
+            pnlCreateNewAccount.Visible = pnlLoggedInUserHeader.Visible = false;
+            ltTreeStepCheckoutTitle.Text = Resources.Resources.TreeStepCheckoutTitle_Logged;
         }
 
         private string CreateMagentoCustomer()
         {
-            var customer = new Customer()
+            var customer = new Customer
             {
                 firstname = txtFirstName.Text,
                 lastname = txtLastName.Text,
-                email = CreateUserWizard1.Email,
+                email = txtEmail.Text,
                 created_at = DateTime.Now.ToString(CultureInfo.InvariantCulture),
             };
             return _businessDelegate.CreateCustomer(customer);
         }
 
+        /// <summary>
+        /// L'indirizzo inserito in interfaccia viene salvato in Magento sia come
+        /// ind. di spedizione che come indirizzo di fatturazione
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="customerId"></param>
         private void CreateMagentoCustomerAddress(AddressType type, string customerId)
         {
+            int id;
+            if (!int.TryParse(customerId, out id)) return;
             var customerAddress = new CustomerAddress
             {
                 firstname = txtFirstName.Text,
@@ -136,8 +229,6 @@ namespace Shop.Web.Mvp.Checkout
                 default:
                     throw new ArgumentOutOfRangeException("type");
             }
-            int id;
-            if (!int.TryParse(customerId, out id)) return;
             _businessDelegate.CreateCustomerAddress(id, customerAddress);
         }
 
@@ -146,7 +237,7 @@ namespace Shop.Web.Mvp.Checkout
             try
             {
                 var from = new MailAddress("info@calzafacile.com", "CalzaFacile");
-                var to = new MailAddress(CreateUserWizard1.Email, string.Format("{0} {1}", txtFirstName.Text, txtLastName.Text));
+                var to = new MailAddress(cuwUser.Email, string.Format("{0} {1}", txtFirstName.Text, txtLastName.Text));
                 var email = new MailMessage(@from, to)
                 {
                     Subject = "Conferma creazione account shop Calzafacile",
@@ -156,7 +247,7 @@ namespace Shop.Web.Mvp.Checkout
                   string.Format(
                     "<img alt='header' src='http://www.calzafacile.com/images/logo_header.jpg' /> " +
                     "<br><br>Creazione account Shop <b style='color:#bf00000'>Calzafacile</b> di: {0} <br><br>",
-                    CreateUserWizard1.Email);
+                    cuwUser.Email);
                 email.Body =
                   string.Format(
                     "{0}Gentile {1} {2},<br> le confermiamo l'iscrizione al nostro Shop.<br><br>Riepilogo dati di accesso: <br>Utente:" +
@@ -172,19 +263,13 @@ namespace Shop.Web.Mvp.Checkout
             {
 
             }
-        }
+        } 
+        #endregion
 
-        protected void CreateUserWizard1_OnCreatingUser(object sender, LoginCancelEventArgs e)
-        {
-            CreateUserWizard1.Email = "test-01@libero.it";
-        }
+    }
 
-        private void BindPaymentMethods()
-        {
-            rdbtnListPayMethods.DataSource = App.PaymentMethods;
-            rdbtnListPayMethods.DataTextField = "value";
-            rdbtnListPayMethods.DataValueField = "key";
-            rdbtnListPayMethods.DataBind();
-        }
+    public class CustomerVM
+    {
+        public string FirstName { get; set; }
     }
 }

@@ -119,7 +119,9 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
 
     // inizializzare il carrello con i dati presenti in sessione
     $scope.cartProducts = [];
+    $scope.subTotalCartPrice = 0;
     $scope.totalCartPrice = 0;
+    $scope.shipmentPrice = 6.90;
     $http({
         url: "/WCFService/CatalogDataService.svc/GetProductsFromSessionCart",
         method: "GET"
@@ -130,11 +132,11 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
             angular.forEach($scope.cartProducts, function (p) {
                 $scope.totalCartItems += p.qta;
             });
-            $scope.totalCartPrice = 0;
+            $scope.subTotalCartPrice = 0;
             angular.forEach($scope.cartProducts, function (p) {
-                $scope.totalCartPrice += p.qta * p.price;
+                $scope.subTotalCartPrice += parseInt(p.qta) * p.price;
             });
-
+            $scope.totalCartPrice = ($scope.subTotalCartPrice > 100) ? $scope.subTotalCartPrice : ($scope.subTotalCartPrice + $scope.shipmentPrice);
         }
     });
 
@@ -159,10 +161,11 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
                 qta: 1, id: product._product_id, name: product._name, size: $scope.selectedSize, image: product._imageurl, price: product._price
             });
         }
-        $scope.totalCartPrice = 0;
+        $scope.subTotalCartPrice = 0;
         angular.forEach($scope.cartProducts, function (p) {
-            $scope.totalCartPrice += parseInt(p.qta) * p.price;
+            $scope.subTotalCartPrice += parseInt(p.qta) * p.price;
         });
+        $scope.totalCartPrice = ($scope.subTotalCartPrice > 100) ? $scope.subTotalCartPrice : ($scope.subTotalCartPrice + $scope.shipmentPrice);
         $scope.saveSessionCart();
         $scope.totalCartItems += 1;
     };

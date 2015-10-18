@@ -183,6 +183,7 @@ namespace ShopMagentoApi.Test
         [TestMethod]
         public void Should_Create_Checkout()
         {
+            var cartId = 1;
             var customerId = 1;
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
             //var customer = repository.GetCustomerById(customerId);
@@ -235,7 +236,8 @@ namespace ShopMagentoApi.Test
             products.Add(p);
             var paymentMethod = new PaymentMethod();
 
-            businessDelegateCart.CheckOut(customer, customerAddresses, products, "shippingMethodDummy", paymentMethod);
+            businessDelegateCart.CheckOut(cartId, customer, customerAddresses, products, "shippingMethodDummy", paymentMethod);
+            var orderInfo = repository.CreateOrder(cartId);
         }
 
         #region Private Methods

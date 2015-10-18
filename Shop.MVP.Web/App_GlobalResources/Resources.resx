@@ -141,4 +141,13 @@
   <data name="InvalidPassword_Error" xml:space="preserve">
     <value>Password non valida.</value>
   </data>
+  <data name="Checkout_LoadUserInfoIfLogged_Non_hai_un_account__Non_è_necessario_" xml:space="preserve">
+    <value>Non hai un account? Non è necessario!</value>
+  </data>
+  <data name="TreeStepCheckoutTitle_NotLogged" xml:space="preserve">
+    <value>Non hai un account? Non è necessario!</value>
+  </data>
+  <data name="TreeStepCheckoutTitle_Logged" xml:space="preserve">
+    <value>Completa il tuo acquisto in tre semplici passi!</value>
+  </data>
 </root>

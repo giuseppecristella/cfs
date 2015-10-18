@@ -16,7 +16,8 @@ namespace MagentoRepository.Repository
             }
             catch (Exception)
             {
-                return 0;
+                // TODO: log exception
+                return -1;
             }
         }
 

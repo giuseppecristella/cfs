@@ -4,7 +4,9 @@ using System.ServiceModel.Web;
 using System.Web;
 using System.Web.Script.Services;
 using Ez.Newsletter.MagentoApi;
+using Shop.Core;
 using Shop.Core.BusinessDelegate;
+using Shop.Core.Domain.ProductsCart;
 using Shop.Web.Mvp.Infrastructure;
 
 namespace Shop.Web.Mvp
@@ -52,7 +54,8 @@ namespace Shop.Web.Mvp
             SetPrice(products);
 
             if (HttpContext.Current.Session == null) return false;
-            HttpContext.Current.Session.Add("Products", products);
+            SessionFacade.ProductsCart = products;
+            //HttpContext.Current.Session.Add("Products", products);
             return true;
         }
 
@@ -62,7 +65,8 @@ namespace Shop.Web.Mvp
             // http://galratner.com/blogs/net/archive/2009/09/07/how-to-prevent-the-browser-from-caching-wcf-json-responses.aspx
             if (WebOperationContext.Current != null) WebOperationContext.Current.OutgoingResponse.Headers.Add("Cache-Control", "no-cache");
             if (HttpContext.Current.Session == null) return null;
-            return HttpContext.Current.Session["Products"] as List<ProductCart>;
+            return SessionFacade.ProductsCart;
+            //  HttpContext.Current.Session["Products"] as List<ProductCart>;
         }
 
         private void SetPrice(IEnumerable<ProductCart> products)

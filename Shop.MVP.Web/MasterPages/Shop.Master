@@ -70,9 +70,9 @@
                     </ul>
                     <div class="cart-summary text-center inner-top-50">
                         <h5 class="cart-total">Totale</h5>
-                        <p class="cart-total-price">{{ totalCartPrice | currency: "&euro;" }}</p>
-                        <p class="instruction">I costi di spedizione verranno calcolati appena scegli il metodo di pagamento.</p>
-                        <a class="btn btn-primary btn-uppercase continue-shopping" href="checkout.html">vai alla cassa</a>
+                        <p class="cart-total-price">{{ subTotalCartPrice | currency: "&euro;" }}</p>
+                        <p class="instruction">I costi di spedizione verranno calcolati appena sceglierai un metodo di pagamento.</p>
+                        <asp:LinkButton runat="server" ID="btnGoToCheckOut" PostBackUrl="~/Checkout/Checkout" CssClass="btn btn-primary btn-uppercase continue-shopping">vai alla cassa</asp:LinkButton>
                     </div>
                 </div>
             </div>
