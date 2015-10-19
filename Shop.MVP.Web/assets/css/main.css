@@ -22,7 +22,7 @@ Table of Contents
 11. Pages : CategoriesDictionary Grid
 12. Pages : Checkout
 13. Pages : Contact
-14. Pages : Home
+14. Pages : Home   
 15. Pages : Lookbook
 16. Pages : Lookbook-2
 17. Pages : Single Look
@@ -1922,6 +1922,7 @@ ul.bxslider {
 
 .qnt-holder {
     margin-top: 17px;
+    margin-left:130px;
 }
 
     .qnt-holder .quantity-holder {
@@ -2957,7 +2958,7 @@ ul.bxslider {
             .navbar.navbar-black .container .navbar-nav > li.bewear-dropdown > a:hover,
             .navbar.navbar-black .container .navbar-nav > li.bewear-dropdown > a:focus {
                 background: rgba(0, 0, 0, 0);
-                color: #000;
+                color: #ffffff;
             }
 
             .navbar.navbar-black .container .navbar-nav > li.bewear-dropdown.open > a {
@@ -3659,11 +3660,11 @@ ul.bxslider {
         }
 
 .category {
-    min-height: 531px;
+    min-height: 360px;
     border: 1px solid #ebebeb;
-    margin-bottom: 30px;
-    padding-top: 14px;
-    padding-bottom: 50px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
     .category .header .category-name {
@@ -3689,7 +3690,7 @@ ul.bxslider {
         }
 
     .category .section .image {
-        height: 356px;
+        /*height: 356px;*/
         text-align: center;
     }
 
@@ -4937,6 +4938,19 @@ address {
             font-size: 20px;
             position: relative;
         }
+         
+          #products-images > li > a .zoom-overlay {
+        bottom: 0;
+        position: absolute;
+        right: 0;
+        width: 16px;
+        z-index: 999;
+    }
+          #products-images > li > a {
+    position: relative;
+    width: 120%;
+    display: block;
+}
 
 .single-product-row .gallery-holder {
     padding-right: 0px;
@@ -5135,11 +5149,11 @@ address {
                 }
 
     .single-product-row .body-holder.body-holder-style-1 {
-        width: 48.7%;
+        width: 40%;
     }
 
         .single-product-row .body-holder.body-holder-style-1 .product-info {
-            padding-left: 70px;
+            padding-left: 120px;
         }
 
     .single-product-row .body-holder.body-holder-style-2 .product-info {
