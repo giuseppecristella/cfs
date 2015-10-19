@@ -15,12 +15,13 @@
                             <ins><span class="amount">€.<%# CommonHelper.FormatCurrency(Eval("price").ToString()) %></span></ins>
                         </div>
                         <div class="buttons-holder m-t-20">
-                            <div class="add-cart-holder">
+                            <%--<div class="add-cart-holder">
                                 <a title="Add to cart" ng-click="<%#  string.Format("addProductToCartFromUI('{0}','{1}','{2}')", Eval ("product_id"), Eval ("name"), Eval ("price")) %>" class="cart-button btn btn-primary">
                                     <%--   <a title="Add to cart" ng-click="addProductToCartFromUI('1')" class="cart-button btn btn-primary">--%>
-                                    <span>Compralo ora</span>
+                              <div class="add-cart-holder">
+                                   <a href="/<%# Eval("sku") %>/<%# Eval("product_id") %>"class="cart-button btn btn-primary"><span>Vedi Dettaglio</span></a>
                                 </a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
