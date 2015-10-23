@@ -106,7 +106,7 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SampleAccessProviders">
-      <HintPath>..\Libs\SampleAccessProviders.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\SampleAccessProviders.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -371,8 +371,16 @@
     <Content Include="Catalog\ProductsCatalogDonna.aspx" />
     <Content Include="Catalog\ProductsCatalogUomo.aspx" />
     <Content Include="Checkout\Checkout.aspx" />
+    <Content Include="content\toastr.css" />
+    <Content Include="content\toastr.min.css" />
     <Content Include="Home\Default.aspx" />
     <Content Include="Home\UserControls\UCShowcaseProducts.ascx" />
+    <Content Include="content\toastr.scss" />
+    <Content Include="content\toastr.less" />
+    <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.3.js" />
+    <Content Include="Scripts\jquery-1.6.3.min.js" />
+    <Content Include="Scripts\toastr.js" />
     <Content Include="Template\Documentation\assets\css\documenter_style.css" />
     <Content Include="Template\Documentation\assets\css\img\info.png" />
     <Content Include="Template\Documentation\assets\css\img\warning.png" />

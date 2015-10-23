@@ -93,14 +93,14 @@
                                                 <ItemTemplate>
                                                     <li>
                                                         <%--<asp:RadioButton OnCheckedChanged="rbSize_OnCheckedChanged" AutoPostBack="True" Text='<%#Eval("Name") %>' ID="rbSize"  runat="server"/>--%>
-                                                        <input id='<%# Eval("Name") %>' ng-click="<%#  string.Format("selectSize('{0}')", Eval ("name")) %>" class="attribute-radio" type="radio" name="group" />
+                                                        <input id='<%# Eval("Name") %>'  ng-click="<%#  string.Format("selectSize('{0}')", Eval ("name")) %>" class="attribute-radio" type="radio" name="group" />
                                                         <label for='<%# Eval("Name") %>'>
                                                             <span><%# Eval("Name").ToString().Replace("tg_",string.Empty) %></span>
                                                         </label>
                                                     </li>
                                                 </ItemTemplate>
-                                            </asp:Repeater>
-                                        </ul>
+                                            </asp:Repeater> 
+                                          </ul>
                                     </div>
                                 </div>
                                 <div class="qnt-holder">
@@ -109,7 +109,7 @@
                                             <span class="key">Qta.:</span>
                                             <input type="number" class="txt txt-qty" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>--%>
-                                       <a id="menu-toggle" class="navbar-toggle shopping-cart-toggle" data-toggle="offcanvas" data-target="#shopping-cart-summary" href="#"> <input ng-disabled="sizeNotChecked" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}','{3}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price, ProductViewModel.imageurl) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora"></a>
+                                     <a id="menu-toggle" class="navbar-toggle shopping-cart-toggle" data-toggle="offcanvas" data-target="#shopping-cart-summary" href="#"> <input  ng-disabled="sizeNotChecked" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}','{3}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price, ProductViewModel.imageurl) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora"></a>
                                         
                                     </div>
                                 </div>

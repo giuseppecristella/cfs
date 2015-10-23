@@ -15,6 +15,7 @@
     <asp:PlaceHolder runat="server">
         <!-- Bootstrap -->
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/bootstrap.min.css" rel="stylesheet" />
+        <link href="<%= Page.ResolveClientUrl("~/content/") %>toastr.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/jasny-bootstrap.min.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/lightbox.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/bewear-icons.css" rel="stylesheet" />
@@ -98,6 +99,7 @@
     <script src="<%= Page.ResolveClientUrl("~/assets/") %>js/scripts.js"></script>
 
     <script src="/Scripts/angular.js"></script>
+     <script src="/Scripts/toastr.js"></script>
     <script src="/Scripts/angular-resource.min.js"></script>
     <script src="/Scripts/slider.js"></script>
     <script src="/app/app.js"></script>
