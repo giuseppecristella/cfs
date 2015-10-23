@@ -15,6 +15,8 @@ namespace Shop.Core.BusinessDelegate
 
         /// <summary>
         /// Crea un carrello in Magento
+        /// Associa il customer, gli indirizzi di spedizione e fatturazione
+        /// i metodi di pagamento e di spedizione
         /// </summary>
         /// <param name="cartId"></param>
         /// <param name="customer"></param>
@@ -22,7 +24,7 @@ namespace Shop.Core.BusinessDelegate
         /// <param name="products"></param>
         /// <param name="shippingMethod"></param>
         /// <param name="paymentMethod"></param>
-        public void CheckOut(int cartId, Customer customer, List<CustomerAddress> customerAddresses, List<Product> products, string shippingMethod, PaymentMethod paymentMethod)
+        public void PrepareCartForOrder(int cartId, Customer customer, List<CustomerAddress> customerAddresses, List<Product> products, string shippingMethod, PaymentMethod paymentMethod)
         {
             try
             {
@@ -32,7 +34,8 @@ namespace Shop.Core.BusinessDelegate
                 products.ForEach(p => _repository.AddProductToCart(cartId, p));
                 _repository.AddShippingMethodToCart(cartId, shippingMethod);
 
-                var payMethod = _repository.GetPaymentMethods(cartId).FirstOrDefault(p => !p.code.Equals(paymentMethod.code));
+                //var payMethod = _repository.GetPaymentMethods(cartId).FirstOrDefault(p => !p.code.Equals(paymentMethod.code));
+                var payMethod = _repository.GetPaymentMethods(cartId).FirstOrDefault();
                 if (payMethod == null) return;
                 payMethod.method = payMethod.code;
                 payMethod.po_number = "000";
@@ -41,6 +44,7 @@ namespace Shop.Core.BusinessDelegate
             }
             catch (Exception ex)
             {
+                // Return response with error msg code
                 // Log message
                 var message = ex.Message;
             }
@@ -59,6 +63,16 @@ namespace Shop.Core.BusinessDelegate
         public int CreateCart()
         {
             return _repository.CreateCart();
+        }
+
+        public List<PaymentMethod> GetPaymentMethods(int cartId)
+        {
+            return _repository.GetPaymentMethods(cartId);
+        }
+
+        public bool CreateOrder(int cartId)
+        {
+            return _repository.CreateOrder(cartId) > 0;
         }
     }
 }

@@ -12,6 +12,8 @@ namespace Shop.Data
         public virtual DbSet<Newslettersubscription> Newslettersubscriptions { get; set; }
         public virtual DbSet<PromotionCode> PromotionCodes { get; set; }
         public virtual DbSet<Promotion> Promotions { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderProduct> OrderProducts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

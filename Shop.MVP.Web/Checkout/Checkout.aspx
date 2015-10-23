@@ -4,7 +4,7 @@
 
     <script type="text/javascript">
         function validateSecondAddressesFields(oSrc, args) {
-            var iscbShowShipmentAddressChecked = $('#showShipmentAddress').is(':checked');
+            var iscbShowShipmentAddressChecked = $('#cbShowShipmentAddress').is(':checked');
             args.IsValid = (iscbShowShipmentAddressChecked || args.Value != "");
         }
 
@@ -139,7 +139,6 @@
                                 <div class="billing-address-form">
                                     <div class="form-group">
                                         <label for="txtFirstName">Nome</label>
-                                         <asp:TextBox class="form-control" ID="FirstName" runat="server" />
                                         <asp:TextBox ClientIDMode="Static" class="form-control" ID="txtFirstName" runat="server" />
                                         <asp:RequiredFieldValidator ID="rvtxtFirstName" runat="server" ControlToValidate="txtFirstName"
                                             Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
@@ -213,7 +212,7 @@
                                     </asp:Panel>
                                     <asp:Panel runat="server" ID="pnlShowShipmentAddress" class="form-group checkbox">
                                         <label>
-                                            <input name="showShipmentAddress" ng-model="showShipmentAddress" type="checkbox" />
+                                            <input name="showShipmentAddress" ng-model="showShipmentAddress" type="checkbox" runat="server" ClientIDMode="Static" id="cbShowShipmentAddress" />
                                             Spedisci allo stesso indirizzo
                                         </label>
                                     </asp:Panel>
@@ -378,7 +377,7 @@
                                         </tbody>
                                     </table>
                                     <div class="checkout-action text-right">
-                                        <asp:Button ID="btnCheckout" Text="Conferma l'ordine" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
+                                        <asp:Button ID="btnCheckout" Text="Conferma l'ordine"  ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
                                     </div>
                                 </section>
                             </div>

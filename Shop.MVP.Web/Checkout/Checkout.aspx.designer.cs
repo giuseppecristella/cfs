@@ -67,15 +67,6 @@ namespace Shop.Web.Mvp.Checkout {
         protected global::System.Web.UI.WebControls.Literal ltTreeStepCheckoutTitle;
         
         /// <summary>
-        /// FirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FirstName;
-        
-        /// <summary>
         /// txtFirstName control.
         /// </summary>
         /// <remarks>
@@ -281,6 +272,15 @@ namespace Shop.Web.Mvp.Checkout {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlShowShipmentAddress;
+        
+        /// <summary>
+        /// cbShowShipmentAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbShowShipmentAddress;
         
         /// <summary>
         /// ScriptManager1 control.

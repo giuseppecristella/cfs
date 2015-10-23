@@ -109,9 +109,41 @@ namespace Shop.Data.Tests
             //    {
             //        datacontractSerializer.WriteObject(memoryStream, productCart);
             //        memoryStream.Position = 0;
-                  
+
             //    }
             //}
+        }
+
+        [TestMethod]
+        public void ShouldAddOrderWithProducts()
+        {
+            using (var ctx = new ShopDataContext())
+            {
+                var orderEntity = new Order
+                {
+                    CustomerFirstName = "Giuseppe",
+                    CustomerSecondName = "Cristella",
+                    CustomerAddress = "Via Puccini",
+                    OrderStatus = "Progress",
+                    PaymentType = "PayPal",
+                    SubmissionDate = DateTime.Now,
+                    Total = "100"
+                };
+                var products = new List<OrderProduct>
+                {
+                    new OrderProduct
+                    {
+                        Name = "Ciabatta",
+                        UnitPrice = 1,
+                        Qty = 2,
+                        TotalPrice = 10
+                    }
+                };
+
+                orderEntity.OrderProducts = products;
+                ctx.Set<Order>().Add(orderEntity);
+                var saveResult = ctx.SaveChanges();
+            }
         }
     }
 }
