@@ -22,10 +22,11 @@
                                 <section class="slider wow fadeIn">
                                     <div class="row">
                                         <div class="col-md-10 col-xs-12">
-                                            <ul id="product-images">
+                                            <ul id="products-images">
                                                 <li>
-                                                    <a href="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>">
+                                                     <a href="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>">
                                                         <img src="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" alt="" />
+                                                        <%--<img src="/assets/images/blank.gif" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" data-echo="<%= ProductViewModel.imageurl %>" alt="" />--%>
                                                         <span class="zoom-overlay"></span>
                                                     </a>
                                                 </li>
@@ -104,12 +105,12 @@
                                 </div>
                                 <div class="qnt-holder">
                                     <div class="cart">
-                                        <div class="quantity-holder">
+                                       <%-- <div class="quantity-holder">
                                             <span class="key">Qta.:</span>
                                             <input type="number" class="txt txt-qty" title="Qty" value="1" name="quantity" min="1" step="1">
-                                        </div>
-                                        <input ng-disabled="sizeNotChecked" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}','{3}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price, ProductViewModel.imageurl) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora">
-                                        <a href="checkout.html" title="Wishlist" class="btn add-to-wishlist">add to wishlist</a>
+                                        </div>--%>
+                                       <a id="menu-toggle" class="navbar-toggle shopping-cart-toggle" data-toggle="offcanvas" data-target="#shopping-cart-summary" href="#"> <input ng-disabled="sizeNotChecked" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}','{3}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price, ProductViewModel.imageurl) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora"></a>
+                                        
                                     </div>
                                 </div>
                                  <%--  <div id="product-simple-tab">
