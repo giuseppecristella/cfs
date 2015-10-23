@@ -5,6 +5,7 @@ using MagentoComunication.Helpers;
 using MagentoRepository.Connection;
 using MagentoRepository.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Shop.Core;
 using Shop.Core.BusinessDelegate;
 using Shop.Core.Cache;
 using CookComputing.XmlRpc;
@@ -108,6 +109,9 @@ namespace ShopMagentoApi.Test
         public void Should_Get_All_Shipping_Methods()
         {
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
+
+            repository.AddShippingMethodToCart(149, "flatrate_flatrate");
+            repository.GetShippingMethods(148);
         }
 
         /// <summary>
@@ -177,13 +181,13 @@ namespace ShopMagentoApi.Test
         public void Should_Get_Payment_Methods()
         {
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
-            var paymentMethods = repository.GetPaymentMethods(579);
+            var paymentMethods = repository.GetPaymentMethods(166);
         }
 
         [TestMethod]
         public void Should_Create_Checkout()
         {
-            var cartId = 1;
+            
             var customerId = 1;
             var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
             //var customer = repository.GetCustomerById(customerId);
@@ -198,6 +202,8 @@ namespace ShopMagentoApi.Test
             };
 
             var businessDelegateCart = new BusinessDelegate();
+
+            var cartId = 168;//businessDelegateCart.CreateCart();
 
             var customerAddresses = new List<CustomerAddress>
             {
@@ -229,15 +235,25 @@ namespace ShopMagentoApi.Test
             var products = new List<Product>();
             var p = new Product
             {
-                product_id = "1",
-                sku = "ddd",
-                qty = "3"
+                product_id = "55",
+                sku = "product1",
+                qty = "1"
             };
             products.Add(p);
+            p = new Product
+            {
+                product_id = "55",
+                sku = "product2",
+                qty = "1"
+            };
+            products.Add(p);
+
             var paymentMethod = new PaymentMethod();
 
-            businessDelegateCart.CheckOut(cartId, customer, customerAddresses, products, "shippingMethodDummy", paymentMethod);
+            businessDelegateCart.PrepareCartForOrder(cartId, customer, customerAddresses, products, "shippingMethodDummy", paymentMethod);
             var orderInfo = repository.CreateOrder(cartId);
+            
+            // Crea Ordine in SQL
         }
 
         #region Private Methods

@@ -140,11 +140,11 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         }
     });
 
-    $scope.addProductToCartFromUI = function (id, name, price, image) {
+    $scope.addProductToCartFromUI = function(id, name, price, image) {
         // recupero la size da $scope.sizeName
         var product = { _product_id: id, _price: price, _name: name, _imageurl: image };
         $scope.addProductToCart(product);
-    }
+    };
 
     $scope.addProductToCart = function (product) {
 

@@ -42,5 +42,10 @@ namespace Shop.Core.BusinessDelegate
         {
             return _repository.GetProductImages(productId);
         }
+
+        public Product GetProductInfo(string id)
+        {
+            return _repository.GetProductInfo(id);
+        }
     }
 }

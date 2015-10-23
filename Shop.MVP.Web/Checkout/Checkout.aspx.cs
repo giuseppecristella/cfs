@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
-using System.Web.ModelBinding;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using Ez.Newsletter.MagentoApi;
@@ -27,15 +26,19 @@ namespace Shop.Web.Mvp.Checkout
         public Checkout()
         {
             _businessDelegate = new BusinessDelegate();
-        } 
+        }
         #endregion
 
         #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
             //TODO: Classe base check Session redirect nel page load
-            BindPaymentMethods();
-            LoadUserInfoIfLogged();
+            if (!Page.IsPostBack)
+            {
+                BindPaymentMethods();
+                LoadUserInfoIfLogged();
+
+            }
 
             if (SessionFacade.ProductsCart == null)
             {
@@ -115,29 +118,113 @@ namespace Shop.Web.Mvp.Checkout
 
         protected void btnCheckout_OnClick(object sender, EventArgs e)
         {
-            BindDataObjects();
+            //BindDataObjects();
+            var customer = BindUserInfoToObject();
+
+            var customerAddresses = BindCustomerAddressesToObject(cbShowShipmentAddress.Checked);
+            var products = GetProductsForCart();
+
+            var paymentMethods = _businessDelegate.GetPaymentMethods(SessionFacade.CartId);
+           // var selectedPayment = paymentMethods.First();
+            var selectedPayment = paymentMethods.First(p => rdbtnListPayMethods.SelectedValue.Contains(p.code));
+
+            _businessDelegate.PrepareCartForOrder(SessionFacade.CartId, customer, customerAddresses, products, "flatrate_flatrate", selectedPayment);
+            if (_businessDelegate.CreateOrder(SessionFacade.CartId))
+            {
+                // TODO: convertire in nullable
+                SessionFacade.CartId = 0;
+            } 
+        }
+
+        /// <summary>
+        /// Accede a Magento per recuperare le informazioni effettive dei prodotti da ordinare
+        /// </summary>
+        /// <returns></returns>
+        private List<Product> GetProductsForCart()
+        {
+            var products = new List<Product>();
+            foreach (var productCart in SessionFacade.ProductsCart)
+            {             
+                var productFromDb = _businessDelegate.GetProductInfo(productCart.Id);
+                var p = new Product
+                {
+                    product_id = productCart.Id,
+                    sku = productFromDb.sku,
+                    qty = productCart.Qta.ToString(),
+                    price = productFromDb.price
+                };
+                products.Add(p);
+            }
+            return products;
         }
 
         private void BindDataObjects()
         {
-            var dataObject = new CustomerVM();
+            //var dataObject = new CustomerVM();
+            //if (TryUpdateModel(dataObject, new FormValueProvider(ModelBindingExecutionContext)))
+            //{
 
-            if (TryUpdateModel(dataObject, new FormValueProvider(ModelBindingExecutionContext)))
-            {
- 
-            } 
+            //} 
         }
 
         #endregion
 
         #region Bindings
-        private void BindCustomerAddresses(List<CustomerAddress> customerAddresses)
+        private void BindCustomerAddresses(IEnumerable<CustomerAddress> customerAddresses)
         {
-            var shipmentAddress = customerAddresses.First(a => a.is_default_billing);
+            var shipmentAddress = customerAddresses.First(a => a.is_default_shipping);
             txtCity.Text = shipmentAddress.city;
             txtStreet.Text = shipmentAddress.street;
             txtZipCode.Text = shipmentAddress.postcode;
             txtPhone.Text = shipmentAddress.telephone;
+        }
+
+        /// <summary>
+        /// Crea le entità di mapping per gli indirizzi di spedizione e fatturazione
+        /// </summary>
+        /// <param name="sendToSameAddress"></param>
+        /// <returns></returns>
+        private List<CustomerAddress> BindCustomerAddressesToObject(bool sendToSameAddress)
+        {
+            var customerAddresses = new List<CustomerAddress>();
+
+            var shippingAddress = new CustomerAddress
+            {
+                firstname = txtFirstName.Text,
+                lastname = txtLastName.Text,
+                country_id = "2",
+                region = "ita",
+                city = txtCity.Text,
+                street = txtStreet.Text,
+                postcode = txtZipCode.Text,
+                telephone = txtPhone.Text,
+                mode = "shipping"
+            };
+
+            var billingAddress = new CustomerAddress
+            {
+                firstname = txtFirstName.Text,
+                lastname = txtLastName.Text,
+                country_id = "2",
+                region = "ita",
+                city = txtCity.Text,
+                street = txtStreet.Text,
+                postcode = txtZipCode.Text,
+                telephone = txtPhone.Text,
+                mode = "billing"
+            };
+
+            if (!sendToSameAddress)
+            {
+                shippingAddress.city = txtCity_2.Text;
+                shippingAddress.street = txtStreet_2.Text;
+                shippingAddress.postcode = txtZipCode_2.Text;
+                shippingAddress.telephone = txtPhone_2.Text;
+            }
+
+            customerAddresses.Add(shippingAddress);
+            customerAddresses.Add(billingAddress);
+            return customerAddresses;
         }
 
         private void BindUserInfo(Customer customer)
@@ -145,6 +232,18 @@ namespace Shop.Web.Mvp.Checkout
             txtFirstName.Text = customer.firstname;
             txtLastName.Text = customer.lastname;
             txtEmail.Text = customer.email;
+        }
+
+        private Customer BindUserInfoToObject()
+        {
+            return new Customer
+            {
+                firstname = txtFirstName.Text,
+                lastname = txtLastName.Text,
+                email = txtEmail.Text,
+                mode = "register",
+                customer_id = "1"
+            };
         }
 
         private void BindPaymentMethods()
@@ -263,7 +362,7 @@ namespace Shop.Web.Mvp.Checkout
             {
 
             }
-        } 
+        }
         #endregion
 
     }

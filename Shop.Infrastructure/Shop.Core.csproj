@@ -68,6 +68,8 @@
     <Compile Include="BusinessDelegate\BusinessDelegate + Order.cs" />
     <Compile Include="BusinessDelegate\BusinessDelegate + Products.cs" />
     <Compile Include="Domain\Messages\NewsLetterSubscription.cs" />
+    <Compile Include="Domain\OrderProducts\OrderProduct.cs" />
+    <Compile Include="Domain\Orders\Order.cs" />
     <Compile Include="Domain\ProductsCart\ProductCart.cs" />
     <Compile Include="Domain\Promotions\Promotion.cs" />
     <Compile Include="Domain\Promotions\PromotionCode.cs" />

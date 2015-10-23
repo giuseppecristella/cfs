@@ -141,6 +141,7 @@
     <Content Include="app\common.js" />
     <Content Include="app\data.js" />
     <Content Include="app\scCatalogCtrl.js" />
+    <Content Include="App_Data\ASPNetDB.mdb" />
     <Content Include="assets\css\animate.min.css" />
     <Content Include="assets\css\bewear-icons.css" />
     <Content Include="assets\css\bootstrap.min.css" />
@@ -1054,9 +1055,7 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Site.Mobile.Master" />

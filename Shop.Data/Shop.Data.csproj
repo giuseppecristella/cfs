@@ -58,6 +58,8 @@
     <Compile Include="Mapping\Promotions\PromotionCodeMap.cs" />
     <Compile Include="Mapping\ShopEntityTypeConfiguration.cs" />
     <Compile Include="Newslettersubscription.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderProduct.cs" />
     <Compile Include="Promotion.cs" />
     <Compile Include="PromotionCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
