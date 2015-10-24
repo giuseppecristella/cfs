@@ -109,7 +109,10 @@
                                             <span class="key">Qta.:</span>
                                             <input type="number" class="txt txt-qty" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>--%>
-                                     <a id="menu-toggle" class="navbar-toggle shopping-cart-toggle" data-toggle="offcanvas" data-target="#shopping-cart-summary" href="#"> <input  ng-disabled="sizeNotChecked" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}','{3}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price, ProductViewModel.imageurl) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora"></a>
+                                     <a  
+                                         data-toggle="offcanvas" 
+                                         data-target="{{ activatePanelCart }}" 
+                                         href="#"> <input ng-class="{{ classBtnAddProductToCart  }}" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}','{3}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price, ProductViewModel.imageurl) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora"></a>
                                         
                                     </div>
                                 </div>

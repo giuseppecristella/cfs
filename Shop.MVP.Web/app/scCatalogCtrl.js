@@ -13,6 +13,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
             $scope.catalog = data;
         });
     }
+   
     $scope.categoryName = "dummy";
     $scope.totalCartItems = ($scope.cartProducts && $scope.cartProducts.length > 1) ? $scope.cartProducts.length + 1 : 0;
 
@@ -146,28 +147,43 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         $scope.addProductToCart(product);
     };
 
+    $scope.activatePanelCart = "";
+    $scope.classBtnAddProductToCart = "btnAddProductToCart_Disabled";
     $scope.addProductToCart = function (product) {
 
-        var addedToExistingItem = false;
-        for (var i = 0; i < $scope.cartProducts.length; i++) {
-            if ($scope.cartProducts[i].id == product._product_id && $scope.cartProducts[i].size == $scope.selectedSize) {
-                $scope.cartProducts[i].qta++;
-                addedToExistingItem = true;
-                break;
-            }
-        }
-        if (!addedToExistingItem) {
-            $scope.cartProducts.push({
-                qta: 1, id: product._product_id, name: product._name, size: $scope.selectedSize, image: product._imageurl, price: product._price
+        if ($scope.sizeNotChecked) {
+            toastr.info('Selezionare una taglia', 'Per continuare nell\'acquisto!', {
+                "showDuration": "30000",
+                "hideDuration": "10000",
+                "timeOut": "50000",
+                "extendedTimeOut": "1000",
+                "positionClass": "toast-bottom-left",
+                "closeButton": true,
             });
+        } else {
+            $scope.activatePanelCart = "#shopping-cart-summary";
+            $scope.classBtnAddProductToCart = "btnAddProductToCart";
+            var addedToExistingItem = false;
+            for (var i = 0; i < $scope.cartProducts.length; i++) {
+                if ($scope.cartProducts[i].id == product._product_id && $scope.cartProducts[i].size == $scope.selectedSize) {
+                    $scope.cartProducts[i].qta++;
+                    addedToExistingItem = true;
+                    break;
+                }
+            }
+            if (!addedToExistingItem) {
+                $scope.cartProducts.push({
+                    qta: 1, id: product._product_id, name: product._name, size: $scope.selectedSize, image: product._imageurl, price: product._price
+                });
+            }
+            $scope.subTotalCartPrice = 0;
+            angular.forEach($scope.cartProducts, function (p) {
+                $scope.subTotalCartPrice += parseInt(p.qta) * p.price;
+            });
+            $scope.totalCartPrice = ($scope.subTotalCartPrice > 100) ? $scope.subTotalCartPrice : ($scope.subTotalCartPrice + $scope.shipmentPrice);
+            $scope.saveSessionCart();
+            $scope.totalCartItems += 1;
         }
-        $scope.subTotalCartPrice = 0;
-        angular.forEach($scope.cartProducts, function (p) {
-            $scope.subTotalCartPrice += parseInt(p.qta) * p.price;
-        });
-        $scope.totalCartPrice = ($scope.subTotalCartPrice > 100) ? $scope.subTotalCartPrice : ($scope.subTotalCartPrice + $scope.shipmentPrice);
-        $scope.saveSessionCart();
-        $scope.totalCartItems += 1;
     };
 
     $scope.removeProductToCart = function (product) {
