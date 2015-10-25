@@ -121,7 +121,7 @@
     <value>T: +39 821 39 36 E: shop@materarredamenti.it</value>
   </data>
   <data name="ShopTitle" xml:space="preserve">
-    <value>ShopTitle</value>
+    <value>CalzaFacile</value>
   </data>
   <data name="E-mailAlreadyPresent" xml:space="preserve">
     <value>Hai già inserito questo indirizzo e-mail!</value>
@@ -130,7 +130,7 @@
     <value>Ti abbiamo già inviato un codice!</value>
   </data>
   <data name="UnregisteredUser_Error" xml:space="preserve">
-    <value>Ops! L'utente inserito non esiste.</value>
+    <value>Oops! L'utente inserito non esiste.</value>
   </data>
   <data name="NotApprovedUser_Error" xml:space="preserve">
     <value>Your account has not yet been approved by an administrator.</value>
@@ -149,5 +149,23 @@
   </data>
   <data name="TreeStepCheckoutTitle_Logged" xml:space="preserve">
     <value>Completa il tuo acquisto in tre semplici passi!</value>
+  </data>
+  <data name="ltEmptyCartMsg_AfterOrder" xml:space="preserve">
+    <value>Il tuo ordine è stato preso in carico. Controlla la tua posta!&lt;br&gt;Riceverai una mail di conferma all'indirizzo da te indicato.</value>
+  </data>
+  <data name="ltEmptyCartMsg_Default" xml:space="preserve">
+    <value>Non ci sono prodotti nel tuo carrello.</value>
+  </data>
+  <data name="ltEmptyCartTitle_AfterOrder" xml:space="preserve">
+    <value>Ordine concluso</value>
+  </data>
+  <data name="ltEmptyCartTitle_Default" xml:space="preserve">
+    <value>Il tuo Carrello è vuoto</value>
+  </data>
+  <data name="ltEmptyCartMsg_AfterOrderError" xml:space="preserve">
+    <value>Ci sono errori nella creazione del tuo ordine.</value>
+  </data>
+  <data name="ltEmptyCartTitle_AfterOrderError" xml:space="preserve">
+    <value>Ordine non andato a buon fine.</value>
   </data>
 </root>

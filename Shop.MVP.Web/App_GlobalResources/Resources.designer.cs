@@ -106,6 +106,60 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Il tuo ordine è stato preso in carico. Controlla la tua posta!&lt;br&gt;Riceverai una mail di conferma all&apos;indirizzo da te indicato..
+        /// </summary>
+        internal static string ltEmptyCartMsg_AfterOrder {
+            get {
+                return ResourceManager.GetString("ltEmptyCartMsg_AfterOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ci sono errori nella creazione del tuo ordine..
+        /// </summary>
+        internal static string ltEmptyCartMsg_AfterOrderError {
+            get {
+                return ResourceManager.GetString("ltEmptyCartMsg_AfterOrderError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non ci sono prodotti nel tuo carrello..
+        /// </summary>
+        internal static string ltEmptyCartMsg_Default {
+            get {
+                return ResourceManager.GetString("ltEmptyCartMsg_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ordine concluso.
+        /// </summary>
+        internal static string ltEmptyCartTitle_AfterOrder {
+            get {
+                return ResourceManager.GetString("ltEmptyCartTitle_AfterOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ordine non andato a buon fine..
+        /// </summary>
+        internal static string ltEmptyCartTitle_AfterOrderError {
+            get {
+                return ResourceManager.GetString("ltEmptyCartTitle_AfterOrderError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Il tuo Carrello è vuoto.
+        /// </summary>
+        internal static string ltEmptyCartTitle_Default {
+            get {
+                return ResourceManager.GetString("ltEmptyCartTitle_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your account has not yet been approved by an administrator..
         /// </summary>
         internal static string NotApprovedUser_Error {
@@ -124,7 +178,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ShopTitle.
+        ///   Looks up a localized string similar to CalzaFacile.
         /// </summary>
         internal static string ShopTitle {
             get {
@@ -151,7 +205,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ops! L&apos;utente inserito non esiste..
+        ///   Looks up a localized string similar to Oops! L&apos;utente inserito non esiste..
         /// </summary>
         internal static string UnregisteredUser_Error {
             get {

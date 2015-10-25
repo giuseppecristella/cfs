@@ -18,9 +18,17 @@ namespace Shop.Web.Mvp.Checkout
         Shipping
     }
 
+    public enum EmptyCartMode
+    {
+        Default,
+        AfterOrder,
+        AfterOrderError
+    }
+
     public partial class Checkout : System.Web.UI.Page
     {
         private readonly BusinessDelegate _businessDelegate;
+        private static int _magentoCustomerId = 1;
 
         #region CTor
         public Checkout()
@@ -37,25 +45,21 @@ namespace Shop.Web.Mvp.Checkout
             {
                 BindPaymentMethods();
                 LoadUserInfoIfLogged();
-
             }
 
             if (SessionFacade.ProductsCart == null)
             {
-                mvContainer.ActiveViewIndex = 0;
+                ActivateCartEmptyView(EmptyCartMode.Default);
                 return;
             }
 
-            if (SessionFacade.CartId.Equals(0))
+            if (!SessionFacade.CartId.Equals(0)) return;
+            SessionFacade.CartId = _businessDelegate.CreateCart();
+            if (SessionFacade.CartId.Equals(-1))
             {
-                SessionFacade.CartId = _businessDelegate.CreateCart();
-                if (SessionFacade.CartId.Equals(-1))
-                {
-                    // Errore creazione carrello
-                    // 1. Log Exception 2. Alert 3. Redirect
-                }
+                // Errore creazione carrello
+                // 1. Log Exception 2. Alert 3. Redirect
             }
-
         }
 
         protected void cuwUser_OnCreatedUser(object sender, EventArgs e)
@@ -118,22 +122,32 @@ namespace Shop.Web.Mvp.Checkout
 
         protected void btnCheckout_OnClick(object sender, EventArgs e)
         {
-            //BindDataObjects();
+            // Crea Entities
             var customer = BindUserInfoToObject();
-
             var customerAddresses = BindCustomerAddressesToObject(cbShowShipmentAddress.Checked);
             var products = GetProductsForCart();
+            var paymentMethod = SetPaymentMethod();
+            // Prepara l'ordine
+            _businessDelegate.PrepareCartForOrder(SessionFacade.CartId, customer, customerAddresses, products, App.Configuration.DefaultShippingMethodMode, paymentMethod);
+            // Invia l'ordine
+            var createOrderResult = _businessDelegate.CreateOrder(SessionFacade.CartId);
+            // Svuota Sessione
+            SessionFacade.CartId = 0;
+            SessionFacade.ProductsCart = null;
+            // Gestisce il risultato
+            ActivateCartEmptyView(createOrderResult ? EmptyCartMode.AfterOrder : EmptyCartMode.AfterOrderError);
+        }
 
-            var paymentMethods = _businessDelegate.GetPaymentMethods(SessionFacade.CartId);
-           // var selectedPayment = paymentMethods.First();
-            var selectedPayment = paymentMethods.First(p => rdbtnListPayMethods.SelectedValue.Contains(p.code));
-
-            _businessDelegate.PrepareCartForOrder(SessionFacade.CartId, customer, customerAddresses, products, "flatrate_flatrate", selectedPayment);
-            if (_businessDelegate.CreateOrder(SessionFacade.CartId))
+        private PaymentMethod SetPaymentMethod()
+        {
+            var selectedPayment = new PaymentMethod
             {
-                // TODO: convertire in nullable
-                SessionFacade.CartId = 0;
-            } 
+                code = rdbtnListPayMethods.SelectedItem.Value,
+                method = rdbtnListPayMethods.SelectedItem.Value,
+                po_number = App.Configuration.PaymentPoNumber,
+                title = rdbtnListPayMethods.SelectedItem.Text
+            };
+            return selectedPayment;
         }
 
         /// <summary>
@@ -144,7 +158,7 @@ namespace Shop.Web.Mvp.Checkout
         {
             var products = new List<Product>();
             foreach (var productCart in SessionFacade.ProductsCart)
-            {             
+            {
                 var productFromDb = _businessDelegate.GetProductInfo(productCart.Id);
                 var p = new Product
                 {
@@ -186,33 +200,8 @@ namespace Shop.Web.Mvp.Checkout
         /// <returns></returns>
         private List<CustomerAddress> BindCustomerAddressesToObject(bool sendToSameAddress)
         {
-            var customerAddresses = new List<CustomerAddress>();
-
-            var shippingAddress = new CustomerAddress
-            {
-                firstname = txtFirstName.Text,
-                lastname = txtLastName.Text,
-                country_id = "2",
-                region = "ita",
-                city = txtCity.Text,
-                street = txtStreet.Text,
-                postcode = txtZipCode.Text,
-                telephone = txtPhone.Text,
-                mode = "shipping"
-            };
-
-            var billingAddress = new CustomerAddress
-            {
-                firstname = txtFirstName.Text,
-                lastname = txtLastName.Text,
-                country_id = "2",
-                region = "ita",
-                city = txtCity.Text,
-                street = txtStreet.Text,
-                postcode = txtZipCode.Text,
-                telephone = txtPhone.Text,
-                mode = "billing"
-            };
+            var shippingAddress = CreateShippingAddress();
+            var billingAddress = CreateCustomerAddress();
 
             if (!sendToSameAddress)
             {
@@ -221,9 +210,7 @@ namespace Shop.Web.Mvp.Checkout
                 shippingAddress.postcode = txtZipCode_2.Text;
                 shippingAddress.telephone = txtPhone_2.Text;
             }
-
-            customerAddresses.Add(shippingAddress);
-            customerAddresses.Add(billingAddress);
+            var customerAddresses = new List<CustomerAddress> { shippingAddress, billingAddress };
             return customerAddresses;
         }
 
@@ -232,6 +219,7 @@ namespace Shop.Web.Mvp.Checkout
             txtFirstName.Text = customer.firstname;
             txtLastName.Text = customer.lastname;
             txtEmail.Text = customer.email;
+            _magentoCustomerId = int.Parse(customer.customer_id);
         }
 
         private Customer BindUserInfoToObject()
@@ -241,8 +229,8 @@ namespace Shop.Web.Mvp.Checkout
                 firstname = txtFirstName.Text,
                 lastname = txtLastName.Text,
                 email = txtEmail.Text,
-                mode = "register",
-                customer_id = "1"
+                mode = App.Configuration.DefaultCustomerMode,
+                customer_id = _magentoCustomerId.ToString()
             };
         }
 
@@ -258,13 +246,48 @@ namespace Shop.Web.Mvp.Checkout
         #endregion
 
         #region Private Methods
+
+        private CustomerAddress CreateCustomerAddress()
+        {
+            var billingAddress = new CustomerAddress
+            {
+                firstname = txtFirstName.Text,
+                lastname = txtLastName.Text,
+                country_id = App.Configuration.DefaultShippingCountryId,
+                region = App.Configuration.DefaultShippingRegion,
+                city = txtCity.Text,
+                street = txtStreet.Text,
+                postcode = txtZipCode.Text,
+                telephone = txtPhone.Text,
+                mode = App.Configuration.AddressModeBilling
+            };
+            return billingAddress;
+        }
+
+        private CustomerAddress CreateShippingAddress()
+        {
+            var shippingAddress = new CustomerAddress
+            {
+                firstname = txtFirstName.Text,
+                lastname = txtLastName.Text,
+                country_id = App.Configuration.DefaultShippingCountryId,
+                region = App.Configuration.DefaultShippingRegion,
+                city = txtCity.Text,
+                street = txtStreet.Text,
+                postcode = txtZipCode.Text,
+                telephone = txtPhone.Text,
+                mode = App.Configuration.AddressModeShipping
+            };
+            return shippingAddress;
+        }
+
         private void LoadUserInfoIfLogged()
         {
             var aspNetUser = Membership.GetUser(Page.User.Identity.Name);
             if (aspNetUser == null)
             {
                 ltTreeStepCheckoutTitle.Text = Resources.Resources.TreeStepCheckoutTitle_NotLogged;
-                //pnlShowShipmentAddress.Visible = false;
+                pnlShowShipmentAddress.Visible = false;
                 return;
             }
             var magentoUserId = aspNetUser.Comment;
@@ -362,6 +385,34 @@ namespace Shop.Web.Mvp.Checkout
             {
 
             }
+        }
+
+        private void ActivateCartEmptyView(EmptyCartMode emptyCartMode)
+        {
+            mvContainer.ActiveViewIndex = 0;
+
+            switch (emptyCartMode)
+            {
+                case EmptyCartMode.Default:
+                    {
+                        ltEmptyCartTitle.Text = Resources.Resources.ltEmptyCartTitle_Default;
+                        ltEmptyCartMsg.Text = Resources.Resources.ltEmptyCartMsg_Default;
+                        break;
+                    }
+                case EmptyCartMode.AfterOrder:
+                    {
+                        ltEmptyCartTitle.Text = Resources.Resources.ltEmptyCartTitle_AfterOrder;
+                        ltEmptyCartMsg.Text = Resources.Resources.ltEmptyCartMsg_AfterOrder;
+                        break;
+                    }
+                case EmptyCartMode.AfterOrderError:
+                    {
+                        ltEmptyCartTitle.Text = Resources.Resources.ltEmptyCartTitle_AfterOrderError;
+                        ltEmptyCartMsg.Text = Resources.Resources.ltEmptyCartMsg_AfterOrderError;
+                        break;
+                    }
+            }
+
         }
         #endregion
 

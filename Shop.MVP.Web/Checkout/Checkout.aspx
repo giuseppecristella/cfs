@@ -42,10 +42,11 @@
             </div>
             <div class="container">
                 <header class="text-center">
-
-                    <h2 class="section-title">Il Carrello è Vuoto</h2>
+                    <h2 class="section-title"><asp:Literal ID="ltEmptyCartTitle" runat="server"></asp:Literal></h2>
                     <br />
-                    <span>Non ci sono articoli nel tuo carrello.  Clicca questo <a href="../">link</a> per continuare gli acquisti.</span>
+                    <span><asp:Literal  ID="ltEmptyCartMsg" runat="server"></asp:Literal>
+                          Clicca questo <a href="../">link</a> per continuare gli acquisti.
+                    </span>
                 </header>
                 <br />
             </div>
