@@ -363,12 +363,14 @@
                                                         </div>
                                                         <div class="media-body media-middle">
                                                             <h3 class="product-title"><span class="product-quantity">
-                                                                <input type="number" class="txt txt-qty" title="Qty" ng-change="UpdateProductQty(product)" ng-model="product.qta" name="quantity" min="1" step="1" />
+                                                                <input type="number" style="width: 30px;" class="txt txt-qty" title="Qty" ng-change="UpdateProductQty(product)" ng-model="product.qta" name="quantity" min="1" step="1" />
                                                                 x
                                                             </span>{{ product.name }}</h3>
                                                             <ul class="product-attributes">
-                                                                <li>Taglia : {{ product.color }}</li>
                                                                 <li>Taglia : {{ product.size }}</li>
+                                                                <li><a href="" ng-click="DeleteProduct(product)">Elimina</a></li>
+                                                                <li>
+                                                                    <button class="btn" ng-click="open()">Open Modal</button></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -393,4 +395,16 @@
             </div>
         </asp:View>
     </asp:MultiView>
+    <div modal="showModal" close="cancel()">
+        <div class="modal-header">
+            <h4>Modal Dialog</h4>
+        </div>
+        <div class="modal-body">
+            <p>Example paragraph with some text.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" ng-click="ok()">Okay</button>
+            <button class="btn" ng-click="cancel()">Cancel</button>
+        </div>
+    </div>
 </asp:Content>

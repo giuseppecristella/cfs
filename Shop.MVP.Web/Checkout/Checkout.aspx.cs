@@ -47,7 +47,7 @@ namespace Shop.Web.Mvp.Checkout
                 LoadUserInfoIfLogged();
             }
 
-            if (SessionFacade.ProductsCart == null)
+            if (SessionFacade.ProductsCart == null || !SessionFacade.ProductsCart.Any())
             {
                 ActivateCartEmptyView(EmptyCartMode.Default);
                 return;

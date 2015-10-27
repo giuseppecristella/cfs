@@ -99,7 +99,8 @@
     <script src="<%= Page.ResolveClientUrl("~/assets/") %>js/scripts.js"></script>
 
     <script src="/Scripts/angular.js"></script>
-     <script src="/Scripts/toastr.js"></script>
+    <script src="../Scripts/angular-ui-bootstrap-modal.js"></script>
+    <script src="/Scripts/toastr.js"></script>
     <script src="/Scripts/angular-resource.min.js"></script>
     <script src="/Scripts/slider.js"></script>
     <script src="/app/app.js"></script>

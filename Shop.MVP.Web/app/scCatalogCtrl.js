@@ -213,6 +213,29 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         }
     };
 
+    $scope.DeleteProduct = function (product) {
+        for (var i = 0; i < $scope.cartProducts.length; i++) {
+            if ($scope.cartProducts[i].id == product.id) {
+                $scope.cartProducts.splice(i, 1);
+                $scope.totalCartPrice = ($scope.subTotalCartPrice > 100) ? $scope.subTotalCartPrice : ($scope.subTotalCartPrice + $scope.shipmentPrice);
+                $scope.saveSessionCart();
+                $scope.totalCartItems -= product.qta;
+
+                var r = confirm("Press a button!");
+                if (r == true) {
+                    __doPostBack();
+                } else {
+
+                }
+            }
+        }
+    }
+
+    $scope.open = function () {
+        //alert("ciao");
+       
+    };
+
     // Viene Salvato l'intero carrello in sessione (non il singolo prodotto)
     $scope.saveSessionCart = function () {
         $http({
