@@ -42,10 +42,12 @@
             </div>
             <div class="container">
                 <header class="text-center">
-                    <h2 class="section-title"><asp:Literal ID="ltEmptyCartTitle" runat="server"></asp:Literal></h2>
+                    <h2 class="section-title">
+                        <asp:Literal ID="ltEmptyCartTitle" runat="server"></asp:Literal></h2>
                     <br />
-                    <span><asp:Literal  ID="ltEmptyCartMsg" runat="server"></asp:Literal>
-                          Clicca questo <a href="../">link</a> per continuare gli acquisti.
+                    <span>
+                        <asp:Literal ID="ltEmptyCartMsg" runat="server"></asp:Literal>
+                        Clicca questo <a href="../">link</a> per continuare gli acquisti.
                     </span>
                 </header>
                 <br />
@@ -213,7 +215,7 @@
                                     </asp:Panel>
                                     <asp:Panel runat="server" ID="pnlShowShipmentAddress" class="form-group checkbox">
                                         <label>
-                                            <input name="showShipmentAddress" ng-model="showShipmentAddress" type="checkbox" runat="server" ClientIDMode="Static" id="cbShowShipmentAddress" />
+                                            <input name="showShipmentAddress" ng-model="showShipmentAddress" type="checkbox" runat="server" clientidmode="Static" id="cbShowShipmentAddress" />
                                             Spedisci allo stesso indirizzo
                                         </label>
                                     </asp:Panel>
@@ -360,7 +362,10 @@
                                                             <img src="assets/images/blank.gif" width="80" data-echo="{{ product.image }}" alt="{{ product.name }}" class="media-object">
                                                         </div>
                                                         <div class="media-body media-middle">
-                                                            <h3 class="product-title"><span class="product-quantity">{{ product.qta }} x</span> {{ product.name }}</h3>
+                                                            <h3 class="product-title"><span class="product-quantity">
+                                                                <input type="number" class="txt txt-qty" title="Qty" ng-change="UpdateProductQty(product)" ng-model="product.qta" name="quantity" min="1" step="1" />
+                                                                x
+                                                            </span>{{ product.name }}</h3>
                                                             <ul class="product-attributes">
                                                                 <li>Taglia : {{ product.color }}</li>
                                                                 <li>Taglia : {{ product.size }}</li>
@@ -378,7 +383,7 @@
                                         </tbody>
                                     </table>
                                     <div class="checkout-action text-right">
-                                        <asp:Button ID="btnCheckout" Text="Conferma l'ordine"  ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
+                                        <asp:Button ID="btnCheckout" Text="Conferma l'ordine" ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
                                     </div>
                                 </section>
                             </div>

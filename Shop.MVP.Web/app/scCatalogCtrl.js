@@ -13,7 +13,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
             $scope.catalog = data;
         });
     }
-   
+
     $scope.categoryName = "dummy";
     $scope.totalCartItems = ($scope.cartProducts && $scope.cartProducts.length > 1) ? $scope.cartProducts.length + 1 : 0;
 
@@ -141,7 +141,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         }
     });
 
-    $scope.addProductToCartFromUI = function(id, name, price, image) {
+    $scope.addProductToCartFromUI = function (id, name, price, image) {
         // recupero la size da $scope.sizeName
         var product = { _product_id: id, _price: price, _name: name, _imageurl: image };
         $scope.addProductToCart(product);
@@ -196,18 +196,35 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
             }
         }
     };
+
+    $scope.UpdateProductQty = function (product) {
+        for (var i = 0; i < $scope.cartProducts.length; i++) {
+            if ($scope.cartProducts[i].id == product.id && $scope.cartProducts[i].size == product.size) {
+                $scope.cartProducts[i].qta = product.qta;
+                // Aggiorno la sessione e ricalcolo i totali
+                $scope.subTotalCartPrice = 0;
+                angular.forEach($scope.cartProducts, function (p) {
+                    $scope.subTotalCartPrice += parseInt(p.qta) * p.price;
+                });
+                $scope.totalCartPrice = ($scope.subTotalCartPrice > 100) ? $scope.subTotalCartPrice : ($scope.subTotalCartPrice + $scope.shipmentPrice);
+                $scope.saveSessionCart();
+                $scope.totalCartItems += product.qta;
+            }
+        }
+    };
+
     // Viene Salvato l'intero carrello in sessione (non il singolo prodotto)
-    $scope.saveSessionCart = function() {
+    $scope.saveSessionCart = function () {
         $http({
             url: "/WCFService/CatalogDataService.svc/AddProductToSessionCart",
             method: "POST",
             data: $scope.cartProducts
-        }).success(function(data) {
+        }).success(function (data) {
             // toastr Message
         });
     };
 
-    $scope.getTotalCartItems = function() {
+    $scope.getTotalCartItems = function () {
         $scope.totalCartItems = $scope.cartProducts.length - 1;
     };
 
@@ -220,7 +237,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
     };
 
 
-    $scope.getColorClass = function(colorId) {
+    $scope.getColorClass = function (colorId) {
         if (colorId == "17") {
             return "le-radio Rosso";
         }
