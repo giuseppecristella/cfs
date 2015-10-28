@@ -1950,7 +1950,7 @@ ul.bxslider {
     .qnt-holder .single-add-cart-button {
         padding: 10px 33px;
         text-transform: uppercase;
-        margin: 0 0 0 20px;
+        margin:  0px 0px 0px 70px;
     }
 
     .qnt-holder .add-to-wishlist {
@@ -5203,7 +5203,8 @@ address {
 }
 
 .bewear-tab-content .tab-pane {
-    padding: 10px 0px;
+    margin-right: 145px;
+    text-align: justify;
     line-height: 24px;
     letter-spacing: 0.010em;
     color: #727272;
@@ -6661,4 +6662,14 @@ footer.style-2 ul.payment-methods {
 /* Landing Mobile */
 #divFullImage {
     background-image: url(../images/landing/background.jpg);
+}
+/* attivazione tasto Compra Ora*/
+
+.btnAddProductToCart_Disabled{
+    background-color:#2f96b4!important;
+    position:relative;
+}
+.btnAddProductToCart{
+     background-color:#007A29!important;
+    position:relative;
 }
