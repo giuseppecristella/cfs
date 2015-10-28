@@ -35,6 +35,7 @@
                                                 <li><a href="/donna-ciabatte">Ciabatte</a></li>
                                                 <li><a href="/donna-sandali">Sandali</a></li>
                                                 <li><a href="/donna-infradito">Infradito</a></li>
+                                                <li><a href="/donna-pantofole">Pantofole</a></li>
                                                 <li><a href="/donna-zeppe">Zeppe</a></li>
                                             </ul>
                                         </div>
@@ -75,6 +76,7 @@
                                                 <li><a href="/uomo-ciabatte">Ciabatte</a></li>
                                                 <li><a href="/uomo-sandali">Sandali</a></li>
                                                 <li><a href="/uomo-infradito">Infradito</a></li>
+                                                <li><a href="/uomo-pantofole">Pantofole</a></li>
                                                 <li><a href="/uomo-antinfortunistica">Antinfortunistica</a></li>
                                                 <li><a href="/uomo-stivali-in-gomma">Stivali in gomma</a></li>
                                             </ul>
@@ -115,6 +117,7 @@
                                                 <li><a href="/bambino-ciabatte">Ciabatte</a></li>
                                                 <li><a href="/bambino-sandali">Sandali</a></li>
                                                 <li><a href="/bambino-infradito">Infradito</a></li>
+                                                <li><a href="/bambino-pantofole">Pantofole</a></li>
                                             </ul>
 
                                         </div>
