@@ -52,7 +52,7 @@
                                 <asp:HiddenField runat="server" ID="hfProductID" Value="<%# ProductViewModel.product_id %>"/>
                                 <h1 class="single-product-title"><%= ProductViewModel.name %></h1>
                                 <%--<div class="product-brand">Calvin Klein</div>--%>
-                                  <div id="Div1">
+                                  <div id="product-simple-tab">
                                     <div class="tabs">
                                         <ul class="nav nav-tabs nav-tab-cells">
                                             <li class="active"><a data-toggle="tab" href="#description">Descrizione</a></li>
@@ -112,7 +112,7 @@
                                      <a  
                                          data-toggle="offcanvas" 
                                          data-target="{{ activatePanelCart }}" 
-                                         href="#"> <input ng-class="{{ classBtnAddProductToCart  }}" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}','{3}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price, ProductViewModel.imageurl) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora"></a>
+                                         href="#"> <input ng-class="{{' classBtnAddProductToCart'  }}" ng-click="<%=  string.Format("addProductToCartFromUI('{0}','{1}','{2}','{3}')", ProductViewModel.product_id, ProductViewModel.name, ProductViewModel.price, ProductViewModel.imageurl) %>" class="btn btn-primary single-add-cart-button" value="Compralo Ora"></a>
                                         
                                     </div>
                                 </div>
