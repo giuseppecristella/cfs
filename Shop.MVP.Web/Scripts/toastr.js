@@ -160,7 +160,7 @@
                     debug: false,
 
                     showMethod: 'fadeIn', //fadeIn, slideDown, and show are built into jQuery
-                    showDuration: 10000,
+                    showDuration: 300,
                     showEasing: 'swing', //swing and linear are built into jQuery
                     onShown: undefined,
                     hideMethod: 'fadeOut',
@@ -183,7 +183,7 @@
                     target: 'body',
                     closeHtml: '<button type="button">&times;</button>',
                     newestOnTop: true,
-                    preventDuplicates: false,
+                    preventDuplicates: true,
                     progressBar: false
                 };
             }
