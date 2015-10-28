@@ -65,8 +65,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#" class="remove-link"></a>
-                            </div>
+                                <a ng-click="DeleteProduct(product)" href="#" class="remove-link"></a>
+                              </div>
                         </li>
                     </ul>
                     <div class="cart-summary text-center inner-top-50">
