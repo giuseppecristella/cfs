@@ -77,16 +77,16 @@
                         </div>
                         <div class="section">
                             <div class="image lazy-load">
-                                <a href="/uomo-sneakers">
-                                <img alt="Sneakers"data-echo="../assets/images/catalogoGenerale/pantofole_uomo.jpg" src="assets/images/blank.gif" /></a>
+                                <a href="/uomo-pantofole">
+                                <img alt="pantofole"data-echo="../assets/images/catalogoGenerale/pantofole_uomo.jpg" src="assets/images/blank.gif" /></a>
                             </div>
                         </div>
                         <div class="footer">
-                            <a class="view-all" href="/uomo-sneakers">Vedi tutti</a>
+                            <a class="view-all" href="/uomo-pantofole">Vedi tutti</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-lg-4 wow fadeIn">
+               <!-- <div class="col-md-6 col-sm-6 col-lg-4 wow fadeIn">
                     <div class="category text-center">
                         <div class="header">
                             <h2 class="category-name">Accessori</h2>
@@ -101,7 +101,7 @@
                             <a class="view-all" href="/uomo-accessori">View all</a>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
             <!--row-->
 		    </div>
