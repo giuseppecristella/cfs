@@ -145,21 +145,22 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         // recupero la size da $scope.sizeName
         var product = { _product_id: id, _price: price, _name: name, _imageurl: image };
         $scope.addProductToCart(product);
-    };
+    }; 
 
     $scope.activatePanelCart = "";
     $scope.classBtnAddProductToCart = "btnAddProductToCart_Disabled";
     $scope.addProductToCart = function (product) {
 
         if ($scope.sizeNotChecked) {
-            toastr.info('Selezionare una taglia', 'Per continuare nell\'acquisto!', {
+            toastr.info('Selezionare una taglia', 'Per continuare l\'acquisto!', {
                 "showDuration": "30000",
-                "hideDuration": "10000",
-                "timeOut": "50000",
+                "hideDuration": "1000",
+                "timeOut": "3000",
                 "extendedTimeOut": "1000",
-                "positionClass": "toast-bottom-left",
-                "closeButton": true,
+                "positionClass": "toast-alert-left",
+                "preventDuplicates":true,
             });
+         
         } else {
             $scope.activatePanelCart = "#shopping-cart-summary";
             $scope.classBtnAddProductToCart = "btnAddProductToCart";
@@ -255,6 +256,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
     $scope.selectedSize = "";
 
     $scope.selectSize = function (sizeName) {
+        $scope.classBtnAddProductToCart = "btnAddProductToCart";
         $scope.sizeNotChecked = false;
         $scope.selectedSize = sizeName.replace("tg_", "");
     };
