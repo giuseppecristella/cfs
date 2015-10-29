@@ -2043,7 +2043,7 @@ ul.bxslider {
                 cursor: pointer;
             }
 
-                .color-picker > li .le-radio:hover + .fake-box:after,
+                /*.color-picker > li .le-radio:hover + .fake-box:after,
                 .color-picker > li .le-radio:focus + .fake-box:after {
                     bottom: 0;
                     content: "";
@@ -2057,7 +2057,7 @@ ul.bxslider {
                     width: 5px;
                     background: #fff;
                     border-radius: 50px;
-                }
+                }*/
 
             .color-picker > li .le-radio:checked + .fake-box:after {
                 bottom: 0;
