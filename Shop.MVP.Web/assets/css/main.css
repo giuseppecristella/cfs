@@ -2043,7 +2043,7 @@ ul.bxslider {
                 cursor: pointer;
             }
 
-                .color-picker > li .le-radio:hover + .fake-box:after,
+                /*.color-picker > li .le-radio:hover + .fake-box:after,
                 .color-picker > li .le-radio:focus + .fake-box:after {
                     bottom: 0;
                     content: "";
@@ -2057,7 +2057,7 @@ ul.bxslider {
                     width: 5px;
                     background: #fff;
                     border-radius: 50px;
-                }
+                }*/
 
             .color-picker > li .le-radio:checked + .fake-box:after {
                 bottom: 0;
@@ -5370,7 +5370,8 @@ footer.style-2 .contact-and-links {
 }
 
 footer.style-2 .footer-logo {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    margin-top: -60px;
 }
 
 footer.style-2 .contact-info address {
@@ -5418,12 +5419,12 @@ footer.style-2 .footer-links .links-title {
     line-height: 1;
     text-transform: uppercase;
     color: #0c0d0d;
-    margin-top: 14px;
+    margin-top: -10px;
     margin-bottom: 22px;
 }
 
 footer.style-2 .footer-links .list-links {
-    padding-top: 30px;
+    /*padding-top: 30px;*/
 }
 
     footer.style-2 .footer-links .list-links > li > a {
@@ -6670,6 +6671,6 @@ footer.style-2 ul.payment-methods {
     position:relative;
 }
 .btnAddProductToCart{
-     background-color:#007A29!important;
+     background-color:#FF850B!important;
     position:relative;
 }

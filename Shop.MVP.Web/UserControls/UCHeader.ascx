@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCHeader.ascx.cs" Inherits="Shop.Web.Mvp.UserControls.UCHeader" %>
 <header>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon2.png">
   <div class="navbar navbar-black">
 		<div class="navbar-header">
 			<div class="container">

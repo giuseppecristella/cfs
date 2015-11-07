@@ -28,7 +28,7 @@
                             </div>
                             <div class="media-right">
                                 <div class="image">
-                                    <img width="300" height="300" class="lazy-load media-object img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/products/feature2.jpg" alt="">
+                                    <img width="300" height="300" class="lazy-load media-object img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/products/homeInvernali.jpg" alt="">
                                 </div>
                             </div>
                         </a>

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-4">
                     <div class="footer-logo">
-                        <img src="../assets/images/logo2footer.png" class="img-responsive" alt="Bewear">
+                        <img src="../assets/images/logofooter.png" class="img-responsive" alt="Bewear">
                     </div>
                     <div class="contact-info">
                         <address>
@@ -32,6 +32,7 @@
                             <li><a href="/donna-ciabatte">Ciabatte</a></li>
                             <li><a href="/donna-sandali">Sandali</a></li>
                             <li><a href="/donna-infradito">Infradito</a></li>
+                            <li><a href="/donna-pantofole">Pantofole</a></li>
                             <li><a href="/donna-zeppe">Zeppe</a></li>
                             <li><a href="../MasterPages/categories-grid.html">Borse</a></li>
                             <li><a href="../MasterPages/categories-grid.html">Cinture</a></li>
@@ -46,6 +47,7 @@
                             <li><a href="/uomo-ciabatte">Ciabatte</a></li>
                             <li><a href="/uomo-sandali">Sandali</a></li>
                             <li><a href="/uomo-infradito">Infradito</a></li>
+                             <li><a href="/uomo-pantofole">Pantofole</a></li>
                             <li><a href="/uomo-antinfortunistica">Antinfortunistica</a></li>
                             <li><a href="/uomo-stivali-in-gomma">Stivali in gomma</a></li>
                             <li><a href="/uomo-accessori">Accessori</a></li>
@@ -60,6 +62,7 @@
                             <li><a href="/bambino-ciabatte">Ciabatte</a></li>
                             <li><a href="/bambino-sandali">Sandali</a></li>
                             <li><a href="/bambino-infradito">Infradito</a></li>
+                             <li><a href="/bambino-pantofole">Pantofole</a></li>
                         </ul>
                     </div>
                 </div>
@@ -79,7 +82,7 @@
     </div>
     <div class="copyright-bar">
         <div class="container clearfix">
-            <span class="pull-left">Copyright <a href="../MasterPages/home.html">Calzafacile</a>. 2015. Prodotto da: <a href="http://www.hardwaresistemi.com" target="_blank">Hardware Sistemi</a></span>
+            <span class="pull-left">Copyright <a href="../MasterPages/home.html">Calzafacile</a>. 2015. Prodotto da: <a href="http://www.hardwaresistemi.com" target="_blank"> Hardware Sistemi</a></span>
             <ul class="payment-methods pull-right list-unstyled">
                 <li>
                     <img src="../assets/images/payments/p1.png" alt=""></li>
