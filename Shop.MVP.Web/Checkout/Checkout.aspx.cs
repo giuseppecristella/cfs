@@ -376,7 +376,7 @@ namespace Shop.Web.Mvp.Checkout
                     "{3}<br>Password: {4}<br>" + "<br><a href=\"http://www.calzafacile.it/shop/accedi.html\">" +
                     "Cliccando qui</a> può accedere al suo account e verificare lo stato dei suoi ordini.",
                     header, txtFirstName.Text, txtLastName.Text, username, passwordFromUI);
-                email.Bcc.Add("");
+                //email.Bcc.Add("");
                 email.Bcc.Add("info@calzafacile.com"); // Settare in variabili di configurazione
                 var smtpMail = new SmtpClient();
                 smtpMail.Send(email);

@@ -369,8 +369,6 @@
                                                             <ul class="product-attributes">
                                                                 <li>Taglia : {{ product.size }}</li>
                                                                 <li><a href="" ng-click="DeleteProduct(product)">Elimina</a></li>
-                                                                <li>
-                                                                    <button class="btn" ng-click="open()">Open Modal</button></li>
                                                             </ul>
                                                         </div>
                                                     </div>
