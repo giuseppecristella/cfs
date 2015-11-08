@@ -70,9 +70,9 @@ namespace Shop.Core.BusinessDelegate
             return _repository.GetPaymentMethods(cartId);
         }
 
-        public bool CreateOrder(int cartId)
+        public int CreateOrder(int cartId)
         {
-            return _repository.CreateOrder(cartId) > 0;
+            return _repository.CreateOrder(cartId);
         }
     }
 }

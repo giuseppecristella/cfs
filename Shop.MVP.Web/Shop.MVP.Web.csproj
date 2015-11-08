@@ -369,15 +369,21 @@
     <Content Include="assets\js\scripts.js" />
     <Content Include="assets\js\scripts.min.js" />
     <Content Include="assets\js\wow.min.js" />
+    <Content Include="assets\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Catalog\ProductsCatalogDonna.aspx" />
     <Content Include="Catalog\ProductsCatalogUomo.aspx" />
     <Content Include="Checkout\Checkout.aspx" />
     <Content Include="content\toastr.css" />
     <Content Include="content\toastr.min.css" />
+    <Content Include="Customers\Dashboard\Default.aspx" />
     <Content Include="Home\Default.aspx" />
     <Content Include="Home\UserControls\UCShowcaseProducts.ascx" />
     <Content Include="content\toastr.scss" />
     <Content Include="content\toastr.less" />
+    <Content Include="Customers\MasterPages\Customers.Master" />
+    <Content Include="Customers\Web.config" />
     <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
     <Content Include="Scripts\angular-ui-bootstrap-modal.js" />
     <Content Include="Scripts\jquery-1.6.3.js" />
@@ -942,6 +948,20 @@
     <Compile Include="Checkout\Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customers\Dashboard\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\Dashboard\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\MasterPages\Customers.Master.cs">
+      <DependentUpon>Customers.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\MasterPages\Customers.Master.designer.cs">
+      <DependentUpon>Customers.Master</DependentUpon>
+    </Compile>
     <Compile Include="Home\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1064,7 +1084,10 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Customers\Account\" />
+    <Folder Include="Customers\Orders\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Site.Mobile.Master" />
@@ -1311,6 +1334,7 @@
     <Content Include="Template\PHP\parts\widgets\sidebar\sidebar-brand.php" />
     <Content Include="Template\PHP\parts\widgets\sidebar\sidebar-category.php" />
     <Content Include="Template\PHP\parts\widgets\sidebar\sidebar-filter.php" />
+    <Content Include="UserControls\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

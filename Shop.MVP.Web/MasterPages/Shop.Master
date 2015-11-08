@@ -27,7 +27,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body ng-app="app" ng-controller="scCatalogCtrl">
+<body ng-app="app" ng-controller="scCatalogCtrl" onkeydown = "return (event.keyCode!=13)">
     <form id="form1" runat="server">
         <div class="wrapper">
             <uc1:UCHeader runat="server" ID="UCHeader" />

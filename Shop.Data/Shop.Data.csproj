@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mapping\Messages\NewsLetterSubscriptionMap.cs" />
+    <Compile Include="Mapping\OrderProducts\OrderProductMap.cs" />
+    <Compile Include="Mapping\Orders\OrderMap.cs" />
     <Compile Include="Mapping\Promotions\PromotionCodeMap.cs" />
     <Compile Include="Mapping\ShopEntityTypeConfiguration.cs" />
     <Compile Include="Newslettersubscription.cs" />
@@ -76,6 +78,7 @@
       <Name>Shop.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -9,7 +9,8 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Xml.Schema;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using Shop.Core.Domain.OrderProducts;
+using Shop.Core.Domain.Orders;
 
 
 namespace Shop.Data.Tests
@@ -117,33 +118,87 @@ namespace Shop.Data.Tests
         [TestMethod]
         public void ShouldAddOrderWithProducts()
         {
+            //using (var ctx = new ShopDataContext())
+            //{
+            //    var orderEntity = new Order
+            //    {
+            //        CustomerFirstName = "Giuseppe",
+            //        CustomerSecondName = "Cristella",
+            //        CustomerAddress = "Via Puccini",
+            //        OrderStatus = "Progress",
+            //        PaymentType = "PayPal",
+            //        SubmissionDate = DateTime.Now,
+            //        Total = 100
+            //    };
+            //    var products = new List<OrderProduct>
+            //    {
+            //        new OrderProduct
+            //        {
+            //            Name = "Ciabatta",
+            //            UnitPrice = 1,
+            //            Qty = 2,
+            //            TotalPrice = 10
+            //        }
+            //    };
+
+            //    orderEntity.OrderProducts = products;
+            //    ctx.Set<Order>().Add(orderEntity);
+            //    var saveResult = ctx.SaveChanges();
+            //}
+        }
+
+        [TestMethod]
+        public void ShoulCreateOrderWithOrderProducts()
+        {
+            var order = new Order
+            {
+                MagentoOrderId = 1,
+                SubmissionDate = DateTime.Now,
+                CustomerAddress = "Via Puccini, 17",
+                CustomerFirstName = "Giuseppe",
+                CustomerId = 1,
+                CustomerSecondName = "Cristella",
+                OrderStatus = "Submitted",
+                PaymentType = "Credit Card",
+                Total = 50,
+                SubTotal = 44,
+                Shipment = 6
+            };
+
+            order.OrderProducts = new List<OrderProduct>
+            {
+                new OrderProduct
+                {
+                    Name = "Dummy product 1",
+                    Qty = 3,
+                    UnitPrice = 10,
+                    TotalPrice = 300,
+                    Size = 39
+                },
+                new OrderProduct
+                {
+                    Name = "Dummy product 2",
+                    Qty = 1,
+                    UnitPrice = 70,
+                    TotalPrice = 70,
+                    Size = 39
+                },
+                new OrderProduct
+                {
+                    Name = "Dummy product 2",
+                    Qty = 1,
+                    UnitPrice = 70,
+                    TotalPrice = 70,
+                    Size = 36
+                }
+            };
+
             using (var ctx = new ShopDataContext())
             {
-                var orderEntity = new Order
-                {
-                    CustomerFirstName = "Giuseppe",
-                    CustomerSecondName = "Cristella",
-                    CustomerAddress = "Via Puccini",
-                    OrderStatus = "Progress",
-                    PaymentType = "PayPal",
-                    SubmissionDate = DateTime.Now,
-                    Total = "100"
-                };
-                var products = new List<OrderProduct>
-                {
-                    new OrderProduct
-                    {
-                        Name = "Ciabatta",
-                        UnitPrice = 1,
-                        Qty = 2,
-                        TotalPrice = 10
-                    }
-                };
-
-                orderEntity.OrderProducts = products;
-                ctx.Set<Order>().Add(orderEntity);
+                ctx.Set<Order>().Add(order);
                 var saveResult = ctx.SaveChanges();
             }
+
         }
     }
 }

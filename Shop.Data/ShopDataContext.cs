@@ -1,3 +1,6 @@
+using Shop.Core.Domain.OrderProducts;
+using Shop.Core.Domain.Orders;
+
 namespace Shop.Data
 {
     using System.Data.Entity;
@@ -7,6 +10,8 @@ namespace Shop.Data
         public ShopDataContext()
             : base("name=ShopDataContext")
         {
+       // http://stackoverflow.com/questions/3600175/the-model-backing-the-database-context-has-changed-since-the-database-was-crea
+         //   Database.SetInitializer<ShopDataContext>(null);
         }
 
         public virtual DbSet<Newslettersubscription> Newslettersubscriptions { get; set; }

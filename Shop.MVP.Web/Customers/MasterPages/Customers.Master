@@ -1,0 +1,98 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customers.master.cs" Inherits="Shop.Web.Mvp.Customers.MasterPages.Customers" %>
+
+<%@ Register Src="~/UserControls/UCHeader.ascx" TagPrefix="uc1" TagName="UCHeader" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Calzafacile - My Account
+    </title>
+    <asp:PlaceHolder runat="server">
+        <!-- Bootstrap -->
+        <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/bootstrap.min.css" rel="stylesheet" />
+        <link href="<%= Page.ResolveClientUrl("~/content/") %>toastr.css" rel="stylesheet" />
+        <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/jasny-bootstrap.min.css" rel="stylesheet" />
+        <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/lightbox.css" rel="stylesheet" />
+        <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/bewear-icons.css" rel="stylesheet" />
+        <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/animate.min.css" rel="stylesheet" />
+        <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/owl.carousel.css" rel="stylesheet" />
+        <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/main.css" rel="stylesheet" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body ng-app="app" ng-controller="scCatalogCtrl">
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <uc1:UCHeader runat="server" ID="UCHeader" />
+            <div class="page-header">
+                <div class="container">
+                    <header class="text-center">
+                        <h3 class="section-title"><i class="icon icon-user"></i> Gestione Profilo</h3>
+                    </header>
+                </div>
+            </div>
+            <div class="container">
+                <header>
+                    <h4><b>Benvenuto,
+                        <asp:LoginName ID="lnAccount" runat="server" />
+                        !</b></h4>
+                    <asp:LoginView ID="lvAccountSection" runat="server"></asp:LoginView>
+                </header>
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul>
+                             <li>
+                                <asp:LinkButton ID="lbUserProfile" runat="server">Il mio Profilo</asp:LinkButton>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="lbAccountInfo" runat="server">Dati Personali e password</asp:LinkButton>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="lbAddresses" runat="server">Indirizzi</asp:LinkButton>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="lbOrders" runat="server">I miei Ordini</asp:LinkButton>
+                            </li>
+                        </ul>
+                    </div>
+                    <asp:ContentPlaceHolder ID="cpMain" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/jquery-1.11.2.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/bootstrap.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/jasny-bootstrap.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/wow.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/jquery-ui.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/echo.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/lightbox.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/jquery.easing-1.3.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/owl.carousel.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/jquery.customSelect.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/jquery.bxslider.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/jquery.isotope.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/pace.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/odometer.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("/assets/") %>js/scripts.js"></script>
+
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/angular-ui-bootstrap-modal.js"></script>
+    <script src="/Scripts/toastr.js"></script>
+    <script src="/Scripts/angular-resource.min.js"></script>
+    <script src="/Scripts/slider.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/data.js"></script>
+    <script src="/app/common.js"></script>
+    <script src="/app/scCatalogCtrl.js"></script>
+</body>
+</html>

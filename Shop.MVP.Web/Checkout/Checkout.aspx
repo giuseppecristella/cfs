@@ -102,12 +102,12 @@
                                 <div class="col-md-2 col-xs-12 hidden-sm">
                                     <br />
                                     <asp:Button CssClass="btn btn-primary" ID="LoginButton" runat="server" CommandName="Login"
-                                        Text="Accedi" ValidationGroup="vgLogin" />
+                                      UseSubmitBehavior="false"  Text="Accedi" ValidationGroup="vgLogin" />
                                 </div>
-                                <div class="col-md-2 col-xs-12 hidden-sm">
+                               <%-- <div class="col-md-2 col-xs-12 hidden-sm">
                                     <br />
                                     <button class="btn btn-primary">Facebook Login</button>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 col-xs-12 hidden-sm">
@@ -224,7 +224,7 @@
                                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                                     <asp:UpdatePanel runat="server" ID="upPnlCheck">
                                         <ContentTemplate>
-                                            <asp:CreateUserWizard LoginCreatedUser="True" DuplicateUserNameErrorMessage="utente già presente"
+                                            <asp:CreateUserWizard LoginCreatedUser="True" DuplicateUserNameErrorMessage="Utente già presente"
                                                 DuplicateEmailErrorMessage="email già presente" ID="cuwUser" runat="server"
                                                 RequireEmail="False"
                                                 OnCreatedUser="cuwUser_OnCreatedUser"
@@ -254,8 +254,8 @@
                                                                     ErrorMessage="Questo campo è obbligatorio" Display="Dynamic" ValidationGroup="vgRegisterUser"> </asp:RequiredFieldValidator>
                                                             </div>
                                                             <div class="form-group">
-                                                                <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Registrati"
-                                                                    ValidationGroup="vgRegisterUser" CssClass="btn btn-primary" />
+                                                                <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Registrati" 
+                                                                    UseSubmitBehavior="false"  ValidationGroup="vgRegisterUser" CssClass="btn btn-primary" />
                                                             </div>
                                                             <div class="form-group">
                                                                 <span style="color: red;">
@@ -268,7 +268,7 @@
                                                     <asp:CompleteWizardStep runat="server">
                                                         <ContentTemplate>
                                                             <span style="color: seagreen;">L'account è stato creato con successo.<br />
-                                                                Puoi completare il tuo acquisto cliccando su Conferma Ordine!</span>
+                                                                Puoi completare il tuo acquisto cliccando su <b>Conferma Ordine</b></span>
                                                         </ContentTemplate>
                                                     </asp:CompleteWizardStep>
                                                 </WizardSteps>
@@ -383,7 +383,7 @@
                                         </tbody>
                                     </table>
                                     <div class="checkout-action text-right">
-                                        <asp:Button ID="btnCheckout" Text="Conferma l'ordine" ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
+                                        <asp:Button  UseSubmitBehavior="false"  ID="btnCheckout" Text="Conferma l'ordine" ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
                                     </div>
                                 </section>
                             </div>
@@ -393,16 +393,4 @@
             </div>
         </asp:View>
     </asp:MultiView>
-    <div modal="showModal" close="cancel()">
-        <div class="modal-header">
-            <h4>Modal Dialog</h4>
-        </div>
-        <div class="modal-body">
-            <p>Example paragraph with some text.</p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-success" ng-click="ok()">Okay</button>
-            <button class="btn" ng-click="cancel()">Cancel</button>
-        </div>
-    </div>
 </asp:Content>

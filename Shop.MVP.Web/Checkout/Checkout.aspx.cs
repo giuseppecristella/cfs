@@ -9,6 +9,8 @@ using Ez.Newsletter.MagentoApi;
 using Shop.Core;
 using Shop.Core.BusinessDelegate;
 using Shop.Web.Mvp.Infrastructure;
+using Order = Shop.Core.Domain.Orders.Order;
+using OrderProduct = Shop.Core.Domain.OrderProducts.OrderProduct;
 
 namespace Shop.Web.Mvp.Checkout
 {
@@ -69,7 +71,7 @@ namespace Shop.Web.Mvp.Checkout
             try
             {
                 Roles.AddUserToRole(cuwUser.UserName, "User");
-                // TODO: Check errore creazione utente lato Magento
+                // TODO: Check errore creazione utente lato Magento, rollback e cancellazione utente asp.net 
                 var magentoCustomerId = CreateMagentoCustomer();
 
                 // Salvo nel campo 'comment' dell'oggetto User di MembershipProvider il customer CustomerId di Magento
@@ -130,12 +132,48 @@ namespace Shop.Web.Mvp.Checkout
             // Prepara l'ordine
             _businessDelegate.PrepareCartForOrder(SessionFacade.CartId, customer, customerAddresses, products, App.Configuration.DefaultShippingMethodMode, paymentMethod);
             // Invia l'ordine
-            var createOrderResult = _businessDelegate.CreateOrder(SessionFacade.CartId);
+            var orderId = _businessDelegate.CreateOrder(SessionFacade.CartId);
+            if (orderId > 0) SaveOrderDetail(orderId, products, customer, customerAddresses, paymentMethod);
             // Svuota Sessione
             SessionFacade.CartId = 0;
             SessionFacade.ProductsCart = null;
             // Gestisce il risultato
-            ActivateCartEmptyView(createOrderResult ? EmptyCartMode.AfterOrder : EmptyCartMode.AfterOrderError);
+            ActivateCartEmptyView(orderId > 0 ? EmptyCartMode.AfterOrder : EmptyCartMode.AfterOrderError);
+        }
+
+        private void SaveOrderDetail(int orderId, List<Product> products, Customer customer, List<CustomerAddress> customerAddresses, PaymentMethod paymentMethod)
+        {
+            var customerAddress = customerAddresses.FirstOrDefault();
+            if (customerAddress == null) return;
+
+            var order = new Order
+             {
+                 SubmissionDate = DateTime.Now,
+                 CustomerAddress = string.Format("Via {0} {1} {2}", customerAddress.street, customerAddress.city, customerAddress.postcode),
+                 CustomerFirstName = customer.firstname,
+                 CustomerId = 1,
+                 CustomerSecondName = customer.lastname,
+                 OrderStatus = "Submitted",
+                 PaymentType = paymentMethod.code,
+                 Total = 6 + products.Sum(p => int.Parse(p.qty) * decimal.Parse(p.price)),
+                 SubTotal = products.Sum(p => int.Parse(p.qty) * decimal.Parse(p.price)),
+                 Shipment = 6
+             };
+            order.OrderProducts = new List<OrderProduct>();
+
+            foreach (var product in products)
+            {
+                order.OrderProducts.Add(new OrderProduct
+                {
+                    Name = product.name,
+                    Qty = int.Parse(product.qty),
+                    UnitPrice = decimal.Parse(product.price),
+                    TotalPrice = int.Parse(product.qty) * decimal.Parse(product.price),
+                    Size = 37
+                });
+            }
+
+            
         }
 
         private PaymentMethod SetPaymentMethod()
