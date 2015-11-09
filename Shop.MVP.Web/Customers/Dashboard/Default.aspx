@@ -8,6 +8,35 @@
             Attraverso il tuo Pannello hai la possibilità di visualizzare i tuoi ordini ed aggiornare le informazioni relative al tuo account. Selezione un link sottostante per controllare o modificare i dati inseriti.
         </p>
         <h3 class="form-title">Ordini Recenti</h3>
+
+        <asp:ListView ID="lvOrders" runat="server">
+            <LayoutTemplate>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Indirizzo</th>
+                            <th>Pagamento</th>
+                            <th>Sub Totale</th>
+                            <th>Spedizione</th>
+                            <th>Totale</th>
+                        </tr>
+                    </thead>
+                    <tr runat="server" id="itemPlaceholder" />
+                </table>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <tr>
+                    <td><%# Eval("SubmissionDate") %></td>
+                    <td><%# Eval("CustomerAddress") %></td>
+                    <td><%# Eval("PaymentType") %></td>
+                    <td><%# Eval("SubTotal") %></td>
+                    <td><%# Eval("Shipment") %></td>
+                    <td><%# Eval("Total") %></td>
+                </tr>
+            </ItemTemplate>
+        </asp:ListView>
+
         <br />
         <h3 class="form-title">Dati utente</h3>
         <asp:Label ID="lblFirstName" runat="server"></asp:Label>

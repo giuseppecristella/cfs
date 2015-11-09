@@ -6,8 +6,10 @@ using System.Net.Mail;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 using Ez.Newsletter.MagentoApi;
+using MagentoRepository.Helpers;
 using Shop.Core;
 using Shop.Core.BusinessDelegate;
+using Shop.Data;
 using Shop.Web.Mvp.Infrastructure;
 using Order = Shop.Core.Domain.Orders.Order;
 using OrderProduct = Shop.Core.Domain.OrderProducts.OrderProduct;
@@ -79,7 +81,7 @@ namespace Shop.Web.Mvp.Checkout
                 Membership.UpdateUser(membershipUser);
 
                 // SubscriveSignedCustomerToNewsLetter();
-                SendNotificationEmailToSignedCustomer(membershipUser.UserName, cuwUser.Password);
+                //SendNotificationEmailToSignedCustomer(membershipUser.UserName, cuwUser.Password);
                 CreateMagentoCustomerAddress(AddressType.Billing, magentoCustomerId);
                 CreateMagentoCustomerAddress(AddressType.Shipping, magentoCustomerId);
             }
@@ -147,19 +149,23 @@ namespace Shop.Web.Mvp.Checkout
             if (customerAddress == null) return;
 
             var order = new Order
-             {
-                 SubmissionDate = DateTime.Now,
-                 CustomerAddress = string.Format("Via {0} {1} {2}", customerAddress.street, customerAddress.city, customerAddress.postcode),
-                 CustomerFirstName = customer.firstname,
-                 CustomerId = 1,
-                 CustomerSecondName = customer.lastname,
-                 OrderStatus = "Submitted",
-                 PaymentType = paymentMethod.code,
-                 Total = 6 + products.Sum(p => int.Parse(p.qty) * decimal.Parse(p.price)),
-                 SubTotal = products.Sum(p => int.Parse(p.qty) * decimal.Parse(p.price)),
-                 Shipment = 6
-             };
-            order.OrderProducts = new List<OrderProduct>();
+            {
+                SubmissionDate = DateTime.Now,
+                CustomerAddress = string.Format("Via {0} {1} {2}", 
+                        customerAddress.street, 
+                        customerAddress.city,
+                        customerAddress.postcode),
+                CustomerFirstName = customer.firstname,
+                CustomerId = int.Parse(customer.customer_id),
+                MagentoOrderId = orderId,
+                CustomerSecondName = customer.lastname,
+                OrderStatus = "Submitted",
+                PaymentType = paymentMethod.code,
+                Total = 6 + products.Sum(p => int.Parse(p.qty)*decimal.Parse(CommonHelper.FormatCurrency(p.price))),
+                SubTotal = products.Sum(p => int.Parse(p.qty)*decimal.Parse(CommonHelper.FormatCurrency(p.price))),
+                Shipment = 6,
+                OrderProducts = new List<OrderProduct>()
+            };
 
             foreach (var product in products)
             {
@@ -167,13 +173,18 @@ namespace Shop.Web.Mvp.Checkout
                 {
                     Name = product.name,
                     Qty = int.Parse(product.qty),
-                    UnitPrice = decimal.Parse(product.price),
-                    TotalPrice = int.Parse(product.qty) * decimal.Parse(product.price),
+                    UnitPrice = decimal.Parse(CommonHelper.FormatCurrency(product.price)),
+                    TotalPrice = int.Parse(product.qty) * decimal.Parse(CommonHelper.FormatCurrency(product.price)),
                     Size = 37
                 });
             }
 
-            
+            using (var ctx = new ShopDataContext())
+            {
+                ctx.Set<Order>().Add(order);
+                var saveResult = ctx.SaveChanges();
+            }
+
         }
 
         private PaymentMethod SetPaymentMethod()
@@ -200,6 +211,7 @@ namespace Shop.Web.Mvp.Checkout
                 var productFromDb = _businessDelegate.GetProductInfo(productCart.Id);
                 var p = new Product
                 {
+                    name = productCart.Name,
                     product_id = productCart.Id,
                     sku = productFromDb.sku,
                     qty = productCart.Qta.ToString(),

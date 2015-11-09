@@ -74,5 +74,10 @@ namespace Shop.Core.BusinessDelegate
         {
             return _repository.CreateOrder(cartId);
         }
+
+        public object GetCustomerOrders(string p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
