@@ -131,12 +131,21 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI, Version=2014.1.403.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Telerik Libraries\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2014.1.403.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Telerik Libraries\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\PromoSubscriptions.aspx" />
     <Content Include="app\app.js" />
     <Content Include="app\common.js" />
     <Content Include="app\data.js" />
@@ -378,17 +387,26 @@
     <Content Include="content\toastr.css" />
     <Content Include="content\toastr.min.css" />
     <Content Include="Customers\Dashboard\Default.aspx" />
+    <Content Include="Customers\Orders\Order.aspx" />
     <Content Include="Home\Default.aspx" />
     <Content Include="Home\UserControls\UCShowcaseProducts.ascx" />
     <Content Include="content\toastr.scss" />
     <Content Include="content\toastr.less" />
     <Content Include="Customers\MasterPages\Customers.Master" />
     <Content Include="Customers\Web.config" />
+    <Content Include="Admin\MasterPages\Admin.Master" />
     <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
+    <Content Include="Login\Default.aspx" />
     <Content Include="Scripts\angular-ui-bootstrap-modal.js" />
     <Content Include="Scripts\jquery-1.6.3.js" />
     <Content Include="Scripts\jquery-1.6.3.min.js" />
     <Content Include="Scripts\toastr.js" />
+    <Content Include="Telerik Libraries\Telerik.Web.Design.dll" />
+    <Content Include="Telerik Libraries\Telerik.Web.Device.Detection.dll" />
+    <Content Include="Telerik Libraries\Telerik.Web.Device.Detection.xml" />
+    <Content Include="Telerik Libraries\Telerik.Web.UI.dll" />
+    <Content Include="Telerik Libraries\Telerik.Web.UI.Skins.dll" />
+    <Content Include="Telerik Libraries\Telerik.Web.UI.XML" />
     <Content Include="Template\Documentation\assets\css\documenter_style.css" />
     <Content Include="Template\Documentation\assets\css\img\info.png" />
     <Content Include="Template\Documentation\assets\css\img\warning.png" />
@@ -920,6 +938,20 @@
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\MasterPages\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MasterPages\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\PromoSubscriptions.aspx.cs">
+      <DependentUpon>PromoSubscriptions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PromoSubscriptions.aspx.designer.cs">
+      <DependentUpon>PromoSubscriptions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Resources.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -961,6 +993,13 @@
     </Compile>
     <Compile Include="Customers\MasterPages\Customers.Master.designer.cs">
       <DependentUpon>Customers.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Orders\Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\Orders\Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -1012,6 +1051,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Landing\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\Shop.Master.cs">
@@ -1086,7 +1132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Customers\Account\" />
-    <Folder Include="Customers\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

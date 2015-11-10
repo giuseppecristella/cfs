@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Web.Security;
 using Ez.Newsletter.MagentoApi;
-using Shop.Core;
 using Shop.Core.BusinessDelegate;
 using Shop.Data;
+using Telerik.Web.UI;
 using Order = Shop.Core.Domain.Orders.Order;
 
 namespace Shop.Web.Mvp.Customers.Dashboard
 {
     public partial class Default : System.Web.UI.Page
     {
-        private readonly BusinessDelegate _businessDelegate; 
+        private readonly BusinessDelegate _businessDelegate;
         public Default()
         {
             _businessDelegate = new BusinessDelegate();
@@ -21,7 +20,7 @@ namespace Shop.Web.Mvp.Customers.Dashboard
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var loggedUser = Page.User.Identity.Name;
+            var loggedUser = "gctest11";//Page.User.Identity.Name;
             if (IsPostBack) return;
             if (string.IsNullOrEmpty(loggedUser)) return;
 
@@ -68,6 +67,17 @@ namespace Shop.Web.Mvp.Customers.Dashboard
             lblAddressCity.Text = shipmentAddress.city;
             lblAddressZipCode.Text = shipmentAddress.postcode;
             lblAddressPhone.Text = shipmentAddress.telephone;
+        }
+
+        protected void rgAdminOrders_OnNeedDataSource(object sender, GridNeedDataSourceEventArgs e)
+        {
+            List<Order> orders;
+            using (var ctx = new ShopDataContext())
+            {
+                orders = ctx.Orders.ToList();
+            }
+
+            rgAdminOrders.DataSource = orders;
         }
     }
 }
