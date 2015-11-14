@@ -10,15 +10,15 @@
 namespace Shop.Web.Mvp.Customers.Orders {
     
     
-    public partial class Order {
+    public partial class Orders {
         
         /// <summary>
-        /// UCOrderDetail control.
+        /// UCOrdersList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Shop.Web.Mvp.UserControls.UCOrderDetail UCOrderDetail;
+        protected global::Shop.Web.Mvp.UserControls.UCOrdersList UCOrdersList;
     }
 }

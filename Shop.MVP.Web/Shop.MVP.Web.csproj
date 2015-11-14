@@ -145,6 +145,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Orders\Order.aspx" />
+    <Content Include="Admin\Orders\Orders.aspx" />
     <Content Include="Admin\PromoSubscriptions.aspx" />
     <Content Include="app\app.js" />
     <Content Include="app\common.js" />
@@ -386,8 +388,11 @@
     <Content Include="Checkout\Checkout.aspx" />
     <Content Include="content\toastr.css" />
     <Content Include="content\toastr.min.css" />
+    <Content Include="Customers\AccountInfo\Addresses.aspx" />
+    <Content Include="Customers\AccountInfo\Profile.aspx" />
     <Content Include="Customers\Dashboard\Default.aspx" />
     <Content Include="Customers\Orders\Order.aspx" />
+    <Content Include="Customers\Orders\Orders.aspx" />
     <Content Include="Home\Default.aspx" />
     <Content Include="Home\UserControls\UCShowcaseProducts.ascx" />
     <Content Include="content\toastr.scss" />
@@ -929,6 +934,9 @@
     <Content Include="UserControls\UCBreadcrumbs.ascx" />
     <Content Include="UserControls\UCFooter.ascx" />
     <Content Include="UserControls\UCHeader.ascx" />
+    <Content Include="UserControls\UCLoginRegisterUser.ascx" />
+    <Content Include="UserControls\UCOrderDetail.ascx" />
+    <Content Include="UserControls\UCOrdersList.ascx" />
     <Content Include="UserControls\UCProductsFilters.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="WCFService\CatalogDataService.svc" />
@@ -944,6 +952,20 @@
     </Compile>
     <Compile Include="Admin\MasterPages\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Orders\Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Orders\Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Orders\Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Orders\Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\PromoSubscriptions.aspx.cs">
       <DependentUpon>PromoSubscriptions.aspx</DependentUpon>
@@ -980,6 +1002,20 @@
     <Compile Include="Checkout\Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customers\AccountInfo\Addresses.aspx.cs">
+      <DependentUpon>Addresses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\AccountInfo\Addresses.aspx.designer.cs">
+      <DependentUpon>Addresses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\AccountInfo\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\AccountInfo\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customers\Dashboard\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1000,6 +1036,13 @@
     </Compile>
     <Compile Include="Customers\Orders\Order.aspx.designer.cs">
       <DependentUpon>Order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customers\Orders\Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customers\Orders\Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -1108,6 +1151,27 @@
     <Compile Include="UserControls\UCHeader.ascx.designer.cs">
       <DependentUpon>UCHeader.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UCLoginRegisterUser.ascx.cs">
+      <DependentUpon>UCLoginRegisterUser.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCLoginRegisterUser.ascx.designer.cs">
+      <DependentUpon>UCLoginRegisterUser.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCOrderDetail.ascx.cs">
+      <DependentUpon>UCOrderDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCOrderDetail.ascx.designer.cs">
+      <DependentUpon>UCOrderDetail.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCOrdersList.ascx.cs">
+      <DependentUpon>UCOrdersList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCOrdersList.ascx.designer.cs">
+      <DependentUpon>UCOrdersList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCProductsFilters.ascx.cs">
       <DependentUpon>UCProductsFilters.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1130,9 +1194,7 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Customers\Account\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Site.Mobile.Master" />

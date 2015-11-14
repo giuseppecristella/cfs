@@ -13,31 +13,13 @@ namespace Shop.Web.Mvp.Customers.Dashboard {
     public partial class Default {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// UCOrdersList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// rgAdminOrders control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid rgAdminOrders;
-        
-        /// <summary>
-        /// lvOrders control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvOrders;
+        protected global::Shop.Web.Mvp.UserControls.UCOrdersList UCOrdersList;
         
         /// <summary>
         /// lblFirstName control.

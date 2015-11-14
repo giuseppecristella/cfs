@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shop.Web.Mvp.Customers.Orders {
+namespace Shop.Web.Mvp.Admin.Orders {
     
     
-    public partial class Order {
+    public partial class Orders {
         
         /// <summary>
-        /// UCOrderDetail control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Shop.Web.Mvp.UserControls.UCOrderDetail UCOrderDetail;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// rgAdminOrders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid rgAdminOrders;
     }
 }

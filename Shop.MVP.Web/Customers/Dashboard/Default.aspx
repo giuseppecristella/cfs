@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customers/MasterPages/Customers.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Shop.Web.Mvp.Customers.Dashboard.Default" %>
 
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI, Version=2014.1.403.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4" %>
+<%@ Register Src="~/UserControls/UCOrdersList.ascx" TagPrefix="uc1" TagName="UCOrdersList" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,52 +12,7 @@
             Attraverso il tuo Pannello hai la possibilità di visualizzare i tuoi ordini ed aggiornare le informazioni relative al tuo account. Selezione un link sottostante per controllare o modificare i dati inseriti.
         </p>
         <h3 class="form-title">Ordini Recenti</h3>
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
- 
-        <telerik:RadGrid ID="rgAdminOrders" OnNeedDataSource="rgAdminOrders_OnNeedDataSource" runat="server" AutoGenerateColumns="False" GridLines="none">
-            <HeaderStyle></HeaderStyle>
-            <MasterTableView>
-                <Columns>
-                    <telerik:GridBoundColumn UniqueName="SubmissionDate" HeaderText="SubmissionDate" HeaderButtonType="TextButton"
-                        DataField="SubmissionDate">
-                        <HeaderStyle Width="125px" />
-                    </telerik:GridBoundColumn>
-                </Columns>
-            </MasterTableView>
-        </telerik:RadGrid>
-
-
-        <asp:ListView ID="lvOrders" runat="server">
-            <LayoutTemplate>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Indirizzo</th>
-                            <th>Pagamento</th>
-                            <th>Sub Totale</th>
-                            <th>Spedizione</th>
-                            <th>Totale</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tr runat="server" id="itemPlaceholder" />
-                </table>
-            </LayoutTemplate>
-            <ItemTemplate>
-                <tr>
-                    <td><%# Eval("SubmissionDate") %></td>
-                    <td><%# Eval("CustomerAddress") %></td>
-                    <td><%# Eval("PaymentType") %></td>
-                    <td><%# Eval("SubTotal") %></td>
-                    <td><%# Eval("Shipment") %></td>
-                    <td><%# Eval("Total") %></td>
-                    <td>
-                        <asp:LinkButton ID="lbCustomerOrderDetail" PostBackUrl='<%# string.Format("../Orders/Order/{0}",Eval("Id")) %>' runat="server">Vedi dettaglio</asp:LinkButton></td>
-                </tr>
-            </ItemTemplate>
-        </asp:ListView>
-
+        <uc1:UCOrdersList runat="server" ID="UCOrdersList" />
         <br />
         <h3 class="form-title">Dati utente</h3>
         <asp:Label ID="lblFirstName" runat="server"></asp:Label>

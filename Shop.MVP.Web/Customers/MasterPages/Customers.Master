@@ -48,16 +48,16 @@
                     <div class="col-md-3">
                         <ul>
                              <li>
-                                <asp:LinkButton ID="lbUserProfile" runat="server">Il mio Profilo</asp:LinkButton>
+                                <asp:LinkButton PostBackUrl="/Customers/Dashboard/Default" ID="lbUserProfile" runat="server">Il mio Profilo</asp:LinkButton>
                             </li>
                             <li>
                                 <asp:LinkButton ID="lbAccountInfo" runat="server">Dati Personali e password</asp:LinkButton>
                             </li>
                             <li>
-                                <asp:LinkButton ID="lbAddresses" runat="server">Indirizzi</asp:LinkButton>
+                                <asp:LinkButton PostBackUrl="/Customers/AccountInfo/Addresses" ID="lbAddresses" runat="server">Indirizzi</asp:LinkButton>
                             </li>
                             <li>
-                                <asp:LinkButton ID="lbOrders" runat="server">I miei Ordini</asp:LinkButton>
+                                <asp:LinkButton ID="lbOrders" PostBackUrl="/Customers/Orders/Orders" runat="server">I miei Ordini</asp:LinkButton>
                             </li>
                         </ul>
                     </div>

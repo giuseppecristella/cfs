@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shop.Web.Mvp.Customers.Orders {
+namespace Shop.Web.Mvp.Admin.Orders {
     
     
     public partial class Order {

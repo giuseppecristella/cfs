@@ -7,19 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shop.Web.Mvp.Login {
+namespace Shop.Web.Mvp.Customers.AccountInfo {
     
     
-    public partial class Default {
-        
-        /// <summary>
-        /// Login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login;
+    public partial class Addresses {
         
         /// <summary>
         /// txtFirstName control.
@@ -29,24 +20,6 @@ namespace Shop.Web.Mvp.Login {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
-        
-        /// <summary>
-        /// rvtxtFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtFirstName;
-        
-        /// <summary>
-        /// rvtxtFirstNameRegisterUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtFirstNameRegisterUser;
         
         /// <summary>
         /// txtLastName control.
@@ -74,33 +47,6 @@ namespace Shop.Web.Mvp.Login {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtLastNameRegisterUser;
-        
-        /// <summary>
-        /// txtEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
-        
-        /// <summary>
-        /// rvtEMailCheckout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtEMailCheckout;
-        
-        /// <summary>
-        /// rvtEMailRegisterUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtEMailRegisterUser;
         
         /// <summary>
         /// txtStreet control.
@@ -211,48 +157,12 @@ namespace Shop.Web.Mvp.Login {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtPhoneegisterUser;
         
         /// <summary>
-        /// pnlCreateNewAccount control.
+        /// btnUpdateAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCreateNewAccount;
-        
-        /// <summary>
-        /// pnlShowShipmentAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlShowShipmentAddress;
-        
-        /// <summary>
-        /// cbShowShipmentAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbShowShipmentAddress;
-        
-        /// <summary>
-        /// cuwUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard cuwUser;
-        
-        /// <summary>
-        /// CreateUserWizardStep1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizardStep CreateUserWizardStep1;
+        protected global::System.Web.UI.WebControls.Button btnUpdateAddress;
     }
 }

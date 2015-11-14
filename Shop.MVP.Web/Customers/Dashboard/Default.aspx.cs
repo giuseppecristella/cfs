@@ -4,9 +4,6 @@ using System.Linq;
 using System.Web.Security;
 using Ez.Newsletter.MagentoApi;
 using Shop.Core.BusinessDelegate;
-using Shop.Data;
-using Telerik.Web.UI;
-using Order = Shop.Core.Domain.Orders.Order;
 
 namespace Shop.Web.Mvp.Customers.Dashboard
 {
@@ -35,20 +32,11 @@ namespace Shop.Web.Mvp.Customers.Dashboard
             if (customerAddresses == null || !customerAddresses.Any()) return;
             BindAddresses(customerAddresses);
 
-            lvOrders.DataSource = GetCustomerOrders(int.Parse(customer.customer_id));
-            lvOrders.DataBind();
+            UCOrdersList.CustomerId = int.Parse(customer.customer_id);
+            UCOrdersList.Count = 10;
+            UCOrdersList.PageContainerName = "Customers";
             //_businessDelegate.GetCustomerOrders(customer.customer_id);
             //BindOrders();
-        }
-
-        private List<Order> GetCustomerOrders(int customerId)
-        {
-            List<Order> orders;
-            using (var ctx = new ShopDataContext())
-            {
-                orders = ctx.Orders.Where(o => o.CustomerId.Equals(customerId)).ToList();
-            }
-            return orders;
         }
 
         private void BindCustomer(Customer customer)
@@ -67,17 +55,6 @@ namespace Shop.Web.Mvp.Customers.Dashboard
             lblAddressCity.Text = shipmentAddress.city;
             lblAddressZipCode.Text = shipmentAddress.postcode;
             lblAddressPhone.Text = shipmentAddress.telephone;
-        }
-
-        protected void rgAdminOrders_OnNeedDataSource(object sender, GridNeedDataSourceEventArgs e)
-        {
-            List<Order> orders;
-            using (var ctx = new ShopDataContext())
-            {
-                orders = ctx.Orders.ToList();
-            }
-
-            rgAdminOrders.DataSource = orders;
         }
     }
 }

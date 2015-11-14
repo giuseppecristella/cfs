@@ -7,18 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shop.Web.Mvp.Customers.Orders {
+using System.Web.UI.WebControls;
+
+namespace Shop.Web.Mvp.UserControls {
     
     
-    public partial class Order {
+    public partial class UCOrderDetail {
         
         /// <summary>
-        /// UCOrderDetail control.
+        /// lvOrderProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Shop.Web.Mvp.UserControls.UCOrderDetail UCOrderDetail;
+        protected ListView lvOrderProducts;
     }
 }
