@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using CookComputing.XmlRpc;
 using Ez.Newsletter.MagentoApi;
 using MagentoRepository.Repository;
+using Shop.Core.Domain.ProductsCart;
 
 namespace Shop.Core.BusinessDelegate
 {
@@ -46,6 +48,19 @@ namespace Shop.Core.BusinessDelegate
         public Product GetProductInfo(string id)
         {
             return _repository.GetProductInfo(id);
+        }
+
+        public void UpdateProduct(IList<Product> products)
+        {
+            // size
+            foreach (Product product in products)
+            {
+                var selectedSize = (((string[])(product.additional_attributes[0]))[1]);
+                var sizeProperties = product.GetType().GetProperties().FirstOrDefault(p => p.Name.Contains(string.Format("tg_{0}", selectedSize)));
+                if (sizeProperties == null) continue;
+                sizeProperties.SetValue(product, product.qty);
+                _repository.UpdateProduct(product);
+            }
         }
     }
 }

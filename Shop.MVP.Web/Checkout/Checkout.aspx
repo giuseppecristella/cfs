@@ -4,8 +4,9 @@
 
     <script type="text/javascript">
         function validateSecondAddressesFields(oSrc, args) {
+            var iscbShowShipmentAddressVisible = $('#cbShowShipmentAddress').is(':visible');
             var iscbShowShipmentAddressChecked = $('#cbShowShipmentAddress').is(':checked');
-            args.IsValid = (iscbShowShipmentAddressChecked || args.Value != "");
+            args.IsValid = (!iscbShowShipmentAddressVisible || iscbShowShipmentAddressChecked || args.Value != "");
         }
 
         function validatePaymentMethodsList(oSrc, args) {

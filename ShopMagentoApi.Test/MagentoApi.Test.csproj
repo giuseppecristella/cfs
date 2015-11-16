@@ -96,7 +96,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Cache\AspNetCacheManagerTest.cs" />
+    <Compile Include="Other Tests\Cache\AspNetCacheManagerTest.cs" />
     <Compile Include="CustomerTest.cs" />
     <Compile Include="ELCachingApplicatoinBlockTest.cs" />
     <Compile Include="MagentoApiTest.cs" />
@@ -129,9 +129,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Other Tests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

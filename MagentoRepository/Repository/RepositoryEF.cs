@@ -114,7 +114,12 @@ namespace MagentoRepository.Repository
       throw new NotImplementedException();
     }
 
-    public Category GetCategoryInfo(string categoryId)
+      public bool UpdateProduct(Product product)
+      {
+          throw new NotImplementedException();
+      }
+
+      public Category GetCategoryInfo(string categoryId)
     {
       throw new NotImplementedException();
     }

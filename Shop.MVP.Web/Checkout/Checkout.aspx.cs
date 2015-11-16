@@ -9,6 +9,7 @@ using Ez.Newsletter.MagentoApi;
 using MagentoRepository.Helpers;
 using Shop.Core;
 using Shop.Core.BusinessDelegate;
+using Shop.Core.Domain.ProductsCart;
 using Shop.Data;
 using Shop.Web.Mvp.Infrastructure;
 using Order = Shop.Core.Domain.Orders.Order;
@@ -128,6 +129,7 @@ namespace Shop.Web.Mvp.Checkout
         {
             // Crea Entities
             var customer = BindUserInfoToObject();
+
             var customerAddresses = BindCustomerAddressesToObject(cbShowShipmentAddress.Checked);
             var products = GetProductsForCart();
             var paymentMethod = SetPaymentMethod();
@@ -135,12 +137,18 @@ namespace Shop.Web.Mvp.Checkout
             _businessDelegate.PrepareCartForOrder(SessionFacade.CartId, customer, customerAddresses, products, App.Configuration.DefaultShippingMethodMode, paymentMethod);
             // Invia l'ordine
             var orderId = _businessDelegate.CreateOrder(SessionFacade.CartId);
+            UpdateProductSizesInventory(products);
             if (orderId > 0) SaveOrderDetail(orderId, products, customer, customerAddresses, paymentMethod);
             // Svuota Sessione
             SessionFacade.CartId = 0;
             SessionFacade.ProductsCart = null;
             // Gestisce il risultato
             ActivateCartEmptyView(orderId > 0 ? EmptyCartMode.AfterOrder : EmptyCartMode.AfterOrderError);
+        }
+
+        private void UpdateProductSizesInventory(IList<Product> products)
+        {
+            _businessDelegate.UpdateProduct(products);
         }
 
         private void SaveOrderDetail(int orderId, List<Product> products, Customer customer, List<CustomerAddress> customerAddresses, PaymentMethod paymentMethod)
@@ -151,8 +159,8 @@ namespace Shop.Web.Mvp.Checkout
             var order = new Order
             {
                 SubmissionDate = DateTime.Now,
-                CustomerAddress = string.Format("Via {0} {1} {2}", 
-                        customerAddress.street, 
+                CustomerAddress = string.Format("Via {0} {1} {2}",
+                        customerAddress.street,
                         customerAddress.city,
                         customerAddress.postcode),
                 CustomerFirstName = customer.firstname,
@@ -161,8 +169,8 @@ namespace Shop.Web.Mvp.Checkout
                 CustomerSecondName = customer.lastname,
                 OrderStatus = "Submitted",
                 PaymentType = paymentMethod.code,
-                Total = 6 + products.Sum(p => int.Parse(p.qty)*decimal.Parse(CommonHelper.FormatCurrency(p.price))),
-                SubTotal = products.Sum(p => int.Parse(p.qty)*decimal.Parse(CommonHelper.FormatCurrency(p.price))),
+                Total = 6 + products.Sum(p => int.Parse(p.qty) * decimal.Parse(CommonHelper.FormatCurrency(p.price))),
+                SubTotal = products.Sum(p => int.Parse(p.qty) * decimal.Parse(CommonHelper.FormatCurrency(p.price))),
                 Shipment = 6,
                 OrderProducts = new List<OrderProduct>()
             };
@@ -175,7 +183,7 @@ namespace Shop.Web.Mvp.Checkout
                     Qty = int.Parse(product.qty),
                     UnitPrice = decimal.Parse(CommonHelper.FormatCurrency(product.price)),
                     TotalPrice = int.Parse(product.qty) * decimal.Parse(CommonHelper.FormatCurrency(product.price)),
-                    Size = 37
+                    Size = int.Parse(((string[])(product.additional_attributes[0]))[1])
                 });
             }
 
@@ -217,6 +225,7 @@ namespace Shop.Web.Mvp.Checkout
                     qty = productCart.Qta.ToString(),
                     price = productFromDb.price
                 };
+                p.additional_attributes = new object[] { new[] { "size", productCart.Size } };
                 products.Add(p);
             }
             return products;
@@ -253,7 +262,7 @@ namespace Shop.Web.Mvp.Checkout
             var shippingAddress = CreateShippingAddress();
             var billingAddress = CreateCustomerAddress();
 
-            if (!sendToSameAddress)
+            if (cbShowShipmentAddress.Visible && !sendToSameAddress)
             {
                 shippingAddress.city = txtCity_2.Text;
                 shippingAddress.street = txtStreet_2.Text;

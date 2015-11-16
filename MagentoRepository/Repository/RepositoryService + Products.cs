@@ -28,7 +28,7 @@ namespace MagentoRepository.Repository
                 // var productsInStock = assignedProducts.Where(p => p.qty_in_stock > 0).ToList();
                 var productsInStock = assignedProducts.ToList();
                 if (!productsInStock.Any()) return null;
-               // _cacheManager.Add(key, productsInStock);
+                // _cacheManager.Add(key, productsInStock);
                 return productsInStock;
             }
             catch (Exception ex)
@@ -169,5 +169,16 @@ namespace MagentoRepository.Repository
             return qty;
         }
 
+        public bool UpdateProduct(Product product)
+        {
+            try
+            {
+                return Product.Update(_connection.Url, _connection.SessionId, new object[] { product.product_id, product });
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

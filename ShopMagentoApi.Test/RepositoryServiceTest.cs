@@ -211,6 +211,16 @@ namespace ShopMagentoApi.Test
 
         }
 
+        [TestMethod]
+        public void UpdateProduct()
+        {
+            var repository = new RepositoryService(MagentoConnection.Instance, FakeCacheManager);
+            var product = repository.GetProductInfo("55");
+            product.additional_attributes = new object[] { new[] { "name", "200" } };
+            product.tg_36 = "150";
+            repository.UpdateProduct(product);
+        }
+
 
         #region Category Test
 

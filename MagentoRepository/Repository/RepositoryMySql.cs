@@ -122,7 +122,12 @@ namespace MagentoRepository.Repository
       throw new System.NotImplementedException();
     }
 
-    public Category GetCategoryInfo(string categoryId)
+      public bool UpdateProduct(Product product)
+      {
+          throw new System.NotImplementedException();
+      }
+
+      public Category GetCategoryInfo(string categoryId)
     {
       throw new System.NotImplementedException();
     }

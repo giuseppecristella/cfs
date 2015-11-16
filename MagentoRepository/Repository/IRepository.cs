@@ -57,6 +57,13 @@ namespace MagentoRepository.Repository
         /// <returns></returns>
         int GetStocksForProduct(string productId);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
+        bool UpdateProduct(Product product);
+
         #endregion
 
         #region Category
