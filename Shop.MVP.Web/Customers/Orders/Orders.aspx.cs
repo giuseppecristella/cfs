@@ -13,7 +13,7 @@ namespace Shop.Web.Mvp.Customers.Orders
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            var loggedUser = "gctest11";//Page.User.Identity.Name;
+            var loggedUser = Page.User.Identity.Name;
             if (IsPostBack) return;
             if (string.IsNullOrEmpty(loggedUser)) return;
 

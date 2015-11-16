@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customers/MasterPages/Customers.Master" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="Shop.Web.Mvp.Customers.Orders.Order" %>
+﻿<%@ Page Title="" EnableEventValidation="false"  Language="C#" MasterPageFile="~/Customers/MasterPages/Customers.Master" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="Shop.Web.Mvp.Customers.Orders.Order" %>
 
 <%@ Register Src="~/UserControls/UCOrderDetail.ascx" TagPrefix="uc1" TagName="UCOrderDetail" %>
 

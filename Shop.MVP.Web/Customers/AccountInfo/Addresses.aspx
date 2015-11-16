@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customers/MasterPages/Customers.Master" AutoEventWireup="true" CodeBehind="Addresses.aspx.cs" Inherits="Shop.Web.Mvp.Customers.AccountInfo.Addresses" %>
+﻿<%@ Page Title="" EnableEventValidation="false"  Language="C#" MasterPageFile="~/Customers/MasterPages/Customers.Master" AutoEventWireup="true" CodeBehind="Addresses.aspx.cs" Inherits="Shop.Web.Mvp.Customers.AccountInfo.Addresses" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -11,7 +11,7 @@
         <div class="billing-address-form">
             <div class="form-group">
                 <label for="txtFirstName">Nome</label>
-                <asp:TextBox ClientIDMode="Static" class="form-control" Text="<%# AddressVM.firstname %>" ID="txtFirstName" runat="server"></asp:TextBox>
+                <asp:TextBox ClientIDMode="Static" class="form-control" ID="txtFirstName" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="form-group">
@@ -19,7 +19,7 @@
             <asp:TextBox ClientIDMode="Static" class="form-control" runat="server" ID="txtLastName" />
             <asp:RequiredFieldValidator ID="rvtxtLastName" runat="server" ControlToValidate="txtLastName"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
-                ValidationGroup="vgCheckout"></asp:RequiredFieldValidator>
+                ValidationGroup="vgAddresses"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="rvtxtLastNameRegisterUser" runat="server" ControlToValidate="txtLastName"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
                 ValidationGroup="vgRegisterUser"></asp:RequiredFieldValidator>
@@ -29,7 +29,7 @@
             <asp:TextBox ClientIDMode="Static" class="form-control" runat="server" ID="txtStreet" />
             <asp:RequiredFieldValidator ID="rvtxtStreet" runat="server" ControlToValidate="txtStreet"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
-                ValidationGroup="vgCheckout"></asp:RequiredFieldValidator>
+                ValidationGroup="vgAddresses"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="rvtxtStreetRegisterUser" runat="server" ControlToValidate="txtStreet"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
                 ValidationGroup="vgRegisterUser"></asp:RequiredFieldValidator>
@@ -39,7 +39,7 @@
             <asp:TextBox ClientIDMode="Static" class="form-control" runat="server" ID="txtCity" />
             <asp:RequiredFieldValidator ID="rvtxtCity" runat="server" ControlToValidate="txtCity"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
-                ValidationGroup="vgCheckout"></asp:RequiredFieldValidator>
+                ValidationGroup="vgAddresses"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="rvtxtCityRegisterUser" runat="server" ControlToValidate="txtCity"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
                 ValidationGroup="vgRegisterUser"></asp:RequiredFieldValidator>
@@ -49,7 +49,7 @@
             <asp:TextBox ClientIDMode="Static" class="form-control" runat="server" ID="txtZipCode" />
             <asp:RequiredFieldValidator ID="rvtxtZipCode" runat="server" ControlToValidate="txtZipCode"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
-                ValidationGroup="vgCheckout"></asp:RequiredFieldValidator>
+                ValidationGroup="vgAddresses"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="rvtxtZipCodeRegisterUser" runat="server" ControlToValidate="txtZipCode"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
                 ValidationGroup="vgRegisterUser"></asp:RequiredFieldValidator>
@@ -59,13 +59,13 @@
             <asp:TextBox ClientIDMode="Static" class="form-control" runat="server" ID="txtPhone" />
             <asp:RequiredFieldValidator ID="rvtxtPhone" runat="server" ControlToValidate="txtPhone"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
-                ValidationGroup="vgCheckout"></asp:RequiredFieldValidator>
+                ValidationGroup="vgAddresses"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="rvtxtPhoneegisterUser" runat="server" ControlToValidate="txtPhone"
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
                 ValidationGroup="vgRegisterUser"></asp:RequiredFieldValidator>
         </div>
 
-        <asp:Button CssClass="btn btn-primary" Text="Modifica Indirizzo" ID="btnUpdateAddress" runat="server" />
+        <asp:Button CssClass="btn btn-primary" OnClick="btnUpdateAddress_OnClick" Text="Modifica Indirizzo" ID="btnUpdateAddress" runat="server" />
     </section>
 
 </asp:Content>

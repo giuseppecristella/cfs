@@ -53,12 +53,19 @@ namespace Shop.Core.BusinessDelegate
         public void UpdateProduct(IList<Product> products)
         {
             // size
-            foreach (Product product in products)
+            foreach (var product in products)
             {
                 var selectedSize = (((string[])(product.additional_attributes[0]))[1]);
                 var sizeProperties = product.GetType().GetProperties().FirstOrDefault(p => p.Name.Contains(string.Format("tg_{0}", selectedSize)));
                 if (sizeProperties == null) continue;
-                sizeProperties.SetValue(product, product.qty);
+                var actualQty = 0;
+                var requestedQty = 0;
+                if (!int.TryParse(sizeProperties.GetValue(product).ToString(), out actualQty)) continue;
+                if (!int.TryParse(product.qty, out requestedQty)) continue;
+                // gestire qta esaurita
+                if (actualQty < requestedQty) continue;
+                var updatedQty = actualQty - requestedQty;
+                sizeProperties.SetValue(product, updatedQty.ToString());
                 _repository.UpdateProduct(product);
             }
         }

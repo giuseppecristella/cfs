@@ -162,7 +162,7 @@
                                 </form>
                             </div>
                         </li>
-                        <li><a href="#"><i class="icon icon-user"></i></a></li>
+                        <li><asp:LinkButton runat="server" PostBackUrl="/Customers/Dashboard/" ID="lbAccountInfo"><i class="icon icon-user"></i></asp:LinkButton></li>
                         <li><a id="menu-toggle" class="navbar-toggle shopping-cart-toggle" data-toggle="offcanvas" data-target="#shopping-cart-summary" href="#"><i class="icon icon-shopbag"></i><span ng-model="totalCartItems" class="item-count"> {{  totalCartItems }} </span></a></li>
                     </ul>
                 </div>

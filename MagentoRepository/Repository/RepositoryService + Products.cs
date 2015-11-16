@@ -72,16 +72,14 @@ namespace MagentoRepository.Repository
         /// <returns></returns>
         public Product GetProductInfo(string productId)
         {
-
             //  var catalogProductRequestAttributes = new[] { new string[] { "color", "cost" }, new string[] { "tg_38"} };
-
-            var key = CreateCacheDictionaryKey(ConfigurationHelper.CacheKeyNames[CacheKey.ProductInfo], productId);
-            if (_cacheManager.Contains(key)) return _cacheManager.Get<Product>(key);
+            //var key = CreateCacheDictionaryKey(ConfigurationHelper.CacheKeyNames[CacheKey.ProductInfo], productId);
+            //if (_cacheManager.Contains(key)) return _cacheManager.Get<Product>(key);
             try
             {
                 var product = Product.Info(_connection.Url, _connection.SessionId, new object[] { productId });
                 if (product == null) return null;
-                _cacheManager.Add(key, product);
+                //_cacheManager.Add(key, product);
                 return product;
             }
             catch (Exception ex)

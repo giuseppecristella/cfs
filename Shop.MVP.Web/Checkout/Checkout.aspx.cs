@@ -223,12 +223,29 @@ namespace Shop.Web.Mvp.Checkout
                     product_id = productCart.Id,
                     sku = productFromDb.sku,
                     qty = productCart.Qta.ToString(),
-                    price = productFromDb.price
+                    price = productFromDb.price,
+                    additional_attributes = new object[] { new[] { "size", productCart.Size}}
                 };
-                p.additional_attributes = new object[] { new[] { "size", productCart.Size } };
+                CopySizes(productFromDb, p);
                 products.Add(p);
             }
             return products;
+        }
+
+        private static void CopySizes(Product productFromDb, Product p)
+        {
+            p.tg_36 = productFromDb.tg_36;
+            p.tg_37 = productFromDb.tg_37;
+            p.tg_38 = productFromDb.tg_38;
+            p.tg_39 = productFromDb.tg_39;
+            p.tg_40 = productFromDb.tg_40;
+            p.tg_41 = productFromDb.tg_41;
+            p.tg_42 = productFromDb.tg_42;
+            p.tg_43 = productFromDb.tg_43;
+            p.tg_44 = productFromDb.tg_44;
+            p.tg_45 = productFromDb.tg_45;
+            p.tg_46 = productFromDb.tg_46;
+            p.tg_47 = productFromDb.tg_47;
         }
 
         private void BindDataObjects()

@@ -14,5 +14,10 @@ namespace Shop.Core.BusinessDelegate
         {
             return _repository.GetCustomerAddresses(customerId);
         }
+
+        public void UpdateCustomerAddresses(CustomerAddress customerAddress, int addressId)
+        {
+            _repository.UpdateCustomerAddress(customerAddress, addressId);
+        }
     }
 }
