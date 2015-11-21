@@ -383,6 +383,7 @@
     <Content Include="assets\Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Catalog\ProductsCatalogBambino.aspx" />
     <Content Include="Catalog\ProductsCatalogDonna.aspx" />
     <Content Include="Catalog\ProductsCatalogUomo.aspx" />
     <Content Include="Checkout\Checkout.aspx" />
@@ -981,6 +982,13 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Catalog\ProductsCatalogBambino.aspx.cs">
+      <DependentUpon>ProductsCatalogBambino.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\ProductsCatalogBambino.aspx.designer.cs">
+      <DependentUpon>ProductsCatalogBambino.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Catalog\ProductsCatalogDonna.aspx.cs">
       <DependentUpon>ProductsCatalogDonna.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

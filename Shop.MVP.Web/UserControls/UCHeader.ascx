@@ -26,7 +26,7 @@
                         <img src="/assets/images/logo2.png" class="logo" alt=""></a>
                     <ul class="nav navbar-nav">
                         <li class="dropdown bewear-dropdown yamm-fw">
-                            <a href="../Catalog/ProductsCatalog" style="cursor: default;" data-hover="dropdown"  class="dropdown-toggle" data-toggle="dropdown"><span>Donna</span></a>
+                            <a href="/donna" style="cursor: default;" data-hover="dropdown"  class="dropdown-toggle" data-toggle="dropdown_"><span>Donna</span></a>
                             <ul class="dropdown-menu bewear-dropdown-menu">
                                 <li class="dropdown yamm-fw">
                                     <div class="row mega-menu-ver2">
@@ -67,7 +67,7 @@
                             </ul>
                         </li>
                         <li class="dropdown bewear-dropdown yamm-fw">
-                            <a href="../Catalog/ProductsCatalogUomo." data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown"><span>Uomo</span></a>
+                            <a href="/uomo" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown_"><span>Uomo</span></a>
                             <ul class="dropdown-menu bewear-dropdown-menu">
                                 <li class="dropdown yamm-fw">
                                     <div class="row mega-menu-ver2">
@@ -108,7 +108,7 @@
                             </ul>
                         </li>
                           <li class="dropdown bewear-dropdown yamm-fw">
-                            <a href="../MasterPages/home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown"><span>Bambino</span></a>
+                            <a href="/bambino" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown_"><span>Bambino</span></a>
                             <ul class="dropdown-menu bewear-dropdown-menu">
                                 <li class="dropdown yamm-fw">
                                     <div class="row mega-menu-ver2">
