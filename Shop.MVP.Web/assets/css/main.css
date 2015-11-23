@@ -3839,7 +3839,7 @@ ul.bxslider {
 /*  PAGE : CONTACT
 /*===================================================================================*/
 .contact-info-icons {
-    padding: 36px 0;
+    padding: 0px 0;
 }
 
 .contact-info {
@@ -3847,12 +3847,17 @@ ul.bxslider {
 }
 
     .contact-info .icon {
+        font-size: 80px;
+        float: left;
+        display: inline-block;
+        margin-right: 15px;
+    }
+    .contact-info .icon2 {
         font-size: 60px;
         float: left;
         display: inline-block;
         margin-right: 15px;
     }
-
     .contact-info .contact-info-title {
         font-size: 21px;
         line-height: 24px;
@@ -3860,13 +3865,16 @@ ul.bxslider {
     }
 
     .contact-info .contact-info-subtitle {
-        font-size: 14px;
-        line-height: 30px;
+        font-size: 24px;
+        line-height: 60px;
         text-transform: uppercase;
     }
 
     .contact-info.middle {
         padding-left: 55px;
+    }
+   .contact-info.leftfull {
+        padding-left: 160px;
     }
 
     .contact-info.last {
