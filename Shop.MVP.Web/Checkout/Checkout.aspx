@@ -60,23 +60,23 @@
                     <div class="contact-info-icons row">
                         <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="contact-info">
-                                <i class="icon icon-phone-icon"></i>
-                                <span class="contact-info-title">+48 655 555 555</span><br />
-                                <span class="contact-info-subtitle">Phone Us</span>
+                                <i class="icon2 icon-user"></i>
+                                <span class="contact-info-title"> </span>
+                                <span class="contact-info-subtitle">Registrazione</span>
                             </div>
                         </div>
                         <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="contact-info middle">
-                                <i class="icon icon-mailicon"></i>
-                                <span class="contact-info-title">info@bewear.com</span><br />
-                                <span class="contact-info-subtitle">Write us Email</span>
+                                <i class="icon icon-secure-payment"></i>
+                                <span class="contact-info-title"> </span>
+                                <span class="contact-info-subtitle">Pagamenti</span>
                             </div>
                         </div>
-                        <div class="col-md-4 col-xs-12 hidden-sm">
+                        <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="contact-info pull-right last">
-                                <i class="icon icon-faxicon"></i>
-                                <span class="contact-info-title">+48 655 555 555</span><br />
-                                <span class="contact-info-subtitle">FAX Us</span>
+                                <i class="icon icon-truck"></i>
+                                <span class="contact-info-title"></span>
+                                <span class="contact-info-subtitle">Spedizione</span>
                             </div>
                         </div>
                     </div>
