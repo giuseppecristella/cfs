@@ -34,8 +34,7 @@
                             <li><a href="/donna-infradito">Infradito</a></li>
                             <li><a href="/donna-pantofole">Pantofole</a></li>
                             <li><a href="/donna-zeppe">Zeppe</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Borse</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Cinture</a></li>
+                            <li><a href="/donna-accessori">Accessori</a></li>
                         </ul>
                     </div>
                 </div>
