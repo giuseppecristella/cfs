@@ -6,7 +6,7 @@
             <section class="home-2-features inner-top-xs">
                 <div class="row">
                     <div class="col-md-6 col-sm-12  feature-block">
-                        <a href="categories-grid.html" class="media features">
+                        <a href="#" class="media features">
                             <div class="media-left">
                                 <div class="image">
                                     <img width="300" height="300" class="lazy-load media-object img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/products/feature1.jpg" alt="">
@@ -19,11 +19,11 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="categories-grid.html" class="media features">
+                        <a href="#" class="media features">
                             <div class="media-body media-middle">
                                 <div class="section text-center">
                                     <h5 class="name">Scopri la nostra collezione</h5>
-                                    <h3 class="tagline">Sandali 2015</h3>
+                                    <h3 class="tagline"> 2015</h3>
                                 </div>
                             </div>
                             <div class="media-right">
@@ -34,8 +34,8 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-sm-12 feature-block big-image hidden-sm">
-                        <a href="categories-grid.html">
-                            <img width="570" height="600" class="img-responsive lazy-load" src="/assets/images/blank.gif" data-echo="/assets/images/products/feature3.jpg" alt="">
+                        <a href="#">
+                            <img width="570" height="600" class="img-responsive lazy-load" src="/assets/images/blank.gif" data-echo="/assets/images/products/feature3.jpg" alt=""/>
                             <div class="centered-caption">
                                 <div class="banner-text text-center">
                                     <h4 class="banner-title">calzature e accessori</h4>
