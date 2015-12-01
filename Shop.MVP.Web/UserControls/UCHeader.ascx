@@ -44,8 +44,8 @@
                                         <div class="col-xs-12 col-md-3 col-sm-3">
                                             <h5 class="menu-title">Accessori</h5>
                                             <ul class="sub-menu">
-                                                <li><a href="../MasterPages/categories-grid.html">Borse</a></li>
-                                                <li><a href="../MasterPages/categories-grid.html">Cinture</a></li>
+                                                <li><a href="#">Borse</a></li>
+                                                <li><a href="#">Cinture</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-ms-6 col-sm-6 banners col-xs-12">
@@ -87,7 +87,7 @@
                                         <div class="col-xs-12 col-md-3 col-sm-3">
                                             <h5 class="menu-title">Accessori</h5>
                                             <ul class="sub-menu">
-                                                <li><a href="../MasterPages/categories-grid.html">Cinture</a></li>
+                                                <li><a href="#">Cinture</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-ms-6 col-sm-6 banners col-xs-12">
@@ -126,7 +126,7 @@
                                         <div class="col-xs-12 col-md-3 col-sm-3">
                                             <h5 class="menu-title">Accessori</h5>
                                             <ul class="sub-menu">
-                                                <li><a href="../MasterPages/categories-grid.html">Cinture</a></li>
+                                                <li><a href="#">Cinture</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-ms-6 col-sm-6 banners col-xs-12">
