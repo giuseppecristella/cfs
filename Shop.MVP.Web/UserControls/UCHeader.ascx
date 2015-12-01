@@ -154,15 +154,16 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown searchbox bewear-dropdown"><a href="#" data-hover="dropdown" class="no-drop-icon dropdown-toggle" data-toggle="dropdown"><i class="icon icon-search"></i></a>
+                       <%-- <li class="dropdown searchbox bewear-dropdown"><a href="#" data-hover="dropdown" class="no-drop-icon dropdown-toggle" data-toggle="dropdown"><i class="icon icon-search"></i></a>
                             <div class="dropdown-menu bewear-dropdown-menu">
                                 <form id="search" class="navbar-form search" role="search">
                                     <input type="search" class="form-control" placeholder="Type to search">
                                     <button type="submit" class="btn btn-primary btn-submit icon icon-search"></button>
                                 </form>
                             </div>
-                        </li>
-                        <li><asp:LinkButton runat="server" PostBackUrl="/Customers/Dashboard/" ID="lbAccountInfo"><i class="icon icon-user"></i></asp:LinkButton></li>
+                        </li>--%>
+                        <li><asp:LinkButton runat="server" PostBackUrl="/Customers/Dashboard/" ID="lbAccountInfo">
+                            <i class="icon icon-user"></i> </asp:LinkButton></li>
                         <li><a id="menu-toggle" class="navbar-toggle shopping-cart-toggle" data-toggle="offcanvas" data-target="#shopping-cart-summary" href="#"><i class="icon icon-shopbag"></i><span ng-model="totalCartItems" class="item-count"> {{  totalCartItems }} </span></a></li>
                     </ul>
                 </div>
