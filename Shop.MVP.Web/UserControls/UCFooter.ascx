@@ -5,11 +5,11 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-4">
                     <div class="footer-logo">
-                        <img src="../assets/images/logofooter.png" class="img-responsive" alt="Bewear">
+                        <img src="../assets/images/logofooter.png" class="img-responsive" alt="LogoCalzaFacile">
                     </div>
                     <div class="contact-info">
                         <address>
-                            <span class="address-title">Shop</span>
+                            <span class="address-title">Negozio</span>
                             Via Trieste, 1<br>
                             74014 Laterza (TA)<br>
                             Tel. 91 421 42 22 <br/><a href="mailto:info@calzafacile.com">info@calzafacile.com</a>
