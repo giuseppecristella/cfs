@@ -83,8 +83,8 @@ namespace Shop.Web.Mvp.Catalog
             UCBreadcrumbs.SecondLevel = (secondLevel != null)
                 ? new BreadCrumb
                 {
-                    Name = secondLevel["name"].ToString(),
-                    Url = string.Format("/{0}-{1}", productMainCategory["name"], secondLevel["name"])
+                    Name = secondLevel["name"].ToString().ToLower(),
+                    Url = string.Format("/{0}-{1}", productMainCategory["name"].ToString().ToLower(), secondLevel["name"].ToString().ToLower())
                 }
                 : new BreadCrumb();
         }
@@ -93,7 +93,7 @@ namespace Shop.Web.Mvp.Catalog
         {
             UCBreadcrumbs.MainLevel = new BreadCrumb
             {
-                Name = productMainCategory["name"].ToString(),
+                Name = productMainCategory["name"].ToString().ToLower(),
                 Url = string.Format("/{0}", productMainCategory["name"])
             };
         }

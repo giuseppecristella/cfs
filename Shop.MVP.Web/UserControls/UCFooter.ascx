@@ -69,10 +69,10 @@
                     <div class="footer-links">
                         <h3 class="links-title">Informazioni</h3>
                         <ul class="list-links list-unstyled">
-                            <li><a href="../MasterPages/categories-grid.html">Pagamenti</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Spedizioni</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Privacy</a></li>
-                            <li><a href="../MasterPages/categories-grid.html">Condizioni</a></li>
+                            <li><a href="/condizionigenerali">Condizioni/Pagamenti</a></li>
+                            <li><a href="/spedizioni">Spedizioni</a></li>
+                            <li><a href="/privacy">Privacy</a></li>
+                            
                         </ul>
                     </div>
                 </div>

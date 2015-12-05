@@ -386,6 +386,9 @@
     <Content Include="Catalog\ProductsCatalogBambino.aspx" />
     <Content Include="Catalog\ProductsCatalogDonna.aspx" />
     <Content Include="Catalog\ProductsCatalogUomo.aspx" />
+    <Content Include="Catalog\CondizioniVendita.aspx" />
+    <Content Include="Catalog\Privacy.aspx" />
+    <Content Include="Catalog\Spedizioni.aspx" />
     <Content Include="Checkout\Checkout.aspx" />
     <Content Include="content\toastr.css" />
     <Content Include="content\toastr.min.css" />
@@ -1002,6 +1005,27 @@
     </Compile>
     <Compile Include="Catalog\ProductsCatalogUomo.aspx.designer.cs">
       <DependentUpon>ProductsCatalogUomo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\CondizioniVendita.aspx.cs">
+      <DependentUpon>CondizioniVendita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\CondizioniVendita.aspx.designer.cs">
+      <DependentUpon>CondizioniVendita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\Privacy.aspx.cs">
+      <DependentUpon>Privacy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\Privacy.aspx.designer.cs">
+      <DependentUpon>Privacy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\Spedizioni.aspx.cs">
+      <DependentUpon>Spedizioni.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\Spedizioni.aspx.designer.cs">
+      <DependentUpon>Spedizioni.aspx</DependentUpon>
     </Compile>
     <Compile Include="Checkout\Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>

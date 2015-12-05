@@ -25,7 +25,9 @@ namespace Shop.Web.Mvp
             routes.MapPageRoute("CatalogoDonna", "donna", "~/Catalog/ProductsCatalogDonna.aspx");
             routes.MapPageRoute("CatalogoUomo", "uomo", "~/Catalog/ProductsCatalogUomo.aspx");
             routes.MapPageRoute("CatalogoBambino", "bambino", "~/Catalog/ProductsCatalogBambino.aspx");
-            //routes.MapPageRoute("CatalogoDonna", "donna", "~/Catalog/donna.aspx");
+            routes.MapPageRoute("CondizioniVendita", "condizionigenerali", "~/Catalog/CondizioniVendita.aspx");
+            routes.MapPageRoute("privacy", "privacy", "~/Catalog/Privacy.aspx");
+            routes.MapPageRoute("spedizioni", "spedizioni", "~/Catalog/spedizioni.aspx");
         }
     }
 }

@@ -3882,7 +3882,15 @@ ul.bxslider {
         padding-right: 20px;
     }
 
-.address-title,
+.address-title{
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #000;
+}
 .form-title {
     font-size: 18px;
     line-height: 24px;
@@ -3891,6 +3899,7 @@ ul.bxslider {
     margin-bottom: 20px;
     font-weight: 700;
     color: #000;
+    text-align:center;
 }
 
 .addresses {
