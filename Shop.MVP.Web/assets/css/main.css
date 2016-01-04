@@ -250,6 +250,9 @@ Table of Contents
 .icon-lastfm4:before {
     content: "T";
 }
+
+/*prova namber*/
+
 /*===================================================================================*/
 /*	GENERAL
 /*===================================================================================*/
@@ -268,7 +271,7 @@ body {
 .container {
     padding-left: 0;
     padding-right: 0;
-    text-align:justify;
+   /*text-align:justify;*/
 }
 
 h1,
@@ -2076,11 +2079,12 @@ ul.bxslider {
             }
 
             .color-picker > li .le-radio._colorcode18 + .fake-box {
-                background: #a5b0c5;
+                background:#eeeeee;
+               
             }
 
             .color-picker > li .le-radio._colorcode17 + .fake-box {
-                background: #e2e2e2;
+                background: #434343;
             }
 
             .color-picker > li .le-radio._colorcode21 + .fake-box {
@@ -5221,7 +5225,7 @@ address {
 }
 
 .bewear-tab-content .tab-pane {
-    margin-right: 145px;
+   /* margin-right: 145px;*/
     text-align: justify;
     line-height: 24px;
     letter-spacing: 0.010em;
