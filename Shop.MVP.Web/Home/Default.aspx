@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Shop.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Shop.Web.Mvp.Default" %>
+
 <%@ Register Src="~/Home/UserControls/UCShowcaseProducts.ascx" TagPrefix="uc1" TagName="UCShowcaseProducts" %>
 <asp:Content ID="cMain" ContentPlaceHolderID="cpMain" runat="server">
     <div class="main-content home-2">
@@ -23,7 +24,7 @@
                             <div class="media-body media-middle">
                                 <div class="section text-center">
                                     <h5 class="name">Scopri la nostra collezione</h5>
-                                    <h3 class="tagline"> 2015</h3>
+                                    <h3 class="tagline">2015</h3>
                                 </div>
                             </div>
                             <div class="media-right">
@@ -35,7 +36,7 @@
                     </div>
                     <div class="col-md-6 col-sm-12 feature-block big-image hidden-sm">
                         <a href="#">
-                            <img width="570" height="600" class="img-responsive lazy-load" src="/assets/images/blank.gif" data-echo="/assets/images/products/feature3.jpg" alt=""/>
+                            <img width="570" height="600" class="img-responsive lazy-load" src="/assets/images/blank.gif" data-echo="/assets/images/products/feature3.jpg" alt="" />
                             <div class="centered-caption">
                                 <div class="banner-text text-center">
                                     <h4 class="banner-title">calzature e accessori</h4>
@@ -55,7 +56,7 @@
                     </div>
                     <div class="tab-content inner-top-xs">
                         <div role="tabpanel" class="tab-pane active" id="just-arrived">
-                            <uc1:UCShowcaseProducts runat="server" id="UCShowcaseProducts" />
+                            <uc1:UCShowcaseProducts runat="server" ID="UCShowcaseProducts" />
                         </div>
                     </div>
                 </div>
@@ -64,55 +65,6 @@
         <div class="load-more-holder text-center">
             <a href="/nuovi-arrivi" class="btn btn-default load-more">Scopri tutti i Nuovi Arrivi</a>
         </div>
-      <%--  <section class="wide-banners clearfix wow fadeIn">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                        <div class="wide-banner cnt-strip">
-                            <a href="catalog.html">
-                                <div class="image lazy-load">
-                                    <img width="370" height="245" src="/assets/images/blank.gif" data-echo="/assets/images/brands/w2.jpg" class="img-responsive" alt="">
-                                </div>
-                                <div class="strip text-center">
-                                    <h5>over 40s</h5>
-                                    <h3>free delivery</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="wide-banner cnt-strip">
-                            <a href="catalog.html">
-                                <div class="image lazy-load">
-                                    <img width="370" height="245" src="/assets/images/blank.gif" data-echo="/assets/images/brands/w1.jpg" class="img-responsive" alt="">
-                                </div>
-                                <div class="strip text-center">
-                                    <div class="strip-inner">
-                                        <h5>get up to</h5>
-                                        <h1>40% off</h1>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                        <div class="wide-banner cnt-strip">
-                            <a href="catalog.html">
-                                <div class="image lazy-load">
-                                    <img width="370" height="245" src="/assets/images/blank.gif" data-echo="/assets/images/brands/w3.jpg" class="img-responsive" alt="">
-                                </div>
-                                <div class="strip text-center">
-                                    <div class="strip-inner">
-                                        <h5>we care</h5>
-                                        <h3>world shipping</h3>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>--%>
         <section class="container subscription wow fadeIn">
             <div class="form-inline form-subscribe text-center">
                 <span class="form-subtitle">Ricevi le nostre offerte</span>

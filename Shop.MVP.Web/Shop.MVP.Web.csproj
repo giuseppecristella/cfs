@@ -223,10 +223,10 @@
     <Content Include="assets\images\CatalogoGenerale\BannerUomo.jpg" />
     <Content Include="assets\images\CatalogoGenerale\ciabatte_donna.jpg" />
     <Content Include="assets\images\CatalogoGenerale\ciabatte_uomo.jpg" />
-    <Content Include="assets\images\CatalogoGenerale\infradito_bimba.jpg" />
+    <Content Include="assets\images\CatalogoGenerale\infradito_bambino.jpg" />
     <Content Include="assets\images\CatalogoGenerale\infradito_donna.jpg" />
     <Content Include="assets\images\CatalogoGenerale\infradito_uomo.jpg" />
-    <Content Include="assets\images\CatalogoGenerale\pantofole_bimbo.jpg" />
+    <Content Include="assets\images\CatalogoGenerale\pantofole_bambino.jpg" />
     <Content Include="assets\images\CatalogoGenerale\pantofole_donna.jpg" />
     <Content Include="assets\images\CatalogoGenerale\pantofole_uomo.jpg" />
     <Content Include="assets\images\CatalogoGenerale\sandali_donna.jpg" />
@@ -272,6 +272,7 @@
     <Content Include="assets\images\logo2.png" />
     <Content Include="assets\images\logo2footer.png" />
     <Content Include="assets\images\logo2__.png" />
+    <Content Include="assets\images\logofooter.png" />
     <Content Include="assets\images\lookbook\1.jpg" />
     <Content Include="assets\images\lookbook\2.jpg" />
     <Content Include="assets\images\lookbook\3.jpg" />
@@ -333,6 +334,7 @@
     <Content Include="assets\images\products\feature2.jpg" />
     <Content Include="assets\images\products\feature3.jpg" />
     <Content Include="assets\images\products\footer-image.jpg" />
+    <Content Include="assets\images\products\homeInvernali.jpg" />
     <Content Include="assets\images\products\mega1.jpg" />
     <Content Include="assets\images\products\mega2.jpg" />
     <Content Include="assets\images\products\mega3.jpg" />
