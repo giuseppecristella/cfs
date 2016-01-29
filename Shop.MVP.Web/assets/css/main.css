@@ -4,7 +4,7 @@ Description: 	Responsive eCommerce Bootstrap 3 Template
 Version: 		1.0
 Author: 		Ibrahim & Akther Jabeen
 Demo URI: 		http://demo.transvelo.in/html/bewear
-
+    products-images
 ===================================================================================
 Table of Contents
 ===================================================================================
@@ -4939,7 +4939,7 @@ address {
                 border-bottom: none;
             }
 
-#product-images > li > a {
+#product-images > li > a  {
     position: relative;
     width: 100%;
     display: block;
@@ -4955,24 +4955,10 @@ address {
 
         #product-images > li > a .zoom-overlay:before {
             color: #212123;
-            content: "+";
             font-size: 20px;
             position: relative;
         }
-         
-          #products-images > li > a .zoom-overlay {
-        bottom: 0;
-        position: absolute;
-        right: 0;
-        width: 16px;
-        z-index: 999;
-    }
-          #products-images > li > a {
-    position: relative;
-    width: 120%;
-    display: block;
-}
-
+  
 .single-product-row .gallery-holder {
     padding-right: 0px;
     width: 51.3%;
