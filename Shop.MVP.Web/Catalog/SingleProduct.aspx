@@ -22,12 +22,10 @@
                                 <section class="slider wow fadeIn">
                                     <div class="row">
                                         <div class="col-md-10 col-xs-12">
-                                            <ul id="products-images">
+                                            <ul id="product-images">
                                                 <li>
-                                                     <a href="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>">
-                                                        <img src="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" alt="" />
-                                                        <%--<img src="/assets/images/blank.gif" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" data-echo="<%= ProductViewModel.imageurl %>" alt="" />--%>
-                                                        <span class="zoom-overlay"></span>
+                                                     <a href="<%= ProductViewModel.imageurl %>" data-title="" data-lightbox="<%= ProductViewModel.name %>">
+                                                        <img src="<%= ProductViewModel.imageurl %>" class="zoom" data-title="" data-lightbox="<%= ProductViewModel.name %>" alt="" />
                                                     </a>
                                                 </li>
                                             </ul>
@@ -38,27 +36,15 @@
                         </div>
                         <div class="col-sm-6 col-lg-6 body-holder body-holder-style-1">
                             <div class="product-info">
-                                <div class="product-rating-holder">
-                                    <%--<a href="product-extended.html" class="product-rating">
-                                        <div class="star-rating gray" title="Rated 5.00 out of 5">
-                                           <%-- <span style="width: 80%">
-                                                <strong class="rating">5.00</strong>
-                                                out of 5
-                                            </span>
-                                        </div>
-                                    </a>--%>
-                                   <%-- <a href="#reviews" class="review-link">(4 reviews)</a>--%>
-                                </div>
                                 <asp:HiddenField runat="server" ID="hfProductID" Value="<%# ProductViewModel.product_id %>"/>
                                 <h1 class="single-product-title"><%= ProductViewModel.name %></h1>
-                                <%--<div class="product-brand">Calvin Klein</div>--%>
                                   <div id="product-simple-tab">
                                     <div class="tabs">
                                         <ul class="nav nav-tabs nav-tab-cells">
                                             <li class="active"><a data-toggle="tab" href="#description">Descrizione</a></li>
                                         </ul>
                                         <div class="tab-content bewear-tab-content">
-                                            <div id="Div2" class="tab-pane in active">
+                                            <div class="tab-pane in active">
                                                 <p class="text">
                                                     <%= ProductViewModel.description %>
                                                 </p>
@@ -105,10 +91,7 @@
                                 </div>
                                 <div class="qnt-holder">
                                     <div class="cart">
-                                       <%-- <div class="quantity-holder">
-                                            <span class="key">Qta.:</span>
-                                            <input type="number" class="txt txt-qty" title="Qty" value="1" name="quantity" min="1" step="1">
-                                        </div>--%>
+                                    
                                      <a  
                                          data-toggle="offcanvas" 
                                          data-target="{{ activatePanelCart }}" 
@@ -116,27 +99,7 @@
                                         
                                     </div>
                                 </div>
-                                 <%--  <div id="product-simple-tab">
-                                    <div class="tabs">
-                                        <ul class="nav nav-tabs nav-tab-cells">
-                                            <li class="active"><a data-toggle="tab" href="#description">Descrizione</a></li>
-                                        </ul>
-                                        <div class="tab-content bewear-tab-content">
-                                            <div id="description" class="tab-pane in active">
-                                                <p class="text">
-                                                    <%= ProductViewModel.description %>
-                                                </p>
-                                                <ul>
-                                                    <li>- 98% Cotton, 2% Elastane</li>
-                                                    <li>- Zip fly and button fastening</li>
-                                                    <li>- Five pocket model</li>
-                                                    <li>- Belt loops</li>
-                                                    <li>- Leather badge at back</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>--%>
+                       
                             </div>
                         </div>
                     </div>
