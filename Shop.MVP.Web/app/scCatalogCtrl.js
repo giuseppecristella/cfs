@@ -157,7 +157,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
                 "hideDuration": "1000",
                 "timeOut": "3000",
                 "extendedTimeOut": "1000",
-                "positionClass": "toast-alert-left",
+                "positionClass": "toast-top-center",
                 "preventDuplicates":true,
             });
          
