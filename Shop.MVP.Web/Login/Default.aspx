@@ -11,6 +11,7 @@
             </header>
             <asp:Login CssClass="table_reset" ID="Login" runat="server" FailureText="String" OnLoggedIn="OnLoggedIn" OnLoginError="OnLoginError">
                 <LayoutTemplate>
+                     <div class="form_login">
                     <div class="row">
                         <div class="col-md-4 col-xs-12 hidden-sm">
                             <label for="username">Username</label>
@@ -39,13 +40,15 @@
                                 <asp:Literal ID="lblFailureText" runat="server" /></span>
                         </div>
                     </div>
+                         </div>
                 </LayoutTemplate>
             </asp:Login>
         </div>
         <div class="col-md-8">
             <%--User Info--%>
+             <h4 style="font-size: 18px"><b>Compila il modulo di registrazione</b></h4>
             <div class="billing-address-form">
-                <div class="form-group">
+               <div class="form-group">
                     <label for="txtFirstName">Nome</label>
                     <asp:TextBox ClientIDMode="Static" class="form-control" ID="txtFirstName" runat="server" />
                     <asp:RequiredFieldValidator ID="rvtxtFirstName" runat="server" ControlToValidate="txtFirstName"
@@ -124,7 +127,7 @@
                         Spedisci allo stesso indirizzo
                     </label>
                 </asp:Panel>
-            </div>
+            
 
             <%--Register User--%>
             <asp:CreateUserWizard LoginCreatedUser="True" DuplicateUserNameErrorMessage="Utente già presente"
@@ -135,6 +138,7 @@
                 <WizardSteps>
                     <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                         <ContentTemplate>
+                            
                             <div class="form-group">
                                 <label for="UserName">Nome Utente</label>
                                 <asp:TextBox ClientIDMode="Static" runat="server" CssClass="form-control" ID="UserName" />
@@ -164,6 +168,7 @@
                                 <span style="color: red;">
                                     <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal></span>
                             </div>
+                               
                         </ContentTemplate>
                         <CustomNavigationTemplate>
                         </CustomNavigationTemplate>
@@ -178,4 +183,5 @@
             </asp:CreateUserWizard>
         </div>
     </div>
+    </div> 
 </asp:Content>

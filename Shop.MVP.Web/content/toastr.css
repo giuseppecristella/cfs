@@ -47,7 +47,7 @@ button.toast-close-button {
   -webkit-appearance: none;
 }
 .toast-top-center {
-  top: 70%;
+  top: 0;
   right: 0;
   width: 100%;
 }
@@ -81,7 +81,6 @@ button.toast-close-button {
 .toast-alert-left {
   left: 488px;
   bottom:142px;
-  position:fixed;
 }
 .toast-bottom-left {
   bottom: 82px;
