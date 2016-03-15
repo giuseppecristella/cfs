@@ -24,11 +24,10 @@
                                         <div class="col-md-10 col-xs-12">
                                             <ul id="product-images">
                                                 <li>
-                                                     <a href="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>">
+                                                     <%--<a href="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>">--%>
                                                         <img src="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" alt="" />
                                                         <%--<img src="/assets/images/blank.gif" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" data-echo="<%= ProductViewModel.imageurl %>" alt="" />--%>
-                                                        <span class="zoom-overlay"></span>
-                                                    </a>
+                                                    <%-- </a>--%>
                                                 </li>
                                             </ul>
                                         </div>
