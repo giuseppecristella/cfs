@@ -22,7 +22,7 @@
                                 <section class="slider wow fadeIn">
                                     <div class="row">
                                         <div class="col-md-10 col-xs-12">
-                                            <ul id="product-images">
+                                            <ul id="product-images" class="product-imagesul">
                                                 <li>
                                                      <%--<a href="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>">--%>
                                                         <img src="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" alt="" />
