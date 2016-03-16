@@ -3265,7 +3265,7 @@ ul.bxslider {
   color: #231f20;
 }
 .contact-info .icon {
-  font-size: 60px;
+  font-size: 50px;
   float: left;
   display: inline-block;
   margin-right: 15px;
@@ -5250,6 +5250,13 @@ footer.style-2 ul.payment-methods > li:last-child {
   .container {
     padding: 0 15px;
   }
+  #top {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+ 
   .navbar-collapse {
     padding-left: 0px;
     padding-right: 0px;

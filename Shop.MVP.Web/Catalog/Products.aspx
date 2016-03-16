@@ -30,26 +30,14 @@
                                      
                                     </div>
                                     </div>
-                                   <!-- <div class="buttons-holder m-t-20">
-                                        <div class="add-cart-holder">
-                                            <a title="Add to cart" href="#" ng-click="addProductToCart(product)" class="cart-button btn btn-primary">
-                                                <span>Compralo Ora</span>
-                                            </a>
-                                        </div>-->
-                                        <!-- .add-cart-holder 
-                                        <div class="add-wishlist-holder">
-                                            <a href="../checkout.html" title="Wishlist" class="wishlist-button uppercase">
-                                                <span class="icon icon-wishlist"></span>add to wishlist
-                                            </a>
-                                        </div> </div>-->
-                                        <!-- .add-wishlist-holder -->
                                    
-                                    <!-- .buttons-holder -->
                                 </div>
                                 <!-- .product-info -->
                             </div>
                         </div>
                     </div>
+                    <div id="top"><i class="fa fa-arrow-circle-up fa-4x" style="margin-top:7px;padding-left:85%"></i></div>
+                    
                 </div>
                 <div class="col-md-3 col-sm-2">
                     <uc1:UCProductsFilters runat="server" ID="UCProductsFilters" />

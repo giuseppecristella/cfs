@@ -21,6 +21,7 @@
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/jasny-bootstrap.min.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/lightbox.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/bewear-icons.css" rel="stylesheet" />
+         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/font-awesome.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/animate.min.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/owl.carousel.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/main.css" rel="stylesheet" />

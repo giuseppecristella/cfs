@@ -60,7 +60,7 @@
                     <div class="contact-info-icons row">
                         <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="contact-info">
-                                <i class="icon2 icon-user"></i>
+                                <i class="icon icon-user"></i>
                                 <span class="contact-info-title"> </span>
                                 <span class="contact-info-subtitle">Registrazione</span>
                             </div>
@@ -142,7 +142,7 @@
                                 </header>
                                 <div class="billing-address-form">
                                     <div class="form-group">
-                                        <label for="txtFirstName">Nome</label>
+                                        <label for="txtFirstName" ng-model="name">Nome</label>
                                         <asp:TextBox ClientIDMode="Static" class="form-control" ID="txtFirstName" runat="server" />
                                         <asp:RequiredFieldValidator ID="rvtxtFirstName" runat="server" ControlToValidate="txtFirstName"
                                             Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
@@ -387,6 +387,7 @@
                                         <asp:Button  UseSubmitBehavior="false"  ID="btnCheckout" Text="Conferma l'ordine" ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
                                     </div>
                                 </section>
+                                 <div id="top"><i class="fa fa-arrow-circle-up fa-4x" style="margin-top:7px;padding-left:85%"></i></div>
                             </div>
                         </div>
                     </section>
