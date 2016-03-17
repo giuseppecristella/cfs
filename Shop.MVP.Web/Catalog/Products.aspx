@@ -22,7 +22,7 @@
                                 <div class="product-info m-t-20 text-center">
                                     <h5 class="name uppercase"><a href="../product-simple.html">{{ product._name }}</a></h5>
                                     <div class="product-price">
-                                        <ins><span class="amount">{{ product._price | currency }}</span></ins>
+                                        <ins><span class="amount"> {{ product._price | currency: "&euro;"}}</span></ins>
                                     </div>
                                     <div class="buttons-holder m-t-20">
                                     <div class="add-cart-holder">
