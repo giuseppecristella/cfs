@@ -1745,7 +1745,7 @@ ul.bxslider {
 .color-picker > li .le-radio:focus {
   cursor: pointer;
 }
-.color-picker > li .le-radio:hover + .fake-box:after,
+/*.color-picker > li .le-radio:hover + .fake-box:after,
 .color-picker > li .le-radio:focus + .fake-box:after {
   bottom: 0;
   content: "";
@@ -1759,7 +1759,7 @@ ul.bxslider {
   width: 5px;
   background: #fff;
   border-radius: 50px;
-}
+}*/
 .color-picker > li .le-radio:checked + .fake-box:after {
   bottom: 0;
   content: "";
@@ -1774,27 +1774,33 @@ ul.bxslider {
   background: #fff;
   border-radius: 50px;
 }
-.color-picker > li .le-radio.blue + .fake-box {
-  background: #a5b0c5;
-}
-.color-picker > li .le-radio.gray + .fake-box {
-  background: #e2e2e2;
-}
-.color-picker > li .le-radio.red + .fake-box {
-  background: #e77a7d;
-}
-.color-picker > li .le-radio.green + .fake-box {
-  background: #68aaa6;
-}
-.color-picker > li .le-radio.black + .fake-box {
-  background: #4e4e4e;
-}
-.color-picker > li .le-radio.orange + .fake-box {
-  background: #f19a0e;
-}
-.color-picker > li .le-radio.dark-gray + .fake-box {
-  background: #889db0;
-}
+            .color-picker > li .le-radio._colorcode18 + .fake-box {
+                background:#CCCCCC;
+            }
+
+            .color-picker > li .le-radio._colorcode17 + .fake-box {
+                background: #434343;
+             
+            }
+
+            .color-picker > li .le-radio._colorcode21 + .fake-box {
+                background: #e77a7d;
+               
+            }
+          .color-picker > li .le-radio.green + .fake-box {
+                  background: #68aaa6;
+            }
+            .color-picker > li .le-radio.Nero + .fake-box {
+                background: #4e4e4e;
+            }
+
+            .color-picker > li .le-radio.orange + .fake-box {
+                background: #f19a0e;
+            }
+
+            .color-picker > li .le-radio._colorcode20 + .fake-box {
+                background: #889db0;
+            }
 .color-picker > li .le-radio.brown + .fake-box {
   background: #6b6562;
 }
