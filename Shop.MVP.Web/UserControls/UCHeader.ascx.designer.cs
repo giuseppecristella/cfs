@@ -20,5 +20,14 @@ namespace Shop.Web.Mvp.UserControls {
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbAccountInfo;
+        
+        /// <summary>
+        /// Controllo lnAccount.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginName lnAccount;
     }
 }

@@ -150,9 +150,6 @@
                         </li>
                         <li>
                             <a href="../MasterPages/home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown"><span>Promozioni</span></a>
-                            <%--         <ul class="dropdown-menu bewear-dropdown-menu">
-                                <li><a href="../MasterPages/home.html">Home</a></li>
-                            </ul>--%>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -165,7 +162,8 @@
                             </div>
                         </li>--%>
                         <li><asp:LinkButton runat="server" PostBackUrl="/Customers/Dashboard/" ID="lbAccountInfo">
-                           {{name}} <i class="icon icon-user"></i> </asp:LinkButton></li>
+                         <asp:LoginName ID="lnAccount" runat="server" />
+                        </asp:LoginView> <i class="icon icon-user"></i> </asp:LinkButton></li>
                         <li><a id="menu-toggle" class="navbar-toggle shopping-cart-toggle" data-toggle="offcanvas" data-target="#shopping-cart-summary" href="#"><i class="icon icon-shopbag"></i><span ng-model="totalCartItems" class="item-count"> {{  totalCartItems }} </span></a></li>
                     </ul>
                 </div>
