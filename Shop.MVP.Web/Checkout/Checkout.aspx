@@ -380,14 +380,13 @@
                                                     </div>
                                                 </td>
                                             </tr>
-
+                                            <div id="top"><i class="fa fa-chevron-circle-up fa-4x" style="margin-top:7px;padding-left:85%;color:rgba(114, 114, 114, 0.41);"></i></div>
                                         </tbody>
                                     </table>
                                     <div class="checkout-action text-right">
                                         <asp:Button  UseSubmitBehavior="false"  ID="btnCheckout" Text="Conferma l'ordine" ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
                                     </div>
                                 </section>
-                                 <div id="top"><i class="fa fa-arrow-circle-up fa-4x" style="margin-top:7px;padding-left:85%"></i></div>
                             </div>
                         </div>
                     </section>

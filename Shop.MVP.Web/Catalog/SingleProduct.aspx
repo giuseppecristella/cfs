@@ -38,15 +38,7 @@
                         <div class="col-sm-6 col-lg-6 body-holder body-holder-style-1">
                             <div class="product-info">
                                 <div class="product-rating-holder">
-                                    <%--<a href="product-extended.html" class="product-rating">
-                                        <div class="star-rating gray" title="Rated 5.00 out of 5">
-                                           <%-- <span style="width: 80%">
-                                                <strong class="rating">5.00</strong>
-                                                out of 5
-                                            </span>
-                                        </div>
-                                    </a>--%>
-                                   <%-- <a href="#reviews" class="review-link">(4 reviews)</a>--%>
+                                    
                                 </div>
                                 <asp:HiddenField runat="server" ID="hfProductID" Value="<%# ProductViewModel.product_id %>"/>
                                 <h1 class="single-product-title"><%= ProductViewModel.name %></h1>
@@ -69,22 +61,7 @@
                                 <div class="product-price">
                                     <ins><span class="amount">€. <%= CommonHelper.FormatCurrency(ProductViewModel.price) %></span></ins>
                                 </div>
-                                <%--<div class="social-icons-holder">
-                                    <ul class="social-icon-list clearfix">
-                                        <li><a class="icon icon-facebook31" title="Facebook" href="https://www.facebook.com/kalzafacile?fref=ts"></a></li>
-                                    </ul>
-                                </div>--%>
-                                <%-- <div class="product-attributes">
-                                    <div class="color-holder clearfix">
-                                        <span class="key">Colore:</span> <span class="value">Nero</span>
-                                        <ul class="color-picker clearfix">
-                                            <li>
-                                                <input class="le-radio blue checked" type="radio" value="color1" name="main" checked="checked">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                   
-                                </div>--%>
+                               
                                     <div class="size-holder m-t-20 clearfix">
                                         <span class="key">Taglie disponibili:</span>
                                         <ul class="size-picker clearfix">
@@ -115,34 +92,12 @@
                                         
                                     </div>
                                 </div>
-                                 <%--  <div id="product-simple-tab">
-                                    <div class="tabs">
-                                        <ul class="nav nav-tabs nav-tab-cells">
-                                            <li class="active"><a data-toggle="tab" href="#description">Descrizione</a></li>
-                                        </ul>
-                                        <div class="tab-content bewear-tab-content">
-                                            <div id="description" class="tab-pane in active">
-                                                <p class="text">
-                                                    <%= ProductViewModel.description %>
-                                                </p>
-                                                <ul>
-                                                    <li>- 98% Cotton, 2% Elastane</li>
-                                                    <li>- Zip fly and button fastening</li>
-                                                    <li>- Five pocket model</li>
-                                                    <li>- Belt loops</li>
-                                                    <li>- Leather badge at back</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>--%>
-                             
-                            </div>
+                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <div id="top"><i class="fa fa-arrow-circle-up fa-4x" style="margin-top:7px;padding-left:85%"></i></div>
+    <div id="top"><i class="fa fa-chevron-circle-up fa-4x" style="margin-top:7px;padding-left:85%;color:rgba(114, 114, 114, 0.41);"></i></div>
     </div>
 </asp:Content>
