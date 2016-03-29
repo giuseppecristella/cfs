@@ -7,7 +7,7 @@
 			<div class="container">
 				<!-- ============================================================= LOGO MOBILE ============================================================= -->
 						
-				<a class="navbar-brand" href="/Default"><img src="/assets/images/logo129.png" class="logo" alt=""></a>
+				<a class="navbar-brand" href="/Default"><img src="/assets/images/logo2.png" class="logo" alt=""></a>
 						
 				<!-- ============================================================= LOGO MOBILE : END ============================================================= -->
 						
@@ -26,17 +26,18 @@
                         <img src="/assets/images/logo2.png" class="logo" alt=""></a>
                     <ul class="nav navbar-nav">
                         <li class="dropdown bewear-dropdown yamm-fw">
-                            <a href="/donna" style="cursor: default;" data-hover="dropdown"  class="dropdown-toggle" data-toggle="dropdown_"><span>Donna</span></a>
+                            <a href="/donna" style="cursor: default;" data-hover="dropdown"  class="dropdown-toggle" data-toggle="dropdown"><span>Donna</span></a>
                             <ul class="dropdown-menu bewear-dropdown-menu">
                                 <li class="dropdown yamm-fw">
                                     <div class="row mega-menu-ver2">
                                         <div class="col-xs-12 col-md-3 col-sm-3">
                                             <h5 class="menu-title">Scarpe</h5>
                                             <ul class="sub-menu">
-                                                <li><a href="/donna-sneakers">Sneakers</a></li>
+                                                <li><a href="/donna-sanitarie">Sanitarie</a></li>
                                                 <li><a href="/donna-ciabatte">Ciabatte</a></li>
-                                                <li><a href="/donna-sandali">Sandali</a></li>
+                                                 <li><a href="/donna-sandali">Sandali</a></li>
                                                 <li><a href="/donna-infradito">Infradito</a></li>
+                                                 <li><a href="/donna-sneakers">Sneakers</a></li>
                                                 <li><a href="/donna-pantofole">Pantofole</a></li>
                                                 <li><a href="/donna-zeppe">Zeppe</a></li>
                                             </ul>
@@ -67,18 +68,19 @@
                             </ul>
                         </li>
                         <li class="dropdown bewear-dropdown yamm-fw">
-                            <a href="/uomo" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown_"><span>Uomo</span></a>
+                            <a href="/uomo" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown"><span>Uomo</span></a>
                             <ul class="dropdown-menu bewear-dropdown-menu">
                                 <li class="dropdown yamm-fw">
                                     <div class="row mega-menu-ver2">
                                         <div class="col-xs-12 col-md-3 col-sm-3">
                                             <h5 class="menu-title">Scarpe</h5>
                                             <ul class="sub-menu">
-                                                <li><a href="/uomo-sneakers">Sneakers</a></li>
+                                                <li><a href="/uomo-sanitarie">Sanitarie</a></li>
                                                 <li><a href="/uomo-ciabatte">Ciabatte</a></li>
-                                                <li><a href="/uomo-sandali">Sandali</a></li>
+                                                 <li><a href="/uomo-sandali">Sandali</a></li>
                                                 <li><a href="/uomo-infradito">Infradito</a></li>
                                                 <li><a href="/uomo-pantofole">Pantofole</a></li>
+                                                 <li><a href="/uomo-sneakers">Sneakers</a></li>
                                                 <li><a href="/uomo-antinfortunistica">Antinfortunistica</a></li>
                                                 <li><a href="/uomo-stivali-in-gomma">Stivali in gomma</a></li>
                                             </ul>
@@ -108,18 +110,18 @@
                             </ul>
                         </li>
                           <li class="dropdown bewear-dropdown yamm-fw">
-                            <a href="/bambino" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown_"><span>Bambino</span></a>
+                            <a href="/bambino" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown"><span>Bambino</span></a>
                             <ul class="dropdown-menu bewear-dropdown-menu">
                                 <li class="dropdown yamm-fw">
                                     <div class="row mega-menu-ver2">
                                         <div class="col-xs-12 col-md-3 col-sm-3">
                                             <h5 class="menu-title">Scarpe</h5>
                                             <ul class="sub-menu">
-                                                <li><a href="/bambino-sneakers">Sneakers</a></li>
                                                 <li><a href="/bambino-ciabatte">Ciabatte</a></li>
                                                 <li><a href="/bambino-sandali">Sandali</a></li>
                                                 <li><a href="/bambino-infradito">Infradito</a></li>
                                                 <li><a href="/bambino-pantofole">Pantofole</a></li>
+                                                 <li><a href="/bambino-sneakers">Sneakers</a></li>
                                             </ul>
 
                                         </div>
@@ -148,9 +150,6 @@
                         </li>
                         <li>
                             <a href="../MasterPages/home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown"><span>Promozioni</span></a>
-                            <%--         <ul class="dropdown-menu bewear-dropdown-menu">
-                                <li><a href="../MasterPages/home.html">Home</a></li>
-                            </ul>--%>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -163,7 +162,8 @@
                             </div>
                         </li>--%>
                         <li><asp:LinkButton runat="server" PostBackUrl="/Customers/Dashboard/" ID="lbAccountInfo">
-                            <i class="icon icon-user"></i> </asp:LinkButton></li>
+                         <asp:LoginName ID="lnAccount" runat="server" />
+                        </asp:LoginView> <i class="icon icon-user"></i> </asp:LinkButton></li>
                         <li><a id="menu-toggle" class="navbar-toggle shopping-cart-toggle" data-toggle="offcanvas" data-target="#shopping-cart-summary" href="#"><i class="icon icon-shopbag"></i><span ng-model="totalCartItems" class="item-count"> {{  totalCartItems }} </span></a></li>
                     </ul>
                 </div>

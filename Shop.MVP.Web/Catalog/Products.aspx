@@ -25,15 +25,16 @@
                                         <ins><span class="amount">{{ product._price | toEuros }}</span></ins>
                                     </div>
                                     <div class="buttons-holder m-t-20">
-                                        <div class="add-cart-holder">
-                                            <a href="{{ product._sku}}/{{ product._product_id}}" class="cart-button btn btn-primary"><span>Vedi Dettaglio</span></a>
-
-                                        </div>
+                                    <div class="add-cart-holder">
+                                      <a href="{{ product._sku}}/{{ product._product_id}}" class="cart-button btn btn-primary"><span>Vedi Dettaglio</span></a>
+                                     
+                                    </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div id="top"><i class="fa fa-chevron-circle-up fa-4x" style="margin-top:7px;padding-left:85%;color:rgba(114, 114, 114, 0.41);"></i></div>                    
                 </div>
                 <div class="col-md-3 col-sm-2">
                     <uc1:UCProductsFilters runat="server" ID="UCProductsFilters" />

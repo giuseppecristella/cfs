@@ -28,13 +28,13 @@
                     <div class="footer-links">
                         <h3 class="links-title">Donna</h3>
                         <ul class="list-links list-unstyled">
-                            <li><a href="/donna-sneakers">Sneakers</a></li>
-                            <li><a href="/donna-ciabatte">Ciabatte</a></li>
-                            <li><a href="/donna-sandali">Sandali</a></li>
-                            <li><a href="/donna-infradito">Infradito</a></li>
+                             <li><a href="/donna-sanitarie">Sanitarie</a></li>
+                             <li><a href="/donna-ciabatte">Ciabatte</a></li>
+                             <li><a href="/donna-sandali">Sandali</a></li>
+                              <li><a href="/donna-infradito">Infradito</a></li>
+                              <li><a href="/donna-sneakers">Sneakers</a></li>
                             <li><a href="/donna-pantofole">Pantofole</a></li>
-                            <li><a href="/donna-zeppe">Zeppe</a></li>
-                            <li><a href="/donna-accessori">Accessori</a></li>
+                              <li><a href="/donna-zeppe">Zeppe</a></li>
                         </ul>
                     </div>
                 </div>
@@ -42,14 +42,14 @@
                     <div class="footer-links">
                         <h3 class="links-title">Uomo</h3>
                         <ul class="list-links list-unstyled">
-                            <li><a href="/uomo-sneakers">Sneakers</a></li>
+                           <li><a href="/uomo-sanitarie">Sanitarie</a></li>
                             <li><a href="/uomo-ciabatte">Ciabatte</a></li>
                             <li><a href="/uomo-sandali">Sandali</a></li>
-                            <li><a href="/uomo-infradito">Infradito</a></li>
+                              <li><a href="/uomo-infradito">Infradito</a></li>
                              <li><a href="/uomo-pantofole">Pantofole</a></li>
-                            <li><a href="/uomo-antinfortunistica">Antinfortunistica</a></li>
-                            <li><a href="/uomo-stivali-in-gomma">Stivali in gomma</a></li>
-                            <li><a href="/uomo-accessori">Accessori</a></li>
+                              <li><a href="/uomo-sneakers">Sneakers</a></li>
+                                                <li><a href="/uomo-antinfortunistica">Antinfortunistica</a></li>
+                                                <li><a href="/uomo-stivali-in-gomma">Stivali in gomma</a></li>
                         </ul>
                     </div>
                 </div>
@@ -57,11 +57,12 @@
                     <div class="footer-links">
                         <h3 class="links-title">Bambino</h3>
                         <ul class="list-links list-unstyled">
-                            <li><a href="/bambino-sneakers">Sneakers</a></li>
+                            
                             <li><a href="/bambino-ciabatte">Ciabatte</a></li>
                             <li><a href="/bambino-sandali">Sandali</a></li>
                             <li><a href="/bambino-infradito">Infradito</a></li>
                              <li><a href="/bambino-pantofole">Pantofole</a></li>
+                            <li><a href="/bambino-sneakers">Sneakers</a></li>
                         </ul>
                     </div>
                 </div>

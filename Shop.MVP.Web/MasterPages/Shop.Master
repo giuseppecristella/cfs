@@ -21,14 +21,15 @@
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/jasny-bootstrap.min.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/lightbox.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/bewear-icons.css" rel="stylesheet" />
+         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/font-awesome.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/animate.min.css" rel="stylesheet" />
         <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/owl.carousel.css" rel="stylesheet" />
-        <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/main.min.css" rel="stylesheet" />
+        <link href="<%= Page.ResolveClientUrl("~/assets/") %>css/main.css" rel="stylesheet" />
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
     </asp:PlaceHolder>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <!-- Favicon -->
+      <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/images/favicon2.png" />
 </head>
 <body ng-app="app" ng-controller="scCatalogCtrl" onkeydown="return (event.keyCode!=13)">
@@ -52,16 +53,15 @@
                             <div class="product">
                                 <div class='row'>
                                     <div class="col-md-4 col-sm-4">
-                                        <a href="product-simple.html">
-                                            <img width="80" height="110" src="assets/images/blank.gif" data-echo="{{ product.image }}" alt="" /></a>
+                                        <img width="80" height="110" src="assets/images/blank.gif" data-echo="{{ product.image }}" alt="" />
                                     </div>
                                     <div class="col-md-8 col-sm-8">
                                         <div class="cart-info">
                                             <div class="product-name">
                                                 <span class="quantity-formated"><span class="quantity">{{ product.qta }}</span>x</span>
-                                                <a href="product-simple.html">{{ product.name }}
+                                                 {{ product.name }}
                                                     <br />
-                                                    Taglia: {{ product.size }}</a>
+                                                    Taglia: {{ product.size }}
                                             </div>
                                             <div class="product-price">
                                                 <span class='amount'>{{ product.price | currency: "&euro;"}}</span>
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <a ng-click="DeleteProduct(product)" href="#" class="remove-link"></a>
-                            </div>
+                              </div>
                         </li>
                     </ul>
                     <div class="cart-summary text-center inner-top-50">
