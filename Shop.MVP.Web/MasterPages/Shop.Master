@@ -1,6 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Shop.master.cs" Inherits="Shop.Web.Mvp.MasterPages.Shop" %>
 
-<%@ Import Namespace="System.Web.Optimization" %>
 <%@ Register Src="~/UserControls/UCHeader.ascx" TagPrefix="uc1" TagName="UCHeader" %>
 <%@ Register Src="~/UserControls/UCFooter.ascx" TagPrefix="uc1" TagName="UCFooter" %>
 
@@ -10,6 +9,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="pragma" content="no-cache" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>
         <asp:Localize Text="<%$ Resources: Resources, ShopTitle %>" runat="server">Titolo</asp:Localize></title>
     <asp:PlaceHolder runat="server">
@@ -26,10 +28,10 @@
     </asp:PlaceHolder>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-      <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/images/favicon2.png">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon2.png" />
 </head>
-<body ng-app="app" ng-controller="scCatalogCtrl" onkeydown = "return (event.keyCode!=13)">
+<body ng-app="app" ng-controller="scCatalogCtrl" onkeydown="return (event.keyCode!=13)">
     <form id="form1" runat="server">
         <div class="wrapper">
             <uc1:UCHeader runat="server" ID="UCHeader" />
@@ -68,12 +70,12 @@
                                     </div>
                                 </div>
                                 <a ng-click="DeleteProduct(product)" href="#" class="remove-link"></a>
-                              </div>
+                            </div>
                         </li>
                     </ul>
                     <div class="cart-summary text-center inner-top-50">
                         <h5 class="cart-total">Totale</h5>
-                        <p class="cart-total-price">{{ subTotalCartPrice | currency: "&euro;" }}</p>
+                        <p class="cart-total-price">{{ subTotalCartPrice | toEuros }}</p>
                         <p class="instruction">I costi di spedizione verranno calcolati appena sceglierai un metodo di pagamento.</p>
                         <asp:LinkButton runat="server" ID="btnGoToCheckOut" PostBackUrl="~/Checkout/Checkout" CssClass="btn btn-primary btn-uppercase continue-shopping">vai alla cassa</asp:LinkButton>
                     </div>

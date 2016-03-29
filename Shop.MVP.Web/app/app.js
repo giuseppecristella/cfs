@@ -11,3 +11,10 @@ app.factory('notifier', function (toastr) {
         }
     };
 });
+
+
+app.filter('toEuros', function () {
+    return function (input) {
+        return   '€. ' + Number(input).toLocaleString("it-IT", { minimumFractionDigits: 2 });
+    };
+});

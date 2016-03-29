@@ -22,31 +22,15 @@
                                 <div class="product-info m-t-20 text-center">
                                     <h5 class="name uppercase"><a href="../product-simple.html">{{ product._name }}</a></h5>
                                     <div class="product-price">
-                                        <ins><span class="amount">{{ product._price | currency }}</span></ins>
+                                        <ins><span class="amount">{{ product._price | toEuros }}</span></ins>
                                     </div>
                                     <div class="buttons-holder m-t-20">
-                                    <div class="add-cart-holder">
-                                      <a href="{{ product._sku}}/{{ product._product_id}}" class="cart-button btn btn-primary"><span>Vedi Dettaglio</span></a>
-                                     
-                                    </div>
-                                    </div>
-                                   <!-- <div class="buttons-holder m-t-20">
                                         <div class="add-cart-holder">
-                                            <a title="Add to cart" href="#" ng-click="addProductToCart(product)" class="cart-button btn btn-primary">
-                                                <span>Compralo Ora</span>
-                                            </a>
-                                        </div>-->
-                                        <!-- .add-cart-holder 
-                                        <div class="add-wishlist-holder">
-                                            <a href="../checkout.html" title="Wishlist" class="wishlist-button uppercase">
-                                                <span class="icon icon-wishlist"></span>add to wishlist
-                                            </a>
-                                        </div> </div>-->
-                                        <!-- .add-wishlist-holder -->
-                                   
-                                    <!-- .buttons-holder -->
+                                            <a href="{{ product._sku}}/{{ product._product_id}}" class="cart-button btn btn-primary"><span>Vedi Dettaglio</span></a>
+
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- .product-info -->
                             </div>
                         </div>
                     </div>

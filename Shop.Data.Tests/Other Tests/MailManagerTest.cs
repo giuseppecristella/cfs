@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Specialized;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shop.Core.Utility;
@@ -17,10 +18,10 @@ namespace Shop.Data.Tests.Other_Tests
         {
             var mailManager = new MailManager()
             {
-                MailTo = "gcristella@live.it", //"ins-02fuodzi@isnotspam.com",
+                MailTo = "giuseppe.cristella@libero.it",
                 MailFrom = "info@calzafacile.com",
-                MailSubject = "Che belle...che gratis, le infradito che ti regala Calzafacile!",
-                MailTemplate = @"C:\Progetti\cfs\Shop.MVP.Web\MailTemplates\PromoStart\PromoStart.html",
+                MailSubject = "Conferma ordine",
+                MailTemplate = @"D:\Progetti\Siti\Calzafacile\Shop.MVP.Web\MailTemplates\Business\newsletter.html",
 
                 //MailParameters = new Hashtable
                 //{
@@ -62,7 +63,7 @@ namespace Shop.Data.Tests.Other_Tests
                 EnableSsl = true
             };
             client.Send("giuseppecristella76@gmail.com", "gcristella@live.it", "invio tramite gmail", "invio tramite smtp gmail");
-            
+
         }
 
     }

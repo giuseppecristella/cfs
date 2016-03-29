@@ -449,7 +449,7 @@ namespace Shop.Web.Mvp.Checkout
                 email.Body =
                   string.Format(
                     "{0}Gentile {1} {2},<br> le confermiamo l'iscrizione al nostro Shop.<br><br>Riepilogo dati di accesso: <br>Utente:" +
-                    "{3}<br>Password: {4}<br>" + "<br><a href=\"http://www.calzafacile.it/shop/accedi.html\">" +
+                    "{3}<br>Password: {4}<br>" + "<br><a href=\"http://www.Calzafacile.it/shop/accedi.html\">" +
                     "Cliccando qui</a> può accedere al suo account e verificare lo stato dei suoi ordini.",
                     header, txtFirstName.Text, txtLastName.Text, username, passwordFromUI);
                 //email.Bcc.Add("");
