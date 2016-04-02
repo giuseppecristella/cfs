@@ -5,19 +5,21 @@ using Shop.Web.Mvp.Infrastructure;
 
 namespace Shop.Web.Mvp
 {
-  public static class RouteConfig
-  {
-    public static void RegisterRoutes(RouteCollection routes)
+    public static class RouteConfig
     {
-        var settings = new FriendlyUrlSettings { AutoRedirectMode = RedirectMode.Permanent };
-        routes.EnableFriendlyUrls(settings);
-
-        routes.MapPageRoute("Landing-2", "", "~/Landing/Default.aspx");
-        //routes.MapPageRoute("Home", "", "~/Home/Default.aspx");
-        foreach (var categoryName in App.CategoriesDictionary.Keys)
+        public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.MapPageRoute(categoryName, categoryName, "~/Catalog/Products.aspx");
-        }
+            var settings = new FriendlyUrlSettings { AutoRedirectMode = RedirectMode.Permanent };
+            routes.EnableFriendlyUrls(settings);
+
+            routes.MapPageRoute("Landing-2", "", "~/Landing/Default.aspx");
+            //routes.MapPageRoute("Home", "", "~/Home/Default.aspx");
+            foreach (var categoryName in App.CategoriesDictionary.Keys)
+            {
+                routes.MapPageRoute(categoryName, categoryName, "~/Catalog/Products.aspx");
+            }
+            routes.MapPageRoute("login", "login/{returnurl}", "~/login/default.aspx");
+            routes.MapPageRoute("spedizioni", "spedizioni", "~/Catalog/spedizioni.aspx");
             // Prodotto Singolo
             routes.MapPageRoute("ProdottoSingolo", "{productName}/{productId}", "~/Catalog/SingleProduct.aspx");
             routes.MapPageRoute("ProdottoSingolo2", "prodotto/{productId}/{productName}", "~/Catalog/SingleProduct.aspx");
@@ -27,7 +29,7 @@ namespace Shop.Web.Mvp
             routes.MapPageRoute("CatalogoBambino", "bambino", "~/Catalog/ProductsCatalogBambino.aspx");
             routes.MapPageRoute("CondizioniVendita", "condizionigenerali", "~/Catalog/CondizioniVendita.aspx");
             routes.MapPageRoute("privacy", "privacy", "~/Catalog/Privacy.aspx");
-            routes.MapPageRoute("spedizioni", "spedizioni", "~/Catalog/spedizioni.aspx");
+           // routes.MapPageRoute("spedizioni", "spedizioni", "~/Catalog/spedizioni.aspx");
         }
     }
 }

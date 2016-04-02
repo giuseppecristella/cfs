@@ -9,7 +9,7 @@
             <header>
                 <h4 style="font-size: 18px"><b>Accedi</b></h4>
             </header>
-            <asp:Login CssClass="table_reset" ID="Login" runat="server" FailureText="String" OnLoggedIn="OnLoggedIn" OnLoginError="OnLoginError">
+            <asp:Login CssClass="table_reset" ID="Login" runat="server" DestinationPageUrl="~/Customers/Dashboard/" FailureText="String" OnLoginError="OnLoginError">
                 <LayoutTemplate>
                      <div class="form_login">
                     <div class="row">
@@ -20,7 +20,6 @@
                         <div class="col-md-4 col-xs-12 hidden-sm">
                             <label for="password">Password</label>
                             <asp:TextBox ID="Password" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
-
                         </div>
                         <div class="col-md-2 col-xs-12 hidden-sm">
                             <br />

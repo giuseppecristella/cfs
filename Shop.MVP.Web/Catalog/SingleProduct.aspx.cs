@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.UI.WebControls;
 using CookComputing.XmlRpc;
 using Ez.Newsletter.MagentoApi;
 using Shop.Core.BusinessDelegate;
@@ -14,7 +12,7 @@ namespace Shop.Web.Mvp.Catalog
     public partial class SingleProduct : System.Web.UI.Page
     {
         private static string _productId;
-        private BusinessDelegate _businessDelegate;
+        private readonly BusinessDelegate _businessDelegate;
         public SingleProduct()
         {
             _businessDelegate = new BusinessDelegate();
@@ -24,15 +22,17 @@ namespace Shop.Web.Mvp.Catalog
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             if (Page.IsPostBack) return;
             if (RouteData.Values["ProductId"] == null) Response.Redirect("~/");
             _productId = RouteData.Values["ProductId"].ToString();
+
+            int id;
+            if (!int.TryParse(_productId, out id)) Response.Redirect("~/"); 
+
             ProductViewModel = _businessDelegate.GetProduct(_productId);
             SetBreadcrumbs();
             BindProductImage();
             BindSizes();
-            
         }
 
         private void BindSizes()

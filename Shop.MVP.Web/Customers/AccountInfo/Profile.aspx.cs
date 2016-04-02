@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace Shop.Web.Mvp.Customers.AccountInfo
 {
@@ -12,6 +8,15 @@ namespace Shop.Web.Mvp.Customers.AccountInfo
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnChangePassword_OnClick(object sender, EventArgs e)
+        {
+            var oldPassword = Password.Text;
+            var newPassword = NewPassword.Text;
+            var membershipUser = Membership.GetUser(Page.User.Identity.Name);
+            if (membershipUser == null) return;
+            lblPasswordChangedResult.Text = membershipUser.ChangePassword(oldPassword, newPassword) ? "Password modificata con successo." : "Errore modifica password.";
         }
     }
 }

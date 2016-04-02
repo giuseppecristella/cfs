@@ -31,7 +31,7 @@ namespace Shop.Web.Mvp.Login
 
         protected void OnLoggedIn(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Customers/Dashboard/");
         }
 
         protected void cuwUser_OnCreatedUser(object sender, EventArgs e)

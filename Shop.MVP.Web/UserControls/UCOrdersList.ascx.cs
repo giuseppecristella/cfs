@@ -22,7 +22,7 @@ namespace Shop.Web.Mvp.UserControls
             List<Order> orders;
             using (var ctx = new ShopDataContext())
             {
-                orders = Count.HasValue ? ctx.Orders.Where(o => o.CustomerId.Equals(customerId)).Take(Count.Value).ToList() : ctx.Orders.Where(o => o.CustomerId.Equals(customerId)).ToList();
+                orders = Count.HasValue ? ctx.Orders.Where(o => o.CustomerId.Equals(customerId)).Take(Count.Value).OrderByDescending(o => o.SubmissionDate).ToList() : ctx.Orders.Where(o => o.CustomerId.Equals(customerId)).OrderByDescending(o => o.SubmissionDate).ToList();
             }
             return orders;
         }
