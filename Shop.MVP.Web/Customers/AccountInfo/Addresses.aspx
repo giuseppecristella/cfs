@@ -64,8 +64,6 @@
                 Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
                 ValidationGroup="vgRegisterUser"></asp:RequiredFieldValidator>
         </div>
-
         <asp:Button CssClass="btn btn-primary" OnClick="btnUpdateAddress_OnClick" Text="Modifica Indirizzo" ID="btnUpdateAddress" runat="server" />
     </section>
-
 </asp:Content>
