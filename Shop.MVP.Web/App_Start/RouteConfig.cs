@@ -29,7 +29,9 @@ namespace Shop.Web.Mvp
             routes.MapPageRoute("CatalogoBambino", "bambino", "~/Catalog/ProductsCatalogBambino.aspx");
             routes.MapPageRoute("CondizioniVendita", "condizionigenerali", "~/Catalog/CondizioniVendita.aspx");
             routes.MapPageRoute("privacy", "privacy", "~/Catalog/Privacy.aspx");
-           // routes.MapPageRoute("spedizioni", "spedizioni", "~/Catalog/spedizioni.aspx");
+            // routes.MapPageRoute("spedizioni", "spedizioni", "~/Catalog/spedizioni.aspx");
+            // Newsletter
+            routes.MapPageRoute("Newsletter", "{Newsletter}/{NewsletterResult}", "~/Newsletter.aspx");
         }
     }
 }

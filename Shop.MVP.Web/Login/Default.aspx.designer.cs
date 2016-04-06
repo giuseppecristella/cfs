@@ -211,31 +211,22 @@ namespace Shop.Web.Mvp.Login {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvtxtPhoneegisterUser;
         
         /// <summary>
-        /// pnlCreateNewAccount control.
+        /// pnlNewsletterSubscription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCreateNewAccount;
+        protected global::System.Web.UI.WebControls.Panel pnlNewsletterSubscription;
         
         /// <summary>
-        /// pnlShowShipmentAddress control.
+        /// cbNewsletterSubscription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlShowShipmentAddress;
-        
-        /// <summary>
-        /// cbShowShipmentAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox cbShowShipmentAddress;
+        protected global::System.Web.UI.WebControls.CheckBox cbNewsletterSubscription;
         
         /// <summary>
         /// cuwUser control.

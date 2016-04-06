@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Specialized;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
-using System.Runtime.Remoting.Channels;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shop.Core.Utility;
 

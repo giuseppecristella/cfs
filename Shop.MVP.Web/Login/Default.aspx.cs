@@ -1,12 +1,24 @@
 ﻿using System;
+using System.Globalization;
 using System.Web.Security;
 using System.Web.UI.WebControls;
+using Ez.Newsletter.MagentoApi;
+using Shop.Core.BusinessDelegate;
+using Shop.Core.Utility;
+using Shop.Data;
 using Shop.Web.Mvp.Checkout;
 
 namespace Shop.Web.Mvp.Login
 {
     public partial class Default : System.Web.UI.Page
     {
+        private readonly BusinessDelegate _businessDelegate;
+
+        public Default()
+        {
+            _businessDelegate = new BusinessDelegate();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -48,7 +60,7 @@ namespace Shop.Web.Mvp.Login
                 membershipUser.Comment = magentoCustomerId;
                 Membership.UpdateUser(membershipUser);
 
-                // SubscriveSignedCustomerToNewsLetter();
+                if (cbNewsletterSubscription.Checked) SubscriveSignedCustomerToNewsLetter(txtEmail.Text);
                 //SendNotificationEmailToSignedCustomer(membershipUser.UserName, cuwUser.Password);
                 CreateMagentoCustomerAddress(AddressType.Billing, magentoCustomerId);
                 CreateMagentoCustomerAddress(AddressType.Shipping, magentoCustomerId);
@@ -64,19 +76,83 @@ namespace Shop.Web.Mvp.Login
             }
         }
 
-        private void CreateMagentoCustomerAddress(AddressType shipping, string magentoCustomerId)
+        private void SubscriveSignedCustomerToNewsLetter(string email)
         {
-            throw new NotImplementedException();
+            using (var ctx = new ShopDataContext())
+            {
+                var entity = new Newslettersubscription()
+                {
+                    Email = email,
+                    IsActive = true
+                };
+                ctx.Set<Newslettersubscription>().Add(entity);
+                var saveResult = ctx.SaveChanges();
+            }
+        }
+
+        private void SendNotificationEmailToSignedCustomer(string userName, string password)
+        {
+            var mailManager = new MailManager()
+            {
+                MailTo = txtEmail.Text,
+                MailFrom = "info@calzafacile.com",
+                MailSubject = "Benvenuto in Calzafacile!",
+                MailTemplate = string.Format("{0}AccountCreation.html", Server.MapPath("~/MailTemplates/Subscription/")),
+
+                //MailParameters = new Hashtable
+                //{
+                //    {"##CouponeCode##", "GY2DE-NQPQQ-RV"},
+                //},
+                DisplayName = "Calzafacile"
+            };
+            mailManager.SendMail();
+        }
+
+        private void CreateMagentoCustomerAddress(AddressType type, string customerId)
+        {
+            int id;
+            if (!int.TryParse(customerId, out id)) return;
+            var customerAddress = new CustomerAddress
+            {
+                firstname = txtFirstName.Text,
+                lastname = txtLastName.Text,
+                region = txtCity.Text,
+                street = txtStreet.Text,
+                telephone = txtPhone.Text,
+                postcode = txtZipCode.Text,
+                city = txtCity.Text,
+                country_id = "IT",
+            };
+
+            switch (type)
+            {
+                case AddressType.Billing:
+                    customerAddress.is_default_billing = true;
+                    break;
+                case AddressType.Shipping:
+                    customerAddress.is_default_shipping = true;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("type");
+            }
+            _businessDelegate.CreateCustomerAddress(id, customerAddress);
         }
 
         private string CreateMagentoCustomer()
         {
-            throw new NotImplementedException();
+            var customer = new Customer
+            {
+                firstname = txtFirstName.Text,
+                lastname = txtLastName.Text,
+                email = txtEmail.Text,
+                created_at = DateTime.Now.ToString(CultureInfo.InvariantCulture),
+            };
+            return _businessDelegate.CreateCustomer(customer);
         }
 
         protected void cuwUser_OnCreatingUser(object sender, LoginCancelEventArgs e)
         {
-            //cuwUser.Email = txtEmail.Text;
+            cuwUser.Email = txtEmail.Text;
         }
     }
 }

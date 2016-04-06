@@ -422,6 +422,7 @@
     <Content Include="MailTemplates\OrderNotifications\small1.jpg" />
     <Content Include="MailTemplates\OrderNotifications\small2.jpg" />
     <Content Include="MailTemplates\OrderNotifications\top_banner.jpg" />
+    <Content Include="Newsletter.aspx" />
     <Content Include="Scripts\angular-ui-bootstrap-modal.js" />
     <Content Include="Scripts\jquery-1.6.3.js" />
     <Content Include="Scripts\jquery-1.6.3.min.js" />
@@ -1157,6 +1158,13 @@
     </Compile>
     <Compile Include="MasterPages\Shop.Master.designer.cs">
       <DependentUpon>Shop.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Newsletter.aspx.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Newsletter.aspx.designer.cs">
+      <DependentUpon>Newsletter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prodotti.aspx.cs">
       <DependentUpon>Prodotti.aspx</DependentUpon>

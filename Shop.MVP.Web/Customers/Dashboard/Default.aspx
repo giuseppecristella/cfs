@@ -35,8 +35,8 @@
         <br />
         <h3 class="form-title">Newsletter</h3>
         <p>
-            Al momento non risulto iscritto alla newsletter.<br />
-            <asp:LinkButton ID="lbChangeSubscription" runat="server">Modifica iscrizione</asp:LinkButton>
+            <asp:Literal runat="server" ID="ltSubscriptionState" Text=""></asp:Literal>  
+            <asp:LinkButton ID="lbChangeSubscription"  OnClick="lbChangeSubscription_OnClick" Text="" runat="server"></asp:LinkButton>
         </p>
     </div>
 </asp:Content>

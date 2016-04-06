@@ -71,8 +71,11 @@
                 <h3 class="form-title">Iscriviti alla Newsletter</h3>
                 <div class="form-group">
                     <label for="email-subscribe" class="sr-only">Email</label>
-                    <input type="email" class="form-control" id="email-subscribe" placeholder="Inserisci il tuo indirizzo e-mail">
-                    <button type="submit" class="btn btn-primary btn-subscribe">Iscriviti</button>
+                    <asp:TextBox type="email" class="form-control" ID="txtEmail" placeholder="Inserisci il tuo indirizzo e-mail" runat="server" />
+                    <br />
+                    <asp:RequiredFieldValidator Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" runat="server" ID="rvtEMailCheckout" ControlToValidate="txtEmail" ValidationGroup="vgCheckout"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtEmail" ErrorMessage="Indirizzo e-mail non valido."></asp:RegularExpressionValidator>
+                    <asp:Button runat="server" ID="btnNewsletterSubscibe" OnClick="btnNewsletterSubscibe_OnClick" class="btn btn-primary btn-subscribe" Text="Iscriviti"></asp:Button>
                 </div>
             </div>
         </section>

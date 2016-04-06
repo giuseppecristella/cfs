@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using Shop.Core.Utility;
+using Shop.Data;
 
 namespace Shop.Web.Mvp
 {
@@ -27,8 +30,50 @@ namespace Shop.Web.Mvp
             //    var result = streamReader.ReadToEnd();
 
             //}
+        }
+      
+        protected void btnNewsletterSubscibe_OnClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtEmail.Text)) return;
+            if (IsAlreadySubscribed(txtEmail.Text)) Response.Redirect("~/Newsletter/AlreadySubscribed");
+            using (var ctx = new ShopDataContext())
+            {
+                var entity = new Newslettersubscription()
+                {
+                    Email = txtEmail.Text,
+                    IsActive = true
+                };
+                ctx.Set<Newslettersubscription>().Add(entity);
+                var saveResult = ctx.SaveChanges();
+            }
+            // SendConfirmSubscription();
+            Response.Redirect("~/Newsletter/Success");
+        }
 
+        private bool IsAlreadySubscribed(string email)
+        {
+            using (var ctx = new ShopDataContext())
+            {
+                return ctx.Newslettersubscriptions.FirstOrDefault(n => n.Email.Equals(email)) != null;
+            }
+        }
 
+        private void SendConfirmSubscription()
+        {
+            var mailManager = new MailManager()
+            {
+                MailTo = txtEmail.Text,
+                MailFrom = "info@calzafacile.com",
+                MailSubject = "Benvenuto in Calzafacile!",
+                MailTemplate = string.Format("{0}NewsletterSubscription.html", Server.MapPath("~/MailTemplates/Subscription/")),
+
+                //MailParameters = new Hashtable
+                //{
+                //    {"##CouponeCode##", "GY2DE-NQPQQ-RV"},
+                //},
+                DisplayName = "Calzafacile"
+            };
+            mailManager.SendMail();
         }
     }
 }

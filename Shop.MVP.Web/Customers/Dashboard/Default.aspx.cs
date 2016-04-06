@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Security;
 using Ez.Newsletter.MagentoApi;
 using Shop.Core.BusinessDelegate;
+using Shop.Data;
 
 namespace Shop.Web.Mvp.Customers.Dashboard
 {
@@ -23,6 +24,8 @@ namespace Shop.Web.Mvp.Customers.Dashboard
 
             var userAspNet = Membership.GetUser(loggedUser);
             if (userAspNet == null) return;
+            Session["user"] = userAspNet;
+
             var magentoUserId = int.Parse(userAspNet.Comment);
 
             var customer = _businessDelegate.GetCustomerById(magentoUserId);
@@ -37,6 +40,26 @@ namespace Shop.Web.Mvp.Customers.Dashboard
             UCOrdersList.PageContainerName = "Customers";
             //_businessDelegate.GetCustomerOrders(customer.customer_id);
             //BindOrders();
+
+            if (!IsNewsletterSubscribed(customer.email))
+            {
+                lbChangeSubscription.Text = "Iscriviti";
+                ltSubscriptionState.Text = "Al momento non risulti iscritto alla newsletter. Se vuoi iscriverti clicca il pulsante 'Iscriviti'<br />";
+            }
+            else
+            {
+                lbChangeSubscription.Text = "Disattiva iscrizione";
+                ltSubscriptionState.Text = "Sei iscritto alla newsletter. Se vuoi disattivare il servizio clicca il pulsante 'Disattiva iscrizione'.<br />";
+            }
+        }
+
+        private bool IsNewsletterSubscribed(string userEmail)
+        {
+            using (var ctx = new ShopDataContext())
+            {
+                var subscription = ctx.Newslettersubscriptions.FirstOrDefault(n => n.Email.Equals(userEmail));
+                return subscription != null && subscription.IsActive;
+            }
         }
 
         private void BindCustomer(Customer customer)
@@ -55,6 +78,40 @@ namespace Shop.Web.Mvp.Customers.Dashboard
             lblAddressCity.Text = shipmentAddress.city;
             lblAddressZipCode.Text = shipmentAddress.postcode;
             lblAddressPhone.Text = shipmentAddress.telephone;
+        }
+
+        protected void lbChangeSubscription_OnClick(object sender, EventArgs e)
+        {
+            if (Session["user"] == null) Response.Redirect("~/Home");
+            var user = Session["user"] as MembershipUser;
+            if (user == null) return;
+            if (lbChangeSubscription.Text == "Iscriviti")
+            {
+                ChangeNewsletterSubscription(user.Email, true);
+                return;
+            }
+            ChangeNewsletterSubscription(user.Email, false);
+        }
+
+        private void ChangeNewsletterSubscription(string email, bool active)
+        {
+            using (var ctx = new ShopDataContext())
+            {
+                var subscription = ctx.Newslettersubscriptions.FirstOrDefault(n => n.Email.Equals(email));
+                if (subscription == null)
+                {
+                    var entity = new Newslettersubscription()
+                    {
+                        Email = email,
+                        IsActive = true
+                    };
+                    ctx.Set<Newslettersubscription>().Add(entity);
+                    ctx.SaveChanges();
+                    return;
+                }
+                subscription.IsActive = active;
+                ctx.SaveChanges();
+            }
         }
     }
 }
