@@ -151,22 +151,26 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <asp:LoginName ID="lnAccount" runat="server" />
+                            <%-- <asp:LoginName ID="lnAccount" runat="server" />--%>
                         </li>
                         <li>
                             <asp:LinkButton runat="server" PostBackUrl="/Customers/Dashboard/" ID="lbAccountInfo">
-                              <%--  <asp:LoginName ID="LoginName1" runat="server" />--%>
+                                <% if (!string.IsNullOrEmpty(Page.User.Identity.Name))
+                                   {%>
+                                <asp:LoginName Style="text-transform: lowercase; font-weight: 300" ID="LoginName1" runat="server" />
+                                <%  } %>
                                 <i class="icon icon-user"></i>
                             </asp:LinkButton>
                         </li>
                         <% if (!string.IsNullOrEmpty(Page.User.Identity.Name))
                            {%>
-                                <li>
-                                    <asp:LinkButton runat="server"  OnClick="lbLogout_OnClick" ID="lbLogout">
-                                       chiudi <i class="icon unlock"></i>
-                                    </asp:LinkButton>
-                                </li>
-                           <%  } %>
+                        <li>
+                            <asp:LinkButton runat="server" OnClick="lbLogout_OnClick" ID="lbLogout">
+                                      <span Style="text-transform: lowercase; font-weight: 300" >log off</span>  
+                                <i class="icon icon-lookbook-arrowright"></i>
+                            </asp:LinkButton>
+                        </li>
+                        <%  } %>
                         <li>
                             <a id="menu-toggle" class="navbar-toggle shopping-cart-toggle" data-toggle="offcanvas" data-target="#shopping-cart-summary" href="#"><i class="icon icon-shopbag"></i><span ng-model="totalCartItems" class="item-count">{{  totalCartItems }} </span></a>
                         </li>

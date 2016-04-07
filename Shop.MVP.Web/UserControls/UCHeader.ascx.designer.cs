@@ -13,15 +13,6 @@ namespace Shop.Web.Mvp.UserControls {
     public partial class UCHeader {
         
         /// <summary>
-        /// lnAccount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginName lnAccount;
-        
-        /// <summary>
         /// lbAccountInfo control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace Shop.Web.Mvp.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbAccountInfo;
+        
+        /// <summary>
+        /// LoginName1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginName LoginName1;
         
         /// <summary>
         /// lbLogout control.

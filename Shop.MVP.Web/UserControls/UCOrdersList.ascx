@@ -1,5 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCOrdersList.ascx.cs" Inherits="Shop.Web.Mvp.UserControls.UCOrdersList" %>
 <asp:ListView ID="lvOrders" runat="server">
+    <EmptyDataTemplate>
+        Non ci sono ordini.
+    </EmptyDataTemplate>
     <LayoutTemplate>
         <table class="table table-hover">
             <thead>

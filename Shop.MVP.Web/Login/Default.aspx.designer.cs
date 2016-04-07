@@ -22,6 +22,15 @@ namespace Shop.Web.Mvp.Login {
         protected global::System.Web.UI.WebControls.Login Login;
         
         /// <summary>
+        /// passwordRecoveryCtrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PasswordRecovery passwordRecoveryCtrl;
+        
+        /// <summary>
         /// txtFirstName control.
         /// </summary>
         /// <remarks>

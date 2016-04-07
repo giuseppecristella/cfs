@@ -31,7 +31,7 @@ namespace Shop.Web.Mvp
             routes.MapPageRoute("privacy", "privacy", "~/Catalog/Privacy.aspx");
             // routes.MapPageRoute("spedizioni", "spedizioni", "~/Catalog/spedizioni.aspx");
             // Newsletter
-            routes.MapPageRoute("Newsletter", "{Newsletter}/{NewsletterResult}", "~/Newsletter.aspx");
+            routes.MapPageRoute("Newsletter", "Newsletter/{NewsletterResult}", "~/Newsletter.aspx");
         }
     }
 }

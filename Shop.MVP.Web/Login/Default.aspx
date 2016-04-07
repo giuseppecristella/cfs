@@ -45,6 +45,24 @@
                     </div>
                 </LayoutTemplate>
             </asp:Login>
+
+            <asp:PasswordRecovery ID="passwordRecoveryCtrl" runat="server" SubmitButtonStyle="">
+                <MailDefinition From="info@calzafacile.com" Subject="Recupero password" Priority="High">
+                </MailDefinition>
+                <UserNameTemplate>
+                    <div >
+                        <h4 style="font-size: 18px"><b>Password dimenticata?</b></h4>
+                        Inserisci il tuo Username<br />
+                        <asp:TextBox ID="UserName" runat="server" CssClass="form-control" Style="float: left; margin-top:5px; margin-right: 10px"
+                            Width="200px"></asp:TextBox>
+                        <asp:Button ID="SubmitButton" runat="server" CssClass="btn btn-primary"
+                            Text="Nuova" CommandName="Submit" /><br />
+                        <span style="color: #FF0000">
+                            <asp:Literal ID="FailureText" runat="server"></asp:Literal>
+                        </span>
+                    </div>
+                </UserNameTemplate>
+            </asp:PasswordRecovery>
         </section>
         <section class="billing-address col-md-6">
             <%--User Info--%>

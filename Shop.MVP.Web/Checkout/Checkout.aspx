@@ -26,7 +26,7 @@
                 args.IsValid = true;
             }
         }
-        
+
     </script>
 
 
@@ -61,14 +61,14 @@
                         <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="contact-info">
                                 <i class="icon icon-user"></i>
-                                <span class="contact-info-title"> </span>
+                                <span class="contact-info-title"></span>
                                 <span class="contact-info-subtitle">Registrazione</span>
                             </div>
                         </div>
                         <div class="col-md-4 col-xs-12 col-sm-6">
                             <div class="contact-info middle">
                                 <i class="icon icon-secure-payment"></i>
-                                <span class="contact-info-title"> </span>
+                                <span class="contact-info-title"></span>
                                 <span class="contact-info-subtitle">Pagamenti</span>
                             </div>
                         </div>
@@ -103,9 +103,9 @@
                                 <div class="col-md-2 col-xs-12 hidden-sm">
                                     <br />
                                     <asp:Button CssClass="btn btn-primary" ID="LoginButton" runat="server" CommandName="Login"
-                                      UseSubmitBehavior="false"  Text="Accedi" ValidationGroup="vgLogin" />
+                                        UseSubmitBehavior="false" Text="Accedi" ValidationGroup="vgLogin" />
                                 </div>
-                               <%-- <div class="col-md-2 col-xs-12 hidden-sm">
+                                <%-- <div class="col-md-2 col-xs-12 hidden-sm">
                                     <br />
                                     <button class="btn btn-primary">Facebook Login</button>
                                 </div>--%>
@@ -178,7 +178,7 @@
                                             Display="Dynamic" ErrorMessage="Questo campo è obbligatorio" ToolTip="Questo campo è obbligatorio"
                                             ValidationGroup="vgRegisterUser"></asp:RequiredFieldValidator>
                                     </div>
-                                       <div class="form-group">
+                                    <div class="form-group">
                                         <label for="txtCity">Città</label>
                                         <asp:TextBox ClientIDMode="Static" class="form-control" runat="server" ID="txtCity" />
                                         <asp:RequiredFieldValidator ID="rvtxtCity" runat="server" ControlToValidate="txtCity"
@@ -255,8 +255,8 @@
                                                                     ErrorMessage="Questo campo è obbligatorio" Display="Dynamic" ValidationGroup="vgRegisterUser"> </asp:RequiredFieldValidator>
                                                             </div>
                                                             <div class="form-group">
-                                                                <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Registrati" 
-                                                                    UseSubmitBehavior="false"  ValidationGroup="vgRegisterUser" CssClass="btn btn-primary" />
+                                                                <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Registrati"
+                                                                    UseSubmitBehavior="false" ValidationGroup="vgRegisterUser" CssClass="btn btn-primary" />
                                                             </div>
                                                             <div class="form-group">
                                                                 <span style="color: red;">
@@ -380,11 +380,14 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <div id="top"><i class="fa fa-chevron-circle-up fa-4x" style="margin-top:7px;padding-left:85%;color:rgba(114, 114, 114, 0.41);"></i></div>
+                                            <div id="top"><i class="fa fa-chevron-circle-up fa-4x" style="margin-top: 7px; padding-left: 85%; color: rgba(114, 114, 114, 0.41);"></i></div>
                                         </tbody>
                                     </table>
                                     <div class="checkout-action text-right">
-                                        <asp:Button  UseSubmitBehavior="false"  ID="btnCheckout" Text="Conferma l'ordine" ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
+                                       <asp:TextBox ID="txtPromo" runat="server"></asp:TextBox> Codice promo
+                                    </div>
+                                    <div class="checkout-action text-right">
+                                        <asp:Button UseSubmitBehavior="false" ID="btnCheckout" Text="Conferma l'ordine" ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />
                                     </div>
                                 </section>
                             </div>
