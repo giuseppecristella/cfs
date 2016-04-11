@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.IO;
+using System.Net;
 using System.Net.Mail;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shop.Core.Utility;
@@ -59,6 +60,14 @@ namespace Shop.Data.Tests.Other_Tests
             };
             client.Send("giuseppecristella76@gmail.com", "gcristella@live.it", "invio tramite gmail", "invio tramite smtp gmail");
 
+        }
+
+        [TestMethod]
+        public void ShouldMoveCssInlineFromMailTemplate()
+        {
+            string htmlSource = File.ReadAllText(@"D:\Progetti\Siti\Calzafacile\Shop.MVP.Web\MailTemplates\Business\order.html"); 
+            var pm = new PreMailer.Net.PreMailer(htmlSource);
+            var a = pm.MoveCssInline();
         }
 
     }

@@ -171,12 +171,12 @@ namespace Shop.Core.Utility
 		}
         public MailManager(string mailTo, string mailFrom, string mailSubject, string mailTemplate)
 		{
-			this._mailFrom = mailFrom;
-			this._mailSubject = mailSubject;
-			this._mailTemplate = mailTemplate;
-			this._mailParameters = new Hashtable();
-			this._mailToList = new List<string>();
-			this.splitAddress(mailTo, ref this._mailToList);
+			_mailFrom = mailFrom;
+			_mailSubject = mailSubject;
+			_mailTemplate = mailTemplate;
+			_mailParameters = new Hashtable();
+			_mailToList = new List<string>();
+			splitAddress(mailTo, ref this._mailToList);
 		}
 		private void splitAddress(string mails, ref List<string> recipient)
 		{
@@ -203,7 +203,7 @@ namespace Shop.Core.Utility
 			streamReader.Close();
 			if (this._mailParameters != null)
 			{
-				foreach (DictionaryEntry dictionaryEntry in this._mailParameters)
+				foreach (DictionaryEntry dictionaryEntry in _mailParameters)
 				{
 					stringBuilder.Replace(dictionaryEntry.Key.ToString(), (dictionaryEntry.Value != null) ? dictionaryEntry.Value.ToString() : string.Empty);
 				}
@@ -260,9 +260,9 @@ namespace Shop.Core.Utility
 					{
 						mailMessage.Headers.Add("Reply-To", this.MailReplyTo);
 					}
-					mailMessage.Subject = this.MailSubject;
-					mailMessage.Body = this.GenerateBody();
-					mailMessage.Priority = this._priority;
+					mailMessage.Subject = MailSubject;
+                    mailMessage.Body = mailMessage.IsBodyHtml ? GenerateBodyWithInlineCss(GenerateBody()) : GenerateBody();
+					mailMessage.Priority = _priority;
 					smtpClient.Send(mailMessage);
 					result = true;
 				}
@@ -285,6 +285,10 @@ namespace Shop.Core.Utility
 			return result;
 		}
 
-
+        private static string GenerateBodyWithInlineCss(string htmlTemplate)
+        {
+            var pm = new PreMailer.Net.PreMailer(htmlTemplate);
+            return pm.MoveCssInline().Html;
+        }
     }
 }

@@ -384,7 +384,8 @@
                                         </tbody>
                                     </table>
                                     <div class="checkout-action text-right">
-                                       <asp:TextBox ID="txtPromo" runat="server"></asp:TextBox> Codice promo
+                                        <label for="txtPromo">Hai un Codice Promo?</label>
+                                       <asp:TextBox ClientIDMode="Static" ID="txtPromo"  runat="server"></asp:TextBox> 
                                     </div>
                                     <div class="checkout-action text-right">
                                         <asp:Button UseSubmitBehavior="false" ID="btnCheckout" Text="Conferma l'ordine" ValidationGroup="vgCheckout" OnClick="btnCheckout_OnClick" runat="server" CssClass="btn btn-primary" />

@@ -1,15 +1,20 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
+using System.Text;
 using System.Web.Security;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using Ez.Newsletter.MagentoApi;
 using MagentoRepository.Helpers;
 using Shop.Core;
 using Shop.Core.BusinessDelegate;
 using Shop.Core.Domain.ProductsCart;
+using Shop.Core.Utility;
 using Shop.Data;
 using Shop.Web.Mvp.Infrastructure;
 using Order = Shop.Core.Domain.Orders.Order;
@@ -139,6 +144,22 @@ namespace Shop.Web.Mvp.Checkout
             var orderId = _businessDelegate.CreateOrder(SessionFacade.CartId);
             UpdateProductSizesInventory(products);
             if (orderId > 0) SaveOrderDetail(orderId, products, customer, customerAddresses, paymentMethod);
+            // Recupero l'ordine appena salvato
+            var orderHeader = GetOrderHeader(orderId);
+            if (orderHeader == null) return;
+            var orderProducts = GetOrderProducts(orderHeader.Id);
+            if (orderProducts == null) return;
+            // Invio Email riepilogo
+            if (!string.IsNullOrEmpty(txtPromo.Text) && ArePromoRelated(customer.email, txtPromo.Text))
+            {
+                SendOrderSummaryNotification(orderHeader, orderProducts, customer, true);
+                SetPromotionCodeAsAssigned(customer.email);
+            }
+            else
+            {
+                SendOrderSummaryNotification(orderHeader, orderProducts, customer);
+            }
+
             // Svuota Sessione
             SessionFacade.CartId = 0;
             SessionFacade.ProductsCart = null;
@@ -224,7 +245,7 @@ namespace Shop.Web.Mvp.Checkout
                     sku = productFromDb.sku,
                     qty = productCart.Qta.ToString(),
                     price = productFromDb.price,
-                    additional_attributes = new object[] { new[] { "size", productCart.Size}}
+                    additional_attributes = new object[] { new[] { "size", productCart.Size } }
                 };
                 CopySizes(productFromDb, p);
                 products.Add(p);
@@ -490,6 +511,91 @@ namespace Shop.Web.Mvp.Checkout
             }
 
         }
+
+        private void SendOrderSummaryNotification(Order order, List<OrderProduct> orderProducts, Customer customer, bool withPromo = false)
+        {
+            var mailManager = new MailManager
+            {
+                MailTo = customer.email,
+                MailCc = "giuseppe.cristella@libero.it",
+                MailFrom = "info@calzafacile.com",
+                MailSubject = "Conferma ordine",
+                MailTemplate = string.Format("{0}order.html", Server.MapPath("~/MailTemplates/Business/")),
+
+                MailParameters = new Hashtable
+                {
+                    {"##FirstName##", customer.firstname},
+                    {"##LastName##", customer.lastname},
+                    {"##OrderNum##", order.MagentoOrderId} ,
+                    {"##ShippingAddress##", order.CustomerAddress},
+                    {"##SubTotal##", order.SubTotal},
+                    {"##Shipment##", order.Shipment},
+                    {"##Total##", order.Shipment}
+                },
+                DisplayName = "CalzaFacile Shop"
+            };
+
+            //StringBuilder sbOrderItem = new StringBuilder();
+            var orderItems = string.Empty;
+            foreach (var orderItem in orderProducts)
+            {
+                // Get image
+                var productImages = _businessDelegate.GetProductImages(orderItem.Id.ToString());
+                if (productImages.FirstOrDefault(p => p.exclude == "1") == default(ProductImage)) return;
+                var productImage = productImages.First(p => p.exclude == "1").url;
+                orderItems +="<div class=\"content\"><table bgcolor=\"\"><tr>" +
+                          "<td class=\"small\" width=\"20%\" style=\"vertical-align: top; padding-right:10px;\">" +
+                          "<img src=\"" + productImage + "\" /></td>" +
+                          "<td><p class=\"\">" + orderItem.Name + "<br />taglia: " + orderItem.Size + "<br />Qta." + orderItem.Qty + "<br />Prezzo €. " + orderItem.TotalPrice + "</p>" +
+                          "</td></tr></table></div>";
+            }
+            mailManager.MailParameters["##OrderItems##"] = orderItems;
+            mailManager.SendMail();
+
+            if (withPromo)
+            {
+
+            }
+        }
+
+        private bool ArePromoRelated(string email, string code)
+        {
+            using (var ctx = new ShopDataContext())
+            {
+                return ctx.PromotionCodes.FirstOrDefault(pc => pc.NewslettersubscriptionEmail.Equals(email) && pc.Code.Equals(code) && pc.IsAssigned) != null;
+            }
+        }
+
+        private void SetPromotionCodeAsAssigned(string email)
+        {
+            using (var ctx = new ShopDataContext())
+            {
+                var code = ctx.PromotionCodes.FirstOrDefault(pc => pc.NewslettersubscriptionEmail.Equals(email));
+                if (code == null) return;
+                code.IsAssigned = false;
+            }
+        }
+
+        private List<OrderProduct> GetOrderProducts(int orderId)
+        {
+            List<OrderProduct> orderProducts;
+            using (var ctx = new ShopDataContext())
+            {
+                orderProducts = ctx.OrderProducts.Where(p => p.OrderId.Equals(orderId)).ToList();
+            }
+            return orderProducts;
+        }
+
+        private Order GetOrderHeader(int orderId)
+        {
+            Order order;
+            using (var ctx = new ShopDataContext())
+            {
+                order = ctx.Orders.FirstOrDefault(o => o.MagentoOrderId.Equals(orderId));
+            }
+            return order;
+        }
+
         #endregion
 
     }

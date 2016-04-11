@@ -406,8 +406,15 @@
     <Content Include="Customers\MasterPages\Customers.Master" />
     <Content Include="Customers\Web.config" />
     <Content Include="Admin\MasterPages\Admin.Master" />
+    <Content Include="MailTemplates\Business\Images\logo.png" />
+    <Content Include="MailTemplates\Business\newsletter - Copy.html" />
+    <Content Include="MailTemplates\Business\Order-Promo.html" />
+    <Content Include="MailTemplates\Business\stylesheets\.DS_Store" />
+    <Content Include="MailTemplates\Business\stylesheets\email.css.zip" />
     <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
     <Content Include="Login\Default.aspx" />
+    <Content Include="MailTemplates\Business\Order.html" />
+    <Content Include="MailTemplates\Business\stylesheets\email.css" />
     <Content Include="MailTemplates\OrderNotifications\btn_iphone.jpg" />
     <Content Include="MailTemplates\OrderNotifications\btn_shop.jpg" />
     <Content Include="MailTemplates\OrderNotifications\bt_banner.jpg" />
