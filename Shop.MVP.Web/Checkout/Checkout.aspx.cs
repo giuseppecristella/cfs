@@ -200,6 +200,7 @@ namespace Shop.Web.Mvp.Checkout
             {
                 order.OrderProducts.Add(new OrderProduct
                 {
+                    MagentoId = int.Parse(product.product_id),
                     Name = product.name,
                     Qty = int.Parse(product.qty),
                     UnitPrice = decimal.Parse(CommonHelper.FormatCurrency(product.price)),
@@ -540,7 +541,7 @@ namespace Shop.Web.Mvp.Checkout
             foreach (var orderItem in orderProducts)
             {
                 // Get image
-                var productImages = _businessDelegate.GetProductImages(orderItem.Id.ToString());
+                var productImages = _businessDelegate.GetProductImages(orderItem.MagentoId.ToString());
                 if (productImages.FirstOrDefault(p => p.exclude == "1") == default(ProductImage)) return;
                 var productImage = productImages.First(p => p.exclude == "1").url;
                 orderItems +="<div class=\"content\"><table bgcolor=\"\"><tr>" +
