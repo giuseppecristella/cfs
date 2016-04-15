@@ -11,5 +11,6 @@ namespace Shop.Core.Domain.OrderProducts
         public decimal TotalPrice { get; set; }
         public virtual Order Order { get; set; }
         public int Size { get; set; }
+        public int MagentoId { get; set; }
     }
 }
