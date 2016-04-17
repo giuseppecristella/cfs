@@ -69,5 +69,18 @@ namespace Shop.Core
                 Set("Products", value);
             }
         }
+
+        public static PaymentMethod OrderPaymentMethod
+        {
+            get
+            {
+                return Get<PaymentMethod>("OrderPaymentMethod");
+                
+            }
+            set
+            {
+                Set("OrderPaymentMethod", value);
+            }
+        }
     }
 }

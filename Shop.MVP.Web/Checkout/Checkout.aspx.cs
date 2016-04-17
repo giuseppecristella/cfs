@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
 using System.Linq;
 using System.Net.Mail;
-using System.Text;
 using System.Web.Security;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using Ez.Newsletter.MagentoApi;
 using MagentoRepository.Helpers;
 using Shop.Core;
 using Shop.Core.BusinessDelegate;
-using Shop.Core.Domain.ProductsCart;
 using Shop.Core.Utility;
 using Shop.Data;
 using Shop.Web.Mvp.Infrastructure;
+using Shop.Web.Mvp.Infrastructure.Paypal;
 using Order = Shop.Core.Domain.Orders.Order;
 using OrderProduct = Shop.Core.Domain.OrderProducts.OrderProduct;
 
@@ -50,6 +47,9 @@ namespace Shop.Web.Mvp.Checkout
         #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Gestisce la Paypal response, nel caso sia presente il valore in query string
+            if (Request.QueryString["Paypal"] != null && SessionFacade.OrderPaymentMethod.method == "cccSave") HandlePayPalReturn();
+
             //TODO: Classe base check Session redirect nel page load
             if (!Page.IsPostBack)
             {
@@ -132,12 +132,16 @@ namespace Shop.Web.Mvp.Checkout
 
         protected void btnCheckout_OnClick(object sender, EventArgs e)
         {
+            var paymentMethod = GetPaymentMethod();
+            // Salvo il metodo di pagamento selezionato in sessione
+            SessionFacade.OrderPaymentMethod = paymentMethod;
+            if (paymentMethod.code.Equals("ccsave")) HandlePayPalRedirection();
+
             // Crea Entities
             var customer = BindUserInfoToObject();
-
             var customerAddresses = BindCustomerAddressesToObject(cbShowShipmentAddress.Checked);
             var products = GetProductsForCart();
-            var paymentMethod = SetPaymentMethod();
+
             // Prepara l'ordine
             _businessDelegate.PrepareCartForOrder(SessionFacade.CartId, customer, customerAddresses, products, App.Configuration.DefaultShippingMethodMode, paymentMethod);
             // Invia l'ordine
@@ -217,7 +221,7 @@ namespace Shop.Web.Mvp.Checkout
 
         }
 
-        private PaymentMethod SetPaymentMethod()
+        private PaymentMethod GetPaymentMethod()
         {
             var selectedPayment = new PaymentMethod
             {
@@ -344,6 +348,11 @@ namespace Shop.Web.Mvp.Checkout
         #endregion
 
         #region Private Methods
+
+        private string GetSelectedPayment()
+        {
+            return rdbtnListPayMethods.SelectedItem.Value;
+        }
 
         private CustomerAddress CreateCustomerAddress()
         {
@@ -544,7 +553,7 @@ namespace Shop.Web.Mvp.Checkout
                 var productImages = _businessDelegate.GetProductImages(orderItem.MagentoId.ToString());
                 if (productImages.FirstOrDefault(p => p.exclude == "1") == default(ProductImage)) return;
                 var productImage = productImages.First(p => p.exclude == "1").url;
-                orderItems +="<div class=\"content\"><table bgcolor=\"\"><tr>" +
+                orderItems += "<div class=\"content\"><table bgcolor=\"\"><tr>" +
                           "<td class=\"small\" width=\"20%\" style=\"vertical-align: top; padding-right:10px;\">" +
                           "<img src=\"" + productImage + "\" /></td>" +
                           "<td><p class=\"\">" + orderItem.Name + "<br />taglia: " + orderItem.Size + "<br />Qta." + orderItem.Qty + "<br />Prezzo €. " + orderItem.TotalPrice + "</p>" +
@@ -599,7 +608,57 @@ namespace Shop.Web.Mvp.Checkout
 
         #endregion
 
+        #region Paypal
+        private void HandlePayPalReturn()
+        {
+            string result = Request.QueryString["PayPal"];
+            string redir = (string)Session["PayPal_Redirected"];
+            if (redir != null && redir == "True")
+            {
+                Session.Remove("PayPal_Redirected");
+
+                // *** Set flag so we know not to go TO PayPal again
+                PayPalReturnRequest = true;
+
+                if (result == "Cancel")
+                {
+                    // Mostriamo un errore, perchè il pagamento non è andato a buon fine
+                }
+                else
+                {
+                    // Simuliamo il click sul button Conferma l'ordine, per salvare l'ordine
+                    btnCheckout_OnClick(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        private void HandlePayPalRedirection()
+        {
+            // *** Set a flag so we know we redirected
+            Session["PayPal_Redirected"] = "True";
+            Session["PayPal_OrderAmount"] = 1;//OrderAmount;  
+
+            var payPal = new PayPalHelper();
+            //payPal.PayPalBaseUrl = Configuration.PayPalUrl;
+            payPal.AccountEmail = "giuseppe.cristella-buyer@libero.it";
+            payPal.Amount = 1;//OrderAmount;
+
+            //PayPal.LogoUrl = "https://www.west-wind.com/images/wwtoollogo_text.gif";
+            payPal.ItemName = "West Wind Web Store Invoice #" + new Guid().GetHashCode().ToString("x");
+
+            // *** Have paypal return back to this URL
+            payPal.SuccessUrl = Request.Url + "?PayPal=Success";
+            payPal.CancelUrl = Request.Url + "?PayPal=Cancel";
+            Response.Redirect(payPal.GetSubmitUrl());
+        }
+
+        public decimal OrderAmount { get; set; }
+
+        public bool PayPalReturnRequest { get; set; }
+
+        #endregion
     }
+
 
     public class CustomerVM
     {
