@@ -1145,6 +1145,7 @@
     </Compile>
     <Compile Include="Infrastructure\CategoryName.cs" />
     <Compile Include="Infrastructure\Configuration\Configuration.cs" />
+    <Compile Include="Infrastructure\Paypal\PaypalHelper.cs" />
     <Compile Include="Landing\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

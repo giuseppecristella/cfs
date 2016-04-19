@@ -10,8 +10,8 @@ namespace Shop.Data
         public ShopDataContext()
             : base("name=ShopDataContext")
         {
-       // http://stackoverflow.com/questions/3600175/the-model-backing-the-database-context-has-changed-since-the-database-was-crea
-         //   Database.SetInitializer<ShopDataContext>(null);
+            // http://stackoverflow.com/questions/3600175/the-model-backing-the-database-context-has-changed-since-the-database-was-crea
+            Database.SetInitializer<ShopDataContext>(null);
         }
 
         public virtual DbSet<Newslettersubscription> Newslettersubscriptions { get; set; }

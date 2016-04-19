@@ -65,9 +65,24 @@ namespace Shop.Data.Tests.Other_Tests
         [TestMethod]
         public void ShouldMoveCssInlineFromMailTemplate()
         {
-            string htmlSource = File.ReadAllText(@"D:\Progetti\Siti\Calzafacile\Shop.MVP.Web\MailTemplates\Business\order.html"); 
-            var pm = new PreMailer.Net.PreMailer(htmlSource);
-            var a = pm.MoveCssInline();
+            //string htmlSource = File.ReadAllText(@"D:\Progetti\Siti\Calzafacile\Shop.MVP.Web\MailTemplates\Business\order.html"); 
+            //var pm = new PreMailer.Net.PreMailer(htmlSource);
+            //var a = pm.MoveCssInline();
+
+            var mailManager = new MailManager()
+            {
+                MailTo = "giuseppe.cristella@libero.it",
+                MailFrom = "info@calzafacile.com",
+                MailSubject = "Conferma ordine",
+                MailTemplate = @"D:\Progetti\Siti\Calzafacile\Shop.MVP.Web\MailTemplates\Business\order.html",
+
+                //MailParameters = new Hashtable
+                //{
+                //    {"##CouponeCode##", "GY2DE-NQPQQ-RV"},
+                //},
+                DisplayName = "Calzafacile fn"
+            };
+            mailManager.SendMail();
         }
 
     }
