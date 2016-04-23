@@ -149,9 +149,14 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
 
     $scope.activatePanelCart = "";
     $scope.classBtnAddProductToCart = "btnAddProductToCart_Disabled";
+    $scope.activatePanelCart = "#shopping-cart-summary_disabled";
     $scope.addProductToCart = function (product) {
 
         if ($scope.sizeNotChecked) {
+            if ($scope.selectedSize != "") {
+                $scope.activatePanelCart = "#shopping-cart-summary_disabled";
+                $scope.selectedSize = "";
+            }
             toastr.info('Selezionare una taglia', 'Per continuare l\'acquisto!', {
                 "showDuration": "30000",
                 "hideDuration": "1000",
@@ -185,6 +190,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
             $scope.saveSessionCart();
             $scope.totalCartItems += 1;
         }
+        $scope.sizeNotChecked = true;
     };
 
     $scope.removeProductToCart = function (product) {
