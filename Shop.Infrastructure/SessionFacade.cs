@@ -75,11 +75,62 @@ namespace Shop.Core
             get
             {
                 return Get<PaymentMethod>("OrderPaymentMethod");
-                
+
             }
             set
             {
                 Set("OrderPaymentMethod", value);
+            }
+        }
+
+        public static bool SendToSameAddress
+        {
+            get
+            {
+                return Get<bool>("SendToSameAddress");
+
+            }
+            set
+            {
+                Set("SendToSameAddress", value);
+            }
+        }
+
+        public static string PaypalRedirected
+        {
+            get
+            {
+                return Get<string>("PayPal_Redirected");
+            }
+            set
+            {
+                if (value == null)
+                {
+                    Remove("PayPal_Redirected");
+                }
+                else
+                {
+                    Set("PayPal_Redirected", value);
+                }
+            }
+        }
+
+        public static decimal? PayPalOrderAmount
+        {
+            get
+            {
+                return Get<decimal>("PayPal_OrderAmount");
+            }
+            set
+            {
+                if (value == null)
+                {
+                    Remove("PayPal_OrderAmount");
+                }
+                else
+                {
+                    Set("PayPal_OrderAmount", value);
+                }
             }
         }
     }
