@@ -59,7 +59,7 @@ namespace Shop.Web.Mvp.Login
                 // Salvo nel campo 'comment' dell'oggetto User di MembershipProvider il customer CustomerId di Magento
                 membershipUser.Comment = magentoCustomerId;
                 Membership.UpdateUser(membershipUser);
-
+                
                 if (cbNewsletterSubscription.Checked) SubscriveSignedCustomerToNewsLetter(txtEmail.Text);
                 //SendNotificationEmailToSignedCustomer(membershipUser.UserName, cuwUser.Password);
                 CreateMagentoCustomerAddress(AddressType.Billing, magentoCustomerId);
@@ -97,7 +97,7 @@ namespace Shop.Web.Mvp.Login
                 MailTo = txtEmail.Text,
                 MailFrom = "info@calzafacile.com",
                 MailSubject = "Benvenuto in Calzafacile!",
-                MailTemplate = string.Format("{0}AccountCreation.html", Server.MapPath("~/MailTemplates/Subscription/")),
+                MailTemplate = string.Format("{0}AccountCreation.html", Server.MapPath("~/MailTemplates/Business/")),
 
                 //MailParameters = new Hashtable
                 //{

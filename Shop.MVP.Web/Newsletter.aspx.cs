@@ -9,13 +9,13 @@ namespace Shop.Web.Mvp
         {
             var result = Request.GetFriendlyUrlSegments();
             if (result == null) return;
-            if (result.ToString().Equals("Success"))
+            if (result[0].ToString().Equals("Success"))
             {
                 ltResult.Text =
                     "La tua iscrizione alla Newsletter è stata completata con successo. <br> Sarai aggiornato sulle nostre offerte e novità!";
                 return;
             }
-            if (result.ToString().Equals("AlreadySubscribed"))
+            if (result[0].ToString().Equals("AlreadySubscribed"))
             {
                 ltResult.Text = "Ciao. Risulti già iscritto alla nostra Newsletter!";
             }

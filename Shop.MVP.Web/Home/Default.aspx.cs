@@ -65,7 +65,7 @@ namespace Shop.Web.Mvp
                 MailTo = txtEmail.Text,
                 MailFrom = "info@calzafacile.com",
                 MailSubject = "Benvenuto in Calzafacile!",
-                MailTemplate = string.Format("{0}NewsletterSubscription.html", Server.MapPath("~/MailTemplates/Subscription/")),
+                MailTemplate = string.Format("{0}NewsletterSubscription.html", Server.MapPath("~/MailTemplates/Business/")),
 
                 //MailParameters = new Hashtable
                 //{
