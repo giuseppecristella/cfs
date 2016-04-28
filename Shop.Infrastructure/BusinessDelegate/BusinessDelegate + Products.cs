@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using CookComputing.XmlRpc;
 using Ez.Newsletter.MagentoApi;
 using MagentoRepository.Repository;
-using Shop.Core.Domain.ProductsCart;
+using Shop.Core.Domain.Brands;
 
 namespace Shop.Core.BusinessDelegate
 {
@@ -69,5 +68,13 @@ namespace Shop.Core.BusinessDelegate
                 _repository.UpdateProduct(product);
             }
         }
+
+        //public List<Brand> GetBrandsByCategory(int categoryId)
+        //{
+        //    using (var ctx = new ShopDataContext())
+        //    {
+        //        var brands = ctx.Set<Category>().Where(c => c.Id.Equals(1)).ToList();
+        //    }
+        //}
     }
 }

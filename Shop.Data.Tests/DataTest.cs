@@ -9,6 +9,8 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Xml.Schema;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Shop.Core.Domain.Brands;
+using Shop.Core.Domain.Categories;
 using Shop.Core.Domain.OrderProducts;
 using Shop.Core.Domain.Orders;
 
@@ -199,6 +201,31 @@ namespace Shop.Data.Tests
                 var saveResult = ctx.SaveChanges();
             }
 
+        }
+
+        [TestMethod]
+        public void ShouldSaveCategoryWithBrands()
+        {
+            using (var ctx = new ShopDataContext())
+            {
+                var brands =  ctx.Set<Shop.Core.Domain.Categories.Category>().FirstOrDefault(c => c.Id.Equals(1));
+                var a = ctx.Set<Category>().ToList();
+            }
+
+            var category = new Category
+            {
+                Name = "Sneakers",
+                Brands = new List<Brand>
+                {
+                     new Brand{ Name = "nike"},
+                     new Brand{ Name = "superga"}
+                }
+            };
+            using (var ctx = new ShopDataContext())
+            {
+                ctx.Set<Category>().Add(category);
+                var saveResult = ctx.SaveChanges();
+            }
         }
     }
 }

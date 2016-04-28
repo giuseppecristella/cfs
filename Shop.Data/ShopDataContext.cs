@@ -1,3 +1,5 @@
+using Shop.Core.Domain.Brands;
+using Shop.Core.Domain.Categories;
 using Shop.Core.Domain.OrderProducts;
 using Shop.Core.Domain.Orders;
 
@@ -19,6 +21,8 @@ namespace Shop.Data
         public virtual DbSet<Promotion> Promotions { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderProduct> OrderProducts { get; set; }
+        public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

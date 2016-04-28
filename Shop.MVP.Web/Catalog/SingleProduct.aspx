@@ -27,7 +27,6 @@
                                                         <img src="<%= ProductViewModel.imageurl %>" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" alt="" />
                                                         <%--<img src="/assets/images/blank.gif" data-title="Gallery" data-lightbox="<%= ProductViewModel.name %>" data-echo="<%= ProductViewModel.imageurl %>" alt="" />--%>
                                                         <span class="zoom-overlay"></span>
-                                                    </a>
                                                 </li>
                                             </ul>
                                         </div>

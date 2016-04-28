@@ -73,6 +73,8 @@
     <Compile Include="BusinessDelegate\BusinessDelegate + Customers.cs" />
     <Compile Include="BusinessDelegate\BusinessDelegate + Order.cs" />
     <Compile Include="BusinessDelegate\BusinessDelegate + Products.cs" />
+    <Compile Include="Domain\Brands\Brand.cs" />
+    <Compile Include="Domain\Categories\Category.cs" />
     <Compile Include="Domain\Messages\NewsLetterSubscription.cs" />
     <Compile Include="Domain\OrderProducts\OrderProduct.cs" />
     <Compile Include="Domain\Orders\Order.cs" />

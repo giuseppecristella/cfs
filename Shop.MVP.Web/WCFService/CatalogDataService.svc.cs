@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Web;
@@ -6,7 +7,9 @@ using System.Web.Script.Services;
 using Ez.Newsletter.MagentoApi;
 using Shop.Core;
 using Shop.Core.BusinessDelegate;
+using Shop.Core.Domain.Brands;
 using Shop.Core.Domain.ProductsCart;
+using Shop.Data;
 using Shop.Web.Mvp.Infrastructure;
 
 namespace Shop.Web.Mvp
@@ -80,6 +83,15 @@ namespace Shop.Web.Mvp
                 product.Price = savedProduct.price;
             }
         }
+
+        public List<Brand> GetBrandsByCategory()
+        {
+            using (var ctx = new ShopDataContext())
+            {
+                var category = ctx.Set<Shop.Core.Domain.Categories.Category>().FirstOrDefault(c => c.Id.Equals(1));
+                return category == null ? null : category.Brands.ToList();
+            }
+        } 
     }
 
 

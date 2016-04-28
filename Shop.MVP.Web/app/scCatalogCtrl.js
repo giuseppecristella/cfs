@@ -4,7 +4,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
     // Recupera il nome categoria dall'url ed esegue la chiamata Ajax
     $scope.categoryName = $filter('_uriseg')(1);
 
-    if ($scope.categoryName != false) {
+    if ($scope.categoryName !== false) {
         $http({
             url: "/WCFService/CatalogDataService.svc/GetProductsByCategoryName",
             method: "GET",
@@ -14,11 +14,19 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
         });
     }
 
+    $http({
+        url: "/WCFService/CatalogDataService.svc/GetBrandsByCategory",
+        method: "GET",
+        params: { }
+    }).success(function (data) {
+        $scope.brands = data;
+    });
+
     $scope.categoryName = "dummy";
     $scope.totalCartItems = ($scope.cartProducts && $scope.cartProducts.length > 1) ? $scope.cartProducts.length + 1 : 0;
 
     // TODO: Recuperare i valori seguenti dal DB
-    $scope.brands = ['Patrizia Azzi', 'Fly Flot', 'In Blu'];
+   // $scope.brands = ['Patrizia Azzi', 'Fly Flot', 'In Blu'];
     $scope.colors = ['18', '17', '21', '20'];
     // Donna Default
     $scope.sizes = ['34', '35', '36', '37', '38', '39', '40', '41'];
