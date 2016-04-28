@@ -34,6 +34,7 @@ namespace Shop.Web.Mvp.Checkout
 
     public partial class Checkout : System.Web.UI.Page
     {
+        private bool _payPalReturnRequest = false;
         private readonly BusinessDelegate _businessDelegate;
         private static int _magentoCustomerId = 1;
 
@@ -47,8 +48,6 @@ namespace Shop.Web.Mvp.Checkout
         #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Gestisce la Paypal response, nel caso sia presente il valore in query string
-            if (Request.QueryString["Paypal"] != null && SessionFacade.OrderPaymentMethod.method == "cccSave") HandlePayPalReturn();
 
             //TODO: Classe base check Session redirect nel page load
             if (!Page.IsPostBack)
@@ -63,6 +62,14 @@ namespace Shop.Web.Mvp.Checkout
                 return;
             }
 
+            // Gestisce la Paypal response, nel caso sia presente il valore in query string
+            if (Request.QueryString["Paypal"] != null && SessionFacade.OrderPaymentMethod.method == "ccsave")
+            {
+                cbShowShipmentAddress.Checked = SessionFacade.SendToSameAddress;
+                BindPaypalSelectionToUI();
+                HandlePayPalReturn();
+            }
+
             if (!SessionFacade.CartId.Equals(0)) return;
             SessionFacade.CartId = _businessDelegate.CreateCart();
             if (SessionFacade.CartId.Equals(-1))
@@ -70,6 +77,12 @@ namespace Shop.Web.Mvp.Checkout
                 // Errore creazione carrello
                 // 1. Log Exception 2. Alert 3. Redirect
             }
+        }
+
+        private void BindPaypalSelectionToUI()
+        {
+            rdbtnListPayMethods.SelectedIndex = 2;
+            rdbtnListPayMethods.DataBind();
         }
 
         protected void cuwUser_OnCreatedUser(object sender, EventArgs e)
@@ -135,7 +148,9 @@ namespace Shop.Web.Mvp.Checkout
             var paymentMethod = GetPaymentMethod();
             // Salvo il metodo di pagamento selezionato in sessione
             SessionFacade.OrderPaymentMethod = paymentMethod;
-            if (paymentMethod.code.Equals("ccsave")) HandlePayPalRedirection();
+            // Salvo in sessione il valore della checkbox cbShowShipmentAddress
+            SessionFacade.SendToSameAddress = cbShowShipmentAddress.Checked;
+            if (paymentMethod.code.Equals("ccsave") && !_payPalReturnRequest) HandlePayPalRedirection();
 
             // Crea Entities
             var customer = BindUserInfoToObject();
@@ -349,11 +364,6 @@ namespace Shop.Web.Mvp.Checkout
 
         #region Private Methods
 
-        private string GetSelectedPayment()
-        {
-            return rdbtnListPayMethods.SelectedItem.Value;
-        }
-
         private CustomerAddress CreateCustomerAddress()
         {
             var billingAddress = new CustomerAddress
@@ -540,32 +550,41 @@ namespace Shop.Web.Mvp.Checkout
                     {"##ShippingAddress##", order.CustomerAddress},
                     {"##SubTotal##", order.SubTotal},
                     {"##Shipment##", order.Shipment},
-                    {"##Total##", order.Shipment}
+                    {"##Total##", order.Total}
                 },
                 DisplayName = "CalzaFacile Shop"
             };
+            AddOrderItemsToMailBody(orderProducts, mailManager);
+            AddPromoPanelToMailBody(withPromo, mailManager);
+            mailManager.SendMail();
+        }
 
-            //StringBuilder sbOrderItem = new StringBuilder();
+        private static void AddPromoPanelToMailBody(bool withPromo, MailManager mailManager)
+        {
+            mailManager.MailParameters["##Promo##"] = withPromo
+                ? "<div class=\"content\"><table bgcolor=\"\"><tr><td><p class=\"callout\">" +
+                  "Complimenti, hai inserito un codice promozione. Riceverai un paio di infradito in omaggio! Rispondi " +
+                  "a questa e-mail e comunicaci la tua taglia.</p></td></tr></table></div>"
+                : string.Empty;
+        }
+
+        private void AddOrderItemsToMailBody(List<OrderProduct> orderProducts, MailManager mailManager)
+        {
             var orderItems = string.Empty;
             foreach (var orderItem in orderProducts)
             {
                 // Get image
                 var productImages = _businessDelegate.GetProductImages(orderItem.MagentoId.ToString());
-                if (productImages.FirstOrDefault(p => p.exclude == "1") == default(ProductImage)) return;
+                if (productImages.FirstOrDefault(p => p.exclude == "1") == default(ProductImage)) continue;
                 var productImage = productImages.First(p => p.exclude == "1").url;
                 orderItems += "<div class=\"content\"><table bgcolor=\"\"><tr>" +
-                          "<td class=\"small\" width=\"20%\" style=\"vertical-align: top; padding-right:10px;\">" +
-                          "<img src=\"" + productImage + "\" /></td>" +
-                          "<td><p class=\"\">" + orderItem.Name + "<br />taglia: " + orderItem.Size + "<br />Qta." + orderItem.Qty + "<br />Prezzo €. " + orderItem.TotalPrice + "</p>" +
-                          "</td></tr></table></div>";
+                              "<td class=\"small\" width=\"20%\" style=\"vertical-align: top; padding-right:10px;\">" +
+                              "<img src=\"" + productImage + "\" /></td>" +
+                              "<td><p class=\"\">" + orderItem.Name + "<br />taglia: " + orderItem.Size + "<br />Qta." +
+                              orderItem.Qty + "<br />Prezzo €. " + orderItem.TotalPrice + "</p>" +
+                              "</td></tr></table></div>";
             }
             mailManager.MailParameters["##OrderItems##"] = orderItems;
-            mailManager.SendMail();
-
-            if (withPromo)
-            {
-
-            }
         }
 
         private bool ArePromoRelated(string email, string code)
@@ -611,50 +630,43 @@ namespace Shop.Web.Mvp.Checkout
         #region Paypal
         private void HandlePayPalReturn()
         {
-            string result = Request.QueryString["PayPal"];
-            string redir = (string)Session["PayPal_Redirected"];
-            if (redir != null && redir == "True")
+            var result = Request.QueryString["PayPal"];
+            var redir = SessionFacade.PaypalRedirected;
+            if (redir == null || redir != "True") return;
+            SessionFacade.PaypalRedirected = null;
+            _payPalReturnRequest = true;
+
+            if (result == "Cancel")
             {
-                Session.Remove("PayPal_Redirected");
-
-                // *** Set flag so we know not to go TO PayPal again
-                PayPalReturnRequest = true;
-
-                if (result == "Cancel")
-                {
-                    // Mostriamo un errore, perchè il pagamento non è andato a buon fine
-                }
-                else
-                {
-                    // Simuliamo il click sul button Conferma l'ordine, per salvare l'ordine
-                    btnCheckout_OnClick(this, EventArgs.Empty);
-                }
+                ActivateCartEmptyView(EmptyCartMode.AfterOrderError);
+            }
+            else
+            {
+                // Simuliamo il click sul button Conferma l'ordine, per salvare l'ordine
+                btnCheckout_OnClick(this, EventArgs.Empty);
             }
         }
 
         private void HandlePayPalRedirection()
         {
-            // *** Set a flag so we know we redirected
-            Session["PayPal_Redirected"] = "True";
-            Session["PayPal_OrderAmount"] = 1;//OrderAmount;  
+            SessionFacade.PaypalRedirected = "True";
+            SessionFacade.PayPalOrderAmount = SessionFacade.ProductsCart.Sum(p => decimal.Parse(CommonHelper.FormatCurrency(p.Price)) * p.Qta);
 
-            var payPal = new PayPalHelper();
+            var payPal = new PayPalHelper
+            {
+                AccountEmail = App.Configuration.PaypalAccountEmail,
+                Amount = SessionFacade.PayPalOrderAmount.Value,
+                ItemName = "Acquisto Online da Calzafacile.com - " + new Guid(),
+                SuccessUrl = Request.Url + "?PayPal=Success",
+                CancelUrl = Request.Url + "?PayPal=Cancel"
+            };
             //payPal.PayPalBaseUrl = Configuration.PayPalUrl;
-            payPal.AccountEmail = "giuseppe.cristella-buyer@libero.it";
-            payPal.Amount = 1;//OrderAmount;
-
-            //PayPal.LogoUrl = "https://www.west-wind.com/images/wwtoollogo_text.gif";
-            payPal.ItemName = "West Wind Web Store Invoice #" + new Guid().GetHashCode().ToString("x");
-
-            // *** Have paypal return back to this URL
-            payPal.SuccessUrl = Request.Url + "?PayPal=Success";
-            payPal.CancelUrl = Request.Url + "?PayPal=Cancel";
+            //payPal.LogoUrl = "https://www.west-wind.com/images/wwtoollogo_text.gif";
             Response.Redirect(payPal.GetSubmitUrl());
         }
 
         public decimal OrderAmount { get; set; }
 
-        public bool PayPalReturnRequest { get; set; }
 
         #endregion
     }

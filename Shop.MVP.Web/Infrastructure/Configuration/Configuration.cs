@@ -13,6 +13,14 @@ namespace Shop.Web.Mvp.Infrastructure
             }
         }
 
+        public string PaypalAccountEmail
+        {
+            get
+            {
+                return "giuseppe.cristella-buyer@libero.it";
+            }
+        }
+
         public string AddressModeShipping
         {
             get { return "shipping"; }

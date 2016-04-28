@@ -1392,7 +1392,6 @@ ul.bxslider {
 .navmenu-shopping-cart .cart-products .cart-block-list ul > li .product .remove-link {
   position: absolute;
   display: inline-block;
-  right: 15%;
   top: -1%;
 }
 .navmenu-shopping-cart .cart-products .cart-block-list ul > li .product .remove-link:after {
@@ -1839,14 +1838,15 @@ ul.bxslider {
   /*7px 12px;*/
   font-weight: normal;
   margin-bottom: 0px;
+  display:inline-block;
 }
 .size-holder .size-picker > li .attribute-radio + label:hover,
 .size-holder .size-picker > li .attribute-radio + label:focus {
-  outline: 1px solid #696969;
+  outline: 3px solid #696969;
   color: #000000;
 }
 .size-holder .size-picker > li.active .attribute-radio + label {
-  outline: 1px solid #696969;
+  outline: 3px solid #696969;
   color: #000000;
 }
 .tab-nav-holder {

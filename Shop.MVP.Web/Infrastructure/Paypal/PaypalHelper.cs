@@ -32,6 +32,11 @@ namespace Shop.Web.Mvp.Infrastructure.Paypal
 
         public string GetSubmitUrl()
         {
+            System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+            customCulture.NumberFormat.NumberDecimalSeparator = ".";
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
+
             StringBuilder url = new StringBuilder();
 
             url.Append(this.PayPalBaseUrl + "cmd=_xclick&business=" +

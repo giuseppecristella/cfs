@@ -324,7 +324,7 @@
                                     </header>
                                     <asp:RadioButtonList CssClass="payment-methods list-unstyled" ID="rdbtnListPayMethods" runat="server">
                                     </asp:RadioButtonList>
-                                    <asp:CustomValidator ID="cvType" ValidationGroup="vgCheckout" runat="server" ControlToValidate="rdbtnListPayMethods"
+                                    <asp:CustomValidator ID="cvType" ValidationGroup="vgCheckout" runat="server" ControlToValidate="rdbtnListPayMethods"  
                                         ClientValidationFunction="validatePaymentMethodsList" Display="Dynamic" ValidateEmptyText="true" ErrorMessage="Seleziona un metodo di pagamento.">
                                     </asp:CustomValidator>
                                     <br />
