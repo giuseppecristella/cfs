@@ -199,6 +199,7 @@ app.controller('scCatalogCtrl', function ($scope, catalog, $http, $filter) {
             $scope.totalCartItems += 1;
         }
         $scope.sizeNotChecked = true;
+        $scope.classBtnAddProductToCart = "btnAddProductToCart_Disabled";
     };
 
     $scope.removeProductToCart = function (product) {
