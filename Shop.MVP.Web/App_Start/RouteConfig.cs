@@ -12,8 +12,8 @@ namespace Shop.Web.Mvp
             var settings = new FriendlyUrlSettings { AutoRedirectMode = RedirectMode.Permanent };
             routes.EnableFriendlyUrls(settings);
 
-            routes.MapPageRoute("Landing-2", "", "~/Landing/Default.aspx");
-            //routes.MapPageRoute("Home", "", "~/Home/Default.aspx");
+            //routes.MapPageRoute("Landing-2", "", "~/Landing/Default.aspx");
+            routes.MapPageRoute("Home", "", "~/Home/Default.aspx");
             foreach (var categoryName in App.CategoriesDictionary.Keys)
             {
                 routes.MapPageRoute(categoryName, categoryName, "~/Catalog/Products.aspx");
