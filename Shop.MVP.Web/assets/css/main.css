@@ -5593,3 +5593,13 @@ footer.style-2 ul.payment-methods > li:last-child {
   }
 }
 /* Large devices (large desktops, 1200px and up) */
+/* Landing Mobile */
+#divFullImage {
+    background-image: url(../images/landing/background.jpg);
+}
+/* attivazione tasto Compra Ora*/
+
+.btnAddProductToCart{
+    background-color:#FF850B!important;
+    position:relative;
+}

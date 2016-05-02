@@ -11,14 +11,24 @@
         function validatePaymentMethodsList(oSrc, args) {
             var rdbtnListPayMethods = document.getElementById("<%=rdbtnListPayMethods.ClientID %>");
             var options = rdbtnListPayMethods.getElementsByTagName("input");
+           
             var checkvalue = false;
             var check;
-            for (i = 0; i < options.length; i++) {
-                if (options[i].checked) {
+           
+                if (options[0].checked) {
                     checkvalue = true;
-                    check = options[i].value;
+                    check = options[0].value;
+                } else {
+                    alert("Metodo di pagamento attualmente non disponibile!");
                 }
-            }
+            
+            //for (i = 0; i < options.length; i++) {
+            //    if (options[i].checked) {
+            //        checkvalue = true;
+            //        check = options[i].value;
+            //    } 
+                 
+            //}
             if (!checkvalue) {
                 args.IsValid = false;
             }
