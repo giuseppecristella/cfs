@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using Ez.Newsletter.MagentoApi;
+using Shop.Core.Domain.Brands;
 using Shop.Core.Domain.ProductsCart;
 
 namespace Shop.Web.Mvp
@@ -25,6 +26,10 @@ namespace Shop.Web.Mvp
         [OperationContract]
         [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
         List<ProductCart> GetProductsFromSessionCart();
+
+        [OperationContract]
+        [WebInvoke(ResponseFormat = WebMessageFormat.Json, Method = "GET")]
+        List<Brand> GetBrandsByCategory();
     }
 
    

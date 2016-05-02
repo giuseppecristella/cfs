@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -206,24 +207,21 @@ namespace Shop.Data.Tests
         [TestMethod]
         public void ShouldSaveCategoryWithBrands()
         {
+            var brands = new List<Brand>();
             using (var ctx = new ShopDataContext())
             {
-                var brands =  ctx.Set<Shop.Core.Domain.Categories.Category>().FirstOrDefault(c => c.Id.Equals(1));
-                var a = ctx.Set<Category>().ToList();
-            }
+                brands = ctx.Set<Brand>().ToList();
+                var categories = ctx.Set<Category>().ToList();
 
-            var category = new Category
-            {
-                Name = "Sneakers",
-                Brands = new List<Brand>
+
+                var category = new Category
                 {
-                     new Brand{ Name = "nike"},
-                     new Brand{ Name = "superga"}
-                }
-            };
-            using (var ctx = new ShopDataContext())
-            {
+                    Name = "Sneaker-01",
+                    Brands = new List<Brand>()
+                };
+                category.Brands.Add(brands.First());
                 ctx.Set<Category>().Add(category);
+                //ctx.Set<Category>().AddOrUpdate(category);
                 var saveResult = ctx.SaveChanges();
             }
         }

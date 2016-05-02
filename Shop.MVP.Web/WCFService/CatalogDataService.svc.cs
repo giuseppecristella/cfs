@@ -89,9 +89,12 @@ namespace Shop.Web.Mvp
             using (var ctx = new ShopDataContext())
             {
                 var category = ctx.Set<Shop.Core.Domain.Categories.Category>().FirstOrDefault(c => c.Id.Equals(1));
-                return category == null ? null : category.Brands.ToList();
+                var brands = new List<Brand>();
+                brands = category.Brands.ToList();
+                return brands;
+                // return category == null ? null : category.Brands.ToList();
             }
-        } 
+        }
     }
 
 
